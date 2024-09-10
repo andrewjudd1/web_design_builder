@@ -1,0 +1,17 @@
+{
+    "title": "Sky Template",
+    "logo": "Sky Logo",
+    "pages": [
+         {
+            "link": "/home",
+            "link_title": "Home",
+            "title": "This is the sky template"
+        },
+        {
+            "link": "/about",
+            "link_title": "About",
+            "title": "This is the about template"
+            
+        }]
+    
+}

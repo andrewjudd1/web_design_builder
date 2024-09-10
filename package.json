@@ -1,0 +1,17 @@
+{
+  "name": "web_design_builder",
+  "version": "1.0.0",
+  "description": "Creates templates from website components and generates an eleventy site.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "create:design": "node index.js $template $design_name"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "crypto": "^1.0.1"
+  }
+}
