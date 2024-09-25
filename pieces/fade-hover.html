@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .circle-animation-container {
+            text-decoration: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            border-radius: 5px;
+            width: 90px;
+            height: 30px;
+        }
+
+        .circle-animation {
+            text-decoration: none;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            outline: 2px solid hsl(204, 100%, 50%);
+            border-radius: 5px;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, hsl(204, 100%, 40%), hsl(204, 100%, 50%));
+            color: hsl(208, 100%, 97%);
+            white-space: nowrap;
+        }
+
+
+        .circle-animation-container:hover:not(.active) {
+            outline: 2px solid hsl(204, 100%, 60%);
+            opacity: 1;
+            transition: opacity 300ms;
+        }
+
+        .circle-animation-container:hover .circle-animation {
+            outline: 0;
+            border-radius: 5px;
+            width: 0%;
+            height: 0%;
+            transition: outline 200ms, border-radius 200ms, width 200ms, height 200ms;
+            color: black;
+            padding: 0;
+            border: none;
+        }
+
+        .circle-animation-container:hover:active {
+            outline: 1px solid hsl(204, 100%, 40%);
+            opacity: 0.8;
+        }
+
+        .circle-animation-container:hover:active .circle-animation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            outline: 2px solid hsl(204, 100%, 40%);
+            border-radius: 5px;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(hsl(204, 100%, 40%), hsl(204, 100%, 60%));
+            transition: border-radius 35ms, width 35ms, height 35ms;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display: flex;">
+        <a {{href}} class="circle-animation-container" {{style}}>
+            <div class="circle-animation">{{children}}</div>
+        </a>
+    </div>
+</body>
+
+</html>

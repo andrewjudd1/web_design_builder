@@ -1,5 +1,7 @@
 import template from './template.js'
 import helper from './helpers.js'
-const utils = { template, helper }
+import template_utils from './template_utils.js'
+import data from './data.js'
+const utils = { template, helper, template_utils, data }
 
 export default utils

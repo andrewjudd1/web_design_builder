@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "crypto": "^1.0.1"
+    "crypto": "^1.0.1",
+    "jsdom": "^25.0.0",
+    "path": "^0.12.7"
   }
 }
