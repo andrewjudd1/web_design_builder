@@ -1,3 +1,3 @@
-import sky from './sky.js'
+import earth from './earth.js'
 
-export default { sky }
+export default { earth }

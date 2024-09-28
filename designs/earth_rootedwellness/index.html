@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is the sky template</title>
+</head>
+<style>
+    :root {
+        --main-color-1: hsl(10deg 22% 32%);
+        --main-color-2: hsl(28deg 17% 11%);
+        --main-color-3: hsl(15deg 38% 96%);
+    }
+
+    html {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: var(--main-color-1);
+    }
+
+    .basic-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: var(--main-color-1);
+    }
+
+    .basic-logo-h1 {
+        margin: 0;
+        padding: 0;
+        color: var(--main-color-3);
+    }
+
+    .blank-ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .row-15 {
+        display: flex;
+        gap: 15px;
+    }
+
+    .basic-link {
+        color: var(--main-color-3);
+    }
+
+    .row-between {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+
+<body>
+
+    <nav class="basic-nav">
+
+        <h1 class="basic-logo-h1">Rooted Wellness</h1>
+
+
+
+        <ul class="blank-ul row-15">
+
+            <li class="basic-link"><a class="blank-a">About</a></li>
+
+
+
+            <li class="basic-link"><a class="blank-a">Services</a></li>
+
+
+
+            <li class="basic-link"><a class="blank-a">Tips</a></li>
+
+
+
+        </ul>
+    </nav>
+
+
+
+</body>
+
+</html>

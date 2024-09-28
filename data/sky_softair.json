@@ -1,4 +1,9 @@
 {
     "name": "SoftAir",
-    "description": "We are a software design business empowering Small Business to do what they do best."
+    "description": "We are a software design business empowering Small Business to do what they do best.",
+    "nav": {
+        "link_1": "About",
+        "link_2": "Services",
+        "link_3": "Tips"
+    }
 }

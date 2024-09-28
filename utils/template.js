@@ -4,7 +4,7 @@ import templates from '../templates/index.js'
 function get_template_util() {
     let cached_pieces
     let cached_css
-    let cached_used_css
+    let cached_used_css = {}
     async function get_template(design_name = 'sky') {
         if (!design_name) {
             throw new Error('Design not found.')
@@ -19,8 +19,22 @@ function get_template_util() {
         if (!cached_css) {
             cached_css = await template_utils.get_css(cached_css)
         }
-        const data = template_utils.render_elements(page?.body?.elements || [], cached_pieces, cached_css, cached_used_css, true)
+        console.log(cached_css)
 
+        const data = template_utils.render_elements(page?.body?.elements || [], cached_pieces, cached_css) || {}
+        if (!data?.final_css) {
+            data.final_css = ''
+        }
+        const keep_css = [':root', 'html', 'body']
+        const keep_css_obj = Object.keys(cached_css).reduce((curr, key) => {
+            if (keep_css.includes(key)) {
+                return { ...curr, [key]: cached_css[key] }
+            } else {
+                return curr
+            }
+        }, {})
+        console.log('keep', keep_css_obj)
+        data.final_css = `${template_utils.deparse_css(keep_css_obj)}\n\n${data?.final_css}`
         const html = `
 <!DOCTYPE html>
 <html lang="en">

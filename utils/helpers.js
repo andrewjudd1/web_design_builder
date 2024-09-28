@@ -1,7 +1,13 @@
 import crypto from 'crypto'
+import fs from 'fs/promises'
 const helpers = () => {
     const get_uuid = () => {
         return crypto.randomUUID()
+    }
+
+    const is_directory = async (path) => {
+        const stat = await fs.stat(path)
+        return stat.isDirectory()
     }
 
     const get_shorter = (item) => {
@@ -25,7 +31,7 @@ const helpers = () => {
 
     const html_template = ``
 
-    return { get_uuid, get_shorter }
+    return { get_uuid, get_shorter, is_directory }
 }
 
 const helper = helpers()

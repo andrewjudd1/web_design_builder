@@ -1,22 +1,36 @@
 import fs from 'fs/promises'
 import path from 'path'
 import { JSDOM } from 'jsdom'
+import helper from './helpers.js'
 function get_template_utils() {
     let cached_pieces
     let cached_css
-    let cached_used_css
+    let cached_used_css = {}
     async function get_pieces(cached_pieces) {
         if (cached_pieces) {
             return cached_pieces
         } else {
             cached_pieces = {}
         }
-        const pieces = await fs.readdir('pieces')
-        for (const piece of pieces) {
-            const file = await fs.readFile(`pieces/${piece}`, { encoding: 'utf-8' })
+
+        async function add_piece(full_path, file_name) {
+            const file = await fs.readFile(full_path, { encoding: 'utf-8' })
             const dom = new JSDOM(file)
-            cached_pieces[path.parse(piece).name.trim()] = dom
+            cached_pieces[path.parse(file_name).name.trim()] = dom
         }
+        async function add_pieces(path) {
+            const pieces = await fs.readdir(path)
+            for (const piece of pieces) {
+                const new_path = `${path}/${piece}`
+                if (await helper.is_directory(new_path)) {
+                    await add_pieces(new_path)
+                } else {
+                    await add_piece(new_path, piece)
+                }
+            }
+        }
+        await add_pieces('pieces')
+
         return cached_pieces
     }
     async function get_css(cached_css) {
@@ -119,26 +133,23 @@ function get_template_utils() {
         const css = dom.window.document.querySelector('style').textContent
         const obj_css = parse_css(css)
         const filter_properties = ['tag', 'elements', 'text']
-
-        cached_used_css = { ...cached_css, ...obj_css }
-
+        cached_used_css = { ...cached_used_css, ...obj_css }
 
         props.filter(prop => !filter_properties.includes(prop)).forEach(prop => {
             html = html.replaceAll(`{{${prop}}}=""`, `${prop}="${el?.[prop] || ''}"`)
         })
+
         return html.replace(`{{children}}`, render_element(el))
     }
 
-    function render_elements(els, pieces, css, used_css = {}, initial = false) {
+    function render_elements(els, pieces, css) {
         if (pieces) {
             cached_pieces = pieces
         }
         if (css) {
             cached_css = css
         }
-        if (Object.keys(used_css)) {
-            cached_used_css = used_css
-        }
+
         if (!els?.length) {
             return
         }
@@ -159,12 +170,13 @@ function get_template_utils() {
         }
         )?.join('')
 
+        console.log('cach', cached_used_css)
 
         return { final_html, final_css: deparse_css(cached_used_css) }
 
 
     }
-    return { render_element, render_elements, get_pieces, toptal_compress_css, get_css }
+    return { render_element, render_elements, get_pieces, toptal_compress_css, get_css, deparse_css }
 }
 
 const template_utils = get_template_utils()

@@ -16,8 +16,6 @@ const design_builder = () => {
         const name = args?.[3] ? `${template_name}_${args?.[3]}` : `${template_name}_${utils.helper.get_shorter(id)}`
         const data = {}
         data.business = args?.[3] ? await utils.data.get_data(name) : {}
-
-        console.log(name)
         const dir = `designs/${name}`
         await fs.mkdir(dir).catch(err => null)
         await Promise.all(template.pages.map(async page => {

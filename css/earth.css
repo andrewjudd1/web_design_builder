@@ -1,0 +1,63 @@
+:root {
+  --main-color-1: hsl(10deg 22% 32%);
+  --main-color-2: hsl(28deg 17% 11%);
+  --main-color-3: hsl(15deg 38% 96%);
+  }
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--main-color-1)
+}
+
+
+
+
+h1 {
+  background: blue;
+}
+
+.container {
+  display: flex;
+}
+
+.title-container {
+  display: flex;
+  background: green;x
+}
+
+.blank-ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.blank-a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.row-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.row-5 {
+  display: flex;
+  gap: 5px;
+}
+.row-10 {
+  display: flex;
+  gap: 10px;
+}
+.row-15 {
+  display: flex;
+  gap: 15px;
+}
+
+.blank-li {
+
+}

@@ -1,0 +1,9 @@
+{
+    "name": "Rooted Wellness",
+    "description": "A Wellness Company",
+    "nav": {
+        "link_1": "About",
+        "link_2": "Services",
+        "link_3": "Tips"
+    }
+}
