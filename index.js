@@ -3,6 +3,7 @@ import utils from "./utils/index.js"
 const args = process.argv
 import fs from 'fs/promises'
 import path from 'path'
+import business_data from "./data/index.js"
 const is_file = (file = 'index.js') => {
     return args[1].includes('index.js')
 }
@@ -15,7 +16,7 @@ const design_builder = () => {
         const id = utils.helper.get_uuid()
         const name = args?.[3] ? `${template_name}_${args?.[3]}` : `${template_name}_${utils.helper.get_shorter(id)}`
         const data = {}
-        data.business = args?.[3] ? await utils.data.get_data(name) : {}
+        data.business = args?.[3] ? business_data?.[name] || {} : {}
         const dir = `designs/${name}`
         await fs.mkdir(dir).catch(err => null)
         await Promise.all(template.pages.map(async page => {

@@ -8,17 +8,46 @@
     <title>Document</title>
     <style>
         .basic-nav {
+            display: none;
+
+        }
+
+        .basic-nav-side {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: var(--main-color-1);
+            flex-direction: column;
+            position: absolute;
+            right: 0;
+            top: 0;
+            min-width: 300px;
+            background-color: var(--main-color-2);
+        }
+
+        @media screen and (min-width: 700px) {
+            .basic-nav {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: var(--main-color-1);
+            }
+
+            .basic-nav-side {
+                display: none;
+            }
+
         }
     </style>
 </head>
 
 <body>
     <nav class="basic-nav">
-        {{children}}
+        <ul class="blank-ul row-50">
+            {{children}}
+        </ul>
+    </nav>
+    <nav class="basic-nav-side">
+        <ul class="blank-ul col-50">
+            {{children}}
+        </ul>
     </nav>
 </body>
 

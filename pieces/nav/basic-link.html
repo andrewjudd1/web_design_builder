@@ -8,13 +8,19 @@
     <title>Document</title>
     <style>
         .basic-link {
+            cursor: pointer;
             color: var(--main-color-3);
+        }
+
+        .basic-link:hover {
+            color: var(--main-color-3-lighter);
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
-    <li class="basic-link"><a class="blank-a">{{children}}</a></li>
+    <li class="basic-link"><a {{href}} class="blank-a">{{children}}</a></li>
 </body>
 
 </html>

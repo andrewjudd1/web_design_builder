@@ -13,6 +13,7 @@
 --main-color-1: hsl(10deg 22% 32%);
 --main-color-2: hsl(28deg 17% 11%);
 --main-color-3: hsl(15deg 38% 96%);
+--main-color-3-lighter: hsl(15deg 38% 86%);
 }
 
 html {
@@ -22,12 +23,186 @@ padding: 0;
 
 body {
 background-color: var(--main-color-1);
+color: var(--main-color-3);
 }
 
+a {
+color: inherit;
+text-decoration: inherit;
+cursor: inherit;
+}
 
+.container {
+display: flex;
+}
+
+.title-container {
+display: flex;
+background: green;
+}
+
+.blank-ul {
+list-style-type: none;
+padding: 0;
+margin: 0;
+}
+
+.blank-a {
+text-decoration: none;
+color: inherit;
+}
+
+.row-between {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.row-5 {
+display: flex;
+gap: 5px;
+}
+
+.row-10 {
+display: flex;
+gap: 10px;
+}
+
+.row-15 {
+display: flex;
+gap: 15px;
+}
+
+.row-30 {
+display: flex;
+gap: 15px;
+}
+
+.row-50 {
+display: flex;
+gap: 50px;
+}
+
+.col-50 {
+display: flex;
+flex-direction: column;
+gap: 50px;
+}
+
+.row-between {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.basic-logo-h1 {
+margin: 0;
+padding: 0;
+color: var(--main-color-3);
+}
+
+.basic-nav {
+display: none;
+}
+
+.basic-nav-side {
+display: flex;
+flex-direction: column;
+position: absolute;
+right: 0;
+top: 0;
+min-width: 300px;
+background-color: var(--main-color-2);
+}
+
+@media screen and (min-width: 700px) {
+.basic-nav {
+display: flex;
+align-items: center;
+justify-content: space-between;
+background-color: var(--main-color-1);
+}
+.basic-nav-side {
+display: none;
+}
+}
+
+.basic-link {
+cursor: pointer;
+color: var(--main-color-3);
+}
+
+.basic-link:hover {
+color: var(--main-color-3-lighter);
+text-decoration: underline;
+}
+
+.blank-ul {
+list-style-type: none;
+padding: 0;
+margin: 0;
+}
+
+.row-15 {
+display: flex;
+gap: 15px;
+}
 </style>
 <body>
-         
+    
+<header class="row-between" >
+        
+    <a class="blank-a" href="http://127.0.0.1:5500/designs/earth_rootedwellness/">
+        <h1 class="basic-logo-h1">Rooted Wellness</h1>
+    </a>
+
+
+
+    <nav class="basic-nav">
+        <ul class="blank-ul row-50">
+            
+    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/earth_rootedwellness/about" class="blank-a">About</a></li>
+
+
+
+    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/earth_rootedwellness/services" class="blank-a">Services</a></li>
+
+
+
+    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/earth_rootedwellness/tips" class="blank-a">Tips</a></li>
+
+
+
+        </ul>
+    </nav>
+    <nav class="basic-nav-side">
+        <ul class="blank-ul col-50">
+            
+    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/earth_rootedwellness/about" class="blank-a">About</a></li>
+
+
+
+    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/earth_rootedwellness/services" class="blank-a">Services</a></li>
+
+
+
+    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/earth_rootedwellness/tips" class="blank-a">Tips</a></li>
+
+
+
+        </ul>
+    </nav>
+
+
+
+<ul class="blank-ul row-15" >
+        
+    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/earth_rootedwellness/contact" class="blank-a">Contact</a></li>
+
+
+
+</ul>
+</header>     
 </body >
 
 </html > 

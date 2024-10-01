@@ -2,6 +2,8 @@
   --main-color-1: hsl(10deg 22% 32%);
   --main-color-2: hsl(28deg 17% 11%);
   --main-color-3: hsl(15deg 38% 96%);
+  --main-color-3-lighter: hsl(15deg 38% 86%);
+
   }
 
 html {
@@ -10,14 +12,14 @@ html {
 }
 
 body {
-  background-color: var(--main-color-1)
+  background-color: var(--main-color-1);
+  color: var(--main-color-3);
 }
 
-
-
-
-h1 {
-  background: blue;
+a {
+  color: inherit;
+  text-decoration: inherit;
+  cursor: inherit;
 }
 
 .container {
@@ -43,6 +45,7 @@ h1 {
 .row-between {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .row-5 {
@@ -56,6 +59,22 @@ h1 {
 .row-15 {
   display: flex;
   gap: 15px;
+}
+
+.row-30 {
+  display: flex;
+  gap: 15px;
+}
+
+.row-50 {
+  display: flex;
+  gap: 50px;
+}
+
+.col-50 {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 
 .blank-li {

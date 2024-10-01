@@ -77,11 +77,58 @@ function get_template_utils() {
             .trim();                       // Remove last semicolon before closing brace
     }
 
+    // function parse_css(css_text, last_css_obj = {}) {
+    //     const blocks = css_text.match(/([^{]+)\{([^}]+)\}/g); // Match each CSS block
+    //     const css = {}
+    //     blocks.forEach(block => {
+    //         const [selector, properties] = block.split(/\s*\{\s*/); // Split by selector and properties
+    //         const props_array = properties.replace('}', '').trim().split(';'); // Get individual properties
+    //         const prop_obj = {};
+
+    //         props_array.forEach(property => {
+    //             const [key, value] = property.split(':').map(p => p.trim()); // Split by key and value
+    //             if (key && value) {
+    //                 prop_obj[key] = value;
+    //             }
+    //         });
+
+    //         css[selector?.trim()] = prop_obj
+
+    //     });
+
+    //     return { ...last_css_obj, ...css };
+    // }
+
     function parse_css(css_text, last_css_obj = {}) {
-        const blocks = css_text.match(/([^{]+)\{([^}]+)\}/g); // Match each CSS block
-        const css = {}
+        const css = { ...last_css_obj }; // Clone the last_css_obj to avoid mutations
+
+        const mediaQueryRegex = /@media[^{]+\{([\s\S]+?})\s*}/g; // Match media queries
+        const cssBlockRegex = /([^{]+)\{([^}]+)\}/g; // Match standard CSS blocks
+
+        let mediaMatch;
+        let regularCSS = css_text; // We'll process media queries separately
+
+        // Store media queries separately to maintain their order
+        const mediaQueries = [];
+
+        // First, process media queries
+        while ((mediaMatch = mediaQueryRegex.exec(css_text)) !== null) {
+            const mediaQuery = mediaMatch[0]; // Full @media {...} block
+            const mediaRules = mediaMatch[1]; // The rules inside the media query
+
+            const mediaSelector = mediaQuery.split('{')[0].trim();
+            mediaQueries.push([mediaSelector, parse_css(mediaRules)]); // Recursively parse the rules inside the media query
+
+            // Remove the media query block from the regular CSS to avoid parsing it twice
+            regularCSS = regularCSS.replace(mediaQuery, '');
+        }
+
+        // Now process regular CSS blocks
+        const blocks = regularCSS.match(cssBlockRegex) || []; // Match each CSS block
         blocks.forEach(block => {
             const [selector, properties] = block.split(/\s*\{\s*/); // Split by selector and properties
+            const cleanedSelector = selector.trim();
+
             const props_array = properties.replace('}', '').trim().split(';'); // Get individual properties
             const prop_obj = {};
 
@@ -92,24 +139,77 @@ function get_template_utils() {
                 }
             });
 
-            css[selector?.trim()] = prop_obj
-
+            // Skip media queries, since they are processed separately
+            if (!cleanedSelector.startsWith('@')) {
+                css[cleanedSelector] = { ...css[cleanedSelector], ...prop_obj };
+            }
         });
 
-        return { ...last_css_obj, ...css };
+        // Append media queries back to the CSS object to maintain correct order
+        mediaQueries.forEach(([mediaSelector, mediaRules]) => {
+            css[mediaSelector] = mediaRules;
+        });
+
+        return css;
     }
+
+
+
     function deparse_css(css_obj) {
-        let css_text = ''
+        let css_text = '';
+
         const render_prop = (value) => {
             return Object.entries(value).map(([key, value]) => {
-                return `${key}: ${value};`
-            }).join('\n')
-        }
+                return `${key}: ${value};`;
+            }).join('\n');
+        };
+
+        const process_css_block = (key, value) => {
+            let block = '';
+
+            if (typeof value === 'object') {
+                // Detect if this is a nested block (i.e., parent-child relationship)
+                const nestedBlocks = Object.entries(value).filter(([nestedKey]) => nestedKey.includes(' '));
+
+                // Handle non-nested CSS properties first
+                const cssProperties = Object.entries(value).filter(([nestedKey]) => !nestedKey.includes(' '));
+
+                if (cssProperties.length > 0) {
+                    block += `${key} {\n${render_prop(Object.fromEntries(cssProperties))}\n}`;
+                }
+
+                // If there are nested selectors within this block, append them
+                if (nestedBlocks.length > 0) {
+                    nestedBlocks.forEach(([nestedKey, nestedValue]) => {
+                        block += `\n${process_css_block(nestedKey, nestedValue)}`;
+                    });
+                }
+            }
+
+            return block;
+        };
+
         Object.entries(css_obj || {}).forEach(([key, value]) => {
-            css_text += `${key} {\n${render_prop(value)}\n}\n\n`
-        })
-        return css_text?.toString()?.trim() || ''
+            // Handle media queries
+            if (key.startsWith('@media')) {
+                css_text += `${key} {\n`;
+
+                // Process the contents of the media query
+                Object.entries(value).forEach(([innerKey, innerValue]) => {
+                    css_text += `${process_css_block(innerKey, innerValue)}\n`;
+                });
+
+                css_text += '}\n\n';
+            } else {
+                // Process regular and nested CSS blocks
+                css_text += `${process_css_block(key, value)}\n\n`;
+            }
+        });
+
+        return css_text?.toString()?.trim() || '';
     }
+
+
     function render_element(el) {
         if (el?.class) {
             const classes = el?.class?.split(' ')
@@ -139,7 +239,7 @@ function get_template_utils() {
             html = html.replaceAll(`{{${prop}}}=""`, `${prop}="${el?.[prop] || ''}"`)
         })
 
-        return html.replace(`{{children}}`, render_element(el))
+        return html.replaceAll(`{{children}}`, render_element(el))
     }
 
     function render_elements(els, pieces, css) {
@@ -170,7 +270,6 @@ function get_template_utils() {
         }
         )?.join('')
 
-        console.log('cach', cached_used_css)
 
         return { final_html, final_css: deparse_css(cached_used_css) }
 
