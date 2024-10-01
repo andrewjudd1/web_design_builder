@@ -13,6 +13,9 @@
         }
 
         .basic-nav-side {
+
+            transition: all .3s ease-out;
+            position: absolute;
             display: flex;
             flex-direction: column;
             position: absolute;
@@ -20,6 +23,13 @@
             top: 0;
             min-width: 300px;
             background-color: var(--main-color-2);
+            height: 100vh;
+            transform: translateX(100%);
+        }
+
+        .basic-nav-side ul {
+            padding-left: 20px;
+
         }
 
         @media screen and (min-width: 700px) {
@@ -44,11 +54,11 @@
             {{children}}
         </ul>
     </nav>
-    <nav class="basic-nav-side">
-        <ul class="blank-ul col-50">
+    <basic-nav-side>
+        <ul class="blank-ul col" style="margin-top: 10px; gap: 30px;">
             {{children}}
         </ul>
-    </nav>
+    </basic-nav-side>
 </body>
 
 </html>

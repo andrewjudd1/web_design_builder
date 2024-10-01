@@ -6,6 +6,7 @@ function get_template_utils() {
     let cached_pieces
     let cached_css
     let cached_used_css = {}
+    let cached_scripts = ''
     async function get_pieces(cached_pieces) {
         if (cached_pieces) {
             return cached_pieces
@@ -228,9 +229,45 @@ function get_template_utils() {
             return ''
         }
     }
+    function extractAndReplaceCustomElements(htmlText, replacementHtmlFn, customElements = []) {
+        // Regular expression to match a custom element (opening tag, closing tag, and everything in between)
+        const customElementRegex = /<([a-z]+-[a-z0-9\-]*)\b[^>]*>([\s\S]*?)<\/\1>/i;
+
+        // Base case: if no more custom elements are found, return the modified HTML and the accumulated array
+        const match = customElementRegex.exec(htmlText);
+        if (!match) {
+            return { modifiedHtml: htmlText, customElements };
+        }
+
+        // Create an object for the current custom element
+        const elementData = {
+            tag: match[1],    // Tag name (e.g., 'basic-nav-side')
+            content: match[2] // Text between the opening and closing tags
+        };
+
+        // Add the object to the customElements array
+        customElements.push('el', elementData);
+
+        console.log(elementData)
+        // Generate the replacement HTML for the current custom element using the provided function
+        const replacementHtml = cached_pieces?.[elementData?.tag].window.document.querySelector('body').innerHTML || '';
+        console.log('chace', Object.keys(cached_pieces))
+        console.log('replace', cached_pieces?.[elementData?.tag].window.document.querySelector('body').innerHTML)
+        // Replace the current custom element in the HTML text with the replacement HTML
+        const newHtml = htmlText.slice(0, match.index) + replacementHtml.replaceAll(`{{children}}`, elementData.content) + htmlText.slice(match.index + match[0].length);
+
+        // Recursively process the rest of the HTML text, starting after the current match
+        return extractAndReplaceCustomElements(newHtml, replacementHtmlFn, customElements);
+    }
+
     function render_piece(el, dom, props) {
-        let html = dom.window.document.querySelector('body').innerHTML
-        const css = dom.window.document.querySelector('style').textContent
+        const document = dom.window.document
+        const body = dom.window.document.querySelector('body')
+        let html = body.innerHTML
+        html = extractAndReplaceCustomElements(html).modifiedHtml
+        const css = dom.window.document.querySelector('style')?.textContent || ''
+        const scripts = dom.window.document.querySelector('script')?.textContent || ''
+        cached_scripts += scripts
         const obj_css = parse_css(css)
         const filter_properties = ['tag', 'elements', 'text']
         cached_used_css = { ...cached_used_css, ...obj_css }
@@ -242,12 +279,15 @@ function get_template_utils() {
         return html.replaceAll(`{{children}}`, render_element(el))
     }
 
-    function render_elements(els, pieces, css) {
+    function render_elements(els, pieces, css, scripts) {
         if (pieces) {
             cached_pieces = pieces
         }
         if (css) {
             cached_css = css
+        }
+        if (scripts) {
+            cached_scripts = scripts
         }
 
         if (!els?.length) {
@@ -271,7 +311,7 @@ function get_template_utils() {
         )?.join('')
 
 
-        return { final_html, final_css: deparse_css(cached_used_css) }
+        return { final_html, final_css: deparse_css(cached_used_css), final_scripts: cached_scripts }
 
 
     }

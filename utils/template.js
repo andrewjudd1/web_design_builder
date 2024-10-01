@@ -20,7 +20,7 @@ function get_template_util() {
             cached_css = await template_utils.get_css(cached_css)
         }
 
-        const data = template_utils.render_elements(page?.body?.elements || [], cached_pieces, cached_css) || {}
+        const data = template_utils.render_elements(page?.body?.elements || [], cached_pieces, cached_css, '') || {}
         if (!data?.final_css) {
             data.final_css = ''
         }

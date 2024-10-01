@@ -24,6 +24,8 @@ padding: 0;
 body {
 background-color: var(--main-color-1);
 color: var(--main-color-3);
+overflow-x: hidden;
+height: 100vh;
 }
 
 a {
@@ -83,10 +85,9 @@ display: flex;
 gap: 50px;
 }
 
-.col-50 {
+.col {
 display: flex;
 flex-direction: column;
-gap: 50px;
 }
 
 .row-between {
@@ -106,13 +107,20 @@ display: none;
 }
 
 .basic-nav-side {
+transition: all .3s ease-out;
+position: absolute;
 display: flex;
 flex-direction: column;
-position: absolute;
 right: 0;
 top: 0;
 min-width: 300px;
 background-color: var(--main-color-2);
+height: 100vh;
+transform: translateX(100%);
+}
+
+.basic-nav-side ul {
+padding-left: 20px;
 }
 
 @media screen and (min-width: 700px) {
@@ -175,8 +183,24 @@ gap: 15px;
 
         </ul>
     </nav>
-    <nav class="basic-nav-side">
-        <ul class="blank-ul col-50">
+    
+
+
+<nav id="basic_side_nav" class="basic-nav-side">
+    
+    <div id="basic_hamburger_menu" class="col basic-hamburger" style="margin: 10px 0; padding: 10px; gap: 3px; transform: translateX(-35%);">
+        <div style="transition: all .3s ease-out; width: 25px; height: 2px; background-color: var(--main-color-3);">
+        </div>
+        <div style="transition: all .3s ease-out; width: 25px; height: 2px; background-color: var(--main-color-3);">
+        </div>
+        <div style="transition: all .3s ease-out; width: 25px; height: 2px; background-color: var(--main-color-3);">
+        </div>
+    </div>
+
+
+
+    
+        <ul class="blank-ul col" style="margin-top: 10px; gap: 30px;">
             
     <li class="basic-link"><a href="http://127.0.0.1:5500/designs/earth_rootedwellness/about" class="blank-a">About</a></li>
 
@@ -191,7 +215,63 @@ gap: 15px;
 
 
         </ul>
-    </nav>
+    
+</nav>
+<script>
+    console.log('hello')
+    const menu = document.getElementById('basic_hamburger_menu')
+    let show_menu = false
+    const change_menu = (event) => {
+        event.stopPropagation()
+        show_menu = !show_menu
+        const nav = document.getElementById('basic_side_nav')
+        nav.style.transform = show_menu ? 'translateX(0)' : 'translateX(100%)'
+        menu.style.transition = show_menu ? 'all .3s ease-out' : 'all 0.1s ease-out'
+        menu.style.transform = show_menu ? 'translateX(0)' : 'translateX(-35%)'
+        Array.from(menu.children).forEach((line, index) => {
+            function rotate(deg, translate_y, translate_x) {
+                line.style.transform = `rotate(${deg}deg) translateY(${translate_y}px) translateX(${translate_x}px)`
+            }
+            if (index === 0) {
+                console.log('hello')
+                show_menu ? rotate(45, 3.5, 3.5) : rotate(0, 0, 0)
+            } else if (index === 2) {
+                show_menu ? rotate(-45, -3.5, 3.5) : rotate(0, 0, 0)
+            } else {
+                line.style.opacity = show_menu ? 0 : 1
+            }
+        })
+    }
+    document.body.addEventListener('click', (event) => {
+        if (event.target.id === 'basic_side_nav') {
+            return
+        }
+        show_menu = false
+
+        console.log('hello')
+        const nav = document.getElementById('basic_side_nav')
+        nav.style.transform = show_menu ? 'translateX(0)' : 'translateX(100%)'
+        menu.style.transform = show_menu ? 'translateX(0)' : 'translateX(-35%)'
+        Array.from(menu.children).forEach((line, index) => {
+            function rotate(deg, translate_y, translate_x) {
+                line.style.transform = `rotate(${deg}deg) translateY(${translate_y}px) translateX(${translate_x}px)`
+            }
+            if (index === 0) {
+                console.log('hello')
+                show_menu ? rotate(45, 3.5, 3.5) : rotate(0, 0, 0)
+            } else if (index === 2) {
+                show_menu ? rotate(-45, -3.5, 3.5) : rotate(0, 0, 0)
+            } else {
+                line.style.opacity = show_menu ? 0 : 1
+            }
+        })
+    })
+    menu.addEventListener('click', change_menu)
+
+
+</script>
+
+
 
 
 
