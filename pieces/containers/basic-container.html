@@ -7,18 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .basic-logo-h1 {
-            padding: 0 .3em;
-            color: var(--main-color-3);
-            cursor: pointer;
+        .basic-container {
+            display: flex;
+            flex-flow: column;
+            height: 100%;
         }
     </style>
 </head>
 
 <body>
-    <a class="blank-a basic-logo-h1" {{href}}>
-        {{children}}
-    </a>
+    <div class="basic-container">{{children}}</div>
+
 </body>
 
 </html>

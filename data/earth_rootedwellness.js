@@ -10,6 +10,10 @@ const data = {
     nav: {}
 }
 const links = [
+    // {
+    //     name: "Home",
+    //     link: ""
+    // },
     {
         name: "About",
         link: "about"
@@ -29,7 +33,7 @@ const links = [
 ]
 links.forEach((item, index) => {
     item.link = `${root_url}/${item.link}`
-    data.nav[`link_${index + 1}`] = item
+    data.nav[`link_${index}`] = item
 })
 
 export default data

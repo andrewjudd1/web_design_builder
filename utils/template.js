@@ -19,20 +19,23 @@ function get_template_util() {
         if (!cached_css) {
             cached_css = await template_utils.get_css(cached_css)
         }
+        console.log('cached', cached_css)
 
         const data = template_utils.render_elements(page?.body?.elements || [], cached_pieces, cached_css, '') || {}
         if (!data?.final_css) {
             data.final_css = ''
         }
-        const keep_css = [':root', 'html', 'body', 'a']
+
+        const keep_css = [':root', 'html', 'body', 'a', '*', 'h1']
         const keep_css_obj = Object.keys(cached_css).reduce((curr, key) => {
-            if (keep_css.includes(key)) {
+            if (keep_css.some(keep_key => key.includes(keep_key))) {
                 return { ...curr, [key]: cached_css[key] }
             } else {
                 return curr
             }
         }, {})
-        data.final_css = `${template_utils.deparse_css(cached_css)}\n\n${data?.final_css}`
+
+        data.final_css = `${cached_css?.imports?.join('\n')}\n${template_utils.deparse_css(keep_css_obj)}\n\n${data?.final_css}`
         const html = `
 <!DOCTYPE html>
 <html lang="en">

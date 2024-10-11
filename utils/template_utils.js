@@ -58,7 +58,7 @@ function get_template_utils() {
             })
         })
         const data = await response.text()
-            .catch(error => console.error('Error:', error));
+            .catch(error => error);
         return data
     }
     function compress_css(cssText) {
@@ -105,7 +105,9 @@ function get_template_utils() {
 
         const mediaQueryRegex = /@media[^{]+\{([\s\S]+?})\s*}/g; // Match media queries
         const cssBlockRegex = /([^{]+)\{([^}]+)\}/g; // Match standard CSS blocks
-
+        const css_imports = css_text.match(/@import\s+url\(['"]?.*?['"]?\);/g, '') || []
+        css.imports = [...css_imports, ...(css.imports || [])]
+        css_text = css_text.replace(/@import\s+url\(['"]?.*?['"]?\);/g, '').trim();
         let mediaMatch;
         let regularCSS = css_text; // We'll process media queries separately
 
@@ -150,6 +152,7 @@ function get_template_utils() {
         mediaQueries.forEach(([mediaSelector, mediaRules]) => {
             css[mediaSelector] = mediaRules;
         });
+
 
         return css;
     }
@@ -207,19 +210,26 @@ function get_template_utils() {
             }
         });
 
-        return css_text?.toString()?.trim() || '';
+        return `${css_obj?.imports?.join('\n') || ''}\n\n${css_text?.toString()?.trim() || ''}`;
+    }
+
+    function add_css_classes(classes) {
+        if (!Array.isArray(classes)) {
+            return
+        }
+        classes.forEach((css_class) => {
+            const cached_css_finds = Object.keys(cached_css).filter(key => key.includes(css_class))
+            cached_css_finds.forEach(found_class => {
+                cached_used_css[found_class] = cached_css?.[found_class]
+            })
+        })
     }
 
 
     function render_element(el) {
         if (el?.class) {
             const classes = el?.class?.split(' ')
-            classes.forEach((css_class) => {
-                const cached_css_finds = Object.keys(cached_css).filter(key => key.includes(css_class))
-                cached_css_finds.forEach(found_class => {
-                    cached_used_css[found_class] = cached_css?.[found_class]
-                })
-            })
+            add_css_classes(classes)
         }
         if (el?.text) {
             return el?.text
@@ -231,7 +241,19 @@ function get_template_utils() {
     }
     function extractAndReplaceCustomElements(htmlText, replacementHtmlFn, customElements = []) {
         // Regular expression to match a custom element (opening tag, closing tag, and everything in between)
-        const customElementRegex = /<([a-z]+-[a-z0-9\-]*)\b[^>]*>([\s\S]*?)<\/\1>/i;
+        const customElementRegex = /<([a-z]+-[a-z0-9\-]*)\b([^>]*)>([\s\S]*?)<\/\1>/i;
+
+        // Function to parse attributes from the attribute string
+        function getAttributes(attributeString) {
+            const attributes = {};
+            // Match attribute name and value pairs (handles cases with or without quotes)
+            const attrRegex = /([a-zA-Z-]+)(?:\s*=\s*["']([^"']*)["'])?/g;
+            let attrMatch;
+            while ((attrMatch = attrRegex.exec(attributeString)) !== null) {
+                attributes[attrMatch[1]] = attrMatch[2] || true; // If no value is found, it's a boolean attribute (e.g., 'disabled')
+            }
+            return attributes;
+        }
 
         // Base case: if no more custom elements are found, return the modified HTML and the accumulated array
         const match = customElementRegex.exec(htmlText);
@@ -239,20 +261,54 @@ function get_template_utils() {
             return { modifiedHtml: htmlText, customElements };
         }
 
+
+
         // Create an object for the current custom element
         const elementData = {
-            tag: match[1],    // Tag name (e.g., 'basic-nav-side')
-            content: match[2] // Text between the opening and closing tags
+            tag: match[1],                // Tag name (e.g., 'basic-nav-side')
+            attributes: match[2],
+            attributes_obj: getAttributes(match[2]), // Extract attributes as an object
+            content: match[3]             // Text between the opening and closing tags
         };
+
+
+        function insertAttributes(htmlText, attributes = {}) {
+            let remaining_attributes = []
+            Object.keys(attributes).forEach(key => {
+                if (htmlText.includes(`{{${key}}}`)) {
+                    htmlText = htmlText.replaceAll(`{{${key}}}=""`, `${key}="${attributes?.[key]}"`)
+                } else {
+                    remaining_attributes.push(`${key}="${attributes?.[key]}"`)
+                }
+            })
+            const firstGreaterThanIndex = htmlText.indexOf('>');  // Find the index of the first '>'
+            // If '>' is found, insert the string before it
+            if (firstGreaterThanIndex !== -1) {
+                return htmlText.slice(0, firstGreaterThanIndex) + remaining_attributes.join(' ') + htmlText.slice(firstGreaterThanIndex);
+            }
+
+            // If '>' is not found, return the original string
+            return htmlText;
+        }
+
 
         // Add the object to the customElements array
         customElements.push('el', elementData);
 
-        console.log(elementData)
         // Generate the replacement HTML for the current custom element using the provided function
-        const replacementHtml = cached_pieces?.[elementData?.tag].window.document.querySelector('body').innerHTML || '';
-        console.log('chace', Object.keys(cached_pieces))
-        console.log('replace', cached_pieces?.[elementData?.tag].window.document.querySelector('body').innerHTML)
+        const document = cached_pieces?.[elementData?.tag]?.window.document
+        const replacementHtml = insertAttributes(document?.querySelector('body')?.innerHTML || '', elementData.attributes_obj);
+
+        const css_text = document?.querySelector('style')?.textContent || ''
+        const classes = []
+        const class_regex = /class="(.*?)"/g
+        let class_match
+        while ((class_match = class_regex.exec(replacementHtml)) != null) {
+            classes.push(...class_match[1].split(/\s/g))
+        }
+        add_css_classes(classes)
+        const obj_css = parse_css(css_text)
+        cached_used_css = { ...cached_used_css, ...obj_css }
         // Replace the current custom element in the HTML text with the replacement HTML
         const newHtml = htmlText.slice(0, match.index) + replacementHtml.replaceAll(`{{children}}`, elementData.content) + htmlText.slice(match.index + match[0].length);
 
@@ -304,14 +360,22 @@ function get_template_utils() {
             const tag = el?.tag
 
             return cached_pieces?.[tag] ? render_piece(el, cached_pieces?.[tag], props) : `
-<${el?.tag} ${prop_str} >
-        ${render_element(el, css)}
-</${el?.tag}>`
+        <${el?.tag} ${prop_str}>
+            ${render_element(el, css)}
+</${el?.tag}> `
         }
         )?.join('')
+        const medias = {}
+        const other_css = {}
+        Object.keys(cached_used_css).forEach(key => {
+            if (key.includes('@media')) {
+                medias[key] = cached_used_css[key]
+            } else {
+                other_css[key] = cached_used_css[key]
 
-
-        return { final_html, final_css: deparse_css(cached_used_css), final_scripts: cached_scripts }
+            }
+        })
+        return { final_html, final_css: deparse_css({ ...other_css, ...medias }), final_scripts: cached_scripts }
 
 
     }

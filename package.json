@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "create:design": "node index.js $template $design_name"
+    "design:create": "node index.js $template $design_name",
+    "design:copy": "node copy_design.js $design $dest"
   },
   "keywords": [],
   "author": "",

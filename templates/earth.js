@@ -16,9 +16,14 @@ function template() {
                     file: "styles.css"
                 },
                 body: {
-                    elements: [
-                        components.basic_header,
-                    ]
+                    elements: [{
+                        tag: 'div',
+                        class: 'wrapper',
+                        elements: [
+                            { tag: 'basic-header', },
+                            { tag: 'basic-home', }
+                        ]
+                    }]
                 }
             },
             {
@@ -30,9 +35,13 @@ function template() {
                     file: "styles.css"
                 },
                 body: {
-                    elements: [
-                        components.basic_header,
-                    ]
+                    elements: [{
+                        tag: 'div',
+                        class: 'wrapper',
+                        elements: [
+                            { tag: 'basic-header', }
+                        ]
+                    }]
                 }
             },
             {
@@ -44,9 +53,13 @@ function template() {
                     file: "styles.css"
                 },
                 body: {
-                    elements: [
-                        components.basic_header,
-                    ]
+                    elements: [{
+                        tag: 'div',
+                        class: 'wrapper',
+                        elements: [
+                            { tag: 'basic-header', }
+                        ]
+                    }]
                 }
             },
             {
@@ -58,9 +71,14 @@ function template() {
                     file: "styles.css"
                 },
                 body: {
-                    elements: [
-                        components.basic_header,
-                    ]
+                    elements: [{
+                        tag: 'div',
+                        class: 'wrapper',
+                        elements: [
+                            { tag: 'basic-header', },
+                            { tag: 'basic-tips', }
+                        ]
+                    }]
                 }
             },
             {
@@ -68,9 +86,13 @@ function template() {
                     file: "styles.css"
                 },
                 body: {
-                    elements: [
-                        components.basic_header,
-                    ]
+                    elements: [{
+                        tag: 'div',
+                        class: 'wrapper',
+                        elements: [
+                            { tag: 'basic-header', }
+                        ]
+                    }]
                 }
             }
         ]

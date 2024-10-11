@@ -18,25 +18,25 @@
     {{children}}
 </nav>
 <script>
-    console.log('hello')
     const menu = document.getElementById('basic_hamburger_menu')
     let show_menu = false
+    const menu_placement = 35
+    menu.style.transform = `translateX(-${menu_placement}px)`
     const change_menu = (event) => {
         event.stopPropagation()
         show_menu = !show_menu
         const nav = document.getElementById('basic_side_nav')
         nav.style.transform = show_menu ? 'translateX(0)' : 'translateX(100%)'
-        menu.style.transition = show_menu ? 'all .3s ease-out' : 'all 0.1s ease-out'
-        menu.style.transform = show_menu ? 'translateX(0)' : 'translateX(-35%)'
+        menu.style.transition = show_menu ? 'all .3s ease-out' : 'all 0.3s ease-out'
+        menu.style.transform = show_menu ? `translateX(${nav.offsetWidth - menu_placement}px)` : `translateX(-${menu_placement}px)`
         Array.from(menu.children).forEach((line, index) => {
-            function rotate(deg, translate_y, translate_x) {
-                line.style.transform = `rotate(${deg}deg) translateY(${translate_y}px) translateX(${translate_x}px)`
+            function rotate(deg, translate_x, translate_y) {
+                line.style.transform = `rotate(${deg}deg) translateX(${translate_x}px) translateY(${translate_y}px)`
             }
             if (index === 0) {
-                console.log('hello')
                 show_menu ? rotate(45, 3.5, 3.5) : rotate(0, 0, 0)
             } else if (index === 2) {
-                show_menu ? rotate(-45, -3.5, 3.5) : rotate(0, 0, 0)
+                show_menu ? rotate(-45, 3.5, -3.5) : rotate(0, 0, 0)
             } else {
                 line.style.opacity = show_menu ? 0 : 1
             }
@@ -51,7 +51,7 @@
         console.log('hello')
         const nav = document.getElementById('basic_side_nav')
         nav.style.transform = show_menu ? 'translateX(0)' : 'translateX(100%)'
-        menu.style.transform = show_menu ? 'translateX(0)' : 'translateX(-35%)'
+        menu.style.transform = show_menu ? 'translateX(0)' : `translateX(-${menu_placement}px)`
         Array.from(menu.children).forEach((line, index) => {
             function rotate(deg, translate_y, translate_x) {
                 line.style.transform = `rotate(${deg}deg) translateY(${translate_y}px) translateX(${translate_x}px)`

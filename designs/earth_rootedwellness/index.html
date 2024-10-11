@@ -9,29 +9,66 @@
     <title>This is the sky template</title>
 </head>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+
 :root {
 --main-color-1: hsl(10deg 22% 32%);
 --main-color-2: hsl(28deg 17% 11%);
 --main-color-3: hsl(15deg 38% 96%);
 --main-color-3-lighter: hsl(15deg 38% 86%);
+--text-color-2: hsl(15deg 38% 4%);
+--text-size-1: 1em;
+--text-size-2: 2em;
 }
 
-html {
+* {
+box-sizing: border-box;
+font-family: "Open Sans", sans-serif;
+font-optical-sizing: auto;
+font-style: normal;
+}
+
+html, body {
+height: 100%;
+font-size: 16px;
+line-height: 1.6;
 margin: 0;
 padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-size: 2em;
+font-family: "Lora", serif;
+font-optical-sizing: auto;
+font-style: normal;
+font-weight: normal;
+margin: 0;
+padding: 0;
+}
+
+a {
+font-size: 2em;
+font-family: "Lora", serif;
+font-optical-sizing: auto;
+font-style: normal;
+font-weight: normal;
+color: inherit;
+text-decoration: inherit;
+cursor: inherit;
 }
 
 body {
 background-color: var(--main-color-1);
 color: var(--main-color-3);
 overflow-x: hidden;
-height: 100vh;
+height: 100%;
 }
 
-a {
-color: inherit;
-text-decoration: inherit;
-cursor: inherit;
+.wrapper {
+overflow-x: hidden;
+position: relative;
+height: 100%;
 }
 
 .container {
@@ -54,30 +91,31 @@ text-decoration: none;
 color: inherit;
 }
 
-.row-between {
-display: flex;
-justify-content: space-between;
-align-items: center;
+
+
+.wrapper {
+overflow-x: hidden;
+position: relative;
+height: 100%;
 }
 
-.row-5 {
-display: flex;
-gap: 5px;
+.blank-a {
+text-decoration: none;
+color: inherit;
 }
 
-.row-10 {
-display: flex;
-gap: 10px;
+
+
+.basic-logo-h1 {
+padding: 0 .3em;
+color: var(--main-color-3);
+cursor: pointer;
 }
 
-.row-15 {
-display: flex;
-gap: 15px;
-}
-
-.row-30 {
-display: flex;
-gap: 15px;
+.blank-ul {
+list-style-type: none;
+padding: 0;
+margin: 0;
 }
 
 .row-50 {
@@ -90,18 +128,6 @@ display: flex;
 flex-direction: column;
 }
 
-.row-between {
-display: flex;
-justify-content: space-between;
-align-items: center;
-}
-
-.basic-logo-h1 {
-margin: 0;
-padding: 0;
-color: var(--main-color-3);
-}
-
 .basic-nav {
 display: none;
 }
@@ -109,10 +135,10 @@ display: none;
 .basic-nav-side {
 transition: all .3s ease-out;
 position: absolute;
+top: 0;
+right: 0;
 display: flex;
 flex-direction: column;
-right: 0;
-top: 0;
 min-width: 300px;
 background-color: var(--main-color-2);
 height: 100vh;
@@ -120,10 +146,60 @@ transform: translateX(100%);
 }
 
 .basic-nav-side ul {
-padding-left: 20px;
+text-transform: uppercase;
+padding: 35px 0 0 35px;
+font-size: 20px;
+font-weight: bold;
+}
+
+.basic-link {
+cursor: pointer;
+color: var(--main-color-3);
+font-size: 0.6em;
+}
+
+.basic-link:hover {
+color: var(--main-color-3-lighter);
+text-decoration: underline;
+}
+
+.basic-hamburger {
+position: absolute;
+top: 0;
+right: -35;
+margin: 18px 10px 0 0;
+}
+
+.basic-header {
+position: sticky;
+top: 0;
+background: var(--main-color-1);
+display: flex;
+align-items: baseline;
+justify-content: space-between;
+}
+
+.basic-container {
+display: flex;
+flex-flow: column;
+height: 100%;
+}
+
+.basic-subtitle {
+font-size: 1.5em;
+font-weight: normal;
+}
+
+
+.basic-card {
+padding: 0.2em 0.2em;
+background-color: --var(main-color-3);
+color: --var(text-color-2);
+max-width: 32em;
 }
 
 @media screen and (min-width: 700px) {
+
 .basic-nav {
 display: flex;
 align-items: center;
@@ -134,53 +210,44 @@ background-color: var(--main-color-1);
 display: none;
 }
 }
-
-.basic-link {
-cursor: pointer;
-color: var(--main-color-3);
-}
-
-.basic-link:hover {
-color: var(--main-color-3-lighter);
-text-decoration: underline;
-}
-
-.blank-ul {
-list-style-type: none;
-padding: 0;
-margin: 0;
-}
-
-.row-15 {
-display: flex;
-gap: 15px;
-}
 </style>
 <body>
     
-<header class="row-between" >
+        <div class="wrapper">
+            
+    <header class="basic-header">
         
-    <a class="blank-a" href="http://127.0.0.1:5500/designs/earth_rootedwellness/">
-        <h1 class="basic-logo-h1">Rooted Wellness</h1>
+    <a class="blank-a basic-logo-h1" href="http://127.0.0.1:5500/designs/earth_rootedwellness/">
+        Rooted Wellness
     </a>
 
 
 
+        
     <nav class="basic-nav">
         <ul class="blank-ul row-50">
+            
             
     <li class="basic-link"><a href="http://127.0.0.1:5500/designs/earth_rootedwellness/about" class="blank-a">About</a></li>
 
 
 
+            
     <li class="basic-link"><a href="http://127.0.0.1:5500/designs/earth_rootedwellness/services" class="blank-a">Services</a></li>
 
 
 
+            
     <li class="basic-link"><a href="http://127.0.0.1:5500/designs/earth_rootedwellness/tips" class="blank-a">Tips</a></li>
 
 
 
+            
+    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/earth_rootedwellness/contact" class="blank-a">Contact</a></li>
+
+
+
+        
         </ul>
     </nav>
     
@@ -188,12 +255,12 @@ gap: 15px;
 
 <nav id="basic_side_nav" class="basic-nav-side">
     
-    <div id="basic_hamburger_menu" class="col basic-hamburger" style="margin: 10px 0; padding: 10px; gap: 3px; transform: translateX(-35%);">
-        <div style="transition: all .3s ease-out; width: 25px; height: 2px; background-color: var(--main-color-3);">
+    <div id="basic_hamburger_menu" class="col basic-hamburger" style="gap: 3px;">
+        <div style="transition: transform .3s ease-out; width: 25px; height: 2px; background-color: var(--main-color-3);">
         </div>
-        <div style="transition: all .3s ease-out; width: 25px; height: 2px; background-color: var(--main-color-3);">
+        <div style="transition: transform .3s ease-out; width: 25px; height: 2px; background-color: var(--main-color-3);">
         </div>
-        <div style="transition: all .3s ease-out; width: 25px; height: 2px; background-color: var(--main-color-3);">
+        <div style="transition: transform .3s ease-out; width: 25px; height: 2px; background-color: var(--main-color-3);">
         </div>
     </div>
 
@@ -202,41 +269,50 @@ gap: 15px;
     
         <ul class="blank-ul col" style="margin-top: 10px; gap: 30px;">
             
+            
     <li class="basic-link"><a href="http://127.0.0.1:5500/designs/earth_rootedwellness/about" class="blank-a">About</a></li>
 
 
 
+            
     <li class="basic-link"><a href="http://127.0.0.1:5500/designs/earth_rootedwellness/services" class="blank-a">Services</a></li>
 
 
 
+            
     <li class="basic-link"><a href="http://127.0.0.1:5500/designs/earth_rootedwellness/tips" class="blank-a">Tips</a></li>
 
 
 
+            
+    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/earth_rootedwellness/contact" class="blank-a">Contact</a></li>
+
+
+
+        
         </ul>
     
 </nav>
 <script>
-    console.log('hello')
     const menu = document.getElementById('basic_hamburger_menu')
     let show_menu = false
+    const menu_placement = 35
+    menu.style.transform = `translateX(-${menu_placement}px)`
     const change_menu = (event) => {
         event.stopPropagation()
         show_menu = !show_menu
         const nav = document.getElementById('basic_side_nav')
         nav.style.transform = show_menu ? 'translateX(0)' : 'translateX(100%)'
-        menu.style.transition = show_menu ? 'all .3s ease-out' : 'all 0.1s ease-out'
-        menu.style.transform = show_menu ? 'translateX(0)' : 'translateX(-35%)'
+        menu.style.transition = show_menu ? 'all .3s ease-out' : 'all 0.3s ease-out'
+        menu.style.transform = show_menu ? `translateX(${nav.offsetWidth - menu_placement}px)` : `translateX(-${menu_placement}px)`
         Array.from(menu.children).forEach((line, index) => {
-            function rotate(deg, translate_y, translate_x) {
-                line.style.transform = `rotate(${deg}deg) translateY(${translate_y}px) translateX(${translate_x}px)`
+            function rotate(deg, translate_x, translate_y) {
+                line.style.transform = `rotate(${deg}deg) translateX(${translate_x}px) translateY(${translate_y}px)`
             }
             if (index === 0) {
-                console.log('hello')
                 show_menu ? rotate(45, 3.5, 3.5) : rotate(0, 0, 0)
             } else if (index === 2) {
-                show_menu ? rotate(-45, -3.5, 3.5) : rotate(0, 0, 0)
+                show_menu ? rotate(-45, 3.5, -3.5) : rotate(0, 0, 0)
             } else {
                 line.style.opacity = show_menu ? 0 : 1
             }
@@ -251,7 +327,7 @@ gap: 15px;
         console.log('hello')
         const nav = document.getElementById('basic_side_nav')
         nav.style.transform = show_menu ? 'translateX(0)' : 'translateX(100%)'
-        menu.style.transform = show_menu ? 'translateX(0)' : 'translateX(-35%)'
+        menu.style.transform = show_menu ? 'translateX(0)' : `translateX(-${menu_placement}px)`
         Array.from(menu.children).forEach((line, index) => {
             function rotate(deg, translate_y, translate_x) {
                 line.style.transform = `rotate(${deg}deg) translateY(${translate_y}px) translateX(${translate_x}px)`
@@ -275,14 +351,73 @@ gap: 15px;
 
 
 
-<ul class="blank-ul row-15" >
+        <div></div>
+    </header>
+
+
+
+    <div style="padding: 0 1em;">
         
-    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/earth_rootedwellness/contact" class="blank-a">Contact</a></li>
+    <div class="basic-container">
+            
+    <h1 class="basic-subtitle"style="margin-top: 1em;">Grounded in Nature,</h1>
 
 
 
-</ul>
-</header>     
+            
+    <h1 class="basic-subtitle"style="margin: 0 0 1em 3em">Centered in Health</h1>
+
+
+
+
+            
+    <div class="basic-card">
+        
+                Your Path to Holistic Well-Being Starts Here
+                At Rooted Wellness, we believe that true wellness is cultivated from the inside out. Our mission is to
+                guide
+                you on a journey toward balanced living, helping you nourish your body, mind, and spirit with natural
+                practices and modern insights. Whether you are beginning your wellness journey or looking to deepen your
+                practices, we offer tools and support to help you thrive.
+
+                What We Offer
+                Holistic Health Guidance
+                Personalized approaches to nutrition, movement, and mindfulness based on your unique needs.
+
+                Natural Remedies &amp; Herbal Solutions
+                Discover the power of nature to support healing and vitality through our curated herbal blends and
+                holistic
+                remedies.
+
+                Mindfulness &amp; Mental Wellness
+                Learn techniques to cultivate inner peace, reduce stress, and enhance mental clarity with our
+                mindfulness
+                practices.
+
+                Fitness for Every Body
+                Tailored workout routines that focus on sustainable, lifelong movement for all fitness levels.
+
+                Why Rooted Wellness?
+                We combine ancient wisdom with modern science to create a well-rounded approach to health. Our
+                philosophy is
+                rooted in balance, simplicity, and sustainability—empowering you to live a healthier, more fulfilled
+                life in
+                harmony with nature.
+            
+    </div>
+
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+</div>      
 </body >
 
 </html > 
