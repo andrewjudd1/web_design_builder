@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .page {
+            display: flex;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-flow: column;
+            transition-duration: 300ms;
+        }
+
+        .no-show {
+            opacity: 0;
+            transition-duration: 300ms;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="page no-show">{{children}}</section>
+</body>
+
+</html>

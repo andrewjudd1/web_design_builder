@@ -1,3 +1,3 @@
 import earth from './earth.js'
-
-export default { earth }
+import dimension from './dimension.js'
+export default { earth, dimension }

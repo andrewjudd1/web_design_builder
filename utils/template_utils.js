@@ -34,14 +34,13 @@ function get_template_utils() {
 
         return cached_pieces
     }
-    async function get_css(cached_css) {
+    async function get_css(cached_css, page_css) {
         if (cached_css) {
             return cached_css
         } else {
             cached_css = ''
         }
-        const csss = await fs.readdir('css')
-        for (const css of csss) {
+        for (const css of page_css) {
             const file = await fs.readFile(`css/${css}`, { encoding: 'utf-8' })
             cached_css += file
         }
@@ -276,7 +275,8 @@ function get_template_utils() {
             let remaining_attributes = []
             Object.keys(attributes).forEach(key => {
                 if (htmlText.includes(`{{${key}}}`)) {
-                    htmlText = htmlText.replaceAll(`{{${key}}}=""`, `${key}="${attributes?.[key]}"`)
+                    htmlText = htmlText.replaceAll(`{{${key}}}=""`, `${key}="${attributes?.[key] || ''}"`)
+                    htmlText = htmlText.replaceAll(`{{${key}}}`, attributes?.[key]?.toString() === 'true' ? '' : attributes?.[key])
                 } else {
                     remaining_attributes.push(`${key}="${attributes?.[key]}"`)
                 }

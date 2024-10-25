@@ -179,6 +179,39 @@ align-items: baseline;
 justify-content: space-between;
 }
 
+.basic-container {
+display: flex;
+flex-flow: column;
+height: 100%;
+}
+
+.basic-subtitle {
+font-size: 1.5em;
+font-weight: normal;
+}
+
+
+.basic-circle-wrapper {
+display: flex;
+flex-flow: column;
+align-items: center;
+justify-content: center;
+}
+
+.basic-circle {
+border-radius: 50%;
+border: .1em solid var(--main-color-3);
+width: 100%;
+aspect-ratio: 1 / 1;
+}
+
+.basic-card {
+padding: 0.2em 0.2em;
+background-color: --var(main-color-3);
+color: --var(text-color-2);
+max-width: 40em;
+}
+
 @media screen and (min-width: 700px) {
 
 .basic-nav {

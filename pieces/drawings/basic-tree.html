@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimalistic Tree with Gradients</title>
+    <style>
+        svg {
+            width: 100%;
+            height: 400px;
+            background-color: #f0f4f8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <svg viewBox="0 0 200 200">
+        <!-- Define Gradient for the foliage -->
+        <defs>
+            <linearGradient id="leafGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#6ca965;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#4b8b3b;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+
+        <!-- Tree Trunk with smaller branches -->
+        <path d="M100 150 C 95 120, 105 90, 100 50" stroke="saddlebrown" stroke-width="8" fill="none" />
+        <path d="M100 100 C 95 90, 90 80, 90 70" stroke="saddlebrown" stroke-width="3" fill="none" />
+        <path d="M100 100 C 105 90, 110 80, 110 70" stroke="saddlebrown" stroke-width="3" fill="none" />
+
+        <!-- Foliage: Minimalistic circles with gradient fill -->
+        <circle cx="100" cy="50" r="20" fill="url(#leafGradient)" />
+        <circle cx="85" cy="45" r="15" fill="url(#leafGradient)" />
+        <circle cx="115" cy="45" r="15" fill="url(#leafGradient)" />
+        <circle cx="90" cy="30" r="12" fill="url(#leafGradient)" />
+        <circle cx="110" cy="30" r="12" fill="url(#leafGradient)" />
+    </svg>
+
+</body>
+
+</html>

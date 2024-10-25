@@ -17,9 +17,8 @@ function get_template_util() {
             cached_pieces = await template_utils.get_pieces(cached_pieces)
         }
         if (!cached_css) {
-            cached_css = await template_utils.get_css(cached_css)
+            cached_css = await template_utils.get_css(cached_css, page.css)
         }
-        console.log('cached', cached_css)
 
         const data = template_utils.render_elements(page?.body?.elements || [], cached_pieces, cached_css, '') || {}
         if (!data?.final_css) {

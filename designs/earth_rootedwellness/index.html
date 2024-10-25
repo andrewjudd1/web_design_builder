@@ -191,11 +191,25 @@ font-weight: normal;
 }
 
 
+.basic-circle-wrapper {
+display: flex;
+flex-flow: column;
+align-items: center;
+justify-content: center;
+}
+
+.basic-circle {
+border-radius: 50%;
+border: .1em solid var(--main-color-3);
+width: 100%;
+aspect-ratio: 1 / 1;
+}
+
 .basic-card {
 padding: 0.2em 0.2em;
 background-color: --var(main-color-3);
 color: --var(text-color-2);
-max-width: 32em;
+max-width: 40em;
 }
 
 @media screen and (min-width: 700px) {
@@ -356,7 +370,7 @@ display: none;
 
 
 
-    <div style="padding: 0 1em;">
+    <div style="padding: 0 1em; width: 100; display: flex;">
         
     <div class="basic-container">
             
@@ -370,6 +384,40 @@ display: none;
 
 
 
+            <div style="display: flex; gap: 50px;">
+                
+    <div class="basic-circle-wrapper"style="width: 50px;">
+        <div class="basic-circle"></div>
+        <label>Mindset</label>
+    </div>
+
+
+
+                
+    <div class="basic-circle-wrapper"style="width: 50px;">
+        <div class="basic-circle"></div>
+        <label>Nutrition</label>
+    </div>
+
+
+
+                
+    <div class="basic-circle-wrapper"style="width: 50px;">
+        <div class="basic-circle"></div>
+        <label>Fitness</label>
+    </div>
+
+
+
+                
+    <div class="basic-circle-wrapper"style="width: 50px;">
+        <div class="basic-circle"></div>
+        <label>Wellness</label>
+    </div>
+
+
+
+            </div>
             
     <div class="basic-card">
         
