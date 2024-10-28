@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dimension-x {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 1.5em;
+            margin: 1em;
+            border-radius: 50%;
+            transition-duration: 400ms;
+
+        }
+
+        .dimension-x:hover {
+            background-color: var(--main-color-1);
+        }
+
+        .dimension-x-line {
+            cursor: pointer;
+            position: absolute;
+            margin: 0px 0px 0 1px;
+            width: 20px;
+            height: 1px;
+            background-color: var(--main-color-3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dimension-x">
+        <div class="dimension-x-line" style="transform: rotate(45deg) translateY(0.5px);">
+        </div>
+        <div class="dimension-x-line" style="transform: rotate(-45deg) translateY(-0.5px);">
+        </div>
+    </div>
+</body>
+
+</html>

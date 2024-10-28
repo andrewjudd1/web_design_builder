@@ -13,15 +13,51 @@
 <body>
     <div class="wrapper">
         <dimension-page id="intro">
-            <basic-subtitle style="line-height: 1.3; letter-spacing: 0.5em;">INTRO</basic-subttle>
+            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <basic-subtitle style="line-height: 1.3; letter-spacing: 0.5em;"></basic-subtitle>
+                <dimension-x id="close"></dimension-x>
+            </div>
+            <div style="display: flex; flex-flow: column; align-items: start; margin: 0 2em;">
+                <basic-subtitle
+                    style="font-size: 1.5em; line-height: 1.3; letter-spacing: 0.5em; border-bottom: 2px solid var(--main-color-3); padding-bottom: 0.2em; margin-bottom: 1.5em;">INTRO</basic-subtitle>
+                <dimension-img></dimension-img>
+                <div style="margin: 0em 0 1.7em 0"></div>
+                <basic-text style="font-size: .8em;">Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin
+                    aliquam facilisis ante
+                    interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas
+                    mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check
+                    out my awesome work.</basic-text>
+                <div style="margin: 1.5em 0 0 0"></div>
+                <basic-text style="font-size: .8em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                    dapibus
+                    rutrum facilisis.
+                    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam
+                    tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc
+                    ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum
+                    vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant
+                    morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit
+                    placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</basic-text>
+            </div>
         </dimension-page>
-        <dimension-page id="intro">
+        <dimension-page id="work">
+            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <basic-subtitle style="line-height: 1.3; letter-spacing: 0.5em;"></basic-subtitle>
+                <dimension-x id="close"></dimension-x>
+            </div>
             <basic-subtitle style="line-height: 1.3; letter-spacing: 0.5em;">WORK</basic-subttle>
         </dimension-page>
-        <dimension-page id="intro">
+        <dimension-page id="about">
+            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <basic-subtitle style="line-height: 1.3; letter-spacing: 0.5em;"></basic-subtitle>
+                <dimension-x id="close"></dimension-x>
+            </div>
             <basic-subtitle style="line-height: 1.3; letter-spacing: 0.5em;">ABOUT</basic-subttle>
         </dimension-page>
-        <dimension-page id="intro">
+        <dimension-page id="contact">
+            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <basic-subtitle style="line-height: 1.3; letter-spacing: 0.5em;"></basic-subtitle>
+                <dimension-x id="close"></dimension-x>
+            </div>
             <basic-subtitle style="line-height: 1.3; letter-spacing: 0.5em;">CONTACT</basic-subttle>
         </dimension-page>
 
@@ -47,6 +83,18 @@
 
     </div>
     <script>
+        document.querySelectorAll('#close').forEach(item => {
+            item.addEventListener('click', (event) => {
+                document.getElementById('home').classList.remove('no-show')
+                const pages = Array.from(document.querySelectorAll('.page'))
+                pages.forEach(item => {
+                    item.classList.add('no-show')
+                })
+                setTimeout(() => {
+                    location.href = `${location.href.split('#')[0]}`
+                }, 100)
+            })
+        })
 
         const page_target = location.href.split('#')[1]
         console.log(page_target || 'home')
@@ -57,7 +105,7 @@
 
         }
         window.addEventListener('popstate', () => {
-            // Run your script here
+
             if (!page) {
                 document.getElementById('home').classList.remove('no-show')
                 const pages = Array.from(document.querySelectorAll('.page'))
@@ -65,12 +113,14 @@
                     item.classList.add('no-show')
                 })
             }
-            // Place any additional code here
         });
+
+
 
 
         function change_page(e) {
             e.preventDefault()
+
             const url = e.target.href
             const hash = url.split('/').pop()
             location.href = `${location.href.split('#')[0]}#${hash}`

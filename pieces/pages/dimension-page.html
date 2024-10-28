@@ -7,19 +7,27 @@
     <title>Document</title>
     <style>
         .page {
-            display: flex;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+            z-index: 100;
             display: flex;
             flex-flow: column;
+            justify-content: center;
+            align-items: start;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translate(-50%, 0%);
             transition-duration: 300ms;
+            width: 40em;
+            margin: 2em 0;
+            background-color: var(--main-color-1);
+            overflow-y: scroll;
+
         }
 
         .no-show {
             opacity: 0;
             transition-duration: 300ms;
+            z-index: 0;
         }
     </style>
 </head>
