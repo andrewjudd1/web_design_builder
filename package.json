@@ -7,6 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "design:create": "node index.js $template $design_name",
+    "dev": "npm run design:create",
     "design:copy": "node copy_design.js $design $dest"
   },
   "keywords": [],
@@ -15,6 +16,7 @@
   "dependencies": {
     "crypto": "^1.0.1",
     "jsdom": "^25.0.0",
+    "open": "^10.1.0",
     "path": "^0.12.7"
   }
 }

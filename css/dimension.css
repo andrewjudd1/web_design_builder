@@ -5,6 +5,7 @@
   --main-color-2: hsl(226deg 6% 40%);
   --main-color-3: hsl(15deg 38% 96%);
   --main-color-3-lighter: hsl(15deg 38% 86%);
+  --main-color-3-light: hsla(15deg, 38%, 86%, 0.1);
   --text-color-2: hsl(15deg 38% 4%);
   --text-size-1: 1em;
   --text-size-2: 2em;
@@ -48,8 +49,9 @@ body {
   background-color: var(--main-color-1);
   color: var(--main-color-3);
   overflow-x: hidden;
-  height: 100%;
-}
+  display: flex;
+  margin: 0;
+ }
 
 .wrapper {
   display: flex;
@@ -86,6 +88,7 @@ a {
 .blank-a {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 .row-between {

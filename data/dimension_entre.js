@@ -1,4 +1,4 @@
-const root_url = 'http://127.0.0.1:5500/designs/dimension_entre'
+const root_url = 'http://localhost:5500/designs/dimension_entre'
 
 const data = {
     name: "Rooted Wellness",
@@ -7,6 +7,7 @@ const data = {
         name: 'Rooted Wellness',
         link: `${root_url}/`
     },
+    root_url,
     nav: {}
 }
 const links = [

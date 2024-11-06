@@ -7,33 +7,43 @@
     <title>Document</title>
     <style>
         .page {
-            z-index: 100;
             display: flex;
             flex-flow: column;
-            justify-content: center;
-            align-items: start;
             position: absolute;
-            left: 50%;
-            top: 0;
-            transform: translate(-50%, 0%);
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            transition-property: overflow, height, opacity;
             transition-duration: 300ms;
-            width: 40em;
-            margin: 2em 0;
-            background-color: var(--main-color-1);
-            overflow-y: scroll;
-
+            max-width: 50em;
+            background-color: rgb(22, 30, 39);
+            opacity: 1;
+            max-height: calc(100% - 2em);
+            overflow: scroll;
+            margin: auto;
+            padding: 0 0 2em 0;
         }
 
         .no-show {
+            display: flex;
+            z-index: -100;
             opacity: 0;
-            transition-duration: 300ms;
-            z-index: 0;
+            overflow: hidden;
+        }
+
+        @media screen and (max-width: 51em) {
+            .page {
+                margin: 0 1em;
+            }
         }
     </style>
 </head>
 
 <body>
-    <section class="page no-show">{{children}}</section>
+
+    <section class="page no-show">
+        {{children}}
+    </section>
 </body>
 
 </html>

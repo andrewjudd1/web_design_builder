@@ -5,10 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .dimension-btn {
+            padding: 0.5em 1em;
+            letter-spacing: 0.2em;
+            background: none;
+            outline: none;
+            border: 0.1em solid var(--main-color-3);
+            color: var(--main-color-3);
+            border-radius: 0.3em;
+            cursor: pointer;
+        }
+
+        .dimension-btn:hover {
+            background-color: var(--main-color-3-light);
+        }
+    </style>
 </head>
 
 <body>
-
+    <button class="dimension-btn">{{children}}</button>
 </body>
 
 </html>

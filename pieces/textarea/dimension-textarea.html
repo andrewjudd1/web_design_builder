@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dimension-textarea-label {
+            display: flex;
+            flex-flow: column;
+            gap: 0.5em;
+            letter-spacing: 0.2em;
+
+        }
+
+        .dimension-input {
+            border: 0.1em solid var(--main-color-3);
+            background: none;
+            padding: 1em;
+            border-radius: .3em;
+            color: var(---main-color-3)
+        }
+
+        .dimension-input:focus {
+            outline: 0.1em solid var(--main-color-3);
+            background-color: var(--main-color-3-light);
+        }
+    </style>
+</head>
+
+<body>
+    <label class="dimension-input-label">
+        {{children}}
+        <textarea class="dimension-input" {{id}} {{type}} {{style}}></textarea>
+
+    </label>
+</body>
+
+</html>

@@ -6,36 +6,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        @media screen and (max-width: 28em) {
+            body {
+                font-size: 14px;
+            }
+        }
 
+        @media screen and (max-width: 25em) {
+            body {
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <div class="wrapper">
+    <div id="wrapper" class="wrapper">
         <dimension-page id="intro">
-            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div
+                style="display: flex; justify-content: space-between; align-items: center; width: 100%; position: sticky; top: 0;">
                 <basic-subtitle style="line-height: 1.3; letter-spacing: 0.5em;"></basic-subtitle>
                 <dimension-x id="close"></dimension-x>
             </div>
             <div style="display: flex; flex-flow: column; align-items: start; margin: 0 2em;">
                 <basic-subtitle
-                    style="font-size: 1.5em; line-height: 1.3; letter-spacing: 0.5em; border-bottom: 2px solid var(--main-color-3); padding-bottom: 0.2em; margin-bottom: 1.5em;">INTRO</basic-subtitle>
+                    style="font-size: 1.5em; line-height: 1.3; letter-spacing: 0.5em; border-bottom: 2px solid var(--main-color-3); padding-bottom: 0.2em; margin-bottom: 1em;">INTRO</basic-subtitle>
                 <dimension-img></dimension-img>
                 <div style="margin: 0em 0 1.7em 0"></div>
-                <basic-text style="font-size: .8em;">Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin
+                <basic-text style="font-size: 1em;">Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin
                     aliquam facilisis ante
                     interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas
-                    mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check
+                    mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way,
+                    check
                     out my awesome work.</basic-text>
                 <div style="margin: 1.5em 0 0 0"></div>
-                <basic-text style="font-size: .8em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                <basic-text style="font-size: 1em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
                     dapibus
                     rutrum facilisis.
-                    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam
+                    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                    Etiam
                     tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc
-                    ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum
-                    vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant
-                    morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit
+                    ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non,
+                    bibendum
+                    vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque
+                    habitant
+                    morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet
+                    elit
+                    placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</basic-text>
+                <div style="margin: 1.5em 0 0 0"></div>
+
+                <basic-text style="font-size: 1em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                    dapibus
+                    rutrum facilisis.
+                    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                    Etiam
+                    tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc
+                    ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non,
+                    bibendum
+                    vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque
+                    habitant
+                    morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet
+                    elit
+                    placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</basic-text>\<div
+                    style="margin: 1.5em 0 0 0"></div>
+
+                <basic-text style="font-size: 1em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                    dapibus
+                    rutrum facilisis.
+                    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                    Etiam
+                    tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc
+                    ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non,
+                    bibendum
+                    vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque
+                    habitant
+                    morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet
+                    elit
                     placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</basic-text>
             </div>
         </dimension-page>
@@ -44,25 +90,71 @@
                 <basic-subtitle style="line-height: 1.3; letter-spacing: 0.5em;"></basic-subtitle>
                 <dimension-x id="close"></dimension-x>
             </div>
-            <basic-subtitle style="line-height: 1.3; letter-spacing: 0.5em;">WORK</basic-subttle>
+            <div style="display: flex; flex-flow: column; align-items: start; margin: 0 2em;">
+                <basic-subtitle
+                    style="font-size: 1.5em; line-height: 1.3; letter-spacing: 0.5em; border-bottom: 2px solid var(--main-color-3); padding-bottom: 0.2em; margin-bottom: 1em;">WORK</basic-subtitle>
+                <dimension-img></dimension-img>
+                <div style="margin: 0em 0 1.7em 0"></div>
+                <basic-text style="font-size: 1em;">Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin
+                    aliquam facilisis ante
+                    interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas
+                    mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way,
+                    check
+                    out my awesome work.</basic-text>
+
+            </div>
         </dimension-page>
         <dimension-page id="about">
             <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
                 <basic-subtitle style="line-height: 1.3; letter-spacing: 0.5em;"></basic-subtitle>
                 <dimension-x id="close"></dimension-x>
             </div>
-            <basic-subtitle style="line-height: 1.3; letter-spacing: 0.5em;">ABOUT</basic-subttle>
+            <div style="display: flex; flex-flow: column; align-items: start; margin: 0 2em;">
+                <basic-subtitle
+                    style="font-size: 1.5em; line-height: 1.3; letter-spacing: 0.5em; border-bottom: 2px solid var(--main-color-3); padding-bottom: 0.2em; margin-bottom: 1em;">ABOUT</basic-subtitle>
+                <div style="margin: 0em 0 1.7em 0"></div>
+                <basic-text style="font-size: 1em;">Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin
+                    aliquam facilisis ante
+                    interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas
+                    mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way,
+                    check
+                    out my awesome work.</basic-text>
+
+            </div>
         </dimension-page>
         <dimension-page id="contact">
             <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
                 <basic-subtitle style="line-height: 1.3; letter-spacing: 0.5em;"></basic-subtitle>
                 <dimension-x id="close"></dimension-x>
             </div>
-            <basic-subtitle style="line-height: 1.3; letter-spacing: 0.5em;">CONTACT</basic-subttle>
-        </dimension-page>
+            <div style="display: flex; flex-flow: column; align-items: start; margin: 0 2em;">
 
+                <basic-subtitle
+                    style="font-size: 1.5em; line-height: 1.3; letter-spacing: 0.5em; border-bottom: 2px solid var(--main-color-3); padding-bottom: 0.2em; margin-bottom: 1em;">CONTACT</basic-subtitle>
+                <div style="margin: 0em 0 1em 0"></div>
+                <form>
+                    <div style="display: flex; gap: 0.5em;">
+                        <dimension-input id="name" name="name" type="text" style="width: 20em;">NAME</dimension-input>
+                        <dimension-input id="email" name="email" type="text"
+                            style="width: 20em;">EMAIL</dimension-input>
+                    </div>
+                    <div style="margin: 1em 0 0 0;"></div>
+                    <dimension-textarea id="message" name="message" type="text"
+                        style="width: 40.5em; height: 10em;">MESSAGE</dimension-textarea>
+                    <div style="margin: 1em 0 0 0;"></div>
+                    <div style="display: flex; gap: 0.5em;">
+                        <dimension-btn-w>SEND MESSAGE</dimension-btn-w>
+                        <dimension-btn id="reset_btn">RESET</dimension-btn>
+                    </div>
+                </form>
+                <div style="margin: 1em 0 0 0;"></div>
+                <dimension-social-link href="data.business.root_url">
+                    <icon-instagram fill="white" width="0.5em"></icon-instagram>
+                </dimension-social-link>
+            </div>
+        </dimension-page>
         <div class="wrapper" id="home">
-            <basic-circle label="" style="width: 100px; color: white;">
+            <basic-circle label="" style="width: 6em; color: white;">
                 <dimension-diamond fill="white" width="40px" height="40px"></dimension-diamond>
             </basic-circle>
             <basic-v-line></basic-v-line>
@@ -83,61 +175,68 @@
 
     </div>
     <script>
+        const home = document.getElementById('home')
+        const go_home = () => {
+            home.classList.remove('no-show')
+            const pages = Array.from(document.querySelectorAll('.page'))
+            pages.forEach(item => {
+                item.classList.add('no-show')
+            })
+            const locations = location.href.replace(window.origin, '').split('/').filter(item => item)
+            const loc = locations.pop()
+            const new_location = locations.join('/')
+            setTimeout(() => {
+                location.href = `/${new_location}`
+            }, 100)
+
+        }
+        const get_page = () => {
+            const locations = location.href.split('/')
+            const page_target = locations[locations?.length - 1] || locations[locations?.length - 2]
+            const page = document.getElementById(page_target)
+            return page
+        }
+
+        const go_page = () => {
+            if (get_page()) {
+                home.classList.add('no-show')
+                get_page().classList.remove('no-show')
+            }
+        }
+
         document.querySelectorAll('#close').forEach(item => {
             item.addEventListener('click', (event) => {
-                document.getElementById('home').classList.remove('no-show')
-                const pages = Array.from(document.querySelectorAll('.page'))
-                pages.forEach(item => {
-                    item.classList.add('no-show')
-                })
-                setTimeout(() => {
-                    location.href = `${location.href.split('#')[0]}`
-                }, 100)
+                go_home()
             })
         })
 
-        const page_target = location.href.split('#')[1]
-        console.log(page_target || 'home')
-        const page = document.getElementById(page_target)
-        if (page) {
-            page.classList.remove('no-show')
-            document.getElementById('home').classList.add('no-show')
-
+        const handle_nav = () => {
+            setTimeout(() => {
+                go_page()
+            }, 100)
         }
-        window.addEventListener('popstate', () => {
 
-            if (!page) {
-                document.getElementById('home').classList.remove('no-show')
-                const pages = Array.from(document.querySelectorAll('.page'))
-                pages.forEach(item => {
-                    item.classList.add('no-show')
-                })
+        console.log('hello')
+        handle_nav()
+
+
+
+
+
+        document.getElementById('wrapper').addEventListener('click', (event) => {
+            if (event.target.classList.contains('wrapper') && home.classList.contains('no-show')) {
+                go_home()
+
             }
-        });
-
-
-
-
-        function change_page(e) {
+        })
+        const data = ['name', 'email', 'message']
+        document.getElementById("reset_btn").addEventListener('click', (e) => {
             e.preventDefault()
-
-            const url = e.target.href
-            const hash = url.split('/').pop()
-            location.href = `${location.href.split('#')[0]}#${hash}`
-            const page = document.getElementById(hash)
-            if (page) {
-                page.classList.remove('no-show')
-                document.getElementById('home').classList.add('no-show')
-            }
-            const pages = Array.from(document.querySelectorAll('.page'))
-            console.log(pages)
-            pages.forEach(item => {
-                console.log(item.id)
-                if (item.id !== hash) {
-                    item.classList.add('no-show')
-                }
+            data.forEach(item => {
+                document.getElementById(item).value = ''
             })
-        }
+        })
+
     </script>
 </body>
 

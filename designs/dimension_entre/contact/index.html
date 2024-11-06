@@ -6,18 +6,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>this is the contact template</title>
+    <title>Dimension contact</title>
 </head>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 
 :root {
---main-color-1: hsl(10deg 22% 32%);
---main-color-2: hsl(28deg 17% 11%);
+--main-color-1: hsl(217deg 24% 17%);
+--main-color-2: hsl(226deg 6% 40%);
 --main-color-3: hsl(15deg 38% 96%);
 --main-color-3-lighter: hsl(15deg 38% 86%);
+--main-color-3-light: hsla(15deg, 38%, 86%, 0.1);
 --text-color-2: hsl(15deg 38% 4%);
 --text-size-1: 1em;
 --text-size-2: 2em;
@@ -63,13 +63,19 @@ body {
 background-color: var(--main-color-1);
 color: var(--main-color-3);
 overflow-x: hidden;
-height: 100%;
+display: flex;
+margin: 0;
 }
 
 .wrapper {
+display: flex;
+flex-flow: column;
+justify-content: center;
+align-items: center;
 overflow-x: hidden;
 position: relative;
 height: 100%;
+width: 100%;
 }
 
 .container {
@@ -90,267 +96,691 @@ margin: 0;
 .blank-a {
 text-decoration: none;
 color: inherit;
+cursor: pointer;
 }
 
 
 
-.wrapper {
-overflow-x: hidden;
+.page {
+display: flex;
+flex-flow: column;
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+z-index: 100;
+transition-property: overflow, height, opacity;
+transition-duration: 300ms;
+max-width: 50em;
+background-color: rgb(22, 30, 39);
+opacity: 1;
+max-height: calc(100% - 2em);
+overflow: scroll;
+margin: auto;
+padding: 0 0 2em 0;
+}
+
+.no-show {
+display: flex;
+z-index: -100;
+opacity: 0;
+overflow: hidden;
+}
+
+.basic-subtitle {
+font-weight: normal;
+}
+
+.dimension-x {
+display: flex;
+justify-content: center;
+align-items: center;
 position: relative;
-height: 100%;
+padding: 1.5em;
+margin: 1em;
+border-radius: 50%;
+transition-duration: 400ms;
+cursor: pointer;
+}
+
+.dimension-x:hover {
+background-color: var(--main-color-2);
+}
+
+.dimension-x-line {
+cursor: pointer;
+position: absolute;
+margin: 0px 0px 0 1px;
+width: 20px;
+height: 1px;
+background-color: var(--main-color-3);
+}
+
+.basic-text {
+font-size: 1em;
+font-weight: normal;
+line-height: 2;
+letter-spacing: 0.2em;
+}
+
+.dimension-input-label {
+display: flex;
+flex-flow: column;
+letter-spacing: 0.2em;
+gap: 0.5em;
+}
+
+.dimension-input {
+border: 0.1em solid var(--main-color-3);
+background: none;
+padding: 1em;
+border-radius: .3em;
+color: var(---main-color-3);
+}
+
+.dimension-input:focus {
+outline: 0.1em solid var(--main-color-3);
+background-color: var(--main-color-3-light);
+}
+
+.dimension-textarea-label {
+display: flex;
+flex-flow: column;
+gap: 0.5em;
+letter-spacing: 0.2em;
+}
+
+.dimension-btn {
+padding: 0.5em 1em;
+letter-spacing: 0.2em;
+background: none;
+outline: none;
+border: 0.1em solid var(--main-color-3);
+color: var(--main-color-3);
+border-radius: 0.3em;
+cursor: pointer;
+}
+
+.dimension-btn:hover {
+background-color: var(--main-color-3-light);
 }
 
 .blank-a {
 text-decoration: none;
 color: inherit;
-}
-
-
-
-.basic-logo-h1 {
-padding: 0 .3em;
-color: var(--main-color-3);
 cursor: pointer;
 }
 
-.blank-ul {
-list-style-type: none;
-padding: 0;
-margin: 0;
-}
-
-.row-50 {
-display: flex;
-gap: 50px;
-}
-
-.col {
-display: flex;
-flex-direction: column;
-}
-
-.basic-nav {
-display: none;
-}
-
-.basic-nav-side {
-transition: all .3s ease-out;
-position: absolute;
-top: 0;
-right: 0;
-display: flex;
-flex-direction: column;
-min-width: 300px;
-background-color: var(--main-color-2);
-height: 100vh;
-transform: translateX(100%);
-}
-
-.basic-nav-side ul {
-text-transform: uppercase;
-padding: 35px 0 0 35px;
-font-size: 20px;
-font-weight: bold;
-}
-
-.basic-link {
-cursor: pointer;
-color: var(--main-color-3);
-font-size: 0.6em;
-}
-
-.basic-link:hover {
-color: var(--main-color-3-lighter);
-text-decoration: underline;
-}
-
-.basic-hamburger {
-position: absolute;
-top: 0;
-right: -35;
-margin: 18px 10px 0 0;
-}
-
-.basic-header {
-position: sticky;
-top: 0;
-background: var(--main-color-1);
-display: flex;
-align-items: baseline;
-justify-content: space-between;
-}
-
-.basic-container {
+.basic-circle-wrapper {
 display: flex;
 flex-flow: column;
-height: 100%;
-}
-
-.basic-subtitle {
-font-size: 1.5em;
-font-weight: normal;
-}
-
-
-@media screen and (min-width: 700px) {
-
-.basic-nav {
-display: flex;
 align-items: center;
-justify-content: space-between;
-background-color: var(--main-color-1);
+justify-content: center;
 }
-.basic-nav-side {
-display: none;
+
+.basic-circle {
+display: flex;
+flex-flow: column;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+border: 1px solid var(--main-color-3);
+width: 100%;
+aspect-ratio: 1 / 1;
+}
+
+.basic-v-line {
+width: 1px;
+height: 50px;
+background-color: var(--main-color-3);
+}
+
+.dimension-card {
+display: flex;
+flex-flow: column;
+gap: 1em;
+margin: 0 12em;
+padding: 2em 2em;
+align-items: center;
+border: 1px solid var(--main-color-3);
+border-right: 0;
+border-left: 0;
+}
+
+.dimension-nav {
+display: flex;
+flex-flow: row wrap;
+margin-right: 1px;
+}
+
+.dimension-link {
+color: var(--main-color-3);
+font-size: 0.8em;
+border: 1px solid var(--main-color-3);
+border-right: 0;
+padding: 1em;
+box-sizing: border-box;
+text-align: center;
+min-width: 10em;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+cursor: pointer;
+}
+
+.dimension-nav:last-child {
+border-right: 1px solid var(--main-color-3);
+}
+
+.wrapper {
+display: flex;
+flex-flow: column;
+justify-content: center;
+align-items: center;
+overflow-x: hidden;
+position: relative;
+height: 100%;
+width: 100%;
+}
+
+@media screen and (max-width: 51em) {
+
+.page {
+margin: 0 1em;
+}
+}
+
+@media screen and (max-width: 550px) {
+
+.dimension-nav {
+flex-flow: column wrap;
+}
+}
+
+@media screen and (max-width: 28em) {
+
+body {
+font-size: 14px;
+}
+}
+
+@media screen and (max-width: 25em) {
+
+body {
+font-size: 12px;
 }
 }
 </style>
 <body>
     
-        <div class="wrapper">
-            
-    <header class="basic-header">
+    <div id="wrapper" class="wrapper">
         
-    <a class="blank-a basic-logo-h1" href="http://127.0.0.1:5500/designs/dimension_entre/">
-        Rooted Wellness
-    </a>
 
-
-
+    <section class="page no-show"id="intro">
         
-    <nav class="basic-nav">
-        <ul class="blank-ul row-50">
-            
-            
-    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/dimension_entre/about" class="blank-a">About</a></li>
+            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; position: sticky; top: 0;">
+                
+    <h1 class="basic-subtitle"style="line-height: 1.3; letter-spacing: 0.5em;"></h1>
 
 
 
-            
-    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/dimension_entre/services" class="blank-a">Services</a></li>
-
-
-
-            
-    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/dimension_entre/tips" class="blank-a">Tips</a></li>
-
-
-
-            
-    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/dimension_entre/contact" class="blank-a">Contact</a></li>
-
-
-
-        
-        </ul>
-    </nav>
-    
-
-
-<nav id="basic_side_nav" class="basic-nav-side">
-    
-    <div id="basic_hamburger_menu" class="col basic-hamburger" style="gap: 3px;">
-        <div style="transition: transform .3s ease-out; width: 25px; height: 2px; background-color: var(--main-color-3);">
+                
+    <div class="dimension-x"id="close">
+        <div class="dimension-x-line" style="transform: rotate(45deg) translateY(0.5px);">
         </div>
-        <div style="transition: transform .3s ease-out; width: 25px; height: 2px; background-color: var(--main-color-3);">
-        </div>
-        <div style="transition: transform .3s ease-out; width: 25px; height: 2px; background-color: var(--main-color-3);">
+        <div class="dimension-x-line" style="transform: rotate(-45deg) translateY(-0.5px);">
         </div>
     </div>
 
 
 
-    
-        <ul class="blank-ul col" style="margin-top: 10px; gap: 30px;">
-            
-            
-    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/dimension_entre/about" class="blank-a">About</a></li>
+            </div>
+            <div style="display: flex; flex-flow: column; align-items: start; margin: 0 2em;">
+                
+    <h1 class="basic-subtitle"style="font-size: 1.5em; line-height: 1.3; letter-spacing: 0.5em; border-bottom: 2px solid var(--main-color-3); padding-bottom: 0.2em; margin-bottom: 1em;">INTRO</h1>
 
 
 
-            
-    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/dimension_entre/services" class="blank-a">Services</a></li>
+                
+    <img src="/assets/images/pic01.jpg" style="width: 100%; object-fit: cover; border-radius: 5px;">
 
 
 
-            
-    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/dimension_entre/tips" class="blank-a">Tips</a></li>
+                <div style="margin: 0em 0 1.7em 0"></div>
+                
+    <h1 class="basic-text"style="font-size: 1em;">Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin
+                    aliquam facilisis ante
+                    interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas
+                    mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way,
+                    check
+                    out my awesome work.</h1>
 
 
 
-            
-    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/dimension_entre/contact" class="blank-a">Contact</a></li>
+                <div style="margin: 1.5em 0 0 0"></div>
+                
+    <h1 class="basic-text"style="font-size: 1em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                    dapibus
+                    rutrum facilisis.
+                    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                    Etiam
+                    tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc
+                    ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non,
+                    bibendum
+                    vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque
+                    habitant
+                    morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet
+                    elit
+                    placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</h1>
+
+
+
+                <div style="margin: 1.5em 0 0 0"></div>
+
+                
+    <h1 class="basic-text"style="font-size: 1em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                    dapibus
+                    rutrum facilisis.
+                    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                    Etiam
+                    tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc
+                    ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non,
+                    bibendum
+                    vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque
+                    habitant
+                    morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet
+                    elit
+                    placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</h1>
+
+
+\<div style="margin: 1.5em 0 0 0"></div>
+
+                
+    <h1 class="basic-text"style="font-size: 1em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                    dapibus
+                    rutrum facilisis.
+                    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                    Etiam
+                    tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc
+                    ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non,
+                    bibendum
+                    vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque
+                    habitant
+                    morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet
+                    elit
+                    placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</h1>
+
+
+
+            </div>
+        
+    </section>
 
 
 
         
-        </ul>
+
+    <section class="page no-show"id="work">
+        
+            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                
+    <h1 class="basic-subtitle"style="line-height: 1.3; letter-spacing: 0.5em;"></h1>
+
+
+
+                
+    <div class="dimension-x"id="close">
+        <div class="dimension-x-line" style="transform: rotate(45deg) translateY(0.5px);">
+        </div>
+        <div class="dimension-x-line" style="transform: rotate(-45deg) translateY(-0.5px);">
+        </div>
+    </div>
+
+
+
+            </div>
+            <div style="display: flex; flex-flow: column; align-items: start; margin: 0 2em;">
+                
+    <h1 class="basic-subtitle"style="font-size: 1.5em; line-height: 1.3; letter-spacing: 0.5em; border-bottom: 2px solid var(--main-color-3); padding-bottom: 0.2em; margin-bottom: 1em;">WORK</h1>
+
+
+
+                
+    <img src="/assets/images/pic01.jpg" style="width: 100%; object-fit: cover; border-radius: 5px;">
+
+
+
+                <div style="margin: 0em 0 1.7em 0"></div>
+                
+    <h1 class="basic-text"style="font-size: 1em;">Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin
+                    aliquam facilisis ante
+                    interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas
+                    mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way,
+                    check
+                    out my awesome work.</h1>
+
+
+
+
+            </div>
+        
+    </section>
+
+
+
+        
+
+    <section class="page no-show"id="about">
+        
+            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                
+    <h1 class="basic-subtitle"style="line-height: 1.3; letter-spacing: 0.5em;"></h1>
+
+
+
+                
+    <div class="dimension-x"id="close">
+        <div class="dimension-x-line" style="transform: rotate(45deg) translateY(0.5px);">
+        </div>
+        <div class="dimension-x-line" style="transform: rotate(-45deg) translateY(-0.5px);">
+        </div>
+    </div>
+
+
+
+            </div>
+            <div style="display: flex; flex-flow: column; align-items: start; margin: 0 2em;">
+                
+    <h1 class="basic-subtitle"style="font-size: 1.5em; line-height: 1.3; letter-spacing: 0.5em; border-bottom: 2px solid var(--main-color-3); padding-bottom: 0.2em; margin-bottom: 1em;">ABOUT</h1>
+
+
+
+                <div style="margin: 0em 0 1.7em 0"></div>
+                
+    <h1 class="basic-text"style="font-size: 1em;">Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin
+                    aliquam facilisis ante
+                    interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas
+                    mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way,
+                    check
+                    out my awesome work.</h1>
+
+
+
+
+            </div>
+        
+    </section>
+
+
+
+        
+
+    <section class="page no-show"id="contact">
+        
+            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                
+    <h1 class="basic-subtitle"style="line-height: 1.3; letter-spacing: 0.5em;"></h1>
+
+
+
+                
+    <div class="dimension-x"id="close">
+        <div class="dimension-x-line" style="transform: rotate(45deg) translateY(0.5px);">
+        </div>
+        <div class="dimension-x-line" style="transform: rotate(-45deg) translateY(-0.5px);">
+        </div>
+    </div>
+
+
+
+            </div>
+            <div style="display: flex; flex-flow: column; align-items: start; margin: 0 2em;">
+
+                
+    <h1 class="basic-subtitle"style="font-size: 1.5em; line-height: 1.3; letter-spacing: 0.5em; border-bottom: 2px solid var(--main-color-3); padding-bottom: 0.2em; margin-bottom: 1em;">CONTACT</h1>
+
+
+
+                <div style="margin: 0em 0 1em 0"></div>
+                <form>
+                    <div style="display: flex; gap: 0.5em;">
+                        
+    <label class="dimension-input-label" {{data}}=""name="name">
+        NAME
+        <input class="dimension-input" id="name" type="text" style="width: 20em;">
+
+    </label>
+
+
+
+
+
+                        
+    <label class="dimension-input-label" {{data}}=""name="email">
+        EMAIL
+        <input class="dimension-input" id="email" type="text" style="width: 20em;">
+
+    </label>
+
+
+
+
+
+                    </div>
+                    <div style="margin: 1em 0 0 0;"></div>
+                    
+    <label class="dimension-input-label"name="message">
+        MESSAGE
+        <textarea class="dimension-input" id="message" type="text" style="width: 40.5em; height: 10em;"></textarea>
+
+    </label>
+
+
+
+                    <div style="margin: 1em 0 0 0;"></div>
+                    <div style="display: flex; gap: 0.5em;">
+                        
+    <button class="dimension-btn" style="background: var(--main-color-3); color: var(--main-color-1);">SEND MESSAGE</button>
+
+
+
+                        
+    <button class="dimension-btn"id="reset_btn">RESET</button>
+
+
+
+                    </div>
+                </form>
+                <div style="margin: 1em 0 0 0;"></div>
+                
     
-</nav>
-<script>
-    const menu = document.getElementById('basic_hamburger_menu')
-    let show_menu = false
-    const menu_placement = 35
-    menu.style.transform = `translateX(-${menu_placement}px)`
-    const change_menu = (event) => {
-        event.stopPropagation()
-        show_menu = !show_menu
-        const nav = document.getElementById('basic_side_nav')
-        nav.style.transform = show_menu ? 'translateX(0)' : 'translateX(100%)'
-        menu.style.transition = show_menu ? 'all .3s ease-out' : 'all 0.3s ease-out'
-        menu.style.transform = show_menu ? `translateX(${nav.offsetWidth - menu_placement}px)` : `translateX(-${menu_placement}px)`
-        Array.from(menu.children).forEach((line, index) => {
-            function rotate(deg, translate_x, translate_y) {
-                line.style.transform = `rotate(${deg}deg) translateX(${translate_x}px) translateY(${translate_y}px)`
-            }
-            if (index === 0) {
-                show_menu ? rotate(45, 3.5, 3.5) : rotate(0, 0, 0)
-            } else if (index === 2) {
-                show_menu ? rotate(-45, 3.5, -3.5) : rotate(0, 0, 0)
-            } else {
-                line.style.opacity = show_menu ? 0 : 1
-            }
-        })
-    }
-    document.body.addEventListener('click', (event) => {
-        if (event.target.id === 'basic_side_nav') {
-            return
+    <a href="http://localhost:5500/designs/dimension_entre" class="blank-a">
+        
+    <div class="basic-circle-wrapper"style="width: 1em; ">
+        <div class="basic-circle">
+            
+                    
+    <svg viewBox="0 0 20 21" xmlns="http://www.w3.org/2000/svg"fill="white" width="0.5em">
+        <path d="M10 0.894775C12.717 0.894775 13.056 0.904775 14.122 0.954775C15.187 1.00478 15.912 1.17178 16.55 1.41978C17.21 1.67378 17.766 2.01778 18.322 2.57278C18.8305 3.07267 19.224 3.67736 19.475 4.34478C19.722 4.98178 19.89 5.70778 19.94 6.77278C19.987 7.83878 20 8.17778 20 10.8948C20 13.6118 19.99 13.9508 19.94 15.0168C19.89 16.0818 19.722 16.8068 19.475 17.4448C19.2247 18.1126 18.8311 18.7174 18.322 19.2168C17.822 19.7251 17.2173 20.1185 16.55 20.3698C15.913 20.6168 15.187 20.7848 14.122 20.8348C13.056 20.8818 12.717 20.8948 10 20.8948C7.283 20.8948 6.944 20.8848 5.878 20.8348C4.813 20.7848 4.088 20.6168 3.45 20.3698C2.78233 20.1192 2.17753 19.7257 1.678 19.2168C1.16941 18.717 0.775931 18.1122 0.525 17.4448C0.277 16.8078 0.11 16.0818 0.0599999 15.0168C0.0129999 13.9508 0 13.6118 0 10.8948C0 8.17778 0.00999994 7.83878 0.0599999 6.77278C0.11 5.70678 0.277 4.98278 0.525 4.34478C0.775236 3.67695 1.1688 3.0721 1.678 2.57278C2.17767 2.06401 2.78243 1.6705 3.45 1.41978C4.088 1.17178 4.812 1.00478 5.878 0.954775C6.944 0.907775 7.283 0.894775 10 0.894775ZM10 5.89478C8.67392 5.89478 7.40215 6.42156 6.46447 7.35924C5.52678 8.29692 5 9.56869 5 10.8948C5 12.2209 5.52678 13.4926 6.46447 14.4303C7.40215 15.368 8.67392 15.8948 10 15.8948C11.3261 15.8948 12.5979 15.368 13.5355 14.4303C14.4732 13.4926 15 12.2209 15 10.8948C15 9.56869 14.4732 8.29692 13.5355 7.35924C12.5979 6.42156 11.3261 5.89478 10 5.89478ZM16.5 5.64478C16.5 5.31325 16.3683 4.99531 16.1339 4.76089C15.8995 4.52647 15.5815 4.39478 15.25 4.39478C14.9185 4.39478 14.6005 4.52647 14.3661 4.76089C14.1317 4.99531 14 5.31325 14 5.64478C14 5.9763 14.1317 6.29424 14.3661 6.52866C14.6005 6.76308 14.9185 6.89478 15.25 6.89478C15.5815 6.89478 15.8995 6.76308 16.1339 6.52866C16.3683 6.29424 16.5 5.9763 16.5 5.64478ZM10 7.89478C10.7956 7.89478 11.5587 8.21085 12.1213 8.77345C12.6839 9.33606 13 10.0991 13 10.8948C13 11.6904 12.6839 12.4535 12.1213 13.0161C11.5587 13.5787 10.7956 13.8948 10 13.8948C9.20435 13.8948 8.44129 13.5787 7.87868 13.0161C7.31607 12.4535 7 11.6904 7 10.8948C7 10.0991 7.31607 9.33606 7.87868 8.77345C8.44129 8.21085 9.20435 7.89478 10 7.89478Z" fill="inherit"></path>
+    </svg>
+
+
+
+
+                
+        </div>
+        <label></label>
+    </div>
+
+
+
+    </a>
+
+
+
+
+
+
+            </div>
+        
+    </section>
+
+
+
+        <div class="wrapper" id="home">
+            
+    <div class="basic-circle-wrapper"style="width: 6em; color: white;">
+        <div class="basic-circle">
+                
+    <!--?xml version="1.0" encoding="utf-8"?-->
+    <!-- License: PD. Made by Khushmeen Sidhu: https://khushmeen.com/icons.html -->
+    <svg width="40px" height="40px" fill="white" viewBox="0 -13.5 182 182" fill="inherit" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0)">
+            <path d="M5.30816 58.8157C6.47402 60.2708 7.67953 61.7733 8.77311 63.2892C25.0966 85.9274 43.2854 108.058 60.8743 129.458C66.7386 136.593 72.8023 143.97 78.7068 151.256C80.5944 153.586 82.3572 154.754 84.2623 154.932C84.4342 154.948 84.6068 154.956 84.7794 154.956C86.4906 154.956 88.296 154.171 90.4072 152.518C94.0644 149.553 97.4091 146.333 100.406 142.893C124.457 116.114 147.801 89.965 167.464 67.9158C169.654 65.4598 171.799 62.9177 173.875 60.4599C175.765 58.2203 177.72 55.9049 179.698 53.6666C181.968 51.0968 182.075 48.5331 180.016 46.0462C178.816 44.6062 177.528 43.2181 176.159 41.8871C173.024 38.82 169.881 35.7595 166.728 32.7055C163.534 29.6034 160.345 26.498 157.162 23.3896C155.854 22.1091 154.551 20.7837 153.29 19.5019C151.797 17.9836 150.253 16.4121 148.682 14.8982C143.778 10.1704 139.676 6.31564 135.774 2.76519C134.77 1.90578 133.494 1.29955 132.095 1.01643C130.381 0.70995 128.629 0.573705 126.877 0.610366C120.253 0.584428 113.629 0.589456 108.08 0.591987H103.178H103.142L88.7523 1.1556C75.702 1.66678 63.3748 2.15091 51.1832 2.5925C48.3267 2.69626 45.1904 3.079 44.1325 6.33655C44.007 6.54824 43.8356 6.73873 43.6263 6.89828C43.5434 6.97167 43.4618 7.04563 43.3857 7.11838C42.0736 8.36806 40.7645 9.6197 39.4585 10.8732C36.218 13.977 32.8666 17.1864 29.5143 20.2997C20.4854 28.7175 12.084 37.5871 4.35753 46.8586C3.20014 48.3526 2.29517 49.972 1.66828 51.6711C1.49197 52.1559 1.43347 52.6649 1.49561 53.1688C1.55776 53.6726 1.73937 54.1611 2.03034 54.606C3.0806 56.0376 4.21304 57.4504 5.30816 58.8157ZM162.107 57.0265C162.075 57.067 162.042 57.1069 162.01 57.1467C161.412 57.887 160.896 58.5273 160.323 59.1435C158.016 61.6273 155.696 64.1028 153.362 66.5701C148.865 71.3466 144.214 76.2864 139.786 81.2394C129.385 92.8746 118.895 104.756 108.751 116.247C104.518 121.043 100.282 125.837 96.0448 130.629C95.8699 130.828 95.6965 131.024 95.5216 131.215C96.0539 129.905 96.6076 128.563 97.1757 127.252C100.015 120.702 102.854 114.154 105.693 107.607C112.151 92.7139 118.599 77.8181 125.036 62.9191C125.58 61.5635 126.025 60.1815 126.368 58.781C126.52 58.2166 126.679 57.6338 126.856 57.0265H162.107ZM114.552 57.0101L84.1452 129.693C81.707 121.317 78.9737 112.943 76.3173 104.823C71.3208 89.5361 66.1577 73.7368 62.9119 57.67L114.552 57.0101ZM98.0799 9.65159C103.39 9.48647 108.745 9.49653 113.939 9.50412C119.147 9.51298 124.532 9.5219 129.862 9.35614L163.671 47.0971L124.237 47.7708L123.742 47.7796L98.0799 9.65159ZM64.1095 48.4965C71.2582 36.2603 80.3426 25.9039 90.5897 14.7325L109.136 47.6589L64.1095 48.4965ZM49.7687 57.9419C53.8465 74.7193 59.4963 91.336 64.9613 107.41C66.5492 112.079 68.1804 116.877 69.7653 121.656C58.0345 108.556 47.2727 94.677 36.8431 81.2262C30.9112 73.5742 24.7832 65.6717 18.5349 57.9863C23.9246 57.4688 42.5279 57.4156 49.7687 57.9413V57.9419ZM72.6228 10.2102C75.0422 10.1899 77.4611 10.171 79.8795 10.1533C80.1077 10.1501 80.3259 10.1616 80.6119 10.1787C70.783 21.1552 59.8963 34.0144 52.762 48.6894H13.908C14.1413 48.3595 14.4037 48.0446 14.6934 47.7474C24.0058 38.5442 31.8474 30.8087 39.8494 22.9689C41.9028 20.9539 44.0283 18.9231 46.0794 16.9587C48.0005 15.121 49.9144 13.2777 51.8207 11.4286C52.1259 11.0709 52.5327 10.7818 53.005 10.5867C53.4772 10.3917 54.0004 10.2968 54.5274 10.3108C60.5605 10.3114 66.6924 10.2582 72.6228 10.2095V10.2102Z"></path>
+        </g>
+        <defs>
+            <clipPath id="clip0">
+                <rect width="181" height="155" fill="white" transform="translate(0.777344)"></rect>
+            </clipPath>
+        </defs>
+    </svg>
+
+
+
+            </div>
+        <label></label>
+    </div>
+
+
+
+            
+    <div class="basic-v-line"></div>
+
+
+
+            
+    <div class="dimension-card">
+        
+                
+    <h1 class="basic-subtitle"style="line-height: 1.3; letter-spacing: 0.5em;">DIMENSION
+                    
+    <h1 class="basic-text"style="text-transform: uppercase; text-align: center;">A fully responsive site template
+                        designed by SOFTAIR.</h1>
+
+
+
+            </h1>
+
+
+
+    </div>
+
+
+
+            
+    <div class="basic-v-line"></div>
+
+
+
+
+            
+    <div class="dimension-nav">
+                
+    <a class="dimension-link"href="http://localhost:5500/designs/dimension_entre/intro">Intro</a>
+
+
+
+
+                
+    <a class="dimension-link"href="http://localhost:5500/designs/dimension_entre/work">Work</a>
+
+
+
+
+                
+    <a class="dimension-link"href="http://localhost:5500/designs/dimension_entre/about">About</a>
+
+
+
+
+                
+    <a class="dimension-link"href="http://localhost:5500/designs/dimension_entre/contact">Contact</a>
+
+
+
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+    <script>
+        const home = document.getElementById('home')
+        const go_home = () => {
+            home.classList.remove('no-show')
+            const pages = Array.from(document.querySelectorAll('.page'))
+            pages.forEach(item => {
+                item.classList.add('no-show')
+            })
+            const locations = location.href.replace(window.origin, '').split('/').filter(item => item)
+            const loc = locations.pop()
+            const new_location = locations.join('/')
+            setTimeout(() => {
+                location.href = `/${new_location}`
+            }, 100)
+
         }
-        show_menu = false
+        const get_page = () => {
+            const locations = location.href.split('/')
+            const page_target = locations[locations?.length - 1] || locations[locations?.length - 2]
+            const page = document.getElementById(page_target)
+            return page
+        }
+
+        const go_page = () => {
+            if (get_page()) {
+                home.classList.add('no-show')
+                get_page().classList.remove('no-show')
+            }
+        }
+
+        document.querySelectorAll('#close').forEach(item => {
+            item.addEventListener('click', (event) => {
+                go_home()
+            })
+        })
+
+        const handle_nav = () => {
+            setTimeout(() => {
+                go_page()
+            }, 100)
+        }
 
         console.log('hello')
-        const nav = document.getElementById('basic_side_nav')
-        nav.style.transform = show_menu ? 'translateX(0)' : 'translateX(100%)'
-        menu.style.transform = show_menu ? 'translateX(0)' : `translateX(-${menu_placement}px)`
-        Array.from(menu.children).forEach((line, index) => {
-            function rotate(deg, translate_y, translate_x) {
-                line.style.transform = `rotate(${deg}deg) translateY(${translate_y}px) translateX(${translate_x}px)`
-            }
-            if (index === 0) {
-                console.log('hello')
-                show_menu ? rotate(45, 3.5, 3.5) : rotate(0, 0, 0)
-            } else if (index === 2) {
-                show_menu ? rotate(-45, -3.5, 3.5) : rotate(0, 0, 0)
-            } else {
-                line.style.opacity = show_menu ? 0 : 1
+        handle_nav()
+
+
+
+
+
+        document.getElementById('wrapper').addEventListener('click', (event) => {
+            if (event.target.classList.contains('wrapper') && home.classList.contains('no-show')) {
+                go_home()
+
             }
         })
-    })
-    menu.addEventListener('click', change_menu)
+        const data = ['name', 'email', 'message']
+        document.getElementById("reset_btn").addEventListener('click', (e) => {
+            e.preventDefault()
+            data.forEach(item => {
+                document.getElementById(item).value = ''
+            })
+        })
+
+    </script>
 
 
-</script>
-
-
-
-
-
-        <div></div>
-    </header>
-
-
-
-</div>      
+     
 </body >
 
 </html > 

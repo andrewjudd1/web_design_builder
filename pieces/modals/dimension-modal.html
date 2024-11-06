@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Basic styles for the modal */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent background */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Styles for the modal content */
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            text-align: center;
+            transform: scale(0.8);
+            /* Initial scale for animation */
+            opacity: 0;
+            /* Start with invisible */
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        /* When modal is active */
+        .modal.show {
+            display: flex;
+            /* Shows the modal */
+        }
+
+        .modal.show .modal-content {
+            opacity: 1;
+            /* Fades in */
+            transform: scale(1);
+            /* Grows to full size */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p>This is a modal.</p>
+            <button onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <button onclick="openModal()">Open Modal</button>
+
+    <script>
+        function openModal() {
+            const modal = document.getElementById("modal");
+            modal.classList.add("show");
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("modal");
+            modal.classList.remove("show");
+        }
+    </script>
+</body>
+
+</html>
