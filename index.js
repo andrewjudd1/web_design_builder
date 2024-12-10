@@ -77,9 +77,9 @@ const design_builder = () => {
         const template_name = args[2]
         const template = await utils.template.get_template(template_name)
         const id = utils.helper.get_uuid()
-        const name = args?.[3] || process?.env?.design ? `${template_name}_${args?.[3] || process.env.design}` : `${template_name}_${utils.helper.get_shorter(id)}`
+        const name = args?.[3] ? `${template_name}_${args?.[3]}` : `${template_name}_${utils.helper.get_shorter(id)}`
         const data = {}
-        data.business = args?.[3] ? business_data?.[name] || {} : {}
+        data.business = args?.[3] ? business_data?.[name] : {}
         console.log('data', data)
         const dir = `designs/${name}`
         await fs.mkdir(dir).catch(err => null)

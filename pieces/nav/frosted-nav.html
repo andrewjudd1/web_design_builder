@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .glass-nav ul {
+            display: flex;
+            gap: 1.5em;
+        }
+
+        .glass-nav ul li a {
+            text-align: center;
+            text-decoration: none;
+            color: var(--main-color-1);
+            transition-duration: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            border-width: 0%;
+        }
+
+        .glass-nav ul li a:hover {
+            padding-bottom: 1em;
+            border-width: 100%;
+            border-bottom: .2em solid var(--main-color-3);
+            color: var(--main-color-2);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="glass-nav">
+        <ul style="list-style-type: none;">
+            {{children}}
+        </ul>
+    </nav>
+</body>
+
+</html>

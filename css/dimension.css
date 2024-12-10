@@ -64,6 +64,24 @@ body {
   width: 100%;
 }
 
+.wrapper-photo {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("https://airbucket-01.s3.us-east-1.amazonaws.com/website/mountain_snow_20j8WQ.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: darken;
+    background-size: cover; /* Cover the whole container */
+    background-position: center;
+}
+
 a {
   color: inherit;
   text-decoration: inherit;
@@ -128,4 +146,11 @@ a {
 
 .blank-li {
 
+}
+
+.image-setup {
+  width: 100%; 
+  object-fit: cover; 
+  border-radius: 5px;
+  max-height: 20em;
 }

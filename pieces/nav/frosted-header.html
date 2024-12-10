@@ -1,0 +1,134 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header {
+            width: 100%;
+            padding: 2em;
+            z-index: 2;
+            --thickness: 4px;
+            position: sticky;
+            top: 0;
+            /*
+            Very opaque, for unsupported browsers.
+            Overwritten in the feature queries below.
+          */
+            background: hsl(0deg 0% 100% / 0.95);
+        }
+
+        /*
+          This code gets applied for folks using
+          browsers that support backdrop-filter.
+        */
+        header {
+            background: hsl(0deg 0% 100% / 0.5);
+        }
+
+        .backdrop {
+            position: absolute;
+            inset: 0;
+            /*
+              These prefixed properties are usually
+              added automatically by tooling:
+            */
+            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(16px);
+            background: linear-gradient(to bottom,
+                    hsl(0deg 0% 95%),
+                    transparent 50%);
+            pointer-events: none;
+        }
+
+        .backdrop-edge {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: var(--thickness);
+            background: hsl(0deg 0% 100% / 0.1);
+            -webkit-backdrop-filter: blur(12px) brightness(0.96);
+            backdrop-filter: blur(12px) brightness(0.96);
+            transform: translateY(100%);
+            pointer-events: none;
+        }
+
+
+        /*
+          This code gets applied for folks using
+          browsers that support mask-image. This
+          adds the "consider near elements"
+          optimization discussed in this article.
+        */
+        .backdrop {
+            height: 200%;
+            -webkit-mask-image: linear-gradient(to bottom,
+                    black 0% 50%,
+                    transparent 50% 100%);
+            mask-image: linear-gradient(to bottom,
+                    black 0% 50%,
+                    transparent 50% 100%);
+        }
+
+        .backdrop-edge {
+            height: 100%;
+            inset: 0;
+            -webkit-mask-image: linear-gradient(to bottom,
+                    black 0,
+                    black var(--thickness),
+                    transparent var(--thickness));
+            mask-image: linear-gradient(to bottom,
+                    black 0,
+                    black var(--thickness),
+                    transparent var(--thickness));
+        }
+
+        .header-container {
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            z-index: 1000;
+            justify-content: space-between;
+            padding: 0 20em;
+        }
+
+        .logo-container {
+            padding: 1em;
+            display: flex;
+            align-items: center;
+
+            gap: .5em;
+        }
+
+        .logo-text {
+            max-width: 10em;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            color: var(--main-color-1)
+        }
+
+        .logo {
+            display: flex;
+            max-width: 2em;
+            max-height: 2em;
+        }
+    </style>
+</head>
+
+
+<header>
+    <div class="header-container">
+        {{children}}
+    </div>
+    <div class="backdrop-edge"></div>
+    <div class="backdrop">
+    </div>
+</header>
+
+</html>

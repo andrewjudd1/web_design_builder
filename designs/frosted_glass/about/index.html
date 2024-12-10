@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frosted about</title>
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+
+:root {
+--main-color-1: hsl(228deg, 7%, 15%);
+--main-color-2: hsl(189deg, 7%, 60%);
+--main-color-3: hsl(187deg 41% 85%);
+--main-color-3-lighter: hsl(194deg 42% 92% / 0.5);
+--main-color-3-light: hsl(194deg 42% 92%);
+--text-color-2: hsl(15deg 38% 4%);
+--text-size-1: 1em;
+--text-size-2: 2em;
+}
+
+* {
+box-sizing: border-box;
+font-family: 'Open Sans', sans-serif;
+font-optical-sizing: auto;
+font-style: normal;
+}
+
+body {
+display: flex;
+flex-direction: column;
+gap: 4px;
+align-items: center;
+background: var(--main-color-3-light);
+margin: 0;
+padding: 0;
+height: 150vh;
+}
+
+.ball {
+width: 64px;
+height: 64px;
+background: red;
+border-radius: 50%;
+margin-top: 2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+font-size: 2em;
+font-family: 'Lora', serif;
+font-optical-sizing: auto;
+font-style: normal;
+font-weight: normal;
+margin: 0;
+padding: 0;
+}
+
+a {
+font-size: 1em;
+font-family: 'Lora', serif;
+font-optical-sizing: auto;
+font-style: normal;
+font-weight: normal;
+text-decoration: none;
+}
+
+
+
+header {
+width: 100%;
+padding: 2em;
+z-index: 2;
+--thickness: 4px;
+position: sticky;
+top: 0;
+}
+
+
+/*
+          This code gets applied for folks using
+          browsers that support backdrop-filter.
+        */
+        header {
+background: hsl(0deg 0% 100% / 0.5);
+}
+
+.backdrop {
+position: absolute;
+inset: 0;
+backdrop-filter: blur(16px);
+background: linear-gradient(to bottom,
+                    hsl(0deg 0% 95%),
+                    transparent 50%);
+pointer-events: none;
+}
+
+
+.backdrop-edge {
+position: absolute;
+left: 0;
+right: 0;
+bottom: 0;
+height: 100%;
+background: hsl(0deg 0% 100% / 0.1);
+-webkit-backdrop-filter: blur(12px) brightness(0.96);
+backdrop-filter: blur(12px) brightness(0.96);
+transform: translateY(100%);
+pointer-events: none;
+inset: 0;
+-webkit-mask-image: linear-gradient(to bottom,
+                    black 0,
+                    black var(--thickness),
+                    transparent var(--thickness));
+mask-image: linear-gradient(to bottom,
+                    black 0,
+                    black var(--thickness),
+                    transparent var(--thickness));
+}
+
+/*
+          This code gets applied for folks using
+          browsers that support mask-image. This
+          adds the "consider near elements"
+          optimization discussed in this article.
+        */
+        .backdrop {
+height: 200%;
+-webkit-mask-image: linear-gradient(to bottom,
+                    black 0% 50%,
+                    transparent 50% 100%);
+mask-image: linear-gradient(to bottom,
+                    black 0% 50%,
+                    transparent 50% 100%);
+}
+
+.header-container {
+top: 0;
+left: 0;
+height: 100%;
+width: 100%;
+display: flex;
+align-items: center;
+position: absolute;
+z-index: 1000;
+justify-content: space-between;
+padding: 0 20em;
+}
+
+.logo-container {
+padding: 1em;
+display: flex;
+align-items: center;
+gap: .5em;
+}
+
+.logo-text {
+max-width: 10em;
+letter-spacing: .3em;
+text-transform: uppercase;
+color: var(--main-color-1);
+}
+
+.logo {
+display: flex;
+max-width: 2em;
+max-height: 2em;
+}
+
+.glass-nav ul {
+display: flex;
+gap: 1.5em;
+}
+
+.glass-nav ul li a {
+text-align: center;
+text-decoration: none;
+color: var(--main-color-1);
+transition-duration: 0.3s;
+text-transform: uppercase;
+letter-spacing: 0.3em;
+border-width: 0%;
+}
+
+.glass-nav ul li a:hover {
+padding-bottom: 1em;
+border-width: 100%;
+border-bottom: .2em solid var(--main-color-3);
+color: var(--main-color-2);
+}
+
+.backdrop-image {
+width: 100%;
+height: calc(100% - 2em);
+object-position: bottom;
+object-fit: cover;
+}
+</style>
+<body>
+    
+    <header>
+    <div class="header-container">
+        
+        <a href="http://localhost:5500/designs/frosted_glass/">
+            <div class="logo-container"><img class="logo" src="/assets/images/window_logo.png"><span class="logo-text">Windows &amp;
+                    Doors</span></div>
+        </a>
+        
+    <nav class="glass-nav">
+        <ul style="list-style-type: none;">
+            
+            <li><a href="about">About</a></li>
+            <li><a href="services">Services</a></li>
+        
+        </ul>
+    </nav>
+
+
+
+    
+    </div>
+    <div class="backdrop-edge"></div>
+    <div class="backdrop">
+    </div>
+</header>
+
+
+    <img class="backdrop-image" src="/assets/images/glass/glass-door-home.jpg" alt="glass home">
+
+    
+
+
+     
+</body >
+
+</html > 

@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is the tips template</title>
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+
+:root {
+--main-color-1: hsl(10deg 22% 32%);
+--main-color-2: hsl(28deg 17% 11%);
+--main-color-3: hsl(15deg 38% 96%);
+--main-color-3-lighter: hsl(15deg 38% 86%);
+--text-color-2: hsl(15deg 38% 4%);
+--text-size-1: 1em;
+--text-size-2: 2em;
+}
+
+* {
+box-sizing: border-box;
+font-family: "Open Sans", sans-serif;
+font-optical-sizing: auto;
+font-style: normal;
+}
+
+html, body {
+height: 100%;
+font-size: 16px;
+line-height: 1.6;
+margin: 0;
+padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-size: 2em;
+font-family: "Lora", serif;
+font-optical-sizing: auto;
+font-style: normal;
+font-weight: normal;
+margin: 0;
+padding: 0;
+}
+
+a {
+font-size: 2em;
+font-family: "Lora", serif;
+font-optical-sizing: auto;
+font-style: normal;
+font-weight: normal;
+color: inherit;
+text-decoration: inherit;
+cursor: inherit;
+}
+
+body {
+background-color: var(--main-color-1);
+color: var(--main-color-3);
+overflow-x: hidden;
+height: 100%;
+}
+
+.wrapper {
+overflow-x: hidden;
+position: relative;
+height: 100%;
+}
+
+.container {
+display: flex;
+}
+
+.title-container {
+display: flex;
+background: green;
+}
+
+.blank-ul {
+list-style-type: none;
+padding: 0;
+margin: 0;
+}
+
+.blank-a {
+text-decoration: none;
+color: inherit;
+}
+
+
+
+.wrapper {
+overflow-x: hidden;
+position: relative;
+height: 100%;
+}
+
+.blank-a {
+text-decoration: none;
+color: inherit;
+}
+
+
+
+.basic-logo-h1 {
+padding: 0 .3em;
+color: var(--main-color-3);
+cursor: pointer;
+}
+
+.blank-ul {
+list-style-type: none;
+padding: 0;
+margin: 0;
+}
+
+.row-50 {
+display: flex;
+gap: 50px;
+}
+
+.col {
+display: flex;
+flex-direction: column;
+}
+
+.basic-nav {
+display: none;
+}
+
+.basic-nav-side {
+transition: all .3s ease-out;
+position: absolute;
+top: 0;
+right: 0;
+display: flex;
+flex-direction: column;
+min-width: 300px;
+background-color: var(--main-color-2);
+height: 100vh;
+transform: translateX(100%);
+}
+
+.basic-nav-side ul {
+text-transform: uppercase;
+padding: 35px 0 0 35px;
+font-size: 20px;
+font-weight: bold;
+}
+
+.basic-link {
+cursor: pointer;
+color: var(--main-color-3);
+font-size: 0.6em;
+}
+
+.basic-link:hover {
+color: var(--main-color-3-lighter);
+text-decoration: underline;
+}
+
+.basic-hamburger {
+position: absolute;
+top: 0;
+right: -35;
+margin: 18px 10px 0 0;
+}
+
+.basic-header {
+position: sticky;
+top: 0;
+background: var(--main-color-1);
+display: flex;
+align-items: baseline;
+justify-content: space-between;
+}
+
+.basic-container {
+display: flex;
+flex-flow: column;
+height: 100%;
+}
+
+.basic-subtitle {
+font-size: 1.5em;
+font-weight: normal;
+}
+
+
+@media screen and (min-width: 700px) {
+
+.basic-nav {
+display: flex;
+align-items: center;
+justify-content: space-between;
+background-color: var(--main-color-1);
+}
+.basic-nav-side {
+display: none;
+}
+}
+</style>
+<body>
+    
+        <div class="wrapper">
+            
+    <header class="basic-header">
+        
+    <a class="blank-a basic-logo-h1" href="http://127.0.0.1:5500/designs/dimension_entre/">
+        Rooted Wellness
+    </a>
+
+
+
+        
+    <nav class="basic-nav">
+        <ul class="blank-ul row-50">
+            
+            
+    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/dimension_entre/about" class="blank-a">About</a></li>
+
+
+
+            
+    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/dimension_entre/services" class="blank-a">Services</a></li>
+
+
+
+            
+    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/dimension_entre/tips" class="blank-a">Tips</a></li>
+
+
+
+            
+    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/dimension_entre/contact" class="blank-a">Contact</a></li>
+
+
+
+        
+        </ul>
+    </nav>
+    
+
+
+<nav id="basic_side_nav" class="basic-nav-side">
+    
+    <div id="basic_hamburger_menu" class="col basic-hamburger" style="gap: 3px;">
+        <div style="transition: transform .3s ease-out; width: 25px; height: 2px; background-color: var(--main-color-3);">
+        </div>
+        <div style="transition: transform .3s ease-out; width: 25px; height: 2px; background-color: var(--main-color-3);">
+        </div>
+        <div style="transition: transform .3s ease-out; width: 25px; height: 2px; background-color: var(--main-color-3);">
+        </div>
+    </div>
+
+
+
+    
+        <ul class="blank-ul col" style="margin-top: 10px; gap: 30px;">
+            
+            
+    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/dimension_entre/about" class="blank-a">About</a></li>
+
+
+
+            
+    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/dimension_entre/services" class="blank-a">Services</a></li>
+
+
+
+            
+    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/dimension_entre/tips" class="blank-a">Tips</a></li>
+
+
+
+            
+    <li class="basic-link"><a href="http://127.0.0.1:5500/designs/dimension_entre/contact" class="blank-a">Contact</a></li>
+
+
+
+        
+        </ul>
+    
+</nav>
+<script>
+    const menu = document.getElementById('basic_hamburger_menu')
+    let show_menu = false
+    const menu_placement = 35
+    menu.style.transform = `translateX(-${menu_placement}px)`
+    const change_menu = (event) => {
+        event.stopPropagation()
+        show_menu = !show_menu
+        const nav = document.getElementById('basic_side_nav')
+        nav.style.transform = show_menu ? 'translateX(0)' : 'translateX(100%)'
+        menu.style.transition = show_menu ? 'all .3s ease-out' : 'all 0.3s ease-out'
+        menu.style.transform = show_menu ? `translateX(${nav.offsetWidth - menu_placement}px)` : `translateX(-${menu_placement}px)`
+        Array.from(menu.children).forEach((line, index) => {
+            function rotate(deg, translate_x, translate_y) {
+                line.style.transform = `rotate(${deg}deg) translateX(${translate_x}px) translateY(${translate_y}px)`
+            }
+            if (index === 0) {
+                show_menu ? rotate(45, 3.5, 3.5) : rotate(0, 0, 0)
+            } else if (index === 2) {
+                show_menu ? rotate(-45, 3.5, -3.5) : rotate(0, 0, 0)
+            } else {
+                line.style.opacity = show_menu ? 0 : 1
+            }
+        })
+    }
+    document.body.addEventListener('click', (event) => {
+        if (event.target.id === 'basic_side_nav') {
+            return
+        }
+        show_menu = false
+
+        console.log('hello')
+        const nav = document.getElementById('basic_side_nav')
+        nav.style.transform = show_menu ? 'translateX(0)' : 'translateX(100%)'
+        menu.style.transform = show_menu ? 'translateX(0)' : `translateX(-${menu_placement}px)`
+        Array.from(menu.children).forEach((line, index) => {
+            function rotate(deg, translate_y, translate_x) {
+                line.style.transform = `rotate(${deg}deg) translateY(${translate_y}px) translateX(${translate_x}px)`
+            }
+            if (index === 0) {
+                console.log('hello')
+                show_menu ? rotate(45, 3.5, 3.5) : rotate(0, 0, 0)
+            } else if (index === 2) {
+                show_menu ? rotate(-45, -3.5, 3.5) : rotate(0, 0, 0)
+            } else {
+                line.style.opacity = show_menu ? 0 : 1
+            }
+        })
+    })
+    menu.addEventListener('click', change_menu)
+
+
+</script>
+
+
+
+
+
+        <div></div>
+    </header>
+
+
+
+    <div style="padding: 0 1em;">
+        
+    <div class="basic-container">
+            
+    <h1 class="basic-subtitle"style="margin: 1em 0 0.5em 0;">Tips</h1>
+
+
+
+            
+    <details>
+        <summary>Tip One</summary>
+        
+                Test Me out
+            
+    </details>
+
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+</div>      
+</body >
+
+</html > 

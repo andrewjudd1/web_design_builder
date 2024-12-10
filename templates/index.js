@@ -1,3 +1,4 @@
 import earth from './earth.js'
 import dimension from './dimension.js'
-export default { earth, dimension }
+import frosted from './frosted.js'
+export default { earth, dimension, frosted }

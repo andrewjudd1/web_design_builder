@@ -1,4 +1,4 @@
-const root_url = 'http://127.0.0.1:5500/designs/earth_rootedwellness'
+const root_url = 'http://localhost:5500/designs/earth_rootedwellness'
 
 const data = {
     name: "Rooted Wellness",

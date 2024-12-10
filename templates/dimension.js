@@ -9,7 +9,7 @@ const pages = ['home', 'intro', 'work', 'about', 'contact'].map(item => {
         css: ['dimension.css'],
         body: {
             elements: [{
-                tag: 'dimension-home',
+                tag: 'dimension-photo',
                 class: 'wrapper',
 
             }]
