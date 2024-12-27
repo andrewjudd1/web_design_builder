@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .logo-container {
+            position: relative;
+            padding: .5em;
+
+        }
+
+        .logo-text {
+            border: 1px solid var(--text-color-1);
+            padding: .1em .5em;
+            border-radius: 0.1em;
+            font-size: 2em;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .logo-x {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(100px);
+            position: absolute;
+            top: -.1em;
+            left: 0em;
+            border-radius: 50%;
+            width: 1.25em;
+            height: 1.25em;
+            fill: var(--text-color-1);
+
+        }
+
+        .logo-repeat {
+            display: flex;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(100px);
+            position: absolute;
+            bottom: -.1em;
+            right: 0em;
+            border-radius: 50%;
+            width: 1em;
+            height: 1em;
+            fill: var(--text-color-1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="logo-container">
+        <span class="logo-x"><svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px"
+                fill="inherit">
+                <path d="M200-312v-336l240 168-240 168Zm320-8v-320h80v320h-80Zm160 0v-320h80v320h-80Z" />
+            </svg></span>
+        <span class="logo-text">data.business.logo.name</span>
+        <span class="logo-repeat"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960"
+                width="40px" fill="inherit">
+                <path
+                    d="M288-96 144-240l144-144 51 51-57 57h414v-156h72v228H282l57 57-51 51Zm-96-432v-228h486l-57-57 51-51 144 144-144 144-51-51 57-57H264v156h-72Z" />
+            </svg></span>
+    </div>
+</body>
+
+</html>

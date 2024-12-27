@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Slab:wght@100..900&display=swap');
 
 :root {
   --main-color-1: hsl(228deg, 7%, 15%);
   --main-color-2: hsl(189deg, 7%, 60%);
   --main-color-3: hsl(187deg 41% 85%);
+  --main-color-3-o: hsla(187deg, 41%, 85%, 0.7);
   --main-color-3-lighter: hsl(194deg 42% 92% / 0.5);
   --main-color-3-light: hsl(194deg 42% 92%);
   --text-color-2: hsl(15deg 38% 4%);
@@ -13,9 +14,10 @@
 
 * {
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto Slab', serif;
   font-optical-sizing: auto;
   font-style: normal;
+  letter-spacing: 0.2em;
 }
 
 body {
@@ -26,7 +28,6 @@ body {
   background: var(--main-color-3-light);
   margin: 0;
   padding: 0;
-  height: 150vh;
 }
 
 .ball {
@@ -44,6 +45,7 @@ h4,
 h5,
 h6 {
   font-size: 2em;
+  letter-spacing: 0.2em;
   font-family: 'Lora', serif;
   font-optical-sizing: auto;
   font-style: normal;
@@ -65,4 +67,32 @@ ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-l {
+  0% {
+    max-width: 0;
+  }
+
+  50% {
+    max-width: 100%;
+  }
+
+  100% {
+    max-width: 100%;
+  }
 }

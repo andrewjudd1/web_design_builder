@@ -34,7 +34,20 @@ function get_template_util() {
             }
         }, {})
 
-        data.final_css = `${cached_css?.imports?.join('\n')}\n${template_utils.deparse_css(keep_css_obj)}\n\n${data?.final_css}`
+        const medias = {}
+        const keyframes = {}
+        const other_css = {}
+        Object.keys(cached_css).forEach(key => {
+            if (key.includes('@media')) {
+                medias[key] = cached_css[key]
+            } else if (key.includes('@keyframes')) {
+                keyframes[key] = cached_css[key]
+            } else {
+                other_css[key] = cached_css[key]
+            }
+        })
+
+        data.final_css = `${cached_css?.imports?.join('\n')}\n${template_utils.deparse_css({ ...other_css })}\n\n${template_utils.deparse_css({ ...data?.other_css, ...keyframes, ...data.keyframes, ...medias, ...data.medias })}`
         const html = `
 <!DOCTYPE html>
 <html lang="en">

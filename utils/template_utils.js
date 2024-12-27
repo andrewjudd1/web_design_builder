@@ -103,6 +103,8 @@ function get_template_utils() {
         const css = { ...last_css_obj }; // Clone to avoid mutations
 
         const mediaQueryRegex = /@media[^{]+\{([\s\S]+?})\s*}/g; // Match media queries
+        const keyframesQueryRegex = /@keyframes[^{]+\{([\s\S]+?})\s*}/g; // Match media queries
+
         const cssBlockRegex = /([^{]+)\{([^}]+)\}/g; // Match standard CSS blocks
         const css_imports = css_text.match(/@import\s+url\(['"]?.*?['"]?\);/g, '') || [];
         css.imports = [...css_imports, ...(css.imports || [])];
@@ -111,7 +113,7 @@ function get_template_utils() {
         let mediaMatch;
         let regularCSS = css_text; // We'll process media queries separately
         const mediaQueries = [];
-
+        const keyframeQueries = [];
         // Process media queries
         while ((mediaMatch = mediaQueryRegex.exec(css_text)) !== null) {
             const mediaQuery = mediaMatch[0];
@@ -119,6 +121,14 @@ function get_template_utils() {
             const mediaSelector = mediaQuery.split('{')[0].trim();
             mediaQueries.push([mediaSelector, parse_css(mediaRules)]); // Recursively parse the rules inside the media query
             regularCSS = regularCSS.replace(mediaQuery, '');
+        }
+
+        while ((mediaMatch = keyframesQueryRegex.exec(css_text)) !== null) {
+            const keyframeQuery = mediaMatch[0];
+            const keyframeRules = mediaMatch[1];
+            const keyframeSelector = keyframeQuery.split('{')[0].trim();
+            keyframeQueries.push([keyframeSelector, parse_css(keyframeRules)]); // Recursively parse the rules inside the keyframe query
+            regularCSS = regularCSS.replace(keyframeQuery, '');
         }
 
         // Process regular CSS blocks
@@ -150,6 +160,11 @@ function get_template_utils() {
         // Append media queries back to maintain order
         mediaQueries.forEach(([mediaSelector, mediaRules]) => {
             css[mediaSelector] = mediaRules;
+        });
+
+        // Append media queries back to maintain order
+        keyframeQueries.forEach(([keyframeSelector, keyframeRules]) => {
+            css[keyframeSelector] = keyframeRules;
         });
 
         return css;
@@ -191,7 +206,7 @@ function get_template_utils() {
         };
 
         Object.entries(css_obj || {}).forEach(([key, value]) => {
-            if (key.startsWith('@media')) {
+            if (key.startsWith('@')) {
                 css_text += `${key} {\n`;
 
                 Object.entries(value).forEach(([innerKey, innerValue]) => {
@@ -363,16 +378,18 @@ function get_template_utils() {
         }
         )?.join('')
         const medias = {}
+        const keyframes = {}
         const other_css = {}
         Object.keys(cached_used_css).forEach(key => {
             if (key.includes('@media')) {
                 medias[key] = cached_used_css[key]
+            } else if (key.includes('@keyframes')) {
+                keyframes[key] = cached_used_css[key]
             } else {
                 other_css[key] = cached_used_css[key]
-
             }
         })
-        return { final_html, final_css: deparse_css({ ...other_css, ...medias }), final_scripts: cached_scripts }
+        return { final_html, other_css, medias, keyframes, final_css: deparse_css({ ...other_css, ...medias, ...keyframes }), final_scripts: cached_scripts }
 
 
     }

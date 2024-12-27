@@ -1,0 +1,460 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frosted contact</title>
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+imports {
+0: @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');;
+1: @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');;
+}
+
+:root {
+--main-color-1: hsl(207deg 13% 35%);
+--main-color-1-light: hsl(207deg 13% 35% / 0.5);
+--main-color-2: hsl(199deg 13% 52%);
+--main-color-3: hsl(30deg 9% 72%);
+--main-color-4: hsl(204deg 28% 77%);
+--main-color-5: hsl(30deg 0% 94%);
+--main-color-3-o: hsla(187deg, 41%, 85%, 0.7);
+--main-color-3-lighter: hsl(30deg 9% 72% / 0.5);
+--main-color-3-light: hsl(30deg 9% 72%);
+--text-color-1: hsl(30deg 0% 94%);
+--text-color-2: hsl(207deg 13% 35%);
+--text-size-1: 1em;
+--text-size-2: 2em;
+--large-mobile: 39em;
+--small-mobile: 28em;
+}
+
+* {
+box-sizing: border-box;
+font-family: 'Raleway', serif;
+font-optical-sizing: auto;
+font-style: normal;
+}
+
+body {
+font-size: 16px;
+display: flex;
+flex-direction: column;
+gap: 4px;
+align-items: center;
+background: var(--main-color-1);
+margin: 0;
+padding: 0;
+}
+
+.ball {
+width: 64px;
+height: 64px;
+background: red;
+border-radius: 50%;
+margin-top: 2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+letter-spacing: 0.05em;
+font-family: 'Raleway', serif;
+font-optical-sizing: auto;
+font-style: normal;
+font-weight: normal;
+margin: 0;
+padding: 0;
+color: var(--text-color-1);
+}
+
+h1 {
+font-size: 2em;
+}
+
+h2 {
+font-size: 1.8em;
+}
+
+h3 {
+font-size: 1.6em;
+}
+
+h4 {
+font-size: 1.5em;
+}
+
+h5 {
+font-size: 1.4em;
+}
+
+h6 {
+font-size: 1.2em;
+}
+
+a {
+font-size: 1em;
+font-family: 'Playfair Display', serif;
+font-optical-sizing: auto;
+font-style: normal;
+font-weight: normal;
+text-decoration: none;
+color: var(--text-color-1);
+}
+
+ul {
+list-style-type: none;
+padding: 0;
+margin: 0;
+}
+
+.backdrop-container {
+display: flex;
+justify-content: center;
+align-items: start;
+width: 100%;
+padding: 4em 0 0 0;
+height: calc(100vh - 4.25em);
+position: relative;
+background-color: transparent;
+}
+
+.backdrop-image {
+position: absolute;
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.frosted-content {
+width: 10em;
+}
+
+.frosted-section {
+display: flex;
+flex-flow: column wrap;
+justify-content: center;
+align-items: center;
+width: 50%;
+}
+
+.frosted-split-section {
+width: 80%;
+display: flex;
+flex-flow: row;
+justify-content: space-around;
+gap: 0 10em;
+}
+
+.frosted-text {
+animation: show 2s forwards;
+color: var(--text-color-1);
+}
+
+button {
+cursor: pointer;
+border: none;
+outline: none;
+color: inherit;
+font-size: 1.5em;
+font-weight: bold;
+}
+
+.frosted-btn {
+background: var(--main-color-3);
+color: var(--main-color-1);
+padding: 1.2em 1.2em;
+font-size: 1.3em;
+border-radius: 0.25em;
+transition-duration: 0.4s;
+border: 2px solid transparent;
+}
+
+.frosted-btn:hover {
+background: var(--main-color-1);
+color: var(--main-color-3);
+border: 2px solid var(--main-color-3);
+}
+
+
+
+.backdrop-container {
+display: flex;
+justify-content: center;
+align-items: start;
+width: 100%;
+padding: 4em 0 0 0;
+height: calc(100vh - 4.25em);
+position: relative;
+background-color: transparent;
+}
+
+.backdrop-image {
+position: absolute;
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+header {
+width: 100%;
+padding: 2em;
+z-index: 2;
+--thickness: 4px;
+position: sticky;
+top: 0;
+}
+
+
+/*
+          This code gets applied for folks using
+          browsers that support backdrop-filter.
+        */
+        header {
+background: var(--main-color-1-light);
+}
+
+.backdrop {
+position: absolute;
+inset: 0;
+backdrop-filter: blur(16px);
+background: linear-gradient(to bottom,
+                    var(--main-color-2),
+                    transparent 50%);
+pointer-events: none;
+}
+
+
+.backdrop-edge {
+position: absolute;
+left: 0;
+right: 0;
+bottom: 0;
+height: 100%;
+background: var(--main-color-4);
+-webkit-backdrop-filter: blur(12px) brightness(0.96);
+backdrop-filter: blur(12px) brightness(0.96);
+transform: translateY(100%);
+pointer-events: none;
+inset: 0;
+-webkit-mask-image: linear-gradient(to bottom,
+                    black 0,
+                    black var(--thickness),
+                    transparent var(--thickness));
+mask-image: linear-gradient(to bottom,
+                    black 0,
+                    black var(--thickness),
+                    transparent var(--thickness));
+}
+
+/*
+          This code gets applied for folks using
+          browsers that support mask-image. This
+          adds the "consider near elements"
+          optimization discussed in this article.
+        */
+        .backdrop {
+height: 200%;
+-webkit-mask-image: linear-gradient(to bottom,
+                    black 0% 50%,
+                    transparent 50% 100%);
+mask-image: linear-gradient(to bottom,
+                    black 0% 50%,
+                    transparent 50% 100%);
+}
+
+.header-container {
+top: 0;
+left: 0;
+height: 100%;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-around;
+position: absolute;
+z-index: 1000;
+}
+
+.logo-container {
+position: relative;
+padding: .5em;
+}
+
+.logo-text {
+text-transform: uppercase;
+padding: .1em .5em;
+font-size: 2em;
+font-family: 'Playfair Display', serif;
+}
+
+.logo {
+display: flex;
+max-width: 2em;
+max-height: 2em;
+}
+
+.frosted-nav ul {
+display: flex;
+gap: 1.5em;
+}
+
+.frosted-nav ul li a {
+text-align: center;
+text-decoration: none;
+color: var(--text-color-1);
+transition-duration: 0.3s;
+text-transform: uppercase;
+padding-left: 0.3em;
+border-width: 0%;
+}
+
+.frosted-nav ul li a:hover {
+padding-bottom: 1em;
+border-width: 100%;
+border-bottom: .2em solid var(--text-color-2);
+color: var(--text-color-2);
+}
+
+.frosted-sub-nav {
+transition: all .3s ease-out;
+display: none;
+position: fixed;
+z-index: 2000;
+background: transparent;
+backdrop-filter: blur(.5em);
+top: 0;
+right: 0;
+flex-direction: column;
+min-width: 75%;
+background-color: var(--main-color-2);
+height: 100vh;
+transform: translateX(100%);
+}
+
+.frosted-sub-nav ul {
+display: flex;
+flex-flow: column;
+gap: 2em;
+margin: 4em 0 0 0;
+text-transform: uppercase;
+padding: 2em 0 0 2em;
+font-weight: bold;
+list-style-type: none;
+color: var(--text-color-1);
+font-size: 1.8em;
+}
+
+.col {
+display: flex;
+flex-flow: column;
+}
+
+.frosted-hamburger {
+position: fixed;
+top: 0;
+right: -35;
+margin: 18px 10px 0 0;
+}
+
+.frosted-img {
+width: 400px;
+min-width: 400px;
+aspect-ratio: 4/6;
+object-fit: contain;
+border-radius: .25em;
+box-shadow: 2px 2px 10px var(--main-color-4);
+}
+
+.frosted-about-text {
+font-size: 1.1em;
+line-height: 1.5;
+}
+
+@keyframes show {
+
+0% {
+opacity: 0;
+}
+50% {
+opacity: 1;
+}
+100% {
+opacity: 1;
+}
+}
+
+@keyframes slide-l {
+
+0% {
+max-width: 0;
+}
+50% {
+max-width: 100%;
+}
+100% {
+max-width: 100%;
+}
+}
+
+@media screen and (max-width: 70em) {
+
+.frosted-split-section {
+justify-content: center;
+align-items: center;
+flex-flow: column;
+}
+}
+
+@media screen and (max-width: 50em) {
+
+body {
+font-size: 14px;
+}
+.card {
+width: 75%;
+}
+}
+
+@media screen and (max-width: 40em) {
+
+body {
+font-size: 12px;
+}
+.card {
+width: 95%;
+}
+.frosted-nav {
+display: none;
+}
+.frosted-sub-nav {
+display: flex;
+}
+}
+
+@media screen and (max-width: 30em) {
+
+.frosted-img {
+width: 100%;
+min-width: 100px;
+}
+}
+</style>
+<body>
+    
+        <frostedceja-contact class="">
+            
+</frostedceja-contact>      
+</body >
+
+</html > 

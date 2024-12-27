@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .frosted-sub-nav {
+            transition: all .3s ease-out;
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            background: var(--main-color-3);
+            background: transparent;
+            backdrop-filter: blur(.5em);
+            top: 0;
+            right: 0;
+            flex-direction: column;
+            min-width: 75%;
+            background-color: var(--main-color-2);
+            height: 100vh;
+            transform: translateX(100%);
+        }
+
+        .frosted-sub-nav ul {
+            display: flex;
+            flex-flow: column;
+            gap: 2em;
+            margin: 4em 0 0 0;
+            text-transform: uppercase;
+            padding: 2em 0 0 2em;
+            font-weight: bold;
+            list-style-type: none;
+            color: var(--text-color-1);
+            font-size: 1.8em;
+
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+<nav id="frosted-sub-nav" class="frosted-sub-nav">
+    <frosted-hamburger></frosted-hamburger>
+    <ul class="nav-list">
+        {{children}}
+    </ul>
+</nav>
+<script>
+    const menu = document.getElementById('frosted_hamburger_menu')
+    let show_menu = false
+    const menu_placement = 35
+    menu.style.transform = `translateX(-${menu_placement}px)`
+    const change_menu = (event) => {
+        event.stopPropagation()
+        show_menu = !show_menu
+        const nav = document.getElementById('frosted-sub-nav')
+        nav.style.transform = show_menu ? 'translateX(0)' : 'translateX(100%)'
+        menu.style.transition = show_menu ? 'all .3s ease-out' : 'all 0.3s ease-out'
+        menu.style.transform = show_menu ? `translateX(${nav.offsetWidth - menu_placement}px)` : `translateX(-${menu_placement}px)`
+        Array.from(menu.children).forEach((line, index) => {
+            function rotate(deg, translate_x, translate_y) {
+                line.style.transform = `rotate(${deg}deg) translateX(${translate_x}px) translateY(${translate_y}px)`
+            }
+            if (index === 0) {
+                show_menu ? rotate(45, 3.5, 3.5) : rotate(0, 0, 0)
+            } else if (index === 2) {
+                show_menu ? rotate(-45, 3.5, -3.5) : rotate(0, 0, 0)
+            } else {
+                line.style.opacity = show_menu ? 0 : 1
+            }
+        })
+    }
+    document.body.addEventListener('click', (event) => {
+        if (event.target.id === 'frosted-sub-nav') {
+            return
+        }
+        show_menu = false
+
+        console.log('hello')
+        const nav = document.getElementById('frosted-sub-nav')
+        nav.style.transform = show_menu ? 'translateX(0)' : 'translateX(100%)'
+        menu.style.transform = show_menu ? 'translateX(0)' : `translateX(-${menu_placement}px)`
+        Array.from(menu.children).forEach((line, index) => {
+            function rotate(deg, translate_y, translate_x) {
+                line.style.transform = `rotate(${deg}deg) translateY(${translate_y}px) translateX(${translate_x}px)`
+            }
+            if (index === 0) {
+                console.log('hello')
+                show_menu ? rotate(45, 3.5, 3.5) : rotate(0, 0, 0)
+            } else if (index === 2) {
+                show_menu ? rotate(-45, -3.5, 3.5) : rotate(0, 0, 0)
+            } else {
+                line.style.opacity = show_menu ? 0 : 1
+            }
+        })
+    })
+    menu.addEventListener('click', change_menu)
+
+
+</script>
+
+</html>

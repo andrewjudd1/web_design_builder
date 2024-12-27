@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+  --main-color-1: hsl(207deg 13% 35%);
+  --main-color-1-light: hsl(207deg 13% 35% / 0.5);
+  --main-color-2: hsl(199deg 13% 52%);
+  --main-color-3: hsl(30deg 9% 72%);
+  --main-color-4: hsl(204deg 28% 77%);
+  --main-color-5: hsl(30deg 0% 94%);
+  --main-color-3-o: hsla(187deg, 41%, 85%, 0.7);
+  --main-color-3-lighter: hsl(30deg 9% 72% / 0.5);
+  --main-color-3-light: hsl(30deg 9% 72%);
+  --text-color-1: hsl(30deg 0% 94%);
+  --text-color-2: hsl(207deg 13% 35%);
+  --text-size-1: 1em;
+  --text-size-2: 2em;
+  --large-mobile: 39em;
+  --small-mobile: 28em;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Raleway', serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+body {
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  background: var(--main-color-1);
+  margin: 0;
+  padding: 0;
+}
+
+.ball {
+  width: 64px;
+  height: 64px;
+  background: red;
+  border-radius: 50%;
+  margin-top: 2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: 0.05em;
+  font-family: 'Raleway', serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color-1);
+}
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.8em;
+}
+
+h3 {
+  font-size: 1.6em;
+}
+
+h4 {
+  font-size: 1.5em;
+}
+
+h5 {
+  font-size: 1.4em;
+}
+
+h6 {
+  font-size: 1.2em;
+}
+
+a {
+  font-size: 1em;
+  font-family: 'Playfair Display', serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  color: var(--text-color-1);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.backdrop-container {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  padding: 4em 0 0 0;
+  height: calc(100vh - 4.25em);
+  position: relative;
+  background-color: transparent;
+}
+
+.backdrop-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.frosted-content {
+  width: 10em;
+}
+
+.frosted-section {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.frosted-split-section {
+  width: 80%;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  gap: 0 10em;
+}
+
+.frosted-text {
+  animation: show 2s forwards;
+  color: var(--text-color-1);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: inherit;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.frosted-btn {
+  background: var(--main-color-3);
+  color: var(--main-color-1);
+  padding: 1.2em 1.2em;
+  font-size: 1.3em;
+  border-radius: 0.25em;
+  transition-duration: 0.4s;
+  border: 2px solid transparent;
+}
+
+.frosted-btn:hover {
+  background: var(--main-color-1);
+  color: var(--main-color-3);
+  border: 2px solid var(--main-color-3);
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-l {
+  0% {
+    max-width: 0;
+  }
+
+  50% {
+    max-width: 100%;
+  }
+
+  100% {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 70em) {
+  .frosted-split-section {
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+  }
+}
+
+@media screen and (max-width: 50em) {
+  body {
+    font-size: 14px;
+  }
+
+  .card {
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 40em) {
+  body {
+    font-size: 12px;
+  }
+
+  .card {
+    width: 95%;
+  }
+
+  .frosted-nav {
+    display: none;
+  }
+
+  .frosted-sub-nav {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 30em) {
+  .frosted-img {
+    width: 100%;
+    min-width: 100px;
+  }
+}

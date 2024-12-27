@@ -9,13 +9,14 @@
     <title>Frosted contact</title>
 </head>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Slab:wght@100..900&display=swap');
 
 
 :root {
 --main-color-1: hsl(228deg, 7%, 15%);
 --main-color-2: hsl(189deg, 7%, 60%);
 --main-color-3: hsl(187deg 41% 85%);
+--main-color-3-o: hsla(187deg, 41%, 85%, 0.7);
 --main-color-3-lighter: hsl(194deg 42% 92% / 0.5);
 --main-color-3-light: hsl(194deg 42% 92%);
 --text-color-2: hsl(15deg 38% 4%);
@@ -25,9 +26,10 @@
 
 * {
 box-sizing: border-box;
-font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto Slab', serif;
 font-optical-sizing: auto;
 font-style: normal;
+letter-spacing: 0.2em;
 }
 
 body {
@@ -38,7 +40,6 @@ align-items: center;
 background: var(--main-color-3-light);
 margin: 0;
 padding: 0;
-height: 150vh;
 }
 
 .ball {
@@ -56,6 +57,7 @@ h4,
 h5,
 h6 {
 font-size: 2em;
+letter-spacing: 0.2em;
 font-family: 'Lora', serif;
 font-optical-sizing: auto;
 font-style: normal;
@@ -71,6 +73,32 @@ font-optical-sizing: auto;
 font-style: normal;
 font-weight: normal;
 text-decoration: none;
+}
+
+@keyframes show {
+
+0% {
+opacity: 0;
+}
+50% {
+opacity: 1;
+}
+100% {
+opacity: 1;
+}
+}
+
+@keyframes slide-l {
+
+0% {
+max-width: 0;
+}
+50% {
+max-width: 100%;
+}
+100% {
+max-width: 100%;
+}
 }
 
 
@@ -149,10 +177,9 @@ height: 100%;
 width: 100%;
 display: flex;
 align-items: center;
+justify-content: space-around;
 position: absolute;
 z-index: 1000;
-justify-content: space-between;
-padding: 0 20em;
 }
 
 .logo-container {
@@ -187,6 +214,7 @@ color: var(--main-color-1);
 transition-duration: 0.3s;
 text-transform: uppercase;
 letter-spacing: 0.3em;
+padding-left: 0.3em;
 border-width: 0%;
 }
 
@@ -197,11 +225,49 @@ border-bottom: .2em solid var(--main-color-3);
 color: var(--main-color-2);
 }
 
-.backdrop-image {
+.frosted-card {
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 2em;
+border-radius: .5em;
+background-color: var(--main-color-3-o);
+backdrop-filter: blur(5px);
+transition-duration: 0.3s;
+animation: show 4s infinite;
+}
+
+.backdrop-container {
+display: flex;
 width: 100%;
-height: calc(100% - 2em);
-object-position: bottom;
+height: calc(100vh - 4.25em);
+position: relative;
+background-color: transparent;
+}
+
+.backdrop-image {
+position: absolute;
+width: 100%;
+height: 100%;
 object-fit: cover;
+}
+
+.frosted-content {
+width: 10em;
+}
+
+.cards {
+width: 100%;
+align-self: center;
+justify-self: center;
+position: relative;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.frosted-text {
+animation: show 4s infinite;
 }
 </style>
 <body>
@@ -233,9 +299,54 @@ object-fit: cover;
 </header>
 
 
-    <img class="backdrop-image" src="/assets/images/glass/glass-door-home.jpg" alt="glass home">
+    <div class="backdrop-container">
+        <img class="backdrop-image" src="/assets/images/glass/glass-door-home.jpg" alt="glass home">
 
+        <div class="cards">
+            
+    <div class="frosted-card">
+
+        
+                <h4 id="frosted-text" class="frosted-text" style="text-transform: uppercase;">
+                    Stunning Window
+                    Designs
+                </h4>
+            
+
+    </div>
+
+
+
+            
+    <div class="frosted-card">
+
+        
+                <h4 id="frosted-text" class="frosted-text" style="text-transform: uppercase;">
+                    Stunning Window
+                    Designs
+                </h4>
+            
+
+    </div>
+
+
+
+        </div>
+    </div>
     
+    <script>
+        const frosted_text = document.getElementById('frosted-text')
+        console.log(frosted_text)
+        const texts = ['Stunning Window Designs', 'Completely Customized', 'Built Sustainably', 'Built to last']
+        let count = 0
+        setInterval(() => {
+            count++
+            if (count === 4) {
+                count = 0
+            }
+            frosted_text.textContent = texts[count]
+        }, 4000)
+    </script>
 
 
      
