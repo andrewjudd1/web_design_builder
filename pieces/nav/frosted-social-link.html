@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .basic-circle:hover {
+            background-color: var(--main-color-5);
+
+        }
+
+        .basic-circle:hover svg {
+            fill: black;
+        }
+    </style>
+</head>
+
+<body>
+    <blank-link {{href}}>
+        <basic-circle label="" {{style}}>
+            {{children}}
+        </basic-circle>
+    </blank-link>
+</body>
+
+</html>

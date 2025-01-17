@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEJAFILMS Contact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        input::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
+
+        .frosted-form-container {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+        }
+
+        .frosted-form {
+            width: 100%;
+            display: flex;
+            flex-flow: column;
+            gap: 1em;
+            align-items: stretch;
+
+        }
+
+        .frosted-form-row {
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            gap: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <frosted-header-all></frosted-header-all>
+    <div class="backdrop-container">
+
+        <section class="frosted-section frosted-show" style="padding: 0 0 6em 0;">
+            <div class="frosted-form-container">
+                <form class="frosted-form" id="emailForm">
+                    <div class="frosted-form-row">
+                        <frosted-input id="first_name" name="first_name" autocomplete="given-name">First
+                            Name</frosted-input>
+                        <frosted-input id="last_name" name="last_name" autocomplete="family-name">Last
+                            Name</frosted-input>
+                    </div>
+                    <div class="frosted-form-row">
+                        <frosted-input id="email" name="email" type="email" autocomplete="email">Email</frosted-input>
+                        <frosted-input id="phone" name="phone" autocomplete="phone">Phone</frosted-input>
+                    </div>
+                    <div class="frosted-form-row">
+                        <frosted-input-active id="date" type="datetime-local" name="date">Event
+                            Date</frosted-input-active>
+                        <frosted-input id="location" type="text" name="location">Location</frosted-input>
+                    </div>
+                    <frosted-textarea id="event_details" placeholder="">Tell me about your event</frosted-textarea>
+                    <button id="inquire_btn" class="frosted-btn frosted-btn-small frosted-btn-contact">Send
+                        Inquiry</button>
+                </form>
+                <p id="inquiry_response_container" class="frosted-show hide"></p>
+            </div>
+            <div style="margin: 1em 0 0 0;"></div>
+            <div style="max-width: 31em;">
+                <p class="frosted-text" style="text-wrap: pretty;"> I can't wait to hear about your story and vision!
+                    Feel free to share all the
+                    details. If you prefer direct communication, email me at <a style="text-decoration: underline;"
+                        href="mailto:aftonceja@gmail.com?subject=CEJAFILMS Inquiry"
+                        target="_blank">aftonceja@gmail.com</a> or message me on social media.</p>
+            </div>
+            <div style="margin: 1em 0 0 0;"></div>
+
+            <div style="max-width: 31em; width: 100%; display: flex; gap: .7em; justify-content: space-around;">
+
+                <frosted-social-link href="data.business.root_url" style="width: 3em;">
+                    <icon-linkedin fill="white" width=".75em"></icon-linkedin>
+                </frosted-social-link>
+                <frosted-social-link href="data.business.root_url" style="width: 3em;">
+                    <icon-facebook fill="white" width="0.4em"></icon-facebook>
+                </frosted-social-link>
+                <frosted-social-link href="data.business.root_url" style="width: 3em;">
+                    <icon-instagram fill="white" width=".75em"></icon-instagram>
+                </frosted-social-link>
+            </div>
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        (function () {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init({
+                publicKey: "DKkGFSa4zE_ewwGc4",
+            });
+        })();
+        document.getElementById('emailForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            // Get input values
+            function get_el(id) {
+                return document?.getElementById(id) || ""
+            }
+            function get_val(id) {
+                return get_el(id)?.value || ""
+            }
+            const first_name = get_val("first_name")
+            const last_name = get_val("last_name")
+            const to_email = get_val("email")
+            const phone = get_val("phone")
+            const date = get_val("date")
+            const event_date = new Date(date);
+            const options = {
+                weekday: "long", // "Monday"
+                year: "numeric", // "2025"
+                month: "long", // "January"
+                day: "numeric", // "17"
+                hour: "2-digit", // "12" (hours)
+                minute: "2-digit", // "28" (minutes)
+                hour12: true, // Use 12-hour clock
+            };
+            const friendly_event_date = event_date.toLocaleString("en-US", options);
+
+            const location = get_val("location")
+            const event_details = get_val("event_details")
+            const inquire_btn = get_el("inquire_btn")
+            const inquiry_response_container = get_el('inquiry_response_container')
+
+            try {
+                inquire_btn.disabled = true
+                inquiry_response_container.classList.remove('hide')
+                inquiry_response_container.textContent = 'Sending Request...'
+                const response = await emailjs.send('service_11ej8vn', 'template_wgk3oii', {
+                    reply_to: to_email,
+                    phone: phone,
+                    to_email: 'aftonceja@gmail.com',
+                    to_name: 'Afton',
+                    from_name: `${first_name} ${last_name}`,
+                    reply_from: 'andrewjudd111@gmail.com',
+                    event_details: event_details,
+                    event_date: friendly_event_date,
+                    event_location: location,
+                });
+                inquiry_response_container.textContent = 'Request Sent!'
+
+                setTimeout(() => {
+                    inquiry_response_container.classList.add('hide')
+                    inquiry_response_container.textContent = ''
+                    inquire_btn.disabled = false
+                }, 3000)
+                console.log('Response:', response);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+    </script>
+</body>
+
+</html>

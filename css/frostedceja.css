@@ -1,13 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
 :root {
   --main-color-1: hsl(207deg 13% 35%);
   --main-color-1-light: hsl(207deg 13% 35% / 0.5);
   --main-color-2: hsl(199deg 13% 52%);
   --main-color-3: hsl(30deg 9% 72%);
   --main-color-4: hsl(204deg 28% 77%);
+  --main-color-3: hsl(31deg, 30%, 86%);
   --main-color-5: hsl(30deg 0% 94%);
   --main-color-3-o: hsla(187deg, 41%, 85%, 0.7);
   --main-color-3-lighter: hsl(30deg 9% 72% / 0.5);
@@ -51,7 +48,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p {
   letter-spacing: 0.05em;
   font-family: 'Raleway', serif;
   font-optical-sizing: auto;
@@ -81,7 +79,8 @@ h5 {
   font-size: 1.4em;
 }
 
-h6 {
+h6,
+p {
   font-size: 1.2em;
 }
 
@@ -131,17 +130,69 @@ ul {
   width: 50%;
 }
 
+.frosted-section-full {
+  position: relative;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: calc(100vh - 4.25em);
+}
+
+.full-last {
+  height: calc(100vh);
+}
+
+.frosted-card {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  max-width: 30em;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+}
+
 .frosted-split-section {
   width: 80%;
   display: flex;
-  flex-flow: row;
-  justify-content: space-around;
-  gap: 0 10em;
+  justify-content: center;
+  flex-flow: row wrap;
+  gap: 2em 10em;
+  margin-top: 1.5em;
+}
+
+.frosted-group-section {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  gap: 2em 5em;
+  margin-top: 1.5em;
+}
+
+.frosted-show {
+  animation: show 0.5s forwards;
 }
 
 .frosted-text {
-  animation: show 2s forwards;
   color: var(--text-color-1);
+  text-align: center;
+}
+
+.frosted-img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.frosted-input {
+  outline: none;
+  border: none;
+  background: var(--main-color-4);
+  backdrop-filter: blur(20px);
+  color: var(--text-color-1);
+  padding: 0.25em;
 }
 
 button {
@@ -154,13 +205,21 @@ button {
 }
 
 .frosted-btn {
+  cursor: pointer;
+  font-family: 'Raleway', serif;
+  font-weight: bold;
   background: var(--main-color-3);
   color: var(--main-color-1);
   padding: 1.2em 1.2em;
-  font-size: 1.3em;
+  font-size: 1.2em;
   border-radius: 0.25em;
   transition-duration: 0.4s;
   border: 2px solid transparent;
+}
+
+.frosted-btn-small {
+  padding: 0.8em 1.2em;
+  font-size: 1.2em;
 }
 
 .frosted-btn:hover {
@@ -169,13 +228,13 @@ button {
   border: 2px solid var(--main-color-3);
 }
 
+.hide {
+  display: none;
+}
+
 @keyframes show {
   0% {
     opacity: 0;
-  }
-
-  50% {
-    opacity: 1;
   }
 
   100% {
@@ -197,11 +256,22 @@ button {
   }
 }
 
+@media screen and (max-width: 87.5em) {
+  .frosted-service-card {
+    min-height: 10em;
+  }
+}
+
 @media screen and (max-width: 70em) {
   .frosted-split-section {
     justify-content: center;
     align-items: center;
     flex-flow: column;
+  }
+
+  .frosted-service-card {
+    min-width: 90%;
+    max-height: 13em;
   }
 }
 
@@ -210,8 +280,16 @@ button {
     font-size: 14px;
   }
 
-  .card {
+  .card,
+  .frosted-section,
+  .frosted-section-full {
     width: 75%;
+  }
+
+  .frosted-img-about {
+    width: 300px;
+    min-width: 100px;
+    margin: 0 0 8em 0;
   }
 }
 
@@ -220,7 +298,42 @@ button {
     font-size: 12px;
   }
 
-  .card {
+  .frosted-input,
+  .frosted-input-active,
+  .frosted-textarea {
+    font-size: 1.34em;
+    width: 100%;
+  }
+
+  .frosted-form-container {
+    width: 100%;
+  }
+
+  .frosted-textarea-group {
+    width: 100%;
+  }
+
+  .frosted-textarea {
+    width: 100%;
+    min-width: 15em;
+  }
+
+  .frosted-form {
+    align-items: center;
+  }
+
+  .frosted-form-row {
+    flex-flow: column wrap;
+  }
+
+  .frosted-btn-contact {
+    width: 100%;
+  }
+
+  .card,
+  .frosted-section,
+  .frosted-section-full,
+  .frosted-group-section {
     width: 95%;
   }
 

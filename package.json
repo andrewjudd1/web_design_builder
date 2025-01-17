@@ -10,7 +10,8 @@
     "dev": "npm run design:run",
     "design:copy:ext": "node copy_design_ext.js $design $dest",
     "design:copy": "node copy_design.js $design_business $business",
-    "file:format": "node funcs/format.js $file_path"
+    "file:format": "node funcs/format.js $file_path",
+    "file:upload": "node funcs/upload_s3.js $file_path"
   },
   "keywords": [],
   "author": "",

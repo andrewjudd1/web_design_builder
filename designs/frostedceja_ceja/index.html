@@ -9,21 +9,14 @@
     <title>Frosted home</title>
 </head>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-imports {
-0: @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');;
-1: @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');;
-}
+
 
 :root {
 --main-color-1: hsl(207deg 13% 35%);
 --main-color-1-light: hsl(207deg 13% 35% / 0.5);
 --main-color-2: hsl(199deg 13% 52%);
---main-color-3: hsl(30deg 9% 72%);
+--main-color-3: hsl(31deg, 30%, 86%);
 --main-color-4: hsl(204deg 28% 77%);
 --main-color-5: hsl(30deg 0% 94%);
 --main-color-3-o: hsla(187deg, 41%, 85%, 0.7);
@@ -68,7 +61,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p {
 letter-spacing: 0.05em;
 font-family: 'Raleway', serif;
 font-optical-sizing: auto;
@@ -99,7 +93,8 @@ h5 {
 font-size: 1.4em;
 }
 
-h6 {
+h6,
+p {
 font-size: 1.2em;
 }
 
@@ -149,17 +144,69 @@ align-items: center;
 width: 50%;
 }
 
+.frosted-section-full {
+position: relative;
+display: flex;
+flex-flow: column wrap;
+justify-content: center;
+align-items: center;
+width: 50%;
+height: calc(100vh - 4.25em);
+}
+
+.full-last {
+height: calc(100vh);
+}
+
+.frosted-card {
+position: relative;
+display: flex;
+flex-flow: column;
+align-items: center;
+max-width: 30em;
+aspect-ratio: 1/1;
+overflow: hidden;
+}
+
 .frosted-split-section {
 width: 80%;
 display: flex;
-flex-flow: row;
-justify-content: space-around;
-gap: 0 10em;
+justify-content: center;
+flex-flow: row wrap;
+gap: 2em 10em;
+margin-top: 1.5em;
+}
+
+.frosted-group-section {
+width: 80%;
+display: flex;
+justify-content: center;
+flex-flow: row wrap;
+gap: 2em 5em;
+margin-top: 1.5em;
+}
+
+.frosted-show {
+animation: show 0.5s forwards;
 }
 
 .frosted-text {
-animation: show 2s forwards;
 color: var(--text-color-1);
+text-align: center;
+}
+
+.frosted-img {
+width: 100%;
+object-fit: cover;
+}
+
+.frosted-input {
+outline: none;
+border: none;
+background: var(--main-color-4);
+backdrop-filter: blur(20px);
+color: var(--text-color-1);
+padding: 0.25em;
 }
 
 button {
@@ -172,19 +219,31 @@ font-weight: bold;
 }
 
 .frosted-btn {
+cursor: pointer;
+font-family: 'Raleway', serif;
+font-weight: bold;
 background: var(--main-color-3);
 color: var(--main-color-1);
 padding: 1.2em 1.2em;
-font-size: 1.3em;
+font-size: 1.2em;
 border-radius: 0.25em;
 transition-duration: 0.4s;
 border: 2px solid transparent;
+}
+
+.frosted-btn-small {
+padding: 0.8em 1.2em;
+font-size: 1.2em;
 }
 
 .frosted-btn:hover {
 background: var(--main-color-1);
 color: var(--main-color-3);
 border: 2px solid var(--main-color-3);
+}
+
+.hide {
+display: none;
 }
 
 
@@ -352,7 +411,11 @@ padding: 2em 0 0 2em;
 font-weight: bold;
 list-style-type: none;
 color: var(--text-color-1);
-font-size: 1.8em;
+font-size: 1.4em;
+}
+
+.frosted-sub-nav ul li a {
+font-size: 1.5em;
 }
 
 .col {
@@ -367,27 +430,272 @@ right: -35;
 margin: 18px 10px 0 0;
 }
 
-.frosted-img {
+.frosted-input {
+border: solid 1.5px var(--main-color-2);
+border-radius: 1em;
+background: none;
+padding: 1em;
+font-size: 1em;
+color: var(--text-color-1);
+transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+field-sizing: content;
+min-width: 15em;
+}
+
+/* From Uiverse.io by alexruix */
+        .frosted-input-group {
+position: relative;
+}
+
+.frosted-user-label {
+position: absolute;
+left: 15px;
+color: var(--text-color-1);
+pointer-events: none;
+transform: translateY(1em);
+transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.frosted-input:focus,
+        .frosted-input:valid {
+outline: none;
+border: 1.5px solid var(--main-color-4);
+}
+
+.frosted-input:focus~label,
+        .frosted-input:valid~label {
+transform: translateY(-50%) scale(0.8);
+background-color: var(--main-color-1);
+padding: 0 .2em;
+color: var(--text-color-1);
+}
+
+/* From Uiverse.io by alexruix */
+        .frosted-input-active-group {
+position: relative;
+}
+
+.frosted-input-active {
+border: solid 1.5px var(--main-color-2);
+border-radius: 1em;
+background: none;
+padding: 1em;
+font-size: 1em;
+color: var(--text-color-1);
+transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+field-sizing: content;
+min-width: 15em;
+}
+
+.frosted-user-label-active {
+position: absolute;
+left: 15px;
+color: var(--text-color-1);
+pointer-events: none;
+transform: translateY(1em);
+transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.frosted-input-active:focus,
+        .frosted-input-active:valid {
+outline: none;
+border: 1.5px solid var(--main-color-4);
+}
+
+.frosted-input-active~label,
+        .frosted-input-active~label {
+transform: translateY(-50%) scale(0.8);
+background-color: var(--main-color-1);
+padding: 0 .2em;
+color: var(--text-color-1);
+}
+
+/* From Uiverse.io by alexruix */
+        .frosted-textarea-group {
+position: relative;
+}
+
+.frosted-textarea {
+border: solid 1.5px var(--main-color-2);
+border-radius: 1em;
+background: none;
+padding: 1em;
+font-size: 1em;
+color: var(--text-color-1);
+transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+field-sizing: content;
+width: 31em;
+min-height: 8em;
+}
+
+.frosted-textarea::placeholder {
+color: var(--text-color-1);
+opacity: 0.8;
+}
+
+.frosted-textarea:focus,
+        .frosted-textarea:valid {
+outline: none;
+border: 1.5px solid var(--main-color-4);
+}
+
+.frosted-textarea:focus~label,
+        .frosted-textarea:valid~label {
+transform: translateY(-50%) scale(0.8);
+background-color: var(--main-color-1);
+padding: 0 .2em;
+color: var(--text-color-1);
+}
+
+.basic-circle:hover {
+background-color: var(--main-color-5);
+}
+
+.basic-circle:hover svg {
+fill: black;
+}
+
+.basic-circle-wrapper {
+display: flex;
+flex-flow: column;
+align-items: center;
+justify-content: center;
+}
+
+.basic-circle {
+display: flex;
+flex-flow: column;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+border: 1px solid var(--main-color-3);
+width: 100%;
+aspect-ratio: 1 / 1;
+transition-duration: .4s;
+}
+
+input::-webkit-calendar-picker-indicator {
+filter: invert(1);
+}
+
+.frosted-form-container {
+display: flex;
+flex-flow: column;
+align-items: center;
+}
+
+.frosted-form {
+width: 100%;
+display: flex;
+flex-flow: column;
+gap: 1em;
+align-items: stretch;
+}
+
+.frosted-form-row {
+width: 100%;
+display: flex;
+flex-flow: row wrap;
+gap: 1em;
+}
+
+.frosted-img-service {
+position: absolute;
+top: 0;
+left: 0;
+aspect-ratio: 1/1;
+transition-duration: 1s;
+height: 100%;
+}
+
+.frosted-img-service:hover {
+transform: scale(1.2);
+}
+
+.frosted-service-card {
+cursor: pointer;
+padding: 1em;
+transition-duration: 1s;
+border-radius: .25em;
+width: 20em;
+min-width: 20em;
+min-height: 40em;
+}
+
+.frosted-service-card:hover {
+box-shadow: 2px 2px 10px var(--main-color-4);
+}
+
+.frosted-text-shadow {
+text-shadow: 2px 2px var(--main-color-1);
+font-weight: bold;
+}
+
+.up-arrow-section {
+cursor: pointer;
+display: flex;
+justify-content: center;
+align-items: center;
+fill: var(--main-color-5);
+border-radius: 50%;
+width: 2em;
+height: 2em;
+padding-bottom: .25em;
+position: absolute;
+top: 5em;
+transition-duration: .4s;
+}
+
+.up-arrow-section:hover {
+background-color: var(--main-color-4);
+fill: var(--main-color-1);
+}
+
+.frosted-img-about {
 width: 400px;
 min-width: 400px;
 aspect-ratio: 4/6;
 object-fit: contain;
-border-radius: .25em;
-box-shadow: 2px 2px 10px var(--main-color-4);
+box-shadow: 15px 15px 20px hsl(210, 15%, 22%);
 }
 
 .frosted-about-text {
 font-size: 1.1em;
 line-height: 1.5;
+max-width: 30em;
+}
+
+.frosted-img-portfolio {
+position: absolute;
+top: 0;
+left: 0;
+aspect-ratio: 1/1;
+transition-duration: 1s;
+height: 100%;
+}
+
+.frosted-img-portfolio:hover {
+transform: scale(2);
+}
+
+.frosted-portfolio-card {
+cursor: pointer;
+padding: 1em;
+transition-duration: 1s;
+border-radius: .25em;
+width: 25em;
+min-width: 20em;
+min-height: 40em;
+}
+
+.frosted-service-card:has(.frosted-text:hover) {
+box-shadow: 2px 2px 10px var(--main-color-4);
 }
 
 @keyframes show {
 
 0% {
 opacity: 0;
-}
-50% {
-opacity: 1;
 }
 100% {
 opacity: 1;
@@ -407,12 +715,23 @@ max-width: 100%;
 }
 }
 
+@media screen and (max-width: 87.5em) {
+
+.frosted-service-card {
+min-height: 10em;
+}
+}
+
 @media screen and (max-width: 70em) {
 
 .frosted-split-section {
 justify-content: center;
 align-items: center;
 flex-flow: column;
+}
+.frosted-service-card {
+min-width: 90%;
+max-height: 13em;
 }
 }
 
@@ -421,8 +740,15 @@ flex-flow: column;
 body {
 font-size: 14px;
 }
-.card {
+.card,
+  .frosted-section,
+  .frosted-section-full {
 width: 75%;
+}
+.frosted-img-about {
+width: 300px;
+min-width: 100px;
+margin: 0 0 8em 0;
 }
 }
 
@@ -431,7 +757,35 @@ width: 75%;
 body {
 font-size: 12px;
 }
-.card {
+.frosted-input,
+  .frosted-input-active,
+  .frosted-textarea {
+font-size: 1.34em;
+width: 100%;
+}
+.frosted-form-container {
+width: 100%;
+}
+.frosted-textarea-group {
+width: 100%;
+}
+.frosted-textarea {
+width: 100%;
+min-width: 15em;
+}
+.frosted-form {
+align-items: center;
+}
+.frosted-form-row {
+flex-flow: column wrap;
+}
+.frosted-btn-contact {
+width: 100%;
+}
+.card,
+  .frosted-section,
+  .frosted-section-full,
+  .frosted-group-section {
 width: 95%;
 }
 .frosted-nav {
@@ -456,7 +810,7 @@ min-width: 100px;
     <header>
     <div class="header-container">
         
-        <a href="http://localhost:5500/designs/frostedceja_ceja/">
+        <a href="/designs/frostedceja_ceja/">
             <div class="logo-container">
                 <span class="logo-text">CEJAFILMS</span>
             </div>
@@ -465,10 +819,10 @@ min-width: 100px;
     <nav class="frosted-nav">
         <ul style="list-style-type: none;">
             
-            <li><a href="http://localhost:5500/designs/frostedceja_ceja/about">About</a></li>
-            <li><a href="http://localhost:5500/designs/frostedceja_ceja/services">Services</a></li>
-            <li><a href="http://localhost:5500/designs/frostedceja_ceja/portfolio">Portfolio</a></li>
-            <li><a href="http://localhost:5500/designs/frostedceja_ceja/contact">Contact</a></li>
+            <li><a href="/designs/frostedceja_ceja/about">About</a></li>
+            <li><a href="/designs/frostedceja_ceja/services">Services</a></li>
+            <li><a href="/designs/frostedceja_ceja/portfolio">Portfolio</a></li>
+            <li><a href="/designs/frostedceja_ceja/contact">Contact</a></li>
         
         </ul>
     </nav>
@@ -502,10 +856,10 @@ min-width: 100px;
 
     <ul class="nav-list">
         
-        <li><a href="http://localhost:5500/designs/frostedceja_ceja/about">About</a></li>
-        <li><a href="http://localhost:5500/designs/frostedceja_ceja/services">Services</a></li>
-        <li><a href="http://localhost:5500/designs/frostedceja_ceja/portfolio">Portfolio</a></li>
-        <li><a href="http://localhost:5500/designs/frostedceja_ceja/contact">Contact</a></li>
+        <li><a href="/designs/frostedceja_ceja/about">About</a></li>
+        <li><a href="/designs/frostedceja_ceja/services">Services</a></li>
+        <li><a href="/designs/frostedceja_ceja/portfolio">Portfolio</a></li>
+        <li><a href="/designs/frostedceja_ceja/contact">Contact</a></li>
     
     </ul>
 </nav>
@@ -570,22 +924,23 @@ min-width: 100px;
     <div class="backdrop-container">
         <section class="frosted-section">
             <h1 style="margin-bottom: 1em; text-align: center;">
-                <div>Capture the Moments That Matter Most with </div>
-                <div>Afton Ceja
+                <div class="frosted-show">Capture the Moments That Matter Most with </div>
+                <div class="frosted-show">Afton Ceja
                     Videography</div>
             </h1>
-            <h6 style="margin-bottom: 2em; text-align: center;">Welcome! Whether you're planning your wedding,
+            <p class="frosted-show" style="margin-bottom: 2em; text-align: center;">Welcome! Whether you're planning
+                your wedding,
                 capturing your engagement, or documenting a special
                 event,
                 I'm here to make sure your memories last a lifetime. Let me help tell your story with timeless,
                 heartfelt
-                videography.</h6>
-            <button class="frosted-btn" style="margin-bottom: 2em; text-align: center;">Book Your Session
-                Today!</button>
+                videography.</p>
+            <a class="frosted-btn frosted-show book-session-link" href="/designs/frostedceja_ceja/contact" style="margin-bottom: 2em; text-align: center; ">Book
+                Your Session
+                Today!</a>
         </section>
+
     </div>
-    
-    
     <script>
 
     </script>

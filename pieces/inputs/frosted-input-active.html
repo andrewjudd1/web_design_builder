@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* From Uiverse.io by alexruix */
+        .frosted-input-active-group {
+            position: relative;
+        }
+
+        .frosted-input-active {
+            border: solid 1.5px var(--main-color-2);
+            border-radius: 1em;
+            background: none;
+            padding: 1em;
+            font-size: 1em;
+            color: var(--text-color-1);
+            transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            field-sizing: content;
+            min-width: 15em;
+        }
+
+        .frosted-user-label-active {
+            position: absolute;
+            left: 15px;
+            color: var(--text-color-1);
+            pointer-events: none;
+            transform: translateY(1em);
+            transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .frosted-input-active:focus,
+        .frosted-input-active:valid {
+            outline: none;
+            border: 1.5px solid var(--main-color-4);
+        }
+
+        .frosted-input-active~label,
+        .frosted-input-active~label {
+            transform: translateY(-50%) scale(0.8);
+            background-color: var(--main-color-1);
+            padding: 0 .2em;
+            color: var(--text-color-1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="frosted-input-active-group">
+        <input id={{id}} required={{required}} type={{type}} name={{name}} autocomplete="off"
+            class="frosted-input-active">
+        <label class="frosted-user-label-active">{{children}}</label>
+    </div>
+</body>
+
+</html>

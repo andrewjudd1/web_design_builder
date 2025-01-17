@@ -1,4 +1,4 @@
-const root_url = 'http://localhost:5500/designs/frostedceja_ceja'
+const root_url = '/designs/frostedceja_ceja'
 
 const data = {
     name: "Afton Ceja Videography",
@@ -6,6 +6,11 @@ const data = {
     logo: {
         name: 'CEJAFILMS',
         link: `${root_url}/`
+    },
+    social: {
+        instagram: `${root_url}`,
+        linkedin: `${root_url}`,
+        facebook: `${root_url}`,
     },
     nav: {}
 }
