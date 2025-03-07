@@ -6,38 +6,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frosted home</title>
+    <title>CEJAFILMS - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap" as="style" >
+<noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+</noscript>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+    <meta name="title" content="Capture the Moments That Matter Most | Afton Ceja Videography">
+<meta name="description" content="Professional videography services to help you preserve your most cherished memories. Weddings, engagements, and special events beautifully captured.">
+<meta name="keywords" content="videography, wedding videography, event videography, Afton Ceja">
 </head>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Slab:wght@100..900&display=swap');
+
 
 
 :root {
---main-color-1: hsl(228deg, 7%, 15%);
---main-color-2: hsl(189deg, 7%, 60%);
---main-color-3: hsl(187deg 41% 85%);
+--main-color-1: hsl(207deg 13% 35%);
+--main-color-1-light: hsl(207deg 13% 35% / 0.5);
+--main-color-2: hsl(199deg 13% 52%);
+--main-color-3: hsl(31deg, 30%, 86%);
+--main-color-4: hsl(204deg 28% 77%);
+--main-color-5: hsl(30deg 0% 94%);
 --main-color-3-o: hsla(187deg, 41%, 85%, 0.7);
---main-color-3-lighter: hsl(194deg 42% 92% / 0.5);
---main-color-3-light: hsl(194deg 42% 92%);
---text-color-2: hsl(15deg 38% 4%);
+--main-color-3-lighter: hsl(30deg 9% 72% / 0.5);
+--main-color-3-light: hsl(30deg 9% 72%);
+--text-color-1: hsl(30deg 0% 94%);
+--text-color-2: hsl(207deg 13% 35%);
 --text-size-1: 1em;
 --text-size-2: 2em;
+--large-mobile: 39em;
+--small-mobile: 28em;
 }
 
 * {
 box-sizing: border-box;
-font-family: 'Roboto Slab', serif;
+font-family: 'Raleway', serif;
 font-optical-sizing: auto;
 font-style: normal;
-letter-spacing: 0.2em;
 }
 
 body {
+font-size: 16px;
 display: flex;
 flex-direction: column;
 gap: 4px;
 align-items: center;
-background: var(--main-color-3-light);
+background: var(--main-color-1);
 margin: 0;
 padding: 0;
 }
@@ -55,53 +75,210 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-font-size: 2em;
-letter-spacing: 0.2em;
-font-family: 'Lora', serif;
+h6,
+p {
+letter-spacing: 0.05em;
+font-family: 'Raleway', serif;
 font-optical-sizing: auto;
 font-style: normal;
 font-weight: normal;
 margin: 0;
 padding: 0;
+color: var(--text-color-1);
+}
+
+h1 {
+font-size: 2em;
+}
+
+h2 {
+font-size: 1.8em;
+}
+
+h3 {
+font-size: 1.6em;
+}
+
+h4 {
+font-size: 1.5em;
+}
+
+h5 {
+font-size: 1.4em;
+}
+
+h6,
+p {
+font-size: 1.2em;
 }
 
 a {
 font-size: 1em;
-font-family: 'Lora', serif;
+font-family: 'Playfair Display', serif;
 font-optical-sizing: auto;
 font-style: normal;
 font-weight: normal;
 text-decoration: none;
+color: var(--text-color-1);
 }
 
-@keyframes show {
-
-0% {
-opacity: 0;
+ul {
+list-style-type: none;
+padding: 0;
+margin: 0;
 }
-50% {
+
+.frosted-text {
+color: var(--text-color-1);
+text-align: center;
+}
+
+.backdrop-container {
+display: flex;
+justify-content: center;
+align-items: start;
+width: 100%;
+padding: 4em 0 0 0;
+height: calc(100vh - 4.25em);
+position: relative;
+background-color: transparent;
+}
+
+.backdrop-image {
+position: absolute;
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.frosted-content {
+width: 10em;
+}
+
+.frosted-section {
+display: flex;
+flex-flow: column wrap;
+justify-content: center;
+align-items: center;
+width: 50%;
+}
+
+.frosted-section-full {
+position: relative;
+display: flex;
+flex-flow: column wrap;
+justify-content: center;
+align-items: center;
+width: 50%;
+height: calc(100vh - 4.25em);
+}
+
+.full-last {
+height: calc(100vh);
+}
+
+.frosted-card {
+position: relative;
+display: flex;
+flex-flow: column;
+align-items: center;
+max-width: 30em;
+aspect-ratio: 1/1;
+overflow: hidden;
+}
+
+.frosted-split-section {
+width: 80%;
+display: flex;
+justify-content: center;
+flex-flow: row wrap;
+gap: 2em 10em;
+margin-top: 1.5em;
+}
+
+.frosted-group-section {
+width: 80%;
+display: flex;
+justify-content: center;
+flex-flow: row wrap;
+gap: 2em 5em;
+margin-top: 1.5em;
+}
+
+.frosted-show {
 opacity: 1;
 }
-100% {
-opacity: 1;
-}
+
+.frosted-img {
+width: 100%;
+object-fit: cover;
 }
 
-@keyframes slide-l {
-
-0% {
-max-width: 0;
-}
-50% {
-max-width: 100%;
-}
-100% {
-max-width: 100%;
-}
+.frosted-input {
+outline: none;
+border: none;
+background: var(--main-color-4);
+backdrop-filter: blur(20px);
+color: var(--text-color-1);
+padding: 0.25em;
 }
 
+button {
+cursor: pointer;
+border: none;
+outline: none;
+color: inherit;
+font-size: 1.5em;
+font-weight: bold;
+}
 
+.frosted-btn {
+cursor: pointer;
+font-family: 'Raleway', serif;
+font-weight: bold;
+background: var(--main-color-3);
+color: var(--main-color-1);
+padding: 1.2em 1.2em;
+font-size: 1.2em;
+border-radius: 0.25em;
+transition-duration: 0.4s;
+border: 2px solid transparent;
+}
+
+.frosted-btn-small {
+padding: 0.8em 1.2em;
+font-size: 1.2em;
+}
+
+.frosted-btn:hover {
+background: var(--main-color-1);
+color: var(--main-color-3);
+border: 2px solid var(--main-color-3);
+}
+
+.hide {
+display: none;
+}
+
+
+
+.backdrop-container {
+display: flex;
+justify-content: center;
+align-items: start;
+width: 100%;
+padding: 4em 0 0 0;
+height: calc(100vh - 4.25em);
+position: relative;
+background-color: transparent;
+}
+
+.backdrop-image {
+position: absolute;
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
 
 header {
 width: 100%;
@@ -118,7 +295,7 @@ top: 0;
           browsers that support backdrop-filter.
         */
         header {
-background: hsl(0deg 0% 100% / 0.5);
+background: var(--main-color-1-light);
 }
 
 .backdrop {
@@ -126,7 +303,7 @@ position: absolute;
 inset: 0;
 backdrop-filter: blur(16px);
 background: linear-gradient(to bottom,
-                    hsl(0deg 0% 95%),
+                    var(--main-color-2),
                     transparent 50%);
 pointer-events: none;
 }
@@ -138,7 +315,7 @@ left: 0;
 right: 0;
 bottom: 0;
 height: 100%;
-background: hsl(0deg 0% 100% / 0.1);
+background: var(--main-color-4);
 -webkit-backdrop-filter: blur(12px) brightness(0.96);
 backdrop-filter: blur(12px) brightness(0.96);
 transform: translateY(100%);
@@ -183,17 +360,15 @@ z-index: 1000;
 }
 
 .logo-container {
-padding: 1em;
-display: flex;
-align-items: center;
-gap: .5em;
+position: relative;
+padding: .5em;
 }
 
 .logo-text {
-max-width: 10em;
-letter-spacing: .3em;
 text-transform: uppercase;
-color: var(--main-color-1);
+padding: .1em .5em;
+font-size: 2em;
+font-family: 'Playfair Display', serif;
 }
 
 .logo {
@@ -202,92 +377,231 @@ max-width: 2em;
 max-height: 2em;
 }
 
-.glass-nav ul {
+.frosted-nav ul {
 display: flex;
 gap: 1.5em;
 }
 
-.glass-nav ul li a {
+.frosted-nav ul li a {
 text-align: center;
 text-decoration: none;
-color: var(--main-color-1);
+color: var(--text-color-1);
 transition-duration: 0.3s;
 text-transform: uppercase;
-letter-spacing: 0.3em;
 padding-left: 0.3em;
 border-width: 0%;
 }
 
-.glass-nav ul li a:hover {
+.frosted-nav ul li a:hover {
 padding-bottom: 1em;
 border-width: 100%;
-border-bottom: .2em solid var(--main-color-3);
-color: var(--main-color-2);
+border-bottom: .2em solid var(--text-color-2);
+color: var(--text-color-2);
 }
 
-.frosted-card {
+.frosted-sub-nav {
+transition: all .3s ease-out;
+display: none;
+position: fixed;
+z-index: 2000;
+background: transparent;
+backdrop-filter: blur(.5em);
+top: 0;
+right: 0;
+flex-direction: column;
+min-width: 75%;
+background-color: var(--main-color-2);
+height: 100vh;
+transform: translateX(100%);
+}
+
+.frosted-sub-nav ul {
 display: flex;
-align-items: center;
+flex-flow: column;
+gap: 2em;
+margin: 4em 0 0 0;
+text-transform: uppercase;
+padding: 2em 0 0 2em;
+font-weight: bold;
+list-style-type: none;
+color: var(--text-color-1);
+font-size: 1.4em;
+}
+
+.frosted-sub-nav ul li a {
+font-size: 1.5em;
+}
+
+.col {
+display: flex;
+flex-flow: column;
+}
+
+.frosted-hamburger {
+position: fixed;
+top: 0;
+right: -35;
+margin: 18px 10px 0 0;
+}
+
+.frosted-img-about {
+width: 400px;
+min-width: 400px;
+aspect-ratio: 4/6;
+object-fit: contain;
+box-shadow: 15px 15px 20px hsl(210, 15%, 22%);
+}
+
+.frosted-about-text {
+font-size: 1.1em;
+line-height: 1.5;
+max-width: 30em;
+}
+
+@keyframes show {
+
+0% {
+opacity: 0;
+}
+100% {
+opacity: 1;
+}
+}
+
+@keyframes slide-l {
+
+0% {
+max-width: 0;
+}
+50% {
+max-width: 100%;
+}
+100% {
+max-width: 100%;
+}
+}
+
+@media screen and (max-width: 87.5em) {
+
+.frosted-service-card {
+min-height: 10em;
+}
+}
+
+@media screen and (max-width: 70em) {
+
+.frosted-split-section {
 justify-content: center;
-padding: 2em;
-border-radius: .5em;
-background-color: var(--main-color-3-o);
-backdrop-filter: blur(5px);
-transition-duration: 0.3s;
-animation: show 4s infinite;
-}
-
-.backdrop-container {
-display: flex;
-width: 100%;
-height: calc(100vh - 4.25em);
-position: relative;
-background-color: transparent;
-}
-
-.backdrop-image {
-position: absolute;
-width: 100%;
-height: 100%;
-object-fit: cover;
-}
-
-.frosted-content {
-width: 10em;
-}
-
-.cards {
-width: 100%;
-align-self: center;
-justify-self: center;
-position: relative;
-display: flex;
 align-items: center;
-justify-content: center;
+flex-flow: column;
+}
+.frosted-service-card {
+min-width: 90%;
+max-height: 13em;
+}
 }
 
-.frosted-text {
-animation: show 4s infinite;
+@media screen and (max-width: 50em) {
+
+body {
+font-size: 14px;
+}
+.card,
+  .frosted-section,
+  .frosted-section-full {
+width: 75%;
+}
+.frosted-img-about {
+width: 300px;
+min-width: 100px;
+margin: 0 0 8em 0;
+}
+}
+
+@media screen and (max-width: 40em) {
+
+body {
+font-size: 12px;
+}
+.frosted-input,
+  .frosted-input-active,
+  .frosted-textarea {
+font-size: 1.34em;
+width: 100%;
+}
+.frosted-input-active ~ label,
+  .frosted-input ~ label,
+  .frosted-textarea ~ label {
+font-size: 1.34em;
+padding: 0 0.267em;
+}
+.frosted-input-active {
+max-width: 100%;
+}
+.frosted-form-container {
+width: 80%;
+}
+.frosted-textarea-group {
+width: 100%;
+}
+.frosted-textarea {
+width: 100%;
+min-width: 15em;
+}
+.frosted-form {
+align-items: center;
+}
+.frosted-form-row {
+flex-flow: column wrap;
+}
+.frosted-btn-contact {
+width: 100%;
+}
+.card,
+  .frosted-section,
+  .frosted-section-full,
+  .frosted-group-section {
+width: 95%;
+}
+.frosted-nav {
+display: none;
+}
+.frosted-sub-nav {
+display: flex;
+}
+}
+
+@media screen and (max-width: 30em) {
+
+.frosted-img {
+width: 100%;
+min-width: 100px;
+}
 }
 </style>
 <body>
     
+    
     <header>
     <div class="header-container">
         
-        <a href="undefined.logo.link">
-            <div class="logo-container"><img class="logo" src="/assets/images/window_logo.png"><span class="logo-text">Windows &amp;
-                    Doors</span></div>
+        <a href="/designs/frosted_ceja/">
+            <div class="logo-container">
+                <span class="logo-text">CEJAFILMS</span>
+            </div>
         </a>
         
-    <nav class="glass-nav">
+    <nav class="frosted-nav">
         <ul style="list-style-type: none;">
             
-            <li><a href="about">About</a></li>
-            <li><a href="services">Services</a></li>
+            <li><a href="/designs/frosted_ceja/about">About</a></li>
+            <li><a href="/designs/frosted_ceja/services">Services</a></li>
+            <li><a href="/designs/frosted_ceja/portfolio">Portfolio</a></li>
+            <li><a href="/designs/frosted_ceja/contact">Contact</a></li>
         
         </ul>
     </nav>
+
 
 
 
@@ -299,53 +613,111 @@ animation: show 4s infinite;
 </header>
 
 
-    <div class="backdrop-container">
-        <img class="backdrop-image" src="/assets/images/glass/glass-door-home.jpg" alt="glass home">
-
-        <div class="cards">
-            
-    <div class="frosted-card">
-
-        
-                <h4 id="frosted-text" class="frosted-text" style="text-transform: uppercase;">
-                    Stunning Window
-                    Designs
-                </h4>
-            
-
-    </div>
+    
 
 
-
-            
-    <div class="frosted-card">
-
-        
-                <h4 id="frosted-text" class="frosted-text" style="text-transform: uppercase;">
-                    Stunning Window
-                    Designs
-                </h4>
-            
-
-    </div>
-
-
-
+<nav id="frosted-sub-nav" class="frosted-sub-nav">
+    
+    <div id="frosted_hamburger_menu" class="col frosted-hamburger" style="gap: 3px;">
+        <div style="transition: transform .3s ease-out; width: 25px; height: 2px; background-color: var(--main-color-5);">
+        </div>
+        <div style="transition: transform .3s ease-out; width: 25px; height: 2px; background-color: var(--main-color-5);">
+        </div>
+        <div style="transition: transform .3s ease-out; width: 25px; height: 2px; background-color: var(--main-color-5);">
         </div>
     </div>
+
+
+
+    <ul class="nav-list">
+        
+        <li><a href="/designs/frosted_ceja/about">About</a></li>
+        <li><a href="/designs/frosted_ceja/services">Services</a></li>
+        <li><a href="/designs/frosted_ceja/portfolio">Portfolio</a></li>
+        <li><a href="/designs/frosted_ceja/contact">Contact</a></li>
     
-    <script>
-        const frosted_text = document.getElementById('frosted-text')
-        console.log(frosted_text)
-        const texts = ['Stunning Window Designs', 'Completely Customized', 'Built Sustainably', 'Built to last']
-        let count = 0
-        setInterval(() => {
-            count++
-            if (count === 4) {
-                count = 0
+    </ul>
+</nav>
+<script>
+    const menu = document.getElementById('frosted_hamburger_menu')
+    let show_menu = false
+    const menu_placement = 35
+    menu.style.transform = `translateX(-${menu_placement}px)`
+    const change_menu = (event) => {
+        event.stopPropagation()
+        show_menu = !show_menu
+        const nav = document.getElementById('frosted-sub-nav')
+        nav.style.transform = show_menu ? 'translateX(0)' : 'translateX(100%)'
+        menu.style.transition = show_menu ? 'all .3s ease-out' : 'all 0.3s ease-out'
+        menu.style.transform = show_menu ? `translateX(${nav.offsetWidth - menu_placement}px)` : `translateX(-${menu_placement}px)`
+        Array.from(menu.children).forEach((line, index) => {
+            function rotate(deg, translate_x, translate_y) {
+                line.style.transform = `rotate(${deg}deg) translateX(${translate_x}px) translateY(${translate_y}px)`
             }
-            frosted_text.textContent = texts[count]
-        }, 4000)
+            if (index === 0) {
+                show_menu ? rotate(45, 3.5, 3.5) : rotate(0, 0, 0)
+            } else if (index === 2) {
+                show_menu ? rotate(-45, 3.5, -3.5) : rotate(0, 0, 0)
+            } else {
+                line.style.opacity = show_menu ? 0 : 1
+            }
+        })
+    }
+    document.body.addEventListener('click', (event) => {
+        if (event.target.id === 'frosted-sub-nav') {
+            return
+        }
+        show_menu = false
+
+        console.log('hello')
+        const nav = document.getElementById('frosted-sub-nav')
+        nav.style.transform = show_menu ? 'translateX(0)' : 'translateX(100%)'
+        menu.style.transform = show_menu ? 'translateX(0)' : `translateX(-${menu_placement}px)`
+        Array.from(menu.children).forEach((line, index) => {
+            function rotate(deg, translate_y, translate_x) {
+                line.style.transform = `rotate(${deg}deg) translateY(${translate_y}px) translateX(${translate_x}px)`
+            }
+            if (index === 0) {
+                console.log('hello')
+                show_menu ? rotate(45, 3.5, 3.5) : rotate(0, 0, 0)
+            } else if (index === 2) {
+                show_menu ? rotate(-45, -3.5, 3.5) : rotate(0, 0, 0)
+            } else {
+                line.style.opacity = show_menu ? 0 : 1
+            }
+        })
+    })
+    menu.addEventListener('click', change_menu)
+
+
+</script>
+
+
+
+
+
+    <div class="backdrop-container">
+        <section class="frosted-section">
+            <h1 style="margin-bottom: 1em; text-align: center;">
+                <div class="frosted-show">Capture the Moments That Matter Most with </div>
+                <div class="frosted-show">Afton Ceja
+                    Videography</div>
+            </h1>
+            <p style="margin-bottom: 2em; text-align: center;">Welcome! Whether you're planning
+                your wedding,
+                capturing your engagement, or documenting a special
+                event,
+                I'm here to make sure your memories last a lifetime. Let me help tell your story with timeless,
+                heartfelt
+                videography.</p>
+            <a class="frosted-btn frosted-show book-session-link" href="/designs/frosted_ceja/contact" style="margin-bottom: 2em; text-align: center; ">Book
+                Your Session
+                Today!</a>
+        </section>
+
+    </div>
+    <script>
+
     </script>
 
 

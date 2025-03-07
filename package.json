@@ -7,11 +7,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "design:run": "node index.js $template $design_name",
-    "dev": "npm run design:run",
+    "dev": "npm run design:run dev",
     "design:copy:ext": "node copy_design_ext.js $design $dest",
     "design:copy": "node copy_design.js $design_business $business",
     "file:format": "node funcs/format.js $file_path",
-    "file:upload": "node funcs/upload_s3.js $file_path"
+    "file:upload": "node funcs/upload_s3.js $file_path",
+    "process-image": "node scripts/process_image.js"
   },
   "keywords": [],
   "author": "",

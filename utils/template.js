@@ -57,6 +57,8 @@ function get_template_util() {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${page.title}</title>
+    ${page?.global_head || ''}
+    ${page?.head || ''}
 </head>
 <style>
 ${data?.final_css}

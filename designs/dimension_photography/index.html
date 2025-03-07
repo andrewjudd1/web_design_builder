@@ -7,10 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dimension home</title>
+    
+    
 </head>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
+imports {
+0: @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');;
+}
 
 :root {
 --main-color-1: hsl(217deg 24% 17%);
@@ -114,6 +120,42 @@ margin: 0;
 text-decoration: none;
 color: inherit;
 cursor: pointer;
+}
+
+.row-between {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.row-5 {
+display: flex;
+gap: 5px;
+}
+
+.row-10 {
+display: flex;
+gap: 10px;
+}
+
+.row-15 {
+display: flex;
+gap: 15px;
+}
+
+.row-30 {
+display: flex;
+gap: 15px;
+}
+
+.row-50 {
+display: flex;
+gap: 50px;
+}
+
+.col {
+display: flex;
+flex-direction: column;
 }
 
 
@@ -252,6 +294,7 @@ border-radius: 50%;
 border: 1px solid var(--main-color-3);
 width: 100%;
 aspect-ratio: 1 / 1;
+transition-duration: .4s;
 }
 
 .basic-v-line {
@@ -583,9 +626,9 @@ font-size: 12px;
                 <form>
                     <div style="display: flex; flex-flow: row wrap; gap: 0.5em;">
                         
-    <label class="dimension-input-label" {{data}}=""name="name">
+    <label class="dimension-input-label" {{data}}="" for="name">
         NAME
-        <input class="dimension-input" id="name" type="text" style="width: 100%;">
+        <input class="dimension-input" id="name" type="text" style="width: 100%;" name="name">
 
     </label>
 
@@ -594,9 +637,9 @@ font-size: 12px;
 
 
                         
-    <label class="dimension-input-label" {{data}}=""name="email">
+    <label class="dimension-input-label" {{data}}="" for="email">
         EMAIL
-        <input class="dimension-input" id="email" type="text" style="width: 100%">
+        <input class="dimension-input" id="email" type="text" style="width: 100%" name="email">
 
     </label>
 
@@ -633,7 +676,7 @@ font-size: 12px;
                 <div style="display: flex; gap: .7em;">
                     
     
-    <a href="http://localhost:5500/designs/dimension_photography" class="blank-a">
+    <a href="/designs/dimension_photography" class="blank-a">
         
     <div class="basic-circle-wrapper"style="width: 1em; ">
         <div class="basic-circle">
@@ -661,7 +704,7 @@ font-size: 12px;
 
                     
     
-    <a href="http://localhost:5500/designs/dimension_photography" class="blank-a">
+    <a href="/designs/dimension_photography" class="blank-a">
         
     <div class="basic-circle-wrapper"style="width: 1em; ">
         <div class="basic-circle">
@@ -689,7 +732,7 @@ font-size: 12px;
 
                     
     
-    <a href="http://localhost:5500/designs/dimension_photography" class="blank-a">
+    <a href="/designs/dimension_photography" class="blank-a">
         
     <div class="basic-circle-wrapper"style="width: 1em; ">
         <div class="basic-circle">
@@ -717,7 +760,7 @@ font-size: 12px;
 
                     
     
-    <a href="http://localhost:5500/designs/dimension_photography" class="blank-a">
+    <a href="/designs/dimension_photography" class="blank-a">
         
     <div class="basic-circle-wrapper"style="width: 1em; ">
         <div class="basic-circle">
@@ -746,7 +789,7 @@ font-size: 12px;
 
                     
     
-    <a href="http://localhost:5500/designs/dimension_photography" class="blank-a">
+    <a href="/designs/dimension_photography" class="blank-a">
         
     <div class="basic-circle-wrapper"style="width: 1em; ">
         <div class="basic-circle">
@@ -838,25 +881,25 @@ font-size: 12px;
             
     <div class="dimension-nav">
                 
-    <a class="dimension-link"href="http://localhost:5500/designs/dimension_photography/intro">Intro</a>
+    <a class="dimension-link"href="/designs/dimension_photography/intro">Intro</a>
 
 
 
 
                 
-    <a class="dimension-link"href="http://localhost:5500/designs/dimension_photography/work">Work</a>
+    <a class="dimension-link"href="/designs/dimension_photography/work">Work</a>
 
 
 
 
                 
-    <a class="dimension-link"href="http://localhost:5500/designs/dimension_photography/about">About</a>
+    <a class="dimension-link"href="/designs/dimension_photography/about">About</a>
 
 
 
 
                 
-    <a class="dimension-link"href="http://localhost:5500/designs/dimension_photography/contact">Contact</a>
+    <a class="dimension-link"href="/designs/dimension_photography/contact">Contact</a>
 
 
 

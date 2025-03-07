@@ -10,7 +10,7 @@ const is_file = (file = 'index.js') => {
     return args[1].includes('index.js')
 }
 async function openBrowser(template, designName) {
-    const url = `http://localhost:5500/designs/${template}_${designName}/`;
+    const url = `http://localhost:5500/designs/${template.split('_')[0]}_${template?.split('_')?.[1] || designName}/`;
     console.log(`Opening browser at ${url}`);
     await open(url, { app: { name: 'google chrome' } });
 }
@@ -74,12 +74,14 @@ const design_builder = () => {
 
     // npm run create:design sky
     const create_design = async function () {
-        const template_name = args[2]
-        const template = await utils.template.get_template(template_name)
+        const template_name = args[3].split('_')[0]
+        args[4] = args?.[4] || args?.[3]?.split('_')?.[1] || ''
+        console.log(template_name, args[4])
+        const name = args?.[4] ? `${template_name}_${args?.[4]}` : `${template_name}_${utils.helper.get_shorter(id)}`
+        const template = await utils.template.get_template(name)
         const id = utils.helper.get_uuid()
-        const name = args?.[3] ? `${template_name}_${args?.[3]}` : `${template_name}_${utils.helper.get_shorter(id)}`
         const data = {}
-        data.business = args?.[3] ? business_data?.[name] : {}
+        data.business = args?.[4] ? business_data?.[name]({ root_url: args?.[2] === 'dev' ? `/designs/${name}` : '' }) : {}
         console.log('data', data)
         const dir = `designs/${name}`
         await fs.mkdir(dir).catch(err => null)
@@ -120,18 +122,20 @@ if (is_file('index.js')) {
     builder.create_design();
 
     // Kill any existing process on port 5500, start the server, then open Chrome
-    killProcessOnPort(5500, () => {
-        runServer()
-            .then(() => {
-                // Add a short delay before opening the browser to ensure server readiness
-                setTimeout(() => {
-                    openBrowser(args[2], args[3]);
-                }, 1000); // Adjust delay if necessary
-            })
-            .catch((error) => {
-                console.error("Error starting server:", error);
-            });
-    });
+    if (args?.[2] !== 'prod') {
+        killProcessOnPort(5500, () => {
+            runServer()
+                .then(() => {
+                    // Add a short delay before opening the browser to ensure server readiness
+                    setTimeout(() => {
+                        openBrowser(args[3], args[4]);
+                    }, 1000); // Adjust delay if necessary
+                })
+                .catch((error) => {
+                    console.error("Error starting server:", error);
+                });
+        });
+    }
 }
 
 

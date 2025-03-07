@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root {
+  --main-color-1: hsl(217deg 24% 17%);
+  --main-color-2: hsl(226deg 6% 40%);
+  --main-color-3: hsl(15deg 38% 96%);
+  --main-color-3-lighter: hsl(15deg 38% 86%);
+  --main-color-3-light: hsla(15deg, 38%, 86%, 0.1);
+  --text-color-2: hsl(15deg 38% 4%);
+  --text-size-1: 1em;
+  --text-size-2: 2em;
+  }
+
+* {
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+html, body {
+  height: 100%;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 2em;
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  font-size: 2em;
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: normal;
+ 
+}
+
+body {
+  background-color: var(--main-color-1);
+  color: var(--main-color-3);
+  overflow-x: hidden;
+  display: flex;
+  margin: 0;
+ }
+
+.wrapper {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.wrapper-photo {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("https://airbucket-01.s3.us-east-1.amazonaws.com/website/mountain_snow_20j8WQ.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: darken;
+    background-size: cover; /* Cover the whole container */
+    background-position: center;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+  cursor: inherit;
+}
+
+.container {
+  display: flex;
+}
+
+.title-container {
+  display: flex;
+  background: green;x
+}
+
+.blank-ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.blank-a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.row-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.row-5 {
+  display: flex;
+  gap: 5px;
+}
+.row-10 {
+  display: flex;
+  gap: 10px;
+}
+.row-15 {
+  display: flex;
+  gap: 15px;
+}
+
+.row-30 {
+  display: flex;
+  gap: 15px;
+}
+
+.row-50 {
+  display: flex;
+  gap: 50px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.blank-li {
+
+}
+
+.image-setup {
+  width: 100%; 
+  object-fit: cover; 
+  border-radius: 5px;
+  max-height: 20em;
+}
