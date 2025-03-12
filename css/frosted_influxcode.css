@@ -19,7 +19,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: 'Raleway', serif;
+  font-family: 'Ubuntu Mono', monospace;
   font-optical-sizing: auto;
   font-style: normal;
 }
@@ -51,7 +51,7 @@ h5,
 h6,
 p {
   letter-spacing: 0.05em;
-  font-family: 'Raleway', serif;
+  font-family: "Roboto Serif", serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: normal;
@@ -86,7 +86,7 @@ p {
 
 a {
   font-size: 1em;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Ubuntu Mono', monospace;
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: normal;

@@ -2,18 +2,18 @@ function data(options) {
     const root_url = options?.root_url || ''
 
     const func_data = {
-        name: "Afton Ceja Videography",
-        description: "A videography Company",
+        name: "Influxcode",
+        description: "A Software engineering and web design company",
         logo: {
-            name: 'CEJAFILMS',
+            name: 'INFLUXCODE',
             link: `${root_url}/`
         },
         social: {
-            instagram: `https://www.instagram.com/ceja.films?igsh=MWIxeG4yMXlqcWtmdw%3D%3D&utm_source=qr`,
+            instagram: `${root_url}`,
             linkedin: `${root_url}`,
             facebook: `${root_url}`,
         },
-        email: 'aftoncejafilms@gmail.com',
+        email: 'andrewjudd111@gmail.com',
         nav: {}
     }
     const links = [

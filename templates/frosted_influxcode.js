@@ -1,14 +1,14 @@
 import components from '../components/index.js'
 const page_options = {
     home: {
-        head: `<meta name="title" content="Capture the Moments That Matter Most | Afton Ceja Videography">
-<meta name="description" content="Professional videography services to help you preserve your most cherished memories. Weddings, engagements, and special events beautifully captured.">
-<meta name="keywords" content="videography, wedding videography, event videography, Afton Ceja">`
+        head: `<meta name="title" content="Take control of your software and design | Influxcode">
+<meta name="description" content="Professional software engineering and design services to help you generate more leads and build a better online presence.">
+<meta name="keywords" content="software, design, web development, web design, Andrew Judd, Influxcode">`
     },
     about: {
-        head: `<meta name="title" content="About Afton Ceja | Passionate Videographer">
-<meta name="description" content="Learn more about Afton Ceja, a videographer passionate about capturing life's most precious moments through film.">
-<meta name="keywords" content="about videographer, Afton Ceja, storytelling through video">`
+        head: `<meta name="title" content="About Influxcode | Innovative Software">
+<meta name="description" content="Learn more about Influxcode, a software engineering and web design company passionate about bringing in the best code for your business">
+<meta name="keywords" content="about, software, design, web development, web design, Andrew Judd, Influxcode">`
     },
     services: {
         head: `<meta name="title" content="Videography Services | Weddings & More">
@@ -45,7 +45,7 @@ const pages = ['Home', 'About', 'Services', 'Portfolio', 'Contact'].map(item => 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap" as="style" >
 <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&Ubuntu+Mono:wght@400;700&Roboto+Serif:wght@400;700&display=swap" rel="stylesheet">
 </noscript>
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">

@@ -33,8 +33,8 @@ const overwrite_folder = async () => {
         console.log(`Template: ${template}`);
         console.log(`Company: ${company}`);
 
-        const destPath = `/Users/andrewjudd/projects/${dest_folder}/`;
-        const designPath = `/Users/andrewjudd/projects/web_design_builder/designs/${design_folder}`;
+        const destPath = `/home/ubuntu/${dest_folder}/`;
+        const designPath = `/home/ubuntu/web_design_builder/designs/${design_folder}`;
 
         // Create destination folder if it doesn't exist
         await fs.mkdir(destPath, { recursive: true });
@@ -56,26 +56,26 @@ const overwrite_folder = async () => {
         // Copy files from design folder to destination folder
         await runCommand(`cp -r ${designPath}/* ${destPath}`);
 
-        // Change working directory for Git operations
-        process.chdir(destPath);
+        // // Change working directory for Git operations
+        // process.chdir(destPath);
 
-        // Check if there are changes before committing
-        const statusOutput = await exec('git status --porcelain');
-        if (!statusOutput.stdout.trim()) {
-            console.log('No changes to commit. Skipping Git operations.');
-            return;
-        }
+        // // Check if there are changes before committing
+        // const statusOutput = await exec('git status --porcelain');
+        // if (!statusOutput.stdout.trim()) {
+        //     console.log('No changes to commit. Skipping Git operations.');
+        //     return;
+        // }
 
-        // Git commands for deployment
-        await runCommand('git add .');
-        await runCommand(`git commit -m "Deploy: ${new Date().toISOString()} ${args?.[4] ? args[4].split('_').join(' ') : ''}"`);
-        try {
-            await runCommand('git push');
-            console.log('Changes pushed successfully. Deployment triggered.');
-        } catch (error) {
-            console.error('Error during git push:', error.message);
-            throw error;
-        }
+        // // Git commands for deployment
+        // await runCommand('git add .');
+        // await runCommand(`git commit -m "Deploy: ${new Date().toISOString()} ${args?.[4] ? args[4].split('_').join(' ') : ''}"`);
+        // try {
+        //     await runCommand('git push');
+        //     console.log('Changes pushed successfully. Deployment triggered.');
+        // } catch (error) {
+        //     console.error('Error during git push:', error.message);
+        //     throw error;
+        // }
     } catch (error) {
         console.error('Error:', error.message);
     }
