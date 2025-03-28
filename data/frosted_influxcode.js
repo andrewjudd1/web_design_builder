@@ -6,7 +6,8 @@ function data(options) {
         description: "A Software engineering and web design company",
         logo: {
             name: 'INFLUXCODE',
-            link: `${root_url}/`
+            link: `${root_url}/`,
+            url: `https://s3.us-east-1.amazonaws.com/assets.influxcode.io/influxcode/logo_light.svg`
         },
         social: {
             instagram: `${root_url}`,

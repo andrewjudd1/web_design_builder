@@ -39,7 +39,7 @@ const pages = ['Home', 'About', 'Services', 'Portfolio', 'Contact'].map(item => 
         link: `/${item}`,
         file_name: `${item === 'Home' ? 'index' : item.toLowerCase()}.html`,
         link_title: `${item}`,
-        title: `CEJAFILMS - ${item}`,
+        title: `INFLUXCODE - ${item}`,
         css: ['frosted_influxcode.css'],
         global_head: `<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">

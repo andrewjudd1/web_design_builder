@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEJAFILMS - Services</title>
+    <title>INFLUXCODE - Services</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap" as="style" >
@@ -32,19 +32,28 @@
 
 
 :root {
---main-color-1: hsl(207deg 13% 35%);
---main-color-1-light: hsl(207deg 13% 35% / 0.5);
---main-color-2: hsl(199deg 13% 52%);
---main-color-3: hsl(31deg, 30%, 86%);
---main-color-4: hsl(204deg 28% 77%);
---main-color-5: hsl(30deg 0% 94%);
---main-color-3-o: hsla(187deg, 41%, 85%, 0.7);
---main-color-3-lighter: hsl(30deg 9% 72% / 0.5);
---main-color-3-light: hsl(30deg 9% 72%);
---text-color-1: hsl(30deg 0% 94%);
---text-color-2: hsl(207deg 13% 35%);
+--text: hsl(0, 0%, 91%);
+--background: hsl(240, 20%, 8%);
+--primary: hsl(229, 11%, 30%);
+--secondary: hsl(222, 40%, 26%);
+--accent: hsl(207, 63%, 72%);
+--main-color-1: hsl(240, 20%, 8%);
+--main-color-1-light: hsl(240, 20%, 8% / 0.5);
+--main-color-2: hsl(229, 11%, 30%);
+--main-color-3: hsl(222, 40%, 26%);
+--main-color-4: hsl(207, 63%, 72%);
+--main-color-5: hsl(0 0% 91%);
+--main-color-3-o: hsla(222, 40%, 26%, 0.7);
+--main-color-3-lighter: hsl(222 40% 26% / 0.5);
+--main-color-3-light: hsl(222 40% 50%);
+--util-color-bad: hsl(13 75% 52%);
+--text-color-1: hsl(0 0% 91%);
+--text-color-2: hsl(207 13% 35%);
 --text-size-1: 1em;
 --text-size-2: 2em;
+--text-size-3: 3em;
+--text-size-4: 4em;
+--text-size-5: 5em;
 --large-mobile: 39em;
 --small-mobile: 28em;
 }
@@ -83,7 +92,7 @@ h5,
 h6,
 p {
 letter-spacing: 0.05em;
-font-family: "Roboto Serif", serif;
+font-family: 'Roboto Serif', serif;
 font-optical-sizing: auto;
 font-style: normal;
 font-weight: normal;
@@ -133,6 +142,26 @@ padding: 0;
 margin: 0;
 }
 
+.text-5 {
+font-size: var(--text-size-5);
+}
+
+.text-4 {
+font-size: var(--text-size-4);
+}
+
+.text-3 {
+font-size: var(--text-size-3);
+}
+
+.text-2 {
+font-size: var(--text-size-2);
+}
+
+.text-1 {
+font-size: var(--text-size-1);
+}
+
 .frosted-text {
 color: var(--text-color-1);
 text-align: center;
@@ -140,8 +169,9 @@ text-align: center;
 
 .backdrop-container {
 display: flex;
-justify-content: center;
-align-items: start;
+flex-flow: column;
+justify-content: start;
+align-items: center;
 width: 100%;
 padding: 4em 0 0 0;
 height: calc(100vh - 4.25em);
@@ -242,7 +272,7 @@ cursor: pointer;
 font-family: 'Raleway', serif;
 font-weight: bold;
 background: var(--main-color-3);
-color: var(--main-color-1);
+color: var(--text-color-1);
 padding: 1.2em 1.2em;
 font-size: 1.2em;
 border-radius: 0.25em;
@@ -265,12 +295,28 @@ border: 2px solid var(--main-color-3);
 display: none;
 }
 
+.group-wrapper {
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 2em;
+}
+
+.group-container {
+display: flex;
+flex-flow: column;
+gap: 1em;
+justify-content: center;
+align-items: center;
+}
+
 
 
 .backdrop-container {
 display: flex;
-justify-content: center;
-align-items: start;
+flex-flow: column;
+justify-content: start;
+align-items: center;
 width: 100%;
 padding: 4em 0 0 0;
 height: calc(100vh - 4.25em);
@@ -375,6 +421,11 @@ padding: .1em .5em;
 font-size: 2em;
 }
 
+.logo-img {
+width: 13em;
+aspect-ratio: 1/1;
+}
+
 .logo {
 display: flex;
 max-width: 2em;
@@ -448,18 +499,176 @@ right: -35;
 margin: 18px 10px 0 0;
 }
 
-.frosted-img-about {
-width: 400px;
-min-width: 400px;
-aspect-ratio: 4/6;
-object-fit: contain;
-box-shadow: 15px 15px 20px hsl(210, 15%, 22%);
+.frosted-input {
+border: solid 1.5px var(--main-color-2);
+border-radius: 1em;
+background: none;
+padding: 1em;
+font-size: 1em;
+color: var(--text-color-1);
+transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+field-sizing: content;
+min-width: 15em;
 }
 
-.frosted-about-text {
-font-size: 1.1em;
-line-height: 1.5;
-max-width: 30em;
+/* From Uiverse.io by alexruix */
+        .frosted-input-group {
+position: relative;
+}
+
+.frosted-user-label {
+position: absolute;
+left: 15px;
+color: var(--text-color-1);
+pointer-events: none;
+transform: translateY(1em);
+transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.frosted-input:focus,
+        .frosted-input:valid {
+outline: none;
+border: 1.5px solid var(--main-color-4);
+}
+
+.frosted-input:focus~label,
+        .frosted-input:valid~label {
+transform: translateY(-50%) scale(0.8);
+background-color: var(--main-color-1);
+padding: 0 .2em;
+color: var(--text-color-1);
+}
+
+/* From Uiverse.io by alexruix */
+        .frosted-input-active-group {
+position: relative;
+}
+
+.frosted-input-active {
+border: solid 1.5px var(--main-color-2);
+border-radius: 1em;
+background: none;
+padding: 1em;
+font-size: 1em;
+color: var(--text-color-1);
+transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+field-sizing: content;
+min-width: 15em;
+max-width: 15em;
+min-height: 53.66px;
+}
+
+.frosted-user-label-active {
+position: absolute;
+left: 15px;
+color: var(--text-color-1);
+pointer-events: none;
+transform: translateY(1em);
+transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.frosted-input-active:focus,
+        .frosted-input-active:valid {
+outline: none;
+border: 1.5px solid var(--main-color-4);
+}
+
+.frosted-input-active~label,
+        .frosted-input-active~label {
+transform: translateY(-50%) scale(0.8);
+background-color: var(--main-color-1);
+padding: 0 .2em;
+color: var(--text-color-1);
+}
+
+/* From Uiverse.io by alexruix */
+        .frosted-textarea-group {
+position: relative;
+}
+
+.frosted-textarea {
+border: solid 1.5px var(--main-color-2);
+border-radius: 1em;
+background: none;
+padding: 1em;
+font-size: 1em;
+color: var(--text-color-1);
+transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+field-sizing: content;
+width: 31em;
+min-height: 8em;
+}
+
+.frosted-textarea::placeholder {
+color: var(--text-color-1);
+opacity: 0.8;
+}
+
+.frosted-textarea:focus,
+        .frosted-textarea:valid {
+outline: none;
+border: 1.5px solid var(--main-color-4);
+}
+
+.frosted-textarea:focus~label,
+        .frosted-textarea:valid~label {
+transform: translateY(-50%) scale(0.8);
+background-color: var(--main-color-1);
+padding: 0 .2em;
+color: var(--text-color-1);
+}
+
+.basic-circle:hover {
+background-color: var(--main-color-5);
+}
+
+.basic-circle:hover svg {
+fill: black;
+}
+
+.basic-circle-wrapper {
+display: flex;
+flex-flow: column;
+align-items: center;
+justify-content: center;
+gap: .5em;
+}
+
+.basic-circle {
+display: flex;
+flex-flow: column;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+border: 1px solid var(--main-color-3);
+width: 100%;
+aspect-ratio: 1 / 1;
+transition-duration: .4s;
+}
+
+input::-webkit-calendar-picker-indicator {
+filter: invert(1);
+}
+
+.frosted-form-container {
+display: flex;
+flex-flow: column;
+align-items: center;
+}
+
+.frosted-form {
+width: 100%;
+display: flex;
+flex-flow: column;
+gap: 1em;
+align-items: stretch;
+}
+
+.frosted-form-row {
+width: 100%;
+display: flex;
+flex-flow: row wrap;
+gap: 1em;
 }
 
 .frosted-img-portfolio {
@@ -561,6 +770,20 @@ max-width: 100%;
 }
 100% {
 max-width: 100%;
+}
+}
+
+@media screen and (min-width: 30em) {
+
+.group-container {
+flex-flow: row;
+gap: 4em;
+}
+.group-wrapper {
+display: flex;
+flex-flow: column;
+justify-content: space-between;
+align-items: center;
 }
 }
 
@@ -668,7 +891,7 @@ min-width: 100px;
     <header>
     <div class="header-container">
         
-        <a href="/">
+        <a href="/designs/frosted_influxcode/">
             <div class="logo-container">
                 <span class="logo-text">INFLUXCODE</span>
             </div>
@@ -677,10 +900,10 @@ min-width: 100px;
     <nav class="frosted-nav">
         <ul style="list-style-type: none;">
             
-            <li><a href="/about">About</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/portfolio">Portfolio</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="/designs/frosted_influxcode/about">About</a></li>
+            <li><a href="/designs/frosted_influxcode/services">Services</a></li>
+            <li><a href="/designs/frosted_influxcode/portfolio">Portfolio</a></li>
+            <li><a href="/designs/frosted_influxcode/contact">Contact</a></li>
         
         </ul>
     </nav>
@@ -714,10 +937,10 @@ min-width: 100px;
 
     <ul class="nav-list">
         
-        <li><a href="/about">About</a></li>
-        <li><a href="/services">Services</a></li>
-        <li><a href="/portfolio">Portfolio</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="/designs/frosted_influxcode/about">About</a></li>
+        <li><a href="/designs/frosted_influxcode/services">Services</a></li>
+        <li><a href="/designs/frosted_influxcode/portfolio">Portfolio</a></li>
+        <li><a href="/designs/frosted_influxcode/contact">Contact</a></li>
     
     </ul>
 </nav>
@@ -818,7 +1041,7 @@ min-width: 100px;
             moment
             deserves to be remembered.
             Let me craft a cinematic story of your wedding day.</h5>
-        <a class="frosted-btn frosted-btn-small frosted-show book-session-link" href="/contact" style="margin: 2em 0 0 0; text-align: center; ">Book
+        <a class="frosted-btn frosted-btn-small frosted-show book-session-link" href="/designs/frosted_influxcode/contact" style="margin: 2em 0 0 0; text-align: center; ">Book
             Now!</a>
     </div>
     
@@ -843,7 +1066,7 @@ min-width: 100px;
             excitement leading up to your big
             day
             with a bridal-focused video.</h5>
-        <a class="frosted-btn frosted-btn-small frosted-show book-session-link" href="/contact" style="margin: 2em 0 0 0; text-align: center; ">Book
+        <a class="frosted-btn frosted-btn-small frosted-show book-session-link" href="/designs/frosted_influxcode/contact" style="margin: 2em 0 0 0; text-align: center; ">Book
             Now!</a>
     </div>
     <div id="section_service_3" class="frosted-section-full full-last">
@@ -866,7 +1089,7 @@ min-width: 100px;
         <h5 class="frosted-show frosted-text" style="margin: 1em 0 0 0;">The magic of seeing each other for the first
             time on your special day,
             beautifully captured forever.</h5>
-        <a class="frosted-btn frosted-btn-small frosted-show book-session-link" href="/contact" style="margin: 2em 0 0 0; text-align: center; ">Book
+        <a class="frosted-btn frosted-btn-small frosted-show book-session-link" href="/designs/frosted_influxcode/contact" style="margin: 2em 0 0 0; text-align: center; ">Book
             Now!</a>
     </div>
     <script>

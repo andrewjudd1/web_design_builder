@@ -1,18 +1,28 @@
 :root {
-  --main-color-1: hsl(207deg 13% 35%);
-  --main-color-1-light: hsl(207deg 13% 35% / 0.5);
-  --main-color-2: hsl(199deg 13% 52%);
-  --main-color-3: hsl(30deg 9% 72%);
-  --main-color-4: hsl(204deg 28% 77%);
-  --main-color-3: hsl(31deg, 30%, 86%);
-  --main-color-5: hsl(30deg 0% 94%);
-  --main-color-3-o: hsla(187deg, 41%, 85%, 0.7);
-  --main-color-3-lighter: hsl(30deg 9% 72% / 0.5);
-  --main-color-3-light: hsl(30deg 9% 72%);
-  --text-color-1: hsl(30deg 0% 94%);
-  --text-color-2: hsl(207deg 13% 35%);
+  --text: hsl(0, 0%, 91%);
+  --background: hsl(240, 20%, 8%);
+  --primary: hsl(229, 11%, 30%);
+  --secondary: hsl(222, 40%, 26%);
+  --accent: hsl(207, 63%, 72%);
+
+  --main-color-1: hsl(240, 20%, 8%);
+  --main-color-1-light: hsl(240, 20%, 8% / 0.5);
+  --main-color-2: hsl(229, 11%, 30%);
+  --main-color-3: hsl(222, 40%, 26%);
+  --main-color-4: hsl(207, 63%, 72%);
+  --main-color-5: hsl(0 0% 91%);
+  --main-color-3-o: hsla(222, 40%, 26%, 0.7);
+  --main-color-3-lighter: hsl(222 40% 26% / 0.5);
+  --main-color-3-light: hsl(222 40% 50%);
+
+  --util-color-bad: hsl(13 75% 52%);
+  --text-color-1: hsl(0 0% 91%);
+  --text-color-2: hsl(207 13% 35%);
   --text-size-1: 1em;
   --text-size-2: 2em;
+  --text-size-3: 3em;
+  --text-size-4: 4em;
+  --text-size-5: 5em;
   --large-mobile: 39em;
   --small-mobile: 28em;
 }
@@ -51,7 +61,7 @@ h5,
 h6,
 p {
   letter-spacing: 0.05em;
-  font-family: "Roboto Serif", serif;
+  font-family: 'Roboto Serif', serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: normal;
@@ -100,6 +110,22 @@ ul {
   margin: 0;
 }
 
+.text-5 {
+  font-size: var(--text-size-5);
+}
+.text-4 {
+  font-size: var(--text-size-4);
+}
+.text-3 {
+  font-size: var(--text-size-3);
+}
+.text-2 {
+  font-size: var(--text-size-2);
+}
+.text-1 {
+  font-size: var(--text-size-1);
+}
+
 .frosted-text {
   color: var(--text-color-1);
   text-align: center;
@@ -107,8 +133,9 @@ ul {
 
 .backdrop-container {
   display: flex;
-  justify-content: center;
-  align-items: start;
+  flex-flow: column;
+  justify-content: start;
+  align-items: center;
   width: 100%;
   padding: 4em 0 0 0;
   height: calc(100vh - 4.25em);
@@ -209,7 +236,7 @@ button {
   font-family: 'Raleway', serif;
   font-weight: bold;
   background: var(--main-color-3);
-  color: var(--main-color-1);
+  color: var(--text-color-1);
   padding: 1.2em 1.2em;
   font-size: 1.2em;
   border-radius: 0.25em;
@@ -230,6 +257,21 @@ button {
 
 .hide {
   display: none;
+}
+
+.group-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2em;
+}
+
+.group-container {
+  display: flex;
+  flex-flow: column;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
 }
 
 @keyframes show {
@@ -253,6 +295,20 @@ button {
 
   100% {
     max-width: 100%;
+  }
+}
+
+@media screen and (min-width: 30em) {
+  .group-container {
+    flex-flow: row;
+    gap: 4em;
+  }
+
+  .group-wrapper {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 

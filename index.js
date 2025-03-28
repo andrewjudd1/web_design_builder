@@ -4,15 +4,43 @@ const args = process.argv
 import fs from 'fs/promises'
 import path from 'path'
 import business_data from "./data/index.js"
-import { exec, spawn } from 'child_process';
+import { exec, spawn, execSync } from 'child_process';
 import open from "open"
 const is_file = (file = 'index.js') => {
     return args[1].includes('index.js')
 }
+function isTabOpen(url) {
+    try {
+        const script = `
+        tell application "Google Chrome"
+            set windowList to every window
+            repeat with w in windowList
+                set tabList to every tab of w
+                repeat with t in tabList
+                    if (URL of t contains "${url}") then
+                        tell t to reload
+                        return "true"
+                    end if
+                end repeat
+            end repeat
+        end tell
+        return "false"
+      `;
+        const result = execSync(`osascript -e '${script}'`).toString().trim();
+        console.log('result', result)
+        return result === "true";
+    } catch (error) {
+        console.log(error)
+        return false;
+    }
+}
 async function openBrowser(template, designName) {
     const url = `http://localhost:5500/designs/${template.split('_')[0]}_${template?.split('_')?.[1] || designName}/`;
-    console.log(`Opening browser at ${url}`);
-    await open(url, { app: { name: 'google chrome' } });
+
+    console.log(`Opening browser at ${url} ${isTabOpen(url)}`);
+    if (!isTabOpen(url)) {
+        await open(url, { app: { name: 'google chrome' } });
+    }
 }
 
 function runServer() {
@@ -129,7 +157,7 @@ if (is_file('index.js')) {
                     // Add a short delay before opening the browser to ensure server readiness
                     setTimeout(() => {
                         openBrowser(args[3], args[4]);
-                    }, 1000); // Adjust delay if necessary
+                    }, 2000); // Adjust delay if necessary
                 })
                 .catch((error) => {
                     console.error("Error starting server:", error);

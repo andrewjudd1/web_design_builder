@@ -12,6 +12,7 @@
             flex-flow: column;
             align-items: center;
             justify-content: center;
+            gap: .5em;
         }
 
         .basic-circle {
@@ -30,9 +31,10 @@
 
 <body>
     <div class="basic-circle-wrapper">
-        <div class="basic-circle">{{children}}</div>
-        <label>{{label}}</label>
+        <div class="basic-circle" {{style}}>{{children}}</div>
+        <label style="color: var(--text-color-1); text-wrap: nowrap">{{label}}</label>
     </div>
 </body>
+
 
 </html>

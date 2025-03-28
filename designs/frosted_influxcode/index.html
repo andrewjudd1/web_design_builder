@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEJAFILMS - Home</title>
+    <title>INFLUXCODE - Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap" as="style" >
@@ -27,19 +27,28 @@
 
 
 :root {
---main-color-1: hsl(207deg 13% 35%);
---main-color-1-light: hsl(207deg 13% 35% / 0.5);
---main-color-2: hsl(199deg 13% 52%);
---main-color-3: hsl(31deg, 30%, 86%);
---main-color-4: hsl(204deg 28% 77%);
---main-color-5: hsl(30deg 0% 94%);
---main-color-3-o: hsla(187deg, 41%, 85%, 0.7);
---main-color-3-lighter: hsl(30deg 9% 72% / 0.5);
---main-color-3-light: hsl(30deg 9% 72%);
---text-color-1: hsl(30deg 0% 94%);
---text-color-2: hsl(207deg 13% 35%);
+--text: hsl(0, 0%, 91%);
+--background: hsl(240, 20%, 8%);
+--primary: hsl(229, 11%, 30%);
+--secondary: hsl(222, 40%, 26%);
+--accent: hsl(207, 63%, 72%);
+--main-color-1: hsl(240, 20%, 8%);
+--main-color-1-light: hsl(240, 20%, 8% / 0.5);
+--main-color-2: hsl(229, 11%, 30%);
+--main-color-3: hsl(222, 40%, 26%);
+--main-color-4: hsl(207, 63%, 72%);
+--main-color-5: hsl(0 0% 91%);
+--main-color-3-o: hsla(222, 40%, 26%, 0.7);
+--main-color-3-lighter: hsl(222 40% 26% / 0.5);
+--main-color-3-light: hsl(222 40% 50%);
+--util-color-bad: hsl(13 75% 52%);
+--text-color-1: hsl(0 0% 91%);
+--text-color-2: hsl(207 13% 35%);
 --text-size-1: 1em;
 --text-size-2: 2em;
+--text-size-3: 3em;
+--text-size-4: 4em;
+--text-size-5: 5em;
 --large-mobile: 39em;
 --small-mobile: 28em;
 }
@@ -78,7 +87,7 @@ h5,
 h6,
 p {
 letter-spacing: 0.05em;
-font-family: "Roboto Serif", serif;
+font-family: 'Roboto Serif', serif;
 font-optical-sizing: auto;
 font-style: normal;
 font-weight: normal;
@@ -128,6 +137,26 @@ padding: 0;
 margin: 0;
 }
 
+.text-5 {
+font-size: var(--text-size-5);
+}
+
+.text-4 {
+font-size: var(--text-size-4);
+}
+
+.text-3 {
+font-size: var(--text-size-3);
+}
+
+.text-2 {
+font-size: var(--text-size-2);
+}
+
+.text-1 {
+font-size: var(--text-size-1);
+}
+
 .frosted-text {
 color: var(--text-color-1);
 text-align: center;
@@ -135,8 +164,9 @@ text-align: center;
 
 .backdrop-container {
 display: flex;
-justify-content: center;
-align-items: start;
+flex-flow: column;
+justify-content: start;
+align-items: center;
 width: 100%;
 padding: 4em 0 0 0;
 height: calc(100vh - 4.25em);
@@ -237,7 +267,7 @@ cursor: pointer;
 font-family: 'Raleway', serif;
 font-weight: bold;
 background: var(--main-color-3);
-color: var(--main-color-1);
+color: var(--text-color-1);
 padding: 1.2em 1.2em;
 font-size: 1.2em;
 border-radius: 0.25em;
@@ -260,12 +290,28 @@ border: 2px solid var(--main-color-3);
 display: none;
 }
 
+.group-wrapper {
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 2em;
+}
+
+.group-container {
+display: flex;
+flex-flow: column;
+gap: 1em;
+justify-content: center;
+align-items: center;
+}
+
 
 
 .backdrop-container {
 display: flex;
-justify-content: center;
-align-items: start;
+flex-flow: column;
+justify-content: start;
+align-items: center;
 width: 100%;
 padding: 4em 0 0 0;
 height: calc(100vh - 4.25em);
@@ -370,6 +416,11 @@ padding: .1em .5em;
 font-size: 2em;
 }
 
+.logo-img {
+width: 13em;
+aspect-ratio: 1/1;
+}
+
 .logo {
 display: flex;
 max-width: 2em;
@@ -443,6 +494,178 @@ right: -35;
 margin: 18px 10px 0 0;
 }
 
+.frosted-input {
+border: solid 1.5px var(--main-color-2);
+border-radius: 1em;
+background: none;
+padding: 1em;
+font-size: 1em;
+color: var(--text-color-1);
+transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+field-sizing: content;
+min-width: 15em;
+}
+
+/* From Uiverse.io by alexruix */
+        .frosted-input-group {
+position: relative;
+}
+
+.frosted-user-label {
+position: absolute;
+left: 15px;
+color: var(--text-color-1);
+pointer-events: none;
+transform: translateY(1em);
+transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.frosted-input:focus,
+        .frosted-input:valid {
+outline: none;
+border: 1.5px solid var(--main-color-4);
+}
+
+.frosted-input:focus~label,
+        .frosted-input:valid~label {
+transform: translateY(-50%) scale(0.8);
+background-color: var(--main-color-1);
+padding: 0 .2em;
+color: var(--text-color-1);
+}
+
+/* From Uiverse.io by alexruix */
+        .frosted-input-active-group {
+position: relative;
+}
+
+.frosted-input-active {
+border: solid 1.5px var(--main-color-2);
+border-radius: 1em;
+background: none;
+padding: 1em;
+font-size: 1em;
+color: var(--text-color-1);
+transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+field-sizing: content;
+min-width: 15em;
+max-width: 15em;
+min-height: 53.66px;
+}
+
+.frosted-user-label-active {
+position: absolute;
+left: 15px;
+color: var(--text-color-1);
+pointer-events: none;
+transform: translateY(1em);
+transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.frosted-input-active:focus,
+        .frosted-input-active:valid {
+outline: none;
+border: 1.5px solid var(--main-color-4);
+}
+
+.frosted-input-active~label,
+        .frosted-input-active~label {
+transform: translateY(-50%) scale(0.8);
+background-color: var(--main-color-1);
+padding: 0 .2em;
+color: var(--text-color-1);
+}
+
+/* From Uiverse.io by alexruix */
+        .frosted-textarea-group {
+position: relative;
+}
+
+.frosted-textarea {
+border: solid 1.5px var(--main-color-2);
+border-radius: 1em;
+background: none;
+padding: 1em;
+font-size: 1em;
+color: var(--text-color-1);
+transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+field-sizing: content;
+width: 31em;
+min-height: 8em;
+}
+
+.frosted-textarea::placeholder {
+color: var(--text-color-1);
+opacity: 0.8;
+}
+
+.frosted-textarea:focus,
+        .frosted-textarea:valid {
+outline: none;
+border: 1.5px solid var(--main-color-4);
+}
+
+.frosted-textarea:focus~label,
+        .frosted-textarea:valid~label {
+transform: translateY(-50%) scale(0.8);
+background-color: var(--main-color-1);
+padding: 0 .2em;
+color: var(--text-color-1);
+}
+
+.basic-circle:hover {
+background-color: var(--main-color-5);
+}
+
+.basic-circle:hover svg {
+fill: black;
+}
+
+.basic-circle-wrapper {
+display: flex;
+flex-flow: column;
+align-items: center;
+justify-content: center;
+gap: .5em;
+}
+
+.basic-circle {
+display: flex;
+flex-flow: column;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+border: 1px solid var(--main-color-3);
+width: 100%;
+aspect-ratio: 1 / 1;
+transition-duration: .4s;
+}
+
+input::-webkit-calendar-picker-indicator {
+filter: invert(1);
+}
+
+.frosted-form-container {
+display: flex;
+flex-flow: column;
+align-items: center;
+}
+
+.frosted-form {
+width: 100%;
+display: flex;
+flex-flow: column;
+gap: 1em;
+align-items: stretch;
+}
+
+.frosted-form-row {
+width: 100%;
+display: flex;
+flex-flow: row wrap;
+gap: 1em;
+}
+
 @keyframes show {
 
 0% {
@@ -463,6 +686,20 @@ max-width: 100%;
 }
 100% {
 max-width: 100%;
+}
+}
+
+@media screen and (min-width: 30em) {
+
+.group-container {
+flex-flow: row;
+gap: 4em;
+}
+.group-wrapper {
+display: flex;
+flex-flow: column;
+justify-content: space-between;
+align-items: center;
 }
 }
 
@@ -570,19 +807,19 @@ min-width: 100px;
     <header>
     <div class="header-container">
         
-        <a href="/">
+        <a href="/designs/frosted_influxcode/">
             <div class="logo-container">
-                <span class="logo-text">INFLUXCODE</span>
+                <img class="logo-img" src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/influxcode/logo_light.svg">
             </div>
         </a>
         
     <nav class="frosted-nav">
         <ul style="list-style-type: none;">
             
-            <li><a href="/about">About</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/portfolio">Portfolio</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="/designs/frosted_influxcode/about">About</a></li>
+            <li><a href="/designs/frosted_influxcode/services">Services</a></li>
+            <li><a href="/designs/frosted_influxcode/portfolio">Portfolio</a></li>
+            <li><a href="/designs/frosted_influxcode/contact">Contact</a></li>
         
         </ul>
     </nav>
@@ -616,10 +853,10 @@ min-width: 100px;
 
     <ul class="nav-list">
         
-        <li><a href="/about">About</a></li>
-        <li><a href="/services">Services</a></li>
-        <li><a href="/portfolio">Portfolio</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="/designs/frosted_influxcode/about">About</a></li>
+        <li><a href="/designs/frosted_influxcode/services">Services</a></li>
+        <li><a href="/designs/frosted_influxcode/portfolio">Portfolio</a></li>
+        <li><a href="/designs/frosted_influxcode/contact">Contact</a></li>
     
     </ul>
 </nav>
@@ -682,24 +919,131 @@ min-width: 100px;
 
 
     <div class="backdrop-container">
-        <section class="frosted-section">
-            <h1 style="margin-bottom: 1em; text-align: center;">
-                <div class="frosted-show">Capture the Moments That Matter Most with </div>
-                <div class="frosted-show">Afton Ceja
-                    Videography</div>
-            </h1>
-            <p style="margin-bottom: 2em; text-align: center;">Welcome! Whether you're planning
-                your wedding,
-                capturing your engagement, or documenting a special
-                event,
-                I'm here to make sure your memories last a lifetime. Let me help tell your story with timeless,
-                heartfelt
-                videography.</p>
-            <a class="frosted-btn frosted-show book-session-link" href="/contact" style="margin-bottom: 2em; text-align: center; ">Book
-                Your Session
-                Today!</a>
-        </section>
 
+        <h1 class="text-5" style="width: 80%; text-align: center;">Innovative Software Solutions</h1>
+        <h3 class="text-3" style="margin: 1em 0 1em 0; width: 50%; text-align: center;">Software Done Right
+        </h3>
+
+        <div class="group-wrapper">
+
+
+            <div>
+                <p class="text-2" style="margin-bottom: .25em; text-align: center;">Influxcode Sites</p>
+                <div class="group-container">
+                    <div style="width: 6em;">
+                        
+    <div class="basic-circle-wrapper">
+        <div class="basic-circle" style="border: .25em solid var(--main-color-4)">
+                            <p>98</p>
+                        </div>
+        <label style="color: var(--text-color-1); text-wrap: nowrap">Performance</label>
+    </div>
+
+
+
+
+                    </div>
+                    <div style="width: 6em;">
+                        
+    <div class="basic-circle-wrapper">
+        <div class="basic-circle" style="border: .25em solid var(--main-color-4)">
+                            <p>100</p>
+                        </div>
+        <label style="color: var(--text-color-1); text-wrap: nowrap">Accessiblity</label>
+    </div>
+
+
+
+
+                    </div>
+                    <div style="width: 6em;">
+                        
+    <div class="basic-circle-wrapper">
+        <div class="basic-circle" style="border: .25em solid var(--main-color-4)">
+                            <p>100</p>
+                        </div>
+        <label style="color: var(--text-color-1); text-wrap: nowrap">Best Practices</label>
+    </div>
+
+
+
+
+                    </div>
+                    <div style="width: 6em;">
+                        
+    <div class="basic-circle-wrapper">
+        <div class="basic-circle" style="border: .25em solid var(--main-color-4)">
+                            <p>100</p>
+                        </div>
+        <label style="color: var(--text-color-1); text-wrap: nowrap">SEO</label>
+    </div>
+
+
+
+
+                    </div>
+
+                </div>
+            </div>
+            <div>
+                <p class="text-2" style="margin: 0em 0 .25em 0; text-align: center;">75% of websites</p>
+
+                <div class="group-container">
+                    <div style="width: 6em;">
+                        
+    <div class="basic-circle-wrapper">
+        <div class="basic-circle" style="border: .25em solid var(--util-color-bad)">
+                            <p>55</p>
+                        </div>
+        <label style="color: var(--text-color-1); text-wrap: nowrap">Performance</label>
+    </div>
+
+
+
+
+                    </div>
+                    <div style="width: 6em;">
+                        
+    <div class="basic-circle-wrapper">
+        <div class="basic-circle" style="border: .25em solid var(--util-color-bad)">
+                            <p>88</p>
+                        </div>
+        <label style="color: var(--text-color-1); text-wrap: nowrap">Accessiblity</label>
+    </div>
+
+
+
+
+                    </div>
+                    <div style="width: 6em;">
+                        
+    <div class="basic-circle-wrapper">
+        <div class="basic-circle" style="border: .25em solid var(--util-color-bad)">
+                            <p>79</p>
+                        </div>
+        <label style="color: var(--text-color-1); text-wrap: nowrap">Best Practices</label>
+    </div>
+
+
+
+
+                    </div>
+                    <div style="width: 6em;">
+                        
+    <div class="basic-circle-wrapper">
+        <div class="basic-circle" style="border: .25em solid var(--util-color-bad)">
+                            <p>92</p>
+                        </div>
+        <label style="color: var(--text-color-1); text-wrap: nowrap">SEO</label>
+    </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script>
 
