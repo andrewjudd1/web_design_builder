@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <span style="animation: show 3s infinite; font: inherit; font-size: inherit; display: inherit;" id="word"></span>
+</body>
+<script>
+    console.log(`{{words}}`, `{{interval}}`)
+    const words_arr = `{{words}}`.split(',')
+    let index_count = 0
+    const word_span = document.getElementById('word')
+    word_span.textContent = words_arr[index_count]
+    index_count++
+
+    const interval = setInterval(() => {
+        word_span.textContent = words_arr[index_count]
+        index_count++
+        if (index_count >= words_arr?.length) {
+            index_count = 0
+        }
+    }, `{{interval}}` * 1000)
+</script>
+
+</html>
