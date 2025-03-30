@@ -495,20 +495,6 @@ right: -35;
 margin: 18px 10px 0 0;
 }
 
-.frosted-img-about {
-width: 400px;
-min-width: 400px;
-aspect-ratio: 4/6;
-object-fit: contain;
-box-shadow: 15px 15px 20px hsl(210, 15%, 22%);
-}
-
-.frosted-about-text {
-font-size: 1.1em;
-line-height: 1.5;
-max-width: 30em;
-}
-
 .frosted-img-portfolio {
 position: absolute;
 top: 0;
@@ -545,133 +531,6 @@ box-shadow: 2px 2px 10px var(--main-color-4);
 box-shadow: 2px 2px 10px var(--main-color-4);
 }
 
-.frosted-input {
-border: solid 1.5px var(--main-color-2);
-border-radius: 1em;
-background: none;
-padding: 1em;
-font-size: 1em;
-color: var(--text-color-1);
-transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
-field-sizing: content;
-min-width: 15em;
-}
-
-/* From Uiverse.io by alexruix */
-        .frosted-input-group {
-position: relative;
-}
-
-.frosted-user-label {
-position: absolute;
-left: 15px;
-color: var(--text-color-1);
-pointer-events: none;
-transform: translateY(1em);
-transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.frosted-input:focus,
-        .frosted-input:valid {
-outline: none;
-border: 1.5px solid var(--main-color-4);
-}
-
-.frosted-input:focus~label,
-        .frosted-input:valid~label {
-transform: translateY(-50%) scale(0.8);
-background-color: var(--main-color-1);
-padding: 0 .2em;
-color: var(--text-color-1);
-}
-
-/* From Uiverse.io by alexruix */
-        .frosted-input-active-group {
-position: relative;
-}
-
-.frosted-input-active {
-border: solid 1.5px var(--main-color-2);
-border-radius: 1em;
-background: none;
-padding: 1em;
-font-size: 1em;
-color: var(--text-color-1);
-transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
-field-sizing: content;
-min-width: 15em;
-max-width: 15em;
-min-height: 53.66px;
-}
-
-.frosted-user-label-active {
-position: absolute;
-left: 15px;
-color: var(--text-color-1);
-pointer-events: none;
-transform: translateY(1em);
-transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.frosted-input-active:focus,
-        .frosted-input-active:valid {
-outline: none;
-border: 1.5px solid var(--main-color-4);
-}
-
-.frosted-input-active~label,
-        .frosted-input-active~label {
-transform: translateY(-50%) scale(0.8);
-background-color: var(--main-color-1);
-padding: 0 .2em;
-color: var(--text-color-1);
-}
-
-/* From Uiverse.io by alexruix */
-        .frosted-textarea-group {
-position: relative;
-}
-
-.frosted-textarea {
-border: solid 1.5px var(--main-color-2);
-border-radius: 1em;
-background: none;
-padding: 1em;
-font-size: 1em;
-color: var(--text-color-1);
-transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
-field-sizing: content;
-width: 31em;
-min-height: 8em;
-}
-
-.frosted-textarea::placeholder {
-color: var(--text-color-1);
-opacity: 0.8;
-}
-
-.frosted-textarea:focus,
-        .frosted-textarea:valid {
-outline: none;
-border: 1.5px solid var(--main-color-4);
-}
-
-.frosted-textarea:focus~label,
-        .frosted-textarea:valid~label {
-transform: translateY(-50%) scale(0.8);
-background-color: var(--main-color-1);
-padding: 0 .2em;
-color: var(--text-color-1);
-}
-
-.basic-circle:hover {
-background-color: var(--main-color-5);
-}
-
-.basic-circle:hover svg {
-fill: black;
-}
-
 .basic-circle-wrapper {
 display: flex;
 flex-flow: column;
@@ -690,74 +549,6 @@ border: 1px solid var(--main-color-3);
 width: 100%;
 aspect-ratio: 1 / 1;
 transition-duration: .4s;
-}
-
-input::-webkit-calendar-picker-indicator {
-filter: invert(1);
-}
-
-.frosted-form-container {
-display: flex;
-flex-flow: column;
-align-items: center;
-}
-
-.frosted-form {
-width: 100%;
-display: flex;
-flex-flow: column;
-gap: 1em;
-align-items: stretch;
-}
-
-.frosted-form-row {
-width: 100%;
-display: flex;
-flex-flow: row wrap;
-gap: 1em;
-}
-
-.frosted-img-service {
-position: absolute;
-top: 0;
-left: 0;
-aspect-ratio: 1/1;
-transition-duration: 1s;
-height: 100%;
-}
-
-.frosted-img-service:hover {
-transform: scale(1.2);
-}
-
-.frosted-service-card {
-cursor: pointer;
-padding: 1em;
-transition-duration: 1s;
-border-radius: .25em;
-width: 20em;
-min-width: 20em;
-min-height: 40em;
-}
-
-.up-arrow-section {
-cursor: pointer;
-display: flex;
-justify-content: center;
-align-items: center;
-fill: var(--main-color-5);
-border-radius: 50%;
-width: 2em;
-height: 2em;
-padding-bottom: .25em;
-position: absolute;
-top: 5em;
-transition-duration: .4s;
-}
-
-.up-arrow-section:hover {
-background-color: var(--main-color-4);
-fill: var(--main-color-1);
 }
 
 @keyframes show {
@@ -1092,7 +883,7 @@ min-width: 100px;
         </h2>
         <div class="group-wrapper">
             <div>
-                <p class="text-2" style="margin-bottom: 1em; text-align: center;">Influxcode Sites</p>
+                <p class="text-3" style="margin-bottom: 1em; text-align: center;">Influxcode Sites</p>
                 <div class="group-container">
                     <div style="width: 6em;">
                         
@@ -1150,7 +941,7 @@ min-width: 100px;
                 </div>
             </div>
             <div>
-                <p class="text-2" style="margin: 0em 0 1em 0; text-align: center;">Top 5% of sites</p>
+                <p class="text-3" style="margin: 0em 0 1em 0; text-align: center;">Top 5% of sites</p>
 
                 <div class="group-container">
                     <div style="width: 6em;">
@@ -1212,7 +1003,7 @@ min-width: 100px;
             Responsive designs
         </h3>
         <div style="margin: 0 2em;">
-            <svg width="347" height="300" viewBox="0 0 519 448" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="343" height="297" viewBox="0 0 519 448" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g filter="url(#filter0_d_63_82)">
                     <rect x="4" width="428" height="319" rx="20" fill="#E8E8E8"></rect>
                 </g>
