@@ -258,10 +258,10 @@ function get_template_utils() {
         function getAttributes(attributeString) {
             const attributes = {};
             // Match attribute name and value pairs (handles cases with or without quotes)
-            const attrRegex = /([a-zA-Z-]+)(?:\s*=\s*["']([^"']*)["'])?/g;
+            const attrRegex = /([a-zA-Z-]+)(?:\s*=\s*["]([^"]*)["])?/g;
             let attrMatch;
             while ((attrMatch = attrRegex.exec(attributeString)) !== null) {
-                attributes[attrMatch[1]] = attrMatch[2] || true; // If no value is found, it's a boolean attribute (e.g., 'disabled')
+                attributes[attrMatch[1]] = attrMatch?.[2] || true; // If no value is found, it's a boolean attribute (e.g., 'disabled')
             }
             return attributes;
         }
@@ -296,7 +296,7 @@ function get_template_utils() {
             const firstGreaterThanIndex = htmlText.indexOf('>');  // Find the index of the first '>'
             // If '>' is found, insert the string before it
             if (firstGreaterThanIndex !== -1) {
-                return htmlText.slice(0, firstGreaterThanIndex) + remaining_attributes.join(' ') + htmlText.slice(firstGreaterThanIndex);
+                return htmlText.slice(0, firstGreaterThanIndex) + remaining_attributes.join(` `) + htmlText.slice(firstGreaterThanIndex);
             }
 
             // If '>' is not found, return the original string

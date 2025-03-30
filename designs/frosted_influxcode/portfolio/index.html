@@ -100,6 +100,7 @@ color: var(--text-color-1);
 
 h1 {
 font-size: 2em;
+font-family: 'Ubuntu Mono', monospace;
 }
 
 h2 {
@@ -496,6 +497,20 @@ right: -35;
 margin: 18px 10px 0 0;
 }
 
+.frosted-img-about {
+width: 400px;
+min-width: 400px;
+aspect-ratio: 4/6;
+object-fit: contain;
+box-shadow: 15px 15px 20px hsl(210, 15%, 22%);
+}
+
+.frosted-about-text {
+font-size: 1.1em;
+line-height: 1.5;
+max-width: 30em;
+}
+
 .frosted-img-portfolio {
 position: absolute;
 top: 0;
@@ -539,6 +554,22 @@ opacity: 0;
 }
 100% {
 opacity: 1;
+}
+}
+
+@keyframes show_read {
+
+0% {
+clip-path: inset(0 100% 0 0);
+transform: translate3d(0, 0, 0);
+}
+40% {
+clip-path: inset(0 0 0 0);
+transform: translate3d(0, 0, 0);
+}
+100% {
+clip-path: inset(0 0 0 0);
+transform: translate3d(0, 0, 0);
 }
 }
 

@@ -68,8 +68,8 @@ const pages = ['Home', 'About', 'Services', 'Portfolio', 'Contact'].map(item => 
 
 function template() {
     return {
-        title: "CEJAFILMS",
-        logo: "CEJAFILMS Logo",
+        title: "INFLUXCODE",
+        logo: "INFLUXCODE Logo",
         pages: pages,
         root_url: '/designs/frosted_influxcode'
     }

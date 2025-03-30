@@ -98,6 +98,7 @@ color: var(--text-color-1);
 
 h1 {
 font-size: 2em;
+font-family: 'Ubuntu Mono', monospace;
 }
 
 h2 {
@@ -494,6 +495,20 @@ right: -35;
 margin: 18px 10px 0 0;
 }
 
+.frosted-img-about {
+width: 400px;
+min-width: 400px;
+aspect-ratio: 4/6;
+object-fit: contain;
+box-shadow: 15px 15px 20px hsl(210, 15%, 22%);
+}
+
+.frosted-about-text {
+font-size: 1.1em;
+line-height: 1.5;
+max-width: 30em;
+}
+
 .frosted-img-portfolio {
 position: absolute;
 top: 0;
@@ -530,6 +545,133 @@ box-shadow: 2px 2px 10px var(--main-color-4);
 box-shadow: 2px 2px 10px var(--main-color-4);
 }
 
+.frosted-input {
+border: solid 1.5px var(--main-color-2);
+border-radius: 1em;
+background: none;
+padding: 1em;
+font-size: 1em;
+color: var(--text-color-1);
+transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+field-sizing: content;
+min-width: 15em;
+}
+
+/* From Uiverse.io by alexruix */
+        .frosted-input-group {
+position: relative;
+}
+
+.frosted-user-label {
+position: absolute;
+left: 15px;
+color: var(--text-color-1);
+pointer-events: none;
+transform: translateY(1em);
+transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.frosted-input:focus,
+        .frosted-input:valid {
+outline: none;
+border: 1.5px solid var(--main-color-4);
+}
+
+.frosted-input:focus~label,
+        .frosted-input:valid~label {
+transform: translateY(-50%) scale(0.8);
+background-color: var(--main-color-1);
+padding: 0 .2em;
+color: var(--text-color-1);
+}
+
+/* From Uiverse.io by alexruix */
+        .frosted-input-active-group {
+position: relative;
+}
+
+.frosted-input-active {
+border: solid 1.5px var(--main-color-2);
+border-radius: 1em;
+background: none;
+padding: 1em;
+font-size: 1em;
+color: var(--text-color-1);
+transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+field-sizing: content;
+min-width: 15em;
+max-width: 15em;
+min-height: 53.66px;
+}
+
+.frosted-user-label-active {
+position: absolute;
+left: 15px;
+color: var(--text-color-1);
+pointer-events: none;
+transform: translateY(1em);
+transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.frosted-input-active:focus,
+        .frosted-input-active:valid {
+outline: none;
+border: 1.5px solid var(--main-color-4);
+}
+
+.frosted-input-active~label,
+        .frosted-input-active~label {
+transform: translateY(-50%) scale(0.8);
+background-color: var(--main-color-1);
+padding: 0 .2em;
+color: var(--text-color-1);
+}
+
+/* From Uiverse.io by alexruix */
+        .frosted-textarea-group {
+position: relative;
+}
+
+.frosted-textarea {
+border: solid 1.5px var(--main-color-2);
+border-radius: 1em;
+background: none;
+padding: 1em;
+font-size: 1em;
+color: var(--text-color-1);
+transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+field-sizing: content;
+width: 31em;
+min-height: 8em;
+}
+
+.frosted-textarea::placeholder {
+color: var(--text-color-1);
+opacity: 0.8;
+}
+
+.frosted-textarea:focus,
+        .frosted-textarea:valid {
+outline: none;
+border: 1.5px solid var(--main-color-4);
+}
+
+.frosted-textarea:focus~label,
+        .frosted-textarea:valid~label {
+transform: translateY(-50%) scale(0.8);
+background-color: var(--main-color-1);
+padding: 0 .2em;
+color: var(--text-color-1);
+}
+
+.basic-circle:hover {
+background-color: var(--main-color-5);
+}
+
+.basic-circle:hover svg {
+fill: black;
+}
+
 .basic-circle-wrapper {
 display: flex;
 flex-flow: column;
@@ -550,6 +692,74 @@ aspect-ratio: 1 / 1;
 transition-duration: .4s;
 }
 
+input::-webkit-calendar-picker-indicator {
+filter: invert(1);
+}
+
+.frosted-form-container {
+display: flex;
+flex-flow: column;
+align-items: center;
+}
+
+.frosted-form {
+width: 100%;
+display: flex;
+flex-flow: column;
+gap: 1em;
+align-items: stretch;
+}
+
+.frosted-form-row {
+width: 100%;
+display: flex;
+flex-flow: row wrap;
+gap: 1em;
+}
+
+.frosted-img-service {
+position: absolute;
+top: 0;
+left: 0;
+aspect-ratio: 1/1;
+transition-duration: 1s;
+height: 100%;
+}
+
+.frosted-img-service:hover {
+transform: scale(1.2);
+}
+
+.frosted-service-card {
+cursor: pointer;
+padding: 1em;
+transition-duration: 1s;
+border-radius: .25em;
+width: 20em;
+min-width: 20em;
+min-height: 40em;
+}
+
+.up-arrow-section {
+cursor: pointer;
+display: flex;
+justify-content: center;
+align-items: center;
+fill: var(--main-color-5);
+border-radius: 50%;
+width: 2em;
+height: 2em;
+padding-bottom: .25em;
+position: absolute;
+top: 5em;
+transition-duration: .4s;
+}
+
+.up-arrow-section:hover {
+background-color: var(--main-color-4);
+fill: var(--main-color-1);
+}
+
 @keyframes show {
 
 0% {
@@ -557,6 +767,22 @@ opacity: 0;
 }
 100% {
 opacity: 1;
+}
+}
+
+@keyframes show_read {
+
+0% {
+clip-path: inset(0 100% 0 0);
+transform: translate3d(0, 0, 0);
+}
+40% {
+clip-path: inset(0 0 0 0);
+transform: translate3d(0, 0, 0);
+}
+100% {
+clip-path: inset(0 0 0 0);
+transform: translate3d(0, 0, 0);
 }
 }
 
@@ -693,7 +919,7 @@ min-width: 100px;
         
         <a href="/designs/frosted_influxcode/">
             <div class="logo-container">
-                <img class="logo-img" src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/influxcode/logo_light.svg">
+                <img class="logo-img" alt="INFLUXCODE" src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/influxcode/logo_light.svg">
             </div>
         </a>
         
@@ -804,29 +1030,66 @@ min-width: 100px;
 
     <div class="backdrop-container">
 
-        <h1 class="text-5" style="margin: 0em 2em 0em 2em; text-align: center;">Innovative Software Solutions</h1>
-        <h3 class="text-3" style="margin: 2em 2em 1em 2em;  text-align: center;">Software
-    <span style="animation: show 3s infinite; font: inherit; font-size: inherit; display: inherit;" id="word"></span>
+        <h1 class="text-4" style="margin: 0em 2em 0em 2em; text-align: center;">
+            
+    <span style="font: inherit; font-size: inherit; display: inherit;" id="word"data-words="Innovative,Quality,Optimized"></span>
 
 <script>
-    console.log(`Done Right,At Scale,thatˊs fast`, `3`)
-    const words_arr = `Done Right,At Scale,thatˊs fast`.split(',')
-    let index_count = 0
-    const word_span = document.getElementById('word')
-    word_span.textContent = words_arr[index_count]
-    index_count++
+    function run_words() {
+        const word_span = document.querySelectorAll('#word')
+        word_span.forEach(span => {
+            console.log(`{{words}}`, `4`)
+            const words = span.getAttribute('data-words')
+            const words_arr = words.split(',')
+            span.style.animation = `show_read 4s infinite`
+            let index_count = 0
+            span.textContent = words_arr[index_count]
+            index_count++
 
-    const interval = setInterval(() => {
-        word_span.textContent = words_arr[index_count]
-        index_count++
-        if (index_count >= words_arr?.length) {
-            index_count = 0
-        }
-    }, `3` * 1000)
+            const interval = setInterval(() => {
+                span.textContent = words_arr[index_count]
+                index_count++
+                if (index_count >= words_arr?.length) {
+                    index_count = 0
+                }
+            }, `4` * 1000)
+        })
+    }
+    run_words()
 </script>
 
 
-        </h3>
+            Software 
+    <span style="font: inherit; font-size: inherit; display: inherit;" id="word"data-words="Done Right,At Scale,for speed"></span>
+
+<script>
+    function run_words() {
+        const word_span = document.querySelectorAll('#word')
+        word_span.forEach(span => {
+            console.log(`{{words}}`, `4`)
+            const words = span.getAttribute('data-words')
+            const words_arr = words.split(',')
+            span.style.animation = `show_read 4s infinite`
+            let index_count = 0
+            span.textContent = words_arr[index_count]
+            index_count++
+
+            const interval = setInterval(() => {
+                span.textContent = words_arr[index_count]
+                index_count++
+                if (index_count >= words_arr?.length) {
+                    index_count = 0
+                }
+            }, `4` * 1000)
+        })
+    }
+    run_words()
+</script>
+
+
+        </h1>
+        <h2 class="text-3" style="margin: 1em 2em 1em 2em;  text-align: center;">
+        </h2>
         <div class="group-wrapper">
             <div>
                 <p class="text-2" style="margin-bottom: 1em; text-align: center;">Influxcode Sites</p>
@@ -887,14 +1150,14 @@ min-width: 100px;
                 </div>
             </div>
             <div>
-                <p class="text-2" style="margin: 0em 0 1em 0; text-align: center;">75% of sites</p>
+                <p class="text-2" style="margin: 0em 0 1em 0; text-align: center;">Top 5% of sites</p>
 
                 <div class="group-container">
                     <div style="width: 6em;">
                         
     <div class="basic-circle-wrapper">
-        <div class="basic-circle" style="border: .25em solid hsl(25deg 81% 67%)">
-                            <p>31</p>
+        <div class="basic-circle" style="border: .25em solid hsl(135deg 39% 60%)">
+                            <p>93</p>
                         </div>
         <label style="color: var(--text-color-1); text-wrap: nowrap">Performance</label>
     </div>
@@ -906,8 +1169,8 @@ min-width: 100px;
                     <div style="width: 6em;">
                         
     <div class="basic-circle-wrapper">
-        <div class="basic-circle" style="border: .25em solid hsl(89deg 41% 63%)">
-                            <p>80</p>
+        <div class="basic-circle" style="border: .25em solid hsl(143deg 40% 57%)">
+                            <p>97</p>
                         </div>
         <label style="color: var(--text-color-1); text-wrap: nowrap">Accessiblity</label>
     </div>
@@ -919,8 +1182,8 @@ min-width: 100px;
                     <div style="width: 6em;">
                         
     <div class="basic-circle-wrapper">
-        <div class="basic-circle" style="border: .25em solid hsl(68deg 48% 63%)">
-                            <p>71</p>
+        <div class="basic-circle" style="border: .25em solid hsl(143deg 40% 57%)">
+                            <p>93</p>
                         </div>
         <label style="color: var(--text-color-1); text-wrap: nowrap">Best Practices</label>
     </div>
@@ -932,8 +1195,8 @@ min-width: 100px;
                     <div style="width: 6em;">
                         
     <div class="basic-circle-wrapper">
-        <div class="basic-circle" style="border: .25em solid hsl(68deg 48% 63%)">
-                            <p>86</p>
+        <div class="basic-circle" style="border: .25em solid hsl(152deg 43% 54%)">
+                            <p>100</p>
                         </div>
         <label style="color: var(--text-color-1); text-wrap: nowrap">SEO</label>
     </div>
@@ -945,8 +1208,47 @@ min-width: 100px;
                 </div>
             </div>
         </div>
-        <h3 class="text-3" style="margin: 2em 2em 1em 2em;  text-align: center;">Software Done Right
+        <h3 class="text-3" style="margin: 2em 2em 1em 2em;  text-align: center;">
+            Responsive designs
         </h3>
+        <div style="margin: 0 2em;">
+            <svg width="347" height="300" viewBox="0 0 519 448" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#filter0_d_63_82)">
+                    <rect x="4" width="428" height="319" rx="20" fill="#E8E8E8"></rect>
+                </g>
+                <line x1="4" y1="48" x2="432" y2="48" stroke="#464455" stroke-width="4"></line>
+                <circle cx="31.5" cy="27.5" r="8.5" fill="#171727"></circle>
+                <circle cx="58.5" cy="27.5" r="8.5" fill="#171727"></circle>
+                <circle cx="85.5" cy="27.5" r="8.5" fill="#171727"></circle>
+                <rect x="263" y="24" width="142" height="7" rx="3.5" fill="#171727"></rect>
+                <g filter="url(#filter1_d_63_82)">
+                    <rect x="388" y="193" width="127" height="247" rx="20" fill="#E8E8E8"></rect>
+                </g>
+                <defs>
+                    <filter id="filter0_d_63_82" x="0" y="0" width="436" height="327" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
+                        <feOffset dy="4"></feOffset>
+                        <feGaussianBlur stdDeviation="2"></feGaussianBlur>
+                        <feComposite in2="hardAlpha" operator="out"></feComposite>
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"></feColorMatrix>
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_63_82"></feBlend>
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_63_82" result="shape"></feBlend>
+                    </filter>
+                    <filter id="filter1_d_63_82" x="384" y="193" width="135" height="255" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
+                        <feOffset dy="4"></feOffset>
+                        <feGaussianBlur stdDeviation="2"></feGaussianBlur>
+                        <feComposite in2="hardAlpha" operator="out"></feComposite>
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"></feColorMatrix>
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_63_82"></feBlend>
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_63_82" result="shape"></feBlend>
+                    </filter>
+                </defs>
+            </svg>
+        </div>
+
     </div>
     <script>
 
