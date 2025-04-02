@@ -370,6 +370,11 @@ padding: .1em .5em;
 font-size: 2em;
 }
 
+.logo-img {
+width: 13em;
+aspect-ratio: 1/1;
+}
+
 .logo {
 display: flex;
 max-width: 2em;
@@ -455,42 +460,6 @@ box-shadow: 15px 15px 20px hsl(210, 15%, 22%);
 font-size: 1.1em;
 line-height: 1.5;
 max-width: 30em;
-}
-
-.frosted-img-portfolio {
-position: absolute;
-top: 0;
-left: 0;
-aspect-ratio: 1/1;
-transition-duration: 1s;
-height: 100%;
-}
-
-.frosted-img-portfolio:hover {
-transform: scale(2);
-}
-
-.frosted-portfolio-card {
-cursor: pointer;
-padding: 1em;
-transition-duration: 1s;
-border-radius: .25em;
-width: 25em;
-min-width: 20em;
-min-height: 40em;
-}
-
-.frosted-text-shadow {
-text-shadow: 2px 2px var(--main-color-1);
-font-weight: bold;
-}
-
-.frosted-service-card:hover {
-box-shadow: 2px 2px 10px var(--main-color-4);
-}
-
-.frosted-service-card:has(.frosted-text:hover) {
-box-shadow: 2px 2px 10px var(--main-color-4);
 }
 
 .frosted-input {
@@ -625,6 +594,7 @@ display: flex;
 flex-flow: column;
 align-items: center;
 justify-content: center;
+gap: .5em;
 }
 
 .basic-circle {
@@ -662,6 +632,85 @@ width: 100%;
 display: flex;
 flex-flow: row wrap;
 gap: 1em;
+}
+
+.frosted-img-service {
+position: absolute;
+top: 0;
+left: 0;
+aspect-ratio: 1/1;
+transition-duration: 1s;
+height: 100%;
+}
+
+.frosted-img-service:hover {
+transform: scale(1.2);
+}
+
+.frosted-service-card {
+cursor: pointer;
+padding: 1em;
+transition-duration: 1s;
+border-radius: .25em;
+width: 20em;
+min-width: 20em;
+min-height: 40em;
+}
+
+.frosted-service-card:hover {
+box-shadow: 2px 2px 10px var(--main-color-4);
+}
+
+.frosted-text-shadow {
+text-shadow: 2px 2px var(--main-color-1);
+font-weight: bold;
+}
+
+.up-arrow-section {
+cursor: pointer;
+display: flex;
+justify-content: center;
+align-items: center;
+fill: var(--main-color-5);
+border-radius: 50%;
+width: 2em;
+height: 2em;
+padding-bottom: .25em;
+position: absolute;
+top: 5em;
+transition-duration: .4s;
+}
+
+.up-arrow-section:hover {
+background-color: var(--main-color-4);
+fill: var(--main-color-1);
+}
+
+.frosted-img-portfolio {
+position: absolute;
+top: 0;
+left: 0;
+aspect-ratio: 1/1;
+transition-duration: 1s;
+height: 100%;
+}
+
+.frosted-img-portfolio:hover {
+transform: scale(2);
+}
+
+.frosted-portfolio-card {
+cursor: pointer;
+padding: 1em;
+transition-duration: 1s;
+border-radius: .25em;
+min-height: 40em;
+}
+
+
+
+.frosted-service-card:has(.frosted-text:hover) {
+box-shadow: 2px 2px 10px var(--main-color-4);
 }
 
 @keyframes show {
