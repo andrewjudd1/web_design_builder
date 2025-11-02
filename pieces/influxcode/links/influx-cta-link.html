@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../css/frosted_influxcode.css">
+    <style>
+        .influx-cta-link {
+            display: flex;
+            justify-content: center;
+            user-select: none;
+            border: 2px solid var(--accent);
+            border-radius: 1em;
+            padding: .33em 1em;
+            cursor: pointer;
+            transition: all 300ms;
+        }
+
+        .influx-cta-link:hover {
+            background-color: var(--main-color-5);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .influx-cta-link:active {
+            transform: scale(.9);
+        }
+
+        .secondary {
+            background-color: var(--main-color-3-light);
+            color: var(--text-color-2);
+        }
+
+        .secondary:hover {
+            background-color: var(--main-color-1);
+            color: var(--text-color-1);
+            border: 2px solid var(--main-color-3-light);
+
+        }
+    </style>
+</head>
+
+<body>
+    <a class="influx-cta-link">{{children}}</a>
+    <script>
+        document.querySelectorAll('.influx-cta-link').forEach(el => {
+            if (el?.getAttribute('variant')) {
+                el.classList.add(el?.getAttribute('variant'))
+            }
+        })
+    </script>
+</body>
+
+</html>

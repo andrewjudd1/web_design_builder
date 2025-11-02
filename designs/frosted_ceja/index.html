@@ -9,9 +9,9 @@
     <title>CEJAFILMS - Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap" as="style" >
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@400;700&family=Raleway:wght@400;700&display=swap" as="style" >
 <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 </noscript>
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -42,6 +42,7 @@
 --text-size-2: 2em;
 --large-mobile: 39em;
 --small-mobile: 28em;
+--nav-height: 4.25em;
 }
 
 * {
@@ -51,15 +52,16 @@ font-optical-sizing: auto;
 font-style: normal;
 }
 
+html {
+scroll-snap-type: y mandatory;
+}
+
 body {
 font-size: 16px;
-display: flex;
-flex-direction: column;
-gap: 4px;
-align-items: center;
 background: var(--main-color-1);
 margin: 0;
 padding: 0;
+scroll-snap-type: y mandatory;
 }
 
 .ball {
@@ -91,6 +93,26 @@ h1 {
 font-size: 2em;
 }
 
+.text-xl {
+font-size: 2.5em;
+}
+
+.text-lg {
+font-size: 2em;
+}
+
+.text-md {
+font-size: 1.5em;
+}
+
+.text-sm {
+font-size: 1em;
+}
+
+.text-xs {
+font-size: 0.75em;
+}
+
 h2 {
 font-size: 1.8em;
 }
@@ -114,7 +136,7 @@ font-size: 1.2em;
 
 a {
 font-size: 1em;
-font-family: 'Playfair Display', serif;
+font-family: 'Libre Bodoni', serif;
 font-optical-sizing: auto;
 font-style: normal;
 font-weight: normal;
@@ -133,15 +155,42 @@ color: var(--text-color-1);
 text-align: center;
 }
 
+.snap-container {
+height: calc(100vh);
+overflow-y: scroll;
+scroll-snap-type: y mandatory;
+scroll-behavior: smooth;
+width: 100%;
+}
+
+.full-section {
+height: 100vh;
+scroll-snap-align: start;
+position: relative;
+}
+
+.center {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.between {
+display: flex;
+justify-content: space-bewteen;
+align-items: space-between;
+}
+
 .backdrop-container {
 display: flex;
 justify-content: center;
-align-items: start;
+align-items: center;
 width: 100%;
-padding: 4em 0 0 0;
-height: calc(100vh - 4.25em);
+padding: 0em 0 0 0;
+height: 100%;
 position: relative;
 background-color: transparent;
+scroll-snap-align: start;
 }
 
 .backdrop-image {
@@ -160,17 +209,29 @@ display: flex;
 flex-flow: column wrap;
 justify-content: center;
 align-items: center;
-width: 50%;
+width: 100%;
 }
 
 .frosted-section-full {
 position: relative;
 display: flex;
 flex-flow: column wrap;
-justify-content: center;
+justify-content: start;
 align-items: center;
-width: 50%;
-height: calc(100vh - 4.25em);
+width: 100%;
+padding-top: calc(var(--nav-height) / 2);
+}
+
+.section-center {
+display: flex;
+height: 100%;
+flex-flow: column;
+align-items: center;
+justify-content: center;
+top: 0;
+position: absolute;
+padding: var(--nav-height);
+z-index: 1;
 }
 
 .full-last {
@@ -188,7 +249,7 @@ overflow: hidden;
 }
 
 .frosted-split-section {
-width: 80%;
+width: 100%;
 display: flex;
 justify-content: center;
 flex-flow: row wrap;
@@ -197,12 +258,12 @@ margin-top: 1.5em;
 }
 
 .frosted-group-section {
-width: 80%;
+width: 100%;
 display: flex;
-justify-content: center;
 flex-flow: row wrap;
-gap: 2em 5em;
 margin-top: 1.5em;
+justify-content: space-evenly;
+align-items: space-around;
 }
 
 .frosted-show {
@@ -212,6 +273,20 @@ opacity: 1;
 .frosted-img {
 width: 100%;
 object-fit: cover;
+filter: grayscale(100%);
+}
+
+.frosted-video-3 {
+object-fit: cover;
+width: 33.333%;
+}
+
+.frosted-video-1 {
+object-fit: cover;
+object-position: center top;
+width: 100%;
+height: 100%;
+padding-top: 3.25em;
 }
 
 .frosted-input {
@@ -260,17 +335,69 @@ border: 2px solid var(--main-color-3);
 display: none;
 }
 
+.frosted-img-service {
+position: absolute;
+top: 0;
+left: 0;
+aspect-ratio: 1/1;
+transition-duration: 1s;
+height: 100%;
+}
+
+.frosted-service-card:hover {
+box-shadow: 2px 2px 10px var(--main-color-4);
+}
+
+.frosted-service-card:hover .frosted-img-service {
+transform: scale(1.2);
+}
+
+.frosted-service-card {
+cursor: pointer;
+padding: 1em;
+transition-duration: 1s;
+border-radius: 0.25em;
+width: 20em;
+min-width: 20em;
+min-height: 40em;
+display: flex;
+justify-content: center;
+flex-flow: column;
+gap: 4.25em;
+}
+
+.frosted-text-shadow {
+text-shadow: 2px 2px var(--main-color-1);
+font-weight: bold;
+}
+
+.frosted-img-about {
+width: 400px;
+min-width: 400px;
+aspect-ratio: 4/6;
+object-fit: contain;
+box-shadow: 15px 15px 20px hsl(210, 15%, 22%);
+}
+
+.frosted-about-text {
+font-size: 1.1em;
+line-height: 1.5;
+max-width: 45em;
+padding: 0 1em;
+}
+
 
 
 .backdrop-container {
 display: flex;
 justify-content: center;
-align-items: start;
+align-items: center;
 width: 100%;
-padding: 4em 0 0 0;
-height: calc(100vh - 4.25em);
+padding: 0em 0 0 0;
+height: 100%;
 position: relative;
 background-color: transparent;
+scroll-snap-align: start;
 }
 
 .backdrop-image {
@@ -354,9 +481,10 @@ height: 100%;
 width: 100%;
 display: flex;
 align-items: center;
-justify-content: space-around;
 position: absolute;
 z-index: 1000;
+justify-content: space-between;
+padding: 0 3em 0 1em;
 }
 
 .logo-container {
@@ -371,8 +499,10 @@ font-size: 2em;
 }
 
 .logo-img {
-width: 13em;
-aspect-ratio: 1/1;
+margin: 0;
+padding: 1em;
+width: 14em;
+background: transparent;
 }
 
 .logo {
@@ -459,258 +589,8 @@ box-shadow: 15px 15px 20px hsl(210, 15%, 22%);
 .frosted-about-text {
 font-size: 1.1em;
 line-height: 1.5;
-max-width: 30em;
-}
-
-.frosted-input {
-border: solid 1.5px var(--main-color-2);
-border-radius: 1em;
-background: none;
-padding: 1em;
-font-size: 1em;
-color: var(--text-color-1);
-transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
-field-sizing: content;
-min-width: 15em;
-}
-
-/* From Uiverse.io by alexruix */
-        .frosted-input-group {
-position: relative;
-}
-
-.frosted-user-label {
-position: absolute;
-left: 15px;
-color: var(--text-color-1);
-pointer-events: none;
-transform: translateY(1em);
-transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.frosted-input:focus,
-        .frosted-input:valid {
-outline: none;
-border: 1.5px solid var(--main-color-4);
-}
-
-.frosted-input:focus~label,
-        .frosted-input:valid~label {
-transform: translateY(-50%) scale(0.8);
-background-color: var(--main-color-1);
-padding: 0 .2em;
-color: var(--text-color-1);
-}
-
-/* From Uiverse.io by alexruix */
-        .frosted-input-active-group {
-position: relative;
-}
-
-.frosted-input-active {
-border: solid 1.5px var(--main-color-2);
-border-radius: 1em;
-background: none;
-padding: 1em;
-font-size: 1em;
-color: var(--text-color-1);
-transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
-field-sizing: content;
-min-width: 15em;
-max-width: 15em;
-min-height: 53.66px;
-}
-
-.frosted-user-label-active {
-position: absolute;
-left: 15px;
-color: var(--text-color-1);
-pointer-events: none;
-transform: translateY(1em);
-transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.frosted-input-active:focus,
-        .frosted-input-active:valid {
-outline: none;
-border: 1.5px solid var(--main-color-4);
-}
-
-.frosted-input-active~label,
-        .frosted-input-active~label {
-transform: translateY(-50%) scale(0.8);
-background-color: var(--main-color-1);
-padding: 0 .2em;
-color: var(--text-color-1);
-}
-
-/* From Uiverse.io by alexruix */
-        .frosted-textarea-group {
-position: relative;
-}
-
-.frosted-textarea {
-border: solid 1.5px var(--main-color-2);
-border-radius: 1em;
-background: none;
-padding: 1em;
-font-size: 1em;
-color: var(--text-color-1);
-transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
-field-sizing: content;
-width: 31em;
-min-height: 8em;
-}
-
-.frosted-textarea::placeholder {
-color: var(--text-color-1);
-opacity: 0.8;
-}
-
-.frosted-textarea:focus,
-        .frosted-textarea:valid {
-outline: none;
-border: 1.5px solid var(--main-color-4);
-}
-
-.frosted-textarea:focus~label,
-        .frosted-textarea:valid~label {
-transform: translateY(-50%) scale(0.8);
-background-color: var(--main-color-1);
-padding: 0 .2em;
-color: var(--text-color-1);
-}
-
-.basic-circle:hover {
-background-color: var(--main-color-5);
-}
-
-.basic-circle:hover svg {
-fill: black;
-}
-
-.basic-circle-wrapper {
-display: flex;
-flex-flow: column;
-align-items: center;
-justify-content: center;
-gap: .5em;
-}
-
-.basic-circle {
-display: flex;
-flex-flow: column;
-align-items: center;
-justify-content: center;
-border-radius: 50%;
-border: 1px solid var(--main-color-3);
-width: 100%;
-aspect-ratio: 1 / 1;
-transition-duration: .4s;
-}
-
-input::-webkit-calendar-picker-indicator {
-filter: invert(1);
-}
-
-.frosted-form-container {
-display: flex;
-flex-flow: column;
-align-items: center;
-}
-
-.frosted-form {
-width: 100%;
-display: flex;
-flex-flow: column;
-gap: 1em;
-align-items: stretch;
-}
-
-.frosted-form-row {
-width: 100%;
-display: flex;
-flex-flow: row wrap;
-gap: 1em;
-}
-
-.frosted-img-service {
-position: absolute;
-top: 0;
-left: 0;
-aspect-ratio: 1/1;
-transition-duration: 1s;
-height: 100%;
-}
-
-.frosted-img-service:hover {
-transform: scale(1.2);
-}
-
-.frosted-service-card {
-cursor: pointer;
-padding: 1em;
-transition-duration: 1s;
-border-radius: .25em;
-width: 20em;
-min-width: 20em;
-min-height: 40em;
-}
-
-.frosted-service-card:hover {
-box-shadow: 2px 2px 10px var(--main-color-4);
-}
-
-.frosted-text-shadow {
-text-shadow: 2px 2px var(--main-color-1);
-font-weight: bold;
-}
-
-.up-arrow-section {
-cursor: pointer;
-display: flex;
-justify-content: center;
-align-items: center;
-fill: var(--main-color-5);
-border-radius: 50%;
-width: 2em;
-height: 2em;
-padding-bottom: .25em;
-position: absolute;
-top: 5em;
-transition-duration: .4s;
-}
-
-.up-arrow-section:hover {
-background-color: var(--main-color-4);
-fill: var(--main-color-1);
-}
-
-.frosted-img-portfolio {
-position: absolute;
-top: 0;
-left: 0;
-aspect-ratio: 1/1;
-transition-duration: 1s;
-height: 100%;
-}
-
-.frosted-img-portfolio:hover {
-transform: scale(2);
-}
-
-.frosted-portfolio-card {
-cursor: pointer;
-padding: 1em;
-transition-duration: 1s;
-border-radius: .25em;
-min-height: 40em;
-}
-
-
-
-.frosted-service-card:has(.frosted-text:hover) {
-box-shadow: 2px 2px 10px var(--main-color-4);
+max-width: 45em;
+padding: 0 1em;
 }
 
 @keyframes show {
@@ -745,14 +625,16 @@ min-height: 10em;
 
 @media screen and (max-width: 70em) {
 
-.frosted-split-section {
-justify-content: center;
-align-items: center;
-flex-flow: column;
-}
 .frosted-service-card {
 min-width: 90%;
 max-height: 13em;
+}
+}
+
+@media screen and (max-width: 60em) {
+
+.frosted-video-section:has(:only-child) {
+justify-content: center;
 }
 }
 
@@ -767,9 +649,8 @@ font-size: 14px;
 width: 75%;
 }
 .frosted-img-about {
-width: 300px;
+width: 200px;
 min-width: 100px;
-margin: 0 0 8em 0;
 }
 }
 
@@ -842,7 +723,7 @@ min-width: 100px;
         
         <a href="/designs/frosted_ceja/">
             <div class="logo-container">
-                <span class="logo-text">CEJAFILMS</span>
+                <img class="logo-img" alt="CEJAFILMS" src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/ceja_films_nb_white_long.webp">
             </div>
         </a>
         
@@ -863,8 +744,7 @@ min-width: 100px;
     
     </div>
     <div class="backdrop-edge"></div>
-    <div class="backdrop">
-    </div>
+    <div class="backdrop"></div>
 </header>
 
 
@@ -951,14 +831,20 @@ min-width: 100px;
 
 
 
-    <div class="backdrop-container">
-        <section class="frosted-section">
+    <section class="full-section center">
+        <video style="object-fit: cover; height: 100%; width: 100%;" muted="" autoplay="" loop="" playsinline="" poster="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/ring_short_poster_small.webp">
+            <source src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/short_of_rings.mp4" type="video/mp4">
+            Your browser does not support H.264.
+        </video>
+        <div class="section-center">
             <h1 style="margin-bottom: 1em; text-align: center;">
                 <div class="frosted-show">Capture the Moments That Matter Most with </div>
                 <div class="frosted-show">Afton Ceja
                     Videography</div>
             </h1>
-            <p style="margin-bottom: 2em; text-align: center;">Welcome! Whether you're planning
+            <p style="margin-bottom: 2em; text-align: center; font-size: 1.4em; max-width: 30em;">Welcome! Whether
+                you're
+                planning
                 your wedding,
                 capturing your engagement, or documenting a special
                 event,
@@ -968,9 +854,77 @@ min-width: 100px;
             <a class="frosted-btn frosted-show book-session-link" href="/designs/frosted_ceja/contact" style="margin-bottom: 2em; text-align: center; ">Book
                 Your Session
                 Today!</a>
-        </section>
+        </div>
+    </section>
+    <section class="full-section center" style=" background-color: var(--main-color-1)">
+        <div class="frosted-split-section center">
+            <div style="display: flex; align-items: start; flex-flow: column;">
+                <h3 style="margin: 0 1em .5em 1em;">About Afton Ceja</h3>
+                <p class="frosted-text frosted-about-text frosted-show" style="text-align: left;">Hi, I'm Afton
+                    Ceja,
+                    and I've always had a
+                    passion
+                    for capturing
+                    the moments that
+                    matter most. From a
+                    young age, I remember filming family trips, holidays, and special occasions, then editing them
+                    into
+                    videos to preserve those memories. What I cherished most was seeing the smiles on my loved ones'
+                    faces
+                    as they watched those videos, reliving the happiness and joy of those moments together.
+                    It's that feeling of connection, of sharing a memory over and over again, that drives me. I want
+                    to
+                    create something similar for you—to help you hold onto the happiest moments of your life in a
+                    way
+                    that
+                    you can revisit and relive time and time again. My goal is to craft a piece that encapsulates
+                    the
+                    joy,
+                    love, and laughter of your most cherished days, so you can always have a beautiful reminder of
+                    your
+                    happiest memories.
+                    Let me help you tell your story in a way that lasts forever.</p>
 
-    </div>
+            </div>
+            <img class="frosted-img-about frosted-show" src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/website/afton_ceja_fam_1000x5000.webp" srcset="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/afton_ceja_fam_1000x5000-400.webp 400w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/afton_ceja_fam_1000x5000-600.webp 600w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/afton_ceja_fam_1000x5000-800.webp 800w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/afton_ceja_fam_1000x5000-1060.webp 1060w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/afton_ceja_fam_1000x5000-900.webp 900w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/afton_ceja_fam_1000x5000-1200.webp 1200w" sizes="(min-width: 820px) 400px, 300px" alt="Afton Ceja Family">
+
+        </div>
+    </section>
+    <section class="full-section center" style=" background-color: var(--main-color-1)">
+        <div class="frosted-section-full">
+            <p class="frosted-text-shadow text-lg">My Services</p>
+
+            <section class="frosted-group-section">
+                <div id="service_1" class="frosted-card frosted-service-card frosted-show">
+                    <p class="frosted-text-shadow" style="font-size: 1.5em; z-index: 1; text-align: center;">Wedding Day
+                        Videography
+                    </p>
+
+                    <img src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/website/luis-tosta-MEZDyn98La8-unsplash.webp" class="frosted-img frosted-img-service" srcset="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-960.webp 960w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-617.webp 617w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-1700.webp 1700w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-1400.webp 1400w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-1920.webp 1920w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-2048.webp 2048w" sizes="(min-width: 1420px) 962px, (min-width: 1140px) 485px, (min-width: 660px) 71.96vw, 85.29vw" alt="Bride and Groom">
+                </div>
+                <div id="service_2" class="frosted-card frosted-service-card  frosted-show">
+                    <h4 class="frosted-text-shadow" style="font-size: 1.5em; z-index: 1;">Bridal Videos</h4>
+
+                    <img class="frosted-img frosted-img-service" src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/website/emily-finch-Un4EyaC9CYs-unsplash+2.webp" srcset="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-617.webp 617w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-924.webp 924w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-2048.webp 2048w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-1200.webp 1200w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-1600.webp 1600w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-1410.webp 1410w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-1840.webp 1840w" sizes="(min-width: 1420px) 802px, (min-width: 1140px) 400px, (min-width: 660px) 71.96vw, 85.29vw" alt="wedding rings with decor">
+                </div>
+                <div id="service_3" class="frosted-card frosted-service-card frosted-show">
+                    <h4 class="frosted-show frosted-text-shadow" style="font-size: 1.5em; z-index: 1; ">
+                        First Look Videos
+                    </h4>
+
+                    <img class="frosted-img frosted-img-service" src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/website/lawrence-suzara-p-ZVPT5tAzY-unsplash.webp" srcset="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-924.webp 924w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-640.webp 640w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1004.webp 1004w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-427.webp 427w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1150.webp 1150w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1281.webp 1281w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1460.webp 1460w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1610.webp 1610w" sizes="(min-width: 1420px) 427px, (min-width: 1140px) 320px, (min-width: 660px) 71.96vw, 85.29vw" alt="bride and bridesmaids">
+                </div>
+            </section>
+        </div>
+
+    </section>
+    <section class="full-section" style="background-color: var(--main-color-1);">
+        <video class="frosted-video-1" controls="" poster="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/alex_semira_wedding_poster.webp">
+            <source src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/alex_semira_wedding_full.mp4" type="video/mp4">
+            Your browser does not support H.264.
+        </video>
+    </section>
+
     <script>
 
     </script>

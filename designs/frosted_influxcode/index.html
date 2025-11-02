@@ -8,11 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INFLUXCODE - Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap" as="style" >
-<noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&Ubuntu+Mono:wght@400;700&Roboto+Serif:wght@400;700&display=swap" rel="stylesheet">
-</noscript>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Gothic:wght@400..700&display=swap" rel="stylesheet">
+
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -28,22 +26,22 @@
 
 :root {
 --text: hsl(0, 0%, 91%);
---background: hsl(240, 20%, 8%);
---primary: hsl(229, 11%, 30%);
---secondary: hsl(222, 40%, 26%);
---accent: hsl(207, 63%, 72%);
---main-color-1: hsl(240, 20%, 8%);
---main-color-1-light: hsl(240, 20%, 8% / 0.5);
---main-color-2: hsl(229, 11%, 30%);
---main-color-3: hsl(222, 40%, 26%);
---main-color-4: hsl(207, 63%, 72%);
+--background: hsl(233, 71%, 7%);
+--primary: hsl(232, 80%, 10%);
+--secondary: hsl(238, 70%, 15%);
+--accent: hsl(240, 5%, 38%);
+--main-color-1: hsl(233, 71%, 7%);
+--main-color-1-light: hsl(233, 71%, 7% / 0.5);
+--main-color-2: hsl(232, 80%, 10%);
+--main-color-3: hsl(238, 70%, 15%);
+--main-color-4: hsl(240, 5%, 38%);
 --main-color-5: hsl(0 0% 91%);
 --main-color-3-o: hsla(222, 40%, 26%, 0.7);
---main-color-3-lighter: hsl(222 40% 26% / 0.5);
---main-color-3-light: hsl(222 40% 50%);
+--main-color-3-lighter: hsl(238, 70%, 15% / 0.5);
+--main-color-3-light: hsl(238, 70%, 85%);
 --util-color-bad: hsl(13 75% 52%);
 --text-color-1: hsl(0 0% 91%);
---text-color-2: hsl(207 13% 35%);
+--text-color-2: hsl(233, 71%, 7%);
 --text-size-1: 1em;
 --text-size-2: 2em;
 --text-size-3: 3em;
@@ -55,7 +53,7 @@
 
 * {
 box-sizing: border-box;
-font-family: 'Ubuntu Mono', monospace;
+font-family: 'Special Gothic', sans-serif;
 font-optical-sizing: auto;
 font-style: normal;
 }
@@ -87,7 +85,7 @@ h5,
 h6,
 p {
 letter-spacing: 0.05em;
-font-family: 'Roboto Serif', serif;
+font-family: 'Special Gothic', sans-serif;
 font-optical-sizing: auto;
 font-style: normal;
 font-weight: normal;
@@ -98,7 +96,7 @@ color: var(--text-color-1);
 
 h1 {
 font-size: 2em;
-font-family: 'Ubuntu Mono', monospace;
+font-family: 'Special Gothic', sans-serif;
 }
 
 h2 {
@@ -124,7 +122,7 @@ font-size: 1.2em;
 
 a {
 font-size: 1em;
-font-family: 'Ubuntu Mono', monospace;
+font-family: 'Special Gothic', sans-serif;
 font-optical-sizing: auto;
 font-style: normal;
 font-weight: normal;
@@ -163,6 +161,19 @@ color: var(--text-color-1);
 text-align: center;
 }
 
+.gradient {
+background-image: linear-gradient(
+    180deg,
+    hsl(233deg 71% 7%) 0%,
+    hsl(229deg 64% 9%) 17%,
+    hsl(225deg 68% 11%) 33%,
+    hsl(224deg 72% 13%) 50%,
+    hsl(224deg 72% 15%) 67%,
+    hsl(225deg 71% 18%) 83%,
+    hsl(226deg 69% 20%) 100%
+  );
+}
+
 .backdrop-container {
 display: flex;
 flex-flow: column;
@@ -173,6 +184,10 @@ padding: 4em 0 0 0;
 height: calc(100vh - 4.25em);
 position: relative;
 background-color: transparent;
+}
+
+.gradient-circle {
+background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
 }
 
 .backdrop-image {
@@ -265,7 +280,7 @@ font-weight: bold;
 
 .frosted-btn {
 cursor: pointer;
-font-family: 'Raleway', serif;
+font-family: 'Special Gothic', sans-serif;
 font-weight: bold;
 background: var(--main-color-3);
 color: var(--text-color-1);
@@ -401,9 +416,10 @@ height: 100%;
 width: 100%;
 display: flex;
 align-items: center;
-justify-content: space-around;
 position: absolute;
 z-index: 1000;
+justify-content: space-between;
+padding: 0 2em;
 }
 
 .logo-container {
@@ -428,29 +444,51 @@ max-width: 2em;
 max-height: 2em;
 }
 
-.frosted-nav ul {
+.influx-nav {
 display: flex;
-gap: 1.5em;
-}
-
-.frosted-nav ul li a {
-text-align: center;
+gap: 1em;
 text-decoration: none;
-color: var(--text-color-1);
-transition-duration: 0.3s;
-text-transform: uppercase;
-padding-left: 0.3em;
-border-width: 0%;
+list-style: none;
 }
 
-.frosted-nav ul li a:hover {
-padding-bottom: 1em;
-border-width: 100%;
-border-bottom: .2em solid var(--text-color-2);
+.influx-nav li {
+padding: 0;
+margin: 0;
+}
+
+.influx-cta-link {
+display: flex;
+justify-content: center;
+user-select: none;
+border: 2px solid var(--accent);
+border-radius: 1em;
+padding: .33em 1em;
+cursor: pointer;
+transition: all 300ms;
+}
+
+.influx-cta-link:hover {
+background-color: var(--main-color-5);
+border: 2px solid var(--primary);
+color: var(--primary);
+}
+
+.influx-cta-link:active {
+transform: scale(.9);
+}
+
+.secondary {
+background-color: var(--main-color-3-light);
 color: var(--text-color-2);
 }
 
-.frosted-sub-nav {
+.secondary:hover {
+background-color: var(--main-color-1);
+color: var(--text-color-1);
+border: 2px solid var(--main-color-3-light);
+}
+
+.influx-sub-nav {
 transition: all .3s ease-out;
 display: none;
 position: fixed;
@@ -466,7 +504,7 @@ height: 100vh;
 transform: translateX(100%);
 }
 
-.frosted-sub-nav ul {
+.influx-sub-nav ul {
 display: flex;
 flex-flow: column;
 gap: 2em;
@@ -479,7 +517,7 @@ color: var(--text-color-1);
 font-size: 1.4em;
 }
 
-.frosted-sub-nav ul li a {
+.influx-sub-nav ul li a {
 font-size: 1.5em;
 }
 
@@ -495,228 +533,17 @@ right: -35;
 margin: 18px 10px 0 0;
 }
 
-.frosted-input {
-border: solid 1.5px var(--main-color-2);
-border-radius: 1em;
-background: none;
-padding: 1em;
-font-size: 1em;
-color: var(--text-color-1);
-transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
-field-sizing: content;
-min-width: 15em;
-}
-
-/* From Uiverse.io by alexruix */
-        .frosted-input-group {
-position: relative;
-}
-
-.frosted-user-label {
-position: absolute;
-left: 15px;
-color: var(--text-color-1);
-pointer-events: none;
-transform: translateY(1em);
-transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.frosted-input:focus,
-        .frosted-input:valid {
-outline: none;
-border: 1.5px solid var(--main-color-4);
-}
-
-.frosted-input:focus~label,
-        .frosted-input:valid~label {
-transform: translateY(-50%) scale(0.8);
-background-color: var(--main-color-1);
-padding: 0 .2em;
-color: var(--text-color-1);
-}
-
-/* From Uiverse.io by alexruix */
-        .frosted-input-active-group {
-position: relative;
-}
-
-.frosted-input-active {
-border: solid 1.5px var(--main-color-2);
-border-radius: 1em;
-background: none;
-padding: 1em;
-font-size: 1em;
-color: var(--text-color-1);
-transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
-field-sizing: content;
-min-width: 15em;
-max-width: 15em;
-min-height: 53.66px;
-}
-
-.frosted-user-label-active {
-position: absolute;
-left: 15px;
-color: var(--text-color-1);
-pointer-events: none;
-transform: translateY(1em);
-transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.frosted-input-active:focus,
-        .frosted-input-active:valid {
-outline: none;
-border: 1.5px solid var(--main-color-4);
-}
-
-.frosted-input-active~label,
-        .frosted-input-active~label {
-transform: translateY(-50%) scale(0.8);
-background-color: var(--main-color-1);
-padding: 0 .2em;
-color: var(--text-color-1);
-}
-
-/* From Uiverse.io by alexruix */
-        .frosted-textarea-group {
-position: relative;
-}
-
-.frosted-textarea {
-border: solid 1.5px var(--main-color-2);
-border-radius: 1em;
-background: none;
-padding: 1em;
-font-size: 1em;
-color: var(--text-color-1);
-transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
-field-sizing: content;
-width: 31em;
-min-height: 8em;
-}
-
-.frosted-textarea::placeholder {
-color: var(--text-color-1);
-opacity: 0.8;
-}
-
-.frosted-textarea:focus,
-        .frosted-textarea:valid {
-outline: none;
-border: 1.5px solid var(--main-color-4);
-}
-
-.frosted-textarea:focus~label,
-        .frosted-textarea:valid~label {
-transform: translateY(-50%) scale(0.8);
-background-color: var(--main-color-1);
-padding: 0 .2em;
-color: var(--text-color-1);
-}
-
-.basic-circle:hover {
-background-color: var(--main-color-5);
-}
-
-.basic-circle:hover svg {
-fill: black;
-}
-
-.basic-circle-wrapper {
-display: flex;
-flex-flow: column;
-align-items: center;
-justify-content: center;
-gap: .5em;
-}
-
-.basic-circle {
-display: flex;
-flex-flow: column;
-align-items: center;
-justify-content: center;
-border-radius: 50%;
-border: 1px solid var(--main-color-3);
-width: 100%;
-aspect-ratio: 1 / 1;
-transition-duration: .4s;
-}
-
-input::-webkit-calendar-picker-indicator {
-filter: invert(1);
-}
-
-.frosted-form-container {
-display: flex;
-flex-flow: column;
-align-items: center;
-}
-
-.frosted-form {
-width: 100%;
-display: flex;
-flex-flow: column;
-gap: 1em;
-align-items: stretch;
-}
-
-.frosted-form-row {
-width: 100%;
-display: flex;
-flex-flow: row wrap;
-gap: 1em;
-}
-
-.frosted-img-service {
-position: absolute;
-top: 0;
-left: 0;
-aspect-ratio: 1/1;
-transition-duration: 1s;
-height: 100%;
-}
-
-.frosted-img-service:hover {
-transform: scale(1.2);
-}
-
-.frosted-service-card {
-cursor: pointer;
-padding: 1em;
-transition-duration: 1s;
-border-radius: .25em;
-width: 20em;
-min-width: 20em;
-min-height: 40em;
-}
-
-.frosted-service-card:hover {
-box-shadow: 2px 2px 10px var(--main-color-4);
-}
-
-.frosted-text-shadow {
-text-shadow: 2px 2px var(--main-color-1);
+.heading {
+max-width: 60%;
+margin: 0em 1em 0em 1em;
+text-align: center;
 font-weight: bold;
 }
 
-.up-arrow-section {
-cursor: pointer;
-display: flex;
-justify-content: center;
-align-items: center;
-fill: var(--main-color-5);
-border-radius: 50%;
-width: 2em;
-height: 2em;
-padding-bottom: .25em;
-position: absolute;
-top: 5em;
-transition-duration: .4s;
-}
-
-.up-arrow-section:hover {
-background-color: var(--main-color-4);
-fill: var(--main-color-1);
+.sub-heading {
+margin: 0em 2em 1em 2em;
+max-width: 75%;
+text-align: center;
 }
 
 @keyframes show {
@@ -814,6 +641,13 @@ margin: 0 0 8em 0;
 body {
 font-size: 12px;
 }
+nav {
+font-size: 16px;
+}
+.heading,
+  .sub-heading {
+max-width: unset;
+}
 .frosted-input,
   .frosted-input-active,
   .frosted-textarea {
@@ -854,10 +688,10 @@ width: 100%;
   .frosted-group-section {
 width: 95%;
 }
-.frosted-nav {
+.influx-nav {
 display: none;
 }
-.frosted-sub-nav {
+.influx-sub-nav {
 display: flex;
 }
 }
@@ -872,6 +706,7 @@ min-width: 100px;
 </style>
 <body>
     
+
     
     <header>
     <div class="header-container">
@@ -882,16 +717,34 @@ min-width: 100px;
             </div>
         </a>
         
-    <nav class="frosted-nav">
-        <ul style="list-style-type: none;">
-            
-            <li><a href="/designs/frosted_influxcode/about">About</a></li>
-            <li><a href="/designs/frosted_influxcode/services">Services</a></li>
-            <li><a href="/designs/frosted_influxcode/portfolio">Portfolio</a></li>
-            <li><a href="/designs/frosted_influxcode/contact">Contact</a></li>
-        
-        </ul>
-    </nav>
+    <nav class="influx-nav">
+            <li>
+    <a class="influx-cta-link"href="/designs/frosted_influxcode/signup" variant="secondary">Start Free Trial</a>
+    <script>
+        document.querySelectorAll('.influx-cta-link').forEach(el => {
+            if (el?.getAttribute('variant')) {
+                el.classList.add(el?.getAttribute('variant'))
+            }
+        })
+    </script>
+
+
+
+            </li>
+            <li>
+    <a class="influx-cta-link"href="/designs/frosted_influxcode/signin">Sign In</a>
+    <script>
+        document.querySelectorAll('.influx-cta-link').forEach(el => {
+            if (el?.getAttribute('variant')) {
+                el.classList.add(el?.getAttribute('variant'))
+            }
+        })
+    </script>
+
+
+
+            </li>
+        </nav>
 
 
 
@@ -907,7 +760,7 @@ min-width: 100px;
     
 
 
-<nav id="frosted-sub-nav" class="frosted-sub-nav">
+<nav id="influx-sub-nav" class="influx-sub-nav">
     
     <div id="frosted_hamburger_menu" class="col frosted-hamburger" style="gap: 3px;">
         <div style="transition: transform .3s ease-out; width: 25px; height: 2px; background-color: var(--main-color-5);">
@@ -920,14 +773,39 @@ min-width: 100px;
 
 
 
-    <ul class="nav-list">
-        
-        <li><a href="/designs/frosted_influxcode/about">About</a></li>
-        <li><a href="/designs/frosted_influxcode/services">Services</a></li>
-        <li><a href="/designs/frosted_influxcode/portfolio">Portfolio</a></li>
-        <li><a href="/designs/frosted_influxcode/contact">Contact</a></li>
     
-    </ul>
+        <div style="height: 100%; display: flex; flex-flow: column; justify-content: space-between;">
+            <div></div>
+            <div style="padding: 1em; width: 100%; display: flex; flex-flow: column; gap: 1em;">
+                <li>
+    <a class="influx-cta-link"href="/designs/frosted_influxcode/signup">Start Free Trial</a>
+    <script>
+        document.querySelectorAll('.influx-cta-link').forEach(el => {
+            if (el?.getAttribute('variant')) {
+                el.classList.add(el?.getAttribute('variant'))
+            }
+        })
+    </script>
+
+
+
+                </li>
+                <li>
+    <a class="influx-cta-link"href="/designs/frosted_influxcode/signin">Sign In</a>
+    <script>
+        document.querySelectorAll('.influx-cta-link').forEach(el => {
+            if (el?.getAttribute('variant')) {
+                el.classList.add(el?.getAttribute('variant'))
+            }
+        })
+    </script>
+
+
+
+                </li>
+            </div>
+        </div>
+    
 </nav>
 <script>
     const menu = document.getElementById('frosted_hamburger_menu')
@@ -937,7 +815,7 @@ min-width: 100px;
     const change_menu = (event) => {
         event.stopPropagation()
         show_menu = !show_menu
-        const nav = document.getElementById('frosted-sub-nav')
+        const nav = document.getElementById('influx-sub-nav')
         nav.style.transform = show_menu ? 'translateX(0)' : 'translateX(100%)'
         menu.style.transition = show_menu ? 'all .3s ease-out' : 'all 0.3s ease-out'
         menu.style.transform = show_menu ? `translateX(${nav.offsetWidth - menu_placement}px)` : `translateX(-${menu_placement}px)`
@@ -955,13 +833,13 @@ min-width: 100px;
         })
     }
     document.body.addEventListener('click', (event) => {
-        if (event.target.id === 'frosted-sub-nav') {
+        console.log('hit', event.target)
+        if (event.target.id === 'influx-sub-nav') {
             return
         }
         show_menu = false
 
-        console.log('hello')
-        const nav = document.getElementById('frosted-sub-nav')
+        const nav = document.getElementById('influx-sub-nav')
         nav.style.transform = show_menu ? 'translateX(0)' : 'translateX(100%)'
         menu.style.transform = show_menu ? 'translateX(0)' : `translateX(-${menu_placement}px)`
         Array.from(menu.children).forEach((line, index) => {
@@ -969,7 +847,6 @@ min-width: 100px;
                 line.style.transform = `rotate(${deg}deg) translateY(${translate_y}px) translateX(${translate_x}px)`
             }
             if (index === 0) {
-                console.log('hello')
                 show_menu ? rotate(45, 3.5, 3.5) : rotate(0, 0, 0)
             } else if (index === 2) {
                 show_menu ? rotate(-45, -3.5, 3.5) : rotate(0, 0, 0)
@@ -987,215 +864,20 @@ min-width: 100px;
 
 
 
-    <div class="backdrop-container">
+    <div class="backdrop-container gradient">
+        <div class="frosted-group-section">
 
-        <h1 class="text-4" style="margin: 0em 2em 0em 2em; text-align: center;">
-            
-    <span style="font: inherit; font-size: inherit; display: inherit;" id="word"data-words="Innovative,Quality,Optimized"></span>
-
-<script>
-    function run_words() {
-        const word_span = document.querySelectorAll('#word')
-        word_span.forEach(span => {
-            console.log(`{{words}}`, `4`)
-            const words = span.getAttribute('data-words')
-            const words_arr = words.split(',')
-            span.style.animation = `show_read 4s infinite`
-            let index_count = 0
-            span.textContent = words_arr[index_count]
-            index_count++
-
-            const interval = setInterval(() => {
-                span.textContent = words_arr[index_count]
-                index_count++
-                if (index_count >= words_arr?.length) {
-                    index_count = 0
-                }
-            }, `4` * 1000)
-        })
-    }
-    run_words()
-</script>
-
-
-            Websites 
-    <span style="font: inherit; font-size: inherit; display: inherit;" id="word"data-words="Done Right,At Scale,for speed"></span>
-
-<script>
-    function run_words() {
-        const word_span = document.querySelectorAll('#word')
-        word_span.forEach(span => {
-            console.log(`{{words}}`, `4`)
-            const words = span.getAttribute('data-words')
-            const words_arr = words.split(',')
-            span.style.animation = `show_read 4s infinite`
-            let index_count = 0
-            span.textContent = words_arr[index_count]
-            index_count++
-
-            const interval = setInterval(() => {
-                span.textContent = words_arr[index_count]
-                index_count++
-                if (index_count >= words_arr?.length) {
-                    index_count = 0
-                }
-            }, `4` * 1000)
-        })
-    }
-    run_words()
-</script>
-
-
-        </h1>
-        <h2 class="text-3" style="margin: 1em 2em 1em 2em;  text-align: center;">
-        </h2>
-        <div class="group-wrapper">
-            <div>
-                <p class="text-3" style="margin-bottom: 1em; text-align: center;">Influxcode Sites</p>
-                <div class="group-container">
-                    <div style="width: 6em;">
-                        
-    <div class="basic-circle-wrapper">
-        <div class="basic-circle" style="border: .25em solid var(--main-color-4)">
-                            <p>98</p>
-                        </div>
-        <label style="color: var(--text-color-1); text-wrap: nowrap">Performance</label>
-    </div>
-
-
-
-
-                    </div>
-                    <div style="width: 6em;">
-                        
-    <div class="basic-circle-wrapper">
-        <div class="basic-circle" style="border: .25em solid var(--main-color-4)">
-                            <p>100</p>
-                        </div>
-        <label style="color: var(--text-color-1); text-wrap: nowrap">Accessiblity</label>
-    </div>
-
-
-
-
-                    </div>
-                    <div style="width: 6em;">
-                        
-    <div class="basic-circle-wrapper">
-        <div class="basic-circle" style="border: .25em solid var(--main-color-4)">
-                            <p>100</p>
-                        </div>
-        <label style="color: var(--text-color-1); text-wrap: nowrap">Best Practices</label>
-    </div>
-
-
-
-
-                    </div>
-                    <div style="width: 6em;">
-                        
-    <div class="basic-circle-wrapper">
-        <div class="basic-circle" style="border: .25em solid var(--main-color-4)">
-                            <p>100</p>
-                        </div>
-        <label style="color: var(--text-color-1); text-wrap: nowrap">SEO</label>
-    </div>
-
-
-
-
-                    </div>
-
-                </div>
-            </div>
-            <div>
-                <p class="text-3" style="margin: 0em 0 1em 0; text-align: center;">Top 5% of sites</p>
-
-                <div class="group-container">
-                    <div style="width: 6em;">
-                        
-    <div class="basic-circle-wrapper">
-        <div class="basic-circle" style="border: .25em solid hsl(135deg 39% 60%)">
-                            <p>93</p>
-                        </div>
-        <label style="color: var(--text-color-1); text-wrap: nowrap">Performance</label>
-    </div>
-
-
-
-
-                    </div>
-                    <div style="width: 6em;">
-                        
-    <div class="basic-circle-wrapper">
-        <div class="basic-circle" style="border: .25em solid hsl(143deg 40% 57%)">
-                            <p>97</p>
-                        </div>
-        <label style="color: var(--text-color-1); text-wrap: nowrap">Accessiblity</label>
-    </div>
-
-
-
-
-                    </div>
-                    <div style="width: 6em;">
-                        
-    <div class="basic-circle-wrapper">
-        <div class="basic-circle" style="border: .25em solid hsl(143deg 40% 57%)">
-                            <p>93</p>
-                        </div>
-        <label style="color: var(--text-color-1); text-wrap: nowrap">Best Practices</label>
-    </div>
-
-
-
-
-                    </div>
-                    <div style="width: 6em;">
-                        
-    <div class="basic-circle-wrapper">
-        <div class="basic-circle" style="border: .25em solid hsl(152deg 43% 54%)">
-                            <p>100</p>
-                        </div>
-        <label style="color: var(--text-color-1); text-wrap: nowrap">SEO</label>
-    </div>
-
-
-
-
-                    </div>
-                </div>
-            </div>
+            <h1 class="text-3 heading">
+                Marketing and customer outreach can be the thing you get right.
+            </h1>
+            <h2 class="text-2 sub-heading">
+                Influxcode uses intelligent workflows to deliver the right message, at the right time. We can seamlessly
+                reach your clients in a personal way instantly.
+            </h2>
         </div>
-        <h3 class="text-3" style="margin: 2em 2em 1em 2em;  text-align: center;">
-            Search Engine Optimization
-        </h3>
-        <h3 class="text-3" style="margin: 2em 2em 1em 2em;  text-align: center;">
-            Responsive designs
-        </h3>
 
-        <div style="margin: 0 2em;">
-            <svg width="100%" height="auto" viewBox="0 0 519 448" xmlns="http://www.w3.org/2000/svg">
-                <rect filter="url(#filter0)" x="4" width="428" height="319" rx="20" fill="#E8E8E8"></rect>
-                <line x1="4" y1="48" x2="432" y2="48" stroke="#464455" stroke-width="4" stroke-linecap="round"></line>
-                <g fill="#171727">
-                    <circle cx="31.5" cy="27.5" r="8.5"></circle>
-                    <circle cx="58.5" cy="27.5" r="8.5"></circle>
-                    <circle cx="85.5" cy="27.5" r="8.5"></circle>
-                </g>
 
-                <rect x="263" y="24" width="142" height="7" rx="3.5" fill="#171727"></rect>
-                <rect filter="url(#filter1)" x="388" y="193" width="127" height="247" rx="20" fill="#E8E8E8"></rect>
-                <defs>
-                    <filter id="filter0">
-                        <fedropshadow dx="-2" dy="4" stdDeviation="2" flood-color="white" flood-opacity="0.7"></fedropshadow>
-                    </filter>
-                    <filter id="filter1">
-                        <fedropshadow dx="0" dy="4" stdDeviation="2" flood-opacity="0.25"></fedropshadow>
-                    </filter>
-                </defs>
-            </svg>
-        </div>
+
 
     </div>
     <script>

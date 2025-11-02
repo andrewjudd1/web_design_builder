@@ -1,23 +1,23 @@
 :root {
   --text: hsl(0, 0%, 91%);
-  --background: hsl(240, 20%, 8%);
-  --primary: hsl(229, 11%, 30%);
-  --secondary: hsl(222, 40%, 26%);
-  --accent: hsl(207, 63%, 72%);
+  --background: hsl(233, 71%, 7%);
+  --primary: hsl(232, 80%, 10%);
+  --secondary: hsl(238, 70%, 15%);
+  --accent: hsl(240, 5%, 38%);
 
-  --main-color-1: hsl(240, 20%, 8%);
-  --main-color-1-light: hsl(240, 20%, 8% / 0.5);
-  --main-color-2: hsl(229, 11%, 30%);
-  --main-color-3: hsl(222, 40%, 26%);
-  --main-color-4: hsl(207, 63%, 72%);
+  --main-color-1: hsl(233, 71%, 7%);
+  --main-color-1-light: hsl(233, 71%, 7% / 0.5);
+  --main-color-2: hsl(232, 80%, 10%);
+  --main-color-3: hsl(238, 70%, 15%);
+  --main-color-4: hsl(240, 5%, 38%);
   --main-color-5: hsl(0 0% 91%);
   --main-color-3-o: hsla(222, 40%, 26%, 0.7);
-  --main-color-3-lighter: hsl(222 40% 26% / 0.5);
-  --main-color-3-light: hsl(222 40% 50%);
+  --main-color-3-lighter: hsl(238, 70%, 15% / 0.5);
+  --main-color-3-light: hsl(238, 70%, 85%);
 
   --util-color-bad: hsl(13 75% 52%);
   --text-color-1: hsl(0 0% 91%);
-  --text-color-2: hsl(207 13% 35%);
+  --text-color-2: hsl(233, 71%, 7%);
   --text-size-1: 1em;
   --text-size-2: 2em;
   --text-size-3: 3em;
@@ -29,7 +29,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: 'Ubuntu Mono', monospace;
+  font-family: 'Special Gothic', sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
@@ -61,7 +61,7 @@ h5,
 h6,
 p {
   letter-spacing: 0.05em;
-  font-family: 'Roboto Serif', serif;
+  font-family: 'Special Gothic', sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: normal;
@@ -71,7 +71,7 @@ p {
 }
 h1 {
   font-size: 2em;
-  font-family: 'Ubuntu Mono', monospace;
+  font-family: 'Special Gothic', sans-serif;
 }
 
 h2 {
@@ -97,7 +97,7 @@ p {
 
 a {
   font-size: 1em;
-  font-family: 'Ubuntu Mono', monospace;
+  font-family: 'Special Gothic', sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: normal;
@@ -132,6 +132,19 @@ ul {
   text-align: center;
 }
 
+.gradient {
+  background-image: linear-gradient(
+    180deg,
+    hsl(233deg 71% 7%) 0%,
+    hsl(229deg 64% 9%) 17%,
+    hsl(225deg 68% 11%) 33%,
+    hsl(224deg 72% 13%) 50%,
+    hsl(224deg 72% 15%) 67%,
+    hsl(225deg 71% 18%) 83%,
+    hsl(226deg 69% 20%) 100%
+  );
+}
+
 .backdrop-container {
   display: flex;
   flex-flow: column;
@@ -142,6 +155,10 @@ ul {
   height: calc(100vh - 4.25em);
   position: relative;
   background-color: transparent;
+}
+
+.gradient-circle {
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
 }
 
 .backdrop-image {
@@ -234,7 +251,7 @@ button {
 
 .frosted-btn {
   cursor: pointer;
-  font-family: 'Raleway', serif;
+  font-family: 'Special Gothic', sans-serif;
   font-weight: bold;
   background: var(--main-color-3);
   color: var(--text-color-1);
@@ -372,6 +389,15 @@ button {
     font-size: 12px;
   }
 
+  nav {
+    font-size: 16px;
+  }
+
+  .heading,
+  .sub-heading {
+    max-width: unset;
+  }
+
   .frosted-input,
   .frosted-input-active,
   .frosted-textarea {
@@ -422,11 +448,11 @@ button {
     width: 95%;
   }
 
-  .frosted-nav {
+  .influx-nav {
     display: none;
   }
 
-  .frosted-sub-nav {
+  .influx-sub-nav {
     display: flex;
   }
 }

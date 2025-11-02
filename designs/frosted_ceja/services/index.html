@@ -9,9 +9,9 @@
     <title>CEJAFILMS - Services</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap" as="style" >
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@400;700&family=Raleway:wght@400;700&display=swap" as="style" >
 <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 </noscript>
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -47,6 +47,7 @@
 --text-size-2: 2em;
 --large-mobile: 39em;
 --small-mobile: 28em;
+--nav-height: 4.25em;
 }
 
 * {
@@ -56,15 +57,16 @@ font-optical-sizing: auto;
 font-style: normal;
 }
 
+html {
+scroll-snap-type: y mandatory;
+}
+
 body {
 font-size: 16px;
-display: flex;
-flex-direction: column;
-gap: 4px;
-align-items: center;
 background: var(--main-color-1);
 margin: 0;
 padding: 0;
+scroll-snap-type: y mandatory;
 }
 
 .ball {
@@ -96,6 +98,26 @@ h1 {
 font-size: 2em;
 }
 
+.text-xl {
+font-size: 2.5em;
+}
+
+.text-lg {
+font-size: 2em;
+}
+
+.text-md {
+font-size: 1.5em;
+}
+
+.text-sm {
+font-size: 1em;
+}
+
+.text-xs {
+font-size: 0.75em;
+}
+
 h2 {
 font-size: 1.8em;
 }
@@ -119,7 +141,7 @@ font-size: 1.2em;
 
 a {
 font-size: 1em;
-font-family: 'Playfair Display', serif;
+font-family: 'Libre Bodoni', serif;
 font-optical-sizing: auto;
 font-style: normal;
 font-weight: normal;
@@ -138,15 +160,42 @@ color: var(--text-color-1);
 text-align: center;
 }
 
+.snap-container {
+height: calc(100vh);
+overflow-y: scroll;
+scroll-snap-type: y mandatory;
+scroll-behavior: smooth;
+width: 100%;
+}
+
+.full-section {
+height: 100vh;
+scroll-snap-align: start;
+position: relative;
+}
+
+.center {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.between {
+display: flex;
+justify-content: space-bewteen;
+align-items: space-between;
+}
+
 .backdrop-container {
 display: flex;
 justify-content: center;
-align-items: start;
+align-items: center;
 width: 100%;
-padding: 4em 0 0 0;
-height: calc(100vh - 4.25em);
+padding: 0em 0 0 0;
+height: 100%;
 position: relative;
 background-color: transparent;
+scroll-snap-align: start;
 }
 
 .backdrop-image {
@@ -165,17 +214,29 @@ display: flex;
 flex-flow: column wrap;
 justify-content: center;
 align-items: center;
-width: 50%;
+width: 100%;
 }
 
 .frosted-section-full {
 position: relative;
 display: flex;
 flex-flow: column wrap;
-justify-content: center;
+justify-content: start;
 align-items: center;
-width: 50%;
-height: calc(100vh - 4.25em);
+width: 100%;
+padding-top: calc(var(--nav-height) / 2);
+}
+
+.section-center {
+display: flex;
+height: 100%;
+flex-flow: column;
+align-items: center;
+justify-content: center;
+top: 0;
+position: absolute;
+padding: var(--nav-height);
+z-index: 1;
 }
 
 .full-last {
@@ -193,7 +254,7 @@ overflow: hidden;
 }
 
 .frosted-split-section {
-width: 80%;
+width: 100%;
 display: flex;
 justify-content: center;
 flex-flow: row wrap;
@@ -202,12 +263,12 @@ margin-top: 1.5em;
 }
 
 .frosted-group-section {
-width: 80%;
+width: 100%;
 display: flex;
-justify-content: center;
 flex-flow: row wrap;
-gap: 2em 5em;
 margin-top: 1.5em;
+justify-content: space-evenly;
+align-items: space-around;
 }
 
 .frosted-show {
@@ -217,6 +278,20 @@ opacity: 1;
 .frosted-img {
 width: 100%;
 object-fit: cover;
+filter: grayscale(100%);
+}
+
+.frosted-video-3 {
+object-fit: cover;
+width: 33.333%;
+}
+
+.frosted-video-1 {
+object-fit: cover;
+object-position: center top;
+width: 100%;
+height: 100%;
+padding-top: 3.25em;
 }
 
 .frosted-input {
@@ -265,17 +340,69 @@ border: 2px solid var(--main-color-3);
 display: none;
 }
 
+.frosted-img-service {
+position: absolute;
+top: 0;
+left: 0;
+aspect-ratio: 1/1;
+transition-duration: 1s;
+height: 100%;
+}
+
+.frosted-service-card:hover {
+box-shadow: 2px 2px 10px var(--main-color-4);
+}
+
+.frosted-service-card:hover .frosted-img-service {
+transform: scale(1.2);
+}
+
+.frosted-service-card {
+cursor: pointer;
+padding: 1em;
+transition-duration: 1s;
+border-radius: 0.25em;
+width: 20em;
+min-width: 20em;
+min-height: 40em;
+display: flex;
+justify-content: center;
+flex-flow: column;
+gap: 4.25em;
+}
+
+.frosted-text-shadow {
+text-shadow: 2px 2px var(--main-color-1);
+font-weight: bold;
+}
+
+.frosted-img-about {
+width: 400px;
+min-width: 400px;
+aspect-ratio: 4/6;
+object-fit: contain;
+box-shadow: 15px 15px 20px hsl(210, 15%, 22%);
+}
+
+.frosted-about-text {
+font-size: 1.1em;
+line-height: 1.5;
+max-width: 45em;
+padding: 0 1em;
+}
+
 
 
 .backdrop-container {
 display: flex;
 justify-content: center;
-align-items: start;
+align-items: center;
 width: 100%;
-padding: 4em 0 0 0;
-height: calc(100vh - 4.25em);
+padding: 0em 0 0 0;
+height: 100%;
 position: relative;
 background-color: transparent;
+scroll-snap-align: start;
 }
 
 .backdrop-image {
@@ -359,9 +486,10 @@ height: 100%;
 width: 100%;
 display: flex;
 align-items: center;
-justify-content: space-around;
 position: absolute;
 z-index: 1000;
+justify-content: space-between;
+padding: 0 3em 0 1em;
 }
 
 .logo-container {
@@ -376,8 +504,10 @@ font-size: 2em;
 }
 
 .logo-img {
-width: 13em;
-aspect-ratio: 1/1;
+margin: 0;
+padding: 1em;
+width: 14em;
+background: transparent;
 }
 
 .logo {
@@ -464,7 +594,8 @@ box-shadow: 15px 15px 20px hsl(210, 15%, 22%);
 .frosted-about-text {
 font-size: 1.1em;
 line-height: 1.5;
-max-width: 30em;
+max-width: 45em;
+padding: 0 1em;
 }
 
 .frosted-input {
@@ -639,7 +770,7 @@ flex-flow: row wrap;
 gap: 1em;
 }
 
-.frosted-img-service {
+.frosted-img-portfolio {
 position: absolute;
 top: 0;
 left: 0;
@@ -648,8 +779,63 @@ transition-duration: 1s;
 height: 100%;
 }
 
-.frosted-img-service:hover {
-transform: scale(1.2);
+.frosted-img-portfolio:hover {
+transform: scale(2);
+}
+
+.frosted-portfolio-card {
+cursor: pointer;
+padding: 1em;
+transition-duration: 1s;
+border-radius: .25em;
+min-height: 40em;
+}
+
+
+
+.frosted-text-shadow {
+text-shadow: 2px 2px var(--main-color-1);
+font-weight: bold;
+}
+
+.frosted-service-card:hover {
+box-shadow: 2px 2px 10px var(--main-color-4);
+}
+
+.frosted-service-card:has(.frosted-text:hover) {
+box-shadow: 2px 2px 10px var(--main-color-4);
+}
+
+.frosted-video {
+object-fit: cover;
+width: 30em;
+height: 30em;
+box-shadow: 2px 2px 10px black;
+}
+
+.frosted-video-container {
+display: flex;
+justify-content: center;
+}
+
+.frosted-video-section {
+display: flex;
+justify-content: center;
+gap: 0;
+flex-flow: row wrap;
+}
+
+.frosted-video-section:has(:only-child) {
+justify-content: start;
+}
+
+.frosted-img-service {
+position: absolute;
+top: 0;
+left: 0;
+aspect-ratio: 1/1;
+transition-duration: 1s;
+height: 100%;
 }
 
 .frosted-service-card {
@@ -660,15 +846,6 @@ border-radius: .25em;
 width: 20em;
 min-width: 20em;
 min-height: 40em;
-}
-
-.frosted-service-card:hover {
-box-shadow: 2px 2px 10px var(--main-color-4);
-}
-
-.frosted-text-shadow {
-text-shadow: 2px 2px var(--main-color-1);
-font-weight: bold;
 }
 
 .up-arrow-section {
@@ -689,6 +866,15 @@ transition-duration: .4s;
 .up-arrow-section:hover {
 background-color: var(--main-color-4);
 fill: var(--main-color-1);
+}
+
+.snap-container {
+margin: auto 0;
+width: 100%;
+height: calc(100vh - 4.25em);
+overflow-y: scroll;
+scroll-snap-type: y mandatory;
+scroll-behavior: smooth;
 }
 
 @keyframes show {
@@ -723,14 +909,16 @@ min-height: 10em;
 
 @media screen and (max-width: 70em) {
 
-.frosted-split-section {
-justify-content: center;
-align-items: center;
-flex-flow: column;
-}
 .frosted-service-card {
 min-width: 90%;
 max-height: 13em;
+}
+}
+
+@media screen and (max-width: 60em) {
+
+.frosted-video-section:has(:only-child) {
+justify-content: center;
 }
 }
 
@@ -745,9 +933,8 @@ font-size: 14px;
 width: 75%;
 }
 .frosted-img-about {
-width: 300px;
+width: 200px;
 min-width: 100px;
-margin: 0 0 8em 0;
 }
 }
 
@@ -820,7 +1007,7 @@ min-width: 100px;
         
         <a href="/designs/frosted_ceja/">
             <div class="logo-container">
-                <span class="logo-text">CEJAFILMS</span>
+                <img class="logo-img" alt="CEJAFILMS" src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/ceja_films_nb_white_long.webp">
             </div>
         </a>
         
@@ -841,8 +1028,7 @@ min-width: 100px;
     
     </div>
     <div class="backdrop-edge"></div>
-    <div class="backdrop">
-    </div>
+    <div class="backdrop"></div>
 </header>
 
 
@@ -929,96 +1115,58 @@ min-width: 100px;
 
 
 
-    <div class="backdrop-container">
-        <section class="frosted-group-section">
-            <div id="service_1" class="frosted-card frosted-service-card frosted-show">
-                <h4 class="frosted-text-shadow" style="z-index: 1; text-align: center;">Wedding Day Videography</h4>
-                <img src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/website/luis-tosta-MEZDyn98La8-unsplash.webp" class="frosted-img frosted-img-service" srcset="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-960.webp 960w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-617.webp 617w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-1700.webp 1700w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-1400.webp 1400w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-1920.webp 1920w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-2048.webp 2048w" sizes="(min-width: 1420px) 962px, (min-width: 1140px) 485px, (min-width: 660px) 71.96vw, 85.29vw" alt="Bride and Groom">
-            </div>
-            <div id="service_2" class="frosted-card frosted-service-card  frosted-show">
-                <h4 class="frosted-text-shadow" style="z-index: 1;">Bridal Videos</h4>
-                <img class="frosted-img frosted-img-service" src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/website/emily-finch-Un4EyaC9CYs-unsplash+2.webp" srcset="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-617.webp 617w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-924.webp 924w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-2048.webp 2048w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-1200.webp 1200w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-1600.webp 1600w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-1410.webp 1410w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-1840.webp 1840w" sizes="(min-width: 1420px) 802px, (min-width: 1140px) 400px, (min-width: 660px) 71.96vw, 85.29vw" alt="wedding rings with decor">
-            </div>
-            <div id="service_3" class="frosted-card frosted-service-card frosted-show">
-                <h4 class="frosted-show frosted-text-shadow" style="z-index: 1; ">
-                    First Look Videos
-                </h4>
-                <img class="frosted-img frosted-img-service" src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/website/lawrence-suzara-p-ZVPT5tAzY-unsplash.webp" srcset="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-924.webp 924w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-640.webp 640w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1004.webp 1004w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-427.webp 427w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1150.webp 1150w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1281.webp 1281w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1460.webp 1460w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1610.webp 1610w" sizes="(min-width: 1420px) 427px, (min-width: 1140px) 320px, (min-width: 660px) 71.96vw, 85.29vw" alt="bride and bridesmaids">
-            </div>
-        </section>
-    </div>
-    <div id="section_service_1" class="frosted-section-full">
-        <div class="up-arrow-section">
-            <svg fill="inherit" width="1.5em" height="1.5em" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 511.735 511.735" xml:space="preserve">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                <g id="SVGRepo_iconCarrier">
-                    <g>
-                        <g>
-                            <path d="M508.788,371.087L263.455,125.753c-4.16-4.16-10.88-4.16-15.04,0L2.975,371.087c-4.053,4.267-3.947,10.987,0.213,15.04 c4.16,3.947,10.667,3.947,14.827,0l237.867-237.76l237.76,237.76c4.267,4.053,10.987,3.947,15.04-0.213 C512.734,381.753,512.734,375.247,508.788,371.087z">
-                            </path>
-                        </g>
-                    </g>
-                </g>
-            </svg>
+    <div class="snap-container">
 
+        <div class="frosted-section-full">
+            <section class="frosted-group-section">
+                <div id="service_1" class="frosted-card frosted-service-card frosted-show">
+                    <h4 class="frosted-text-shadow" style="z-index: 1; text-align: center;">Wedding Day Videography
+                    </h4>
+                    <img src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/website/luis-tosta-MEZDyn98La8-unsplash.webp" class="frosted-img frosted-img-service" srcset="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-960.webp 960w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-617.webp 617w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-1700.webp 1700w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-1400.webp 1400w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-1920.webp 1920w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-2048.webp 2048w" sizes="(min-width: 1420px) 962px, (min-width: 1140px) 485px, (min-width: 660px) 71.96vw, 85.29vw" alt="Bride and Groom">
+                </div>
+                <div id="service_2" class="frosted-card frosted-service-card  frosted-show">
+                    <h4 class="frosted-text-shadow" style="z-index: 1;">Bridal Videos</h4>
+                    <img class="frosted-img frosted-img-service" src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/website/emily-finch-Un4EyaC9CYs-unsplash+2.webp" srcset="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-617.webp 617w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-924.webp 924w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-2048.webp 2048w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-1200.webp 1200w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-1600.webp 1600w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-1410.webp 1410w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-1840.webp 1840w" sizes="(min-width: 1420px) 802px, (min-width: 1140px) 400px, (min-width: 660px) 71.96vw, 85.29vw" alt="wedding rings with decor">
+                </div>
+                <div id="service_3" class="frosted-card frosted-service-card frosted-show">
+                    <h4 class="frosted-show frosted-text-shadow" style="z-index: 1; ">
+                        First Look Videos
+                    </h4>
+                    <img class="frosted-img frosted-img-service" src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/website/lawrence-suzara-p-ZVPT5tAzY-unsplash.webp" srcset="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-924.webp 924w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-640.webp 640w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1004.webp 1004w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-427.webp 427w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1150.webp 1150w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1281.webp 1281w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1460.webp 1460w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1610.webp 1610w" sizes="(min-width: 1420px) 427px, (min-width: 1140px) 320px, (min-width: 660px) 71.96vw, 85.29vw" alt="bride and bridesmaids">
+                </div>
+            </section>
         </div>
-        <h4>Wedding Day Videography</h4>
-        <h5 class="frosted-show frosted-text" style="margin: 1em 0 0 0;">From the aisle to the reception, every
-            moment
-            deserves to be remembered.
-            Let me craft a cinematic story of your wedding day.</h5>
-        <a class="frosted-btn frosted-btn-small frosted-show book-session-link" href="/designs/frosted_ceja/contact" style="margin: 2em 0 0 0; text-align: center; ">Book
-            Now!</a>
+
+        <div id="section_service_1" class="frosted-section-full">
+            <h4>Wedding Day Videography</h4>
+            <h5 class="frosted-show frosted-text" style="margin: 1em 0 0 0;">From the aisle to the reception, every
+                moment
+                deserves to be remembered.
+                Let me craft a cinematic story of your wedding day.</h5>
+            <a class="frosted-btn frosted-btn-small frosted-show book-session-link" href="/designs/frosted_ceja/contact" style="margin: 2em 0 0 0; text-align: center; ">Book
+                Now!</a>
+        </div>
+        <div id="section_service_2" class="frosted-section-full">
+            <h4>Bridal Videos</h4>
+            <h5 class="frosted-show frosted-text" style="margin: 1em 0 0 0;">Showcase the elegance, commitment, and
+                excitement leading up to your big
+                day
+                with a bridal-focused video.</h5>
+            <a class="frosted-btn frosted-btn-small frosted-show book-session-link" href="/designs/frosted_ceja/contact" style="margin: 2em 0 0 0; text-align: center; ">Book
+                Now!</a>
+        </div>
+        <div id="section_service_3" class="frosted-section-full full-last">
+            <h4> First Look Videos</h4>
+            <h5 class="frosted-show frosted-text" style="margin: 1em 0 0 0;">The magic of seeing each other for the
+                first
+                time on your special day,
+                beautifully captured forever.</h5>
+            <a class="frosted-btn frosted-btn-small frosted-show book-session-link" href="/designs/frosted_ceja/contact" style="margin: 2em 0 0 0; text-align: center; ">Book
+                Now!</a>
+        </div>
     </div>
     
-    <div id="section_service_2" class="frosted-section-full">
-        <div class="up-arrow-section">
-            <svg fill="inherit" width="1.5em" height="1.5em" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 511.735 511.735" xml:space="preserve">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                <g id="SVGRepo_iconCarrier">
-                    <g>
-                        <g>
-                            <path d="M508.788,371.087L263.455,125.753c-4.16-4.16-10.88-4.16-15.04,0L2.975,371.087c-4.053,4.267-3.947,10.987,0.213,15.04 c4.16,3.947,10.667,3.947,14.827,0l237.867-237.76l237.76,237.76c4.267,4.053,10.987,3.947,15.04-0.213 C512.734,381.753,512.734,375.247,508.788,371.087z">
-                            </path>
-                        </g>
-                    </g>
-                </g>
-            </svg>
 
-        </div>
-        <h4>Bridal Videos</h4>
-        <h5 class="frosted-show frosted-text" style="margin: 1em 0 0 0;">Showcase the elegance, commitment, and
-            excitement leading up to your big
-            day
-            with a bridal-focused video.</h5>
-        <a class="frosted-btn frosted-btn-small frosted-show book-session-link" href="/designs/frosted_ceja/contact" style="margin: 2em 0 0 0; text-align: center; ">Book
-            Now!</a>
-    </div>
-    <div id="section_service_3" class="frosted-section-full full-last">
-        <div class="up-arrow-section">
-            <svg fill="inherit" width="1.5em" height="1.5em" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 511.735 511.735" xml:space="preserve">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                <g id="SVGRepo_iconCarrier">
-                    <g>
-                        <g>
-                            <path d="M508.788,371.087L263.455,125.753c-4.16-4.16-10.88-4.16-15.04,0L2.975,371.087c-4.053,4.267-3.947,10.987,0.213,15.04 c4.16,3.947,10.667,3.947,14.827,0l237.867-237.76l237.76,237.76c4.267,4.053,10.987,3.947,15.04-0.213 C512.734,381.753,512.734,375.247,508.788,371.087z">
-                            </path>
-                        </g>
-                    </g>
-                </g>
-            </svg>
-
-        </div>
-        <h4> First Look Videos</h4>
-        <h5 class="frosted-show frosted-text" style="margin: 1em 0 0 0;">The magic of seeing each other for the first
-            time on your special day,
-            beautifully captured forever.</h5>
-        <a class="frosted-btn frosted-btn-small frosted-show book-session-link" href="/designs/frosted_ceja/contact" style="margin: 2em 0 0 0; text-align: center; ">Book
-            Now!</a>
-    </div>
     <script>
         function scroll_to_section(e) {
             const service_id = e.currentTarget.id || ''
@@ -1026,15 +1174,8 @@ min-width: 100px;
             const section_el = document.getElementById(section_id)
             section_el.scrollIntoView({ behavior: "smooth" })
         }
-        function scroll_to_top(e) {
-            window.scrollTo({ top: 0, behavior: "smooth" })
-        }
         Array.from(document.querySelectorAll('.frosted-card')).forEach(card => {
             card.addEventListener('click', scroll_to_section)
-        })
-
-        Array.from(document.querySelectorAll('.up-arrow-section')).forEach(arrow => {
-            arrow.addEventListener('click', scroll_to_top)
         })
     </script>
 

@@ -15,10 +15,6 @@
             height: 100%;
         }
 
-        .frosted-img-service:hover {
-            transform: scale(1.2);
-        }
-
         .frosted-service-card {
             cursor: pointer;
             padding: 1em;
@@ -27,10 +23,6 @@
             width: 20em;
             min-width: 20em;
             min-height: 40em;
-        }
-
-        .frosted-service-card:hover {
-            box-shadow: 2px 2px 10px var(--main-color-4);
         }
 
         .frosted-text-shadow {
@@ -57,125 +49,87 @@
             background-color: var(--main-color-4);
             fill: var(--main-color-1);
         }
+
+        .snap-container {
+            margin: auto 0;
+            width: 100%;
+            height: calc(100vh - 4.25em);
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 
 <body>
-    <frosted-header-all></frosted-header-all>
-    <div class="backdrop-container">
-        <section class="frosted-group-section">
-            <div id="service_1" class="frosted-card frosted-service-card frosted-show">
-                <h4 class="frosted-text-shadow" style="z-index: 1; text-align: center;">Wedding Day Videography</h4>
-                <img src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/website/luis-tosta-MEZDyn98La8-unsplash.webp"
-                    class="frosted-img frosted-img-service"
-                    srcset="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-960.webp 960w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-617.webp 617w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-1700.webp 1700w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-1400.webp 1400w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-1920.webp 1920w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-2048.webp 2048w"
-                    sizes="(min-width: 1420px) 962px, (min-width: 1140px) 485px, (min-width: 660px) 71.96vw, 85.29vw"
-                    alt="Bride and Groom">
-            </div>
-            <div id="service_2" class="frosted-card frosted-service-card  frosted-show">
-                <h4 class="frosted-text-shadow" style="z-index: 1;">Bridal Videos</h4>
-                <img class="frosted-img frosted-img-service"
-                    src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/website/emily-finch-Un4EyaC9CYs-unsplash+2.webp"
-                    srcset="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-617.webp 617w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-924.webp 924w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-2048.webp 2048w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-1200.webp 1200w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-1600.webp 1600w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-1410.webp 1410w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-1840.webp 1840w"
-                    sizes="(min-width: 1420px) 802px, (min-width: 1140px) 400px, (min-width: 660px) 71.96vw, 85.29vw"
-                    alt="wedding rings with decor">
-            </div>
-            <div id="service_3" class="frosted-card frosted-service-card frosted-show">
-                <h4 class="frosted-show frosted-text-shadow" style="z-index: 1; ">
-                    First Look Videos
-                </h4>
-                <img class="frosted-img frosted-img-service"
-                    src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/website/lawrence-suzara-p-ZVPT5tAzY-unsplash.webp"
-                    srcset="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-924.webp 924w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-640.webp 640w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1004.webp 1004w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-427.webp 427w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1150.webp 1150w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1281.webp 1281w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1460.webp 1460w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1610.webp 1610w"
-                    sizes="(min-width: 1420px) 427px, (min-width: 1140px) 320px, (min-width: 660px) 71.96vw, 85.29vw"
-                    alt="bride and bridesmaids">
-            </div>
-        </section>
-    </div>
-    <div id="section_service_1" class="frosted-section-full">
-        <div class="up-arrow-section">
-            <svg fill="inherit" width="1.5em" height="1.5em" version="1.1" id="Layer_1"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                viewBox="0 0 511.735 511.735" xml:space="preserve">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                <g id="SVGRepo_iconCarrier">
-                    <g>
-                        <g>
-                            <path
-                                d="M508.788,371.087L263.455,125.753c-4.16-4.16-10.88-4.16-15.04,0L2.975,371.087c-4.053,4.267-3.947,10.987,0.213,15.04 c4.16,3.947,10.667,3.947,14.827,0l237.867-237.76l237.76,237.76c4.267,4.053,10.987,3.947,15.04-0.213 C512.734,381.753,512.734,375.247,508.788,371.087z">
-                            </path>
-                        </g>
-                    </g>
-                </g>
-            </svg>
+    <frosted-header-all-logo-dynamic></frosted-header-all-logo-dynamic>
+    <div class="snap-container">
 
+        <div class="frosted-section-full">
+            <section class="frosted-group-section">
+                <div id="service_1" class="frosted-card frosted-service-card frosted-show">
+                    <h4 class="frosted-text-shadow" style="z-index: 1; text-align: center;">Wedding Day Videography
+                    </h4>
+                    <img src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/website/luis-tosta-MEZDyn98La8-unsplash.webp"
+                        class="frosted-img frosted-img-service"
+                        srcset="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-960.webp 960w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-617.webp 617w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-1700.webp 1700w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-1400.webp 1400w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-1920.webp 1920w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/luis-tosta-MEZDyn98La8-unsplash-2048.webp 2048w"
+                        sizes="(min-width: 1420px) 962px, (min-width: 1140px) 485px, (min-width: 660px) 71.96vw, 85.29vw"
+                        alt="Bride and Groom">
+                </div>
+                <div id="service_2" class="frosted-card frosted-service-card  frosted-show">
+                    <h4 class="frosted-text-shadow" style="z-index: 1;">Bridal Videos</h4>
+                    <img class="frosted-img frosted-img-service"
+                        src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/website/emily-finch-Un4EyaC9CYs-unsplash+2.webp"
+                        srcset="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-617.webp 617w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-924.webp 924w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-2048.webp 2048w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-1200.webp 1200w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-1600.webp 1600w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-1410.webp 1410w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/emily-finch-Un4EyaC9CYs-unsplash%2B2-1840.webp 1840w"
+                        sizes="(min-width: 1420px) 802px, (min-width: 1140px) 400px, (min-width: 660px) 71.96vw, 85.29vw"
+                        alt="wedding rings with decor">
+                </div>
+                <div id="service_3" class="frosted-card frosted-service-card frosted-show">
+                    <h4 class="frosted-show frosted-text-shadow" style="z-index: 1; ">
+                        First Look Videos
+                    </h4>
+                    <img class="frosted-img frosted-img-service"
+                        src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/website/lawrence-suzara-p-ZVPT5tAzY-unsplash.webp"
+                        srcset="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-924.webp 924w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-640.webp 640w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1004.webp 1004w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-427.webp 427w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1150.webp 1150w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1281.webp 1281w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1460.webp 1460w, https://s3.us-east-1.amazonaws.com/assets.influxcode.io/lawrence-suzara-p-ZVPT5tAzY-unsplash-1610.webp 1610w"
+                        sizes="(min-width: 1420px) 427px, (min-width: 1140px) 320px, (min-width: 660px) 71.96vw, 85.29vw"
+                        alt="bride and bridesmaids">
+                </div>
+            </section>
         </div>
-        <h4>Wedding Day Videography</h4>
-        <h5 class="frosted-show frosted-text" style="margin: 1em 0 0 0;">From the aisle to the reception, every
-            moment
-            deserves to be remembered.
-            Let me craft a cinematic story of your wedding day.</h5>
-        <a class="frosted-btn frosted-btn-small frosted-show book-session-link" href="data.business.nav.link_4.link"
-            style="margin: 2em 0 0 0; text-align: center; ">Book
-            Now!</a>
-    </div>
-    </div>
-    <div id="section_service_2" class="frosted-section-full">
-        <div class="up-arrow-section">
-            <svg fill="inherit" width="1.5em" height="1.5em" version="1.1" id="Layer_1"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                viewBox="0 0 511.735 511.735" xml:space="preserve">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                <g id="SVGRepo_iconCarrier">
-                    <g>
-                        <g>
-                            <path
-                                d="M508.788,371.087L263.455,125.753c-4.16-4.16-10.88-4.16-15.04,0L2.975,371.087c-4.053,4.267-3.947,10.987,0.213,15.04 c4.16,3.947,10.667,3.947,14.827,0l237.867-237.76l237.76,237.76c4.267,4.053,10.987,3.947,15.04-0.213 C512.734,381.753,512.734,375.247,508.788,371.087z">
-                            </path>
-                        </g>
-                    </g>
-                </g>
-            </svg>
 
+        <div id="section_service_1" class="frosted-section-full">
+            <h4>Wedding Day Videography</h4>
+            <h5 class="frosted-show frosted-text" style="margin: 1em 0 0 0;">From the aisle to the reception, every
+                moment
+                deserves to be remembered.
+                Let me craft a cinematic story of your wedding day.</h5>
+            <a class="frosted-btn frosted-btn-small frosted-show book-session-link" href="data.business.nav.link_4.link"
+                style="margin: 2em 0 0 0; text-align: center; ">Book
+                Now!</a>
         </div>
-        <h4>Bridal Videos</h4>
-        <h5 class="frosted-show frosted-text" style="margin: 1em 0 0 0;">Showcase the elegance, commitment, and
-            excitement leading up to your big
-            day
-            with a bridal-focused video.</h5>
-        <a class="frosted-btn frosted-btn-small frosted-show book-session-link" href="data.business.nav.link_4.link"
-            style="margin: 2em 0 0 0; text-align: center; ">Book
-            Now!</a>
+        <div id="section_service_2" class="frosted-section-full">
+            <h4>Bridal Videos</h4>
+            <h5 class="frosted-show frosted-text" style="margin: 1em 0 0 0;">Showcase the elegance, commitment, and
+                excitement leading up to your big
+                day
+                with a bridal-focused video.</h5>
+            <a class="frosted-btn frosted-btn-small frosted-show book-session-link" href="data.business.nav.link_4.link"
+                style="margin: 2em 0 0 0; text-align: center; ">Book
+                Now!</a>
+        </div>
+        <div id="section_service_3" class="frosted-section-full full-last">
+            <h4> First Look Videos</h4>
+            <h5 class="frosted-show frosted-text" style="margin: 1em 0 0 0;">The magic of seeing each other for the
+                first
+                time on your special day,
+                beautifully captured forever.</h5>
+            <a class="frosted-btn frosted-btn-small frosted-show book-session-link" href="data.business.nav.link_4.link"
+                style="margin: 2em 0 0 0; text-align: center; ">Book
+                Now!</a>
+        </div>
     </div>
-    <div id="section_service_3" class="frosted-section-full full-last">
-        <div class="up-arrow-section">
-            <svg fill="inherit" width="1.5em" height="1.5em" version="1.1" id="Layer_1"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                viewBox="0 0 511.735 511.735" xml:space="preserve">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                <g id="SVGRepo_iconCarrier">
-                    <g>
-                        <g>
-                            <path
-                                d="M508.788,371.087L263.455,125.753c-4.16-4.16-10.88-4.16-15.04,0L2.975,371.087c-4.053,4.267-3.947,10.987,0.213,15.04 c4.16,3.947,10.667,3.947,14.827,0l237.867-237.76l237.76,237.76c4.267,4.053,10.987,3.947,15.04-0.213 C512.734,381.753,512.734,375.247,508.788,371.087z">
-                            </path>
-                        </g>
-                    </g>
-                </g>
-            </svg>
+    </div>
 
-        </div>
-        <h4> First Look Videos</h4>
-        <h5 class="frosted-show frosted-text" style="margin: 1em 0 0 0;">The magic of seeing each other for the first
-            time on your special day,
-            beautifully captured forever.</h5>
-        <a class="frosted-btn frosted-btn-small frosted-show book-session-link" href="data.business.nav.link_4.link"
-            style="margin: 2em 0 0 0; text-align: center; ">Book
-            Now!</a>
-    </div>
     <script>
         function scroll_to_section(e) {
             const service_id = e.currentTarget.id || ''
@@ -183,15 +137,8 @@
             const section_el = document.getElementById(section_id)
             section_el.scrollIntoView({ behavior: "smooth" })
         }
-        function scroll_to_top(e) {
-            window.scrollTo({ top: 0, behavior: "smooth" })
-        }
         Array.from(document.querySelectorAll('.frosted-card')).forEach(card => {
             card.addEventListener('click', scroll_to_section)
-        })
-
-        Array.from(document.querySelectorAll('.up-arrow-section')).forEach(arrow => {
-            arrow.addEventListener('click', scroll_to_top)
         })
     </script>
 </body>

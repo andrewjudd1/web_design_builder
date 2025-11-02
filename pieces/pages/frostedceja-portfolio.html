@@ -43,43 +43,80 @@
         .frosted-service-card:has(.frosted-text:hover) {
             box-shadow: 2px 2px 10px var(--main-color-4);
         }
+
+        .frosted-video {
+            object-fit: cover;
+            width: 30em;
+            height: 30em;
+            box-shadow: 2px 2px 10px black;
+        }
+
+        .frosted-video-container {
+            display: flex;
+            justify-content: center;
+        }
+
+
+        .frosted-video-section {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            flex-flow: row wrap;
+        }
+
+
+        .frosted-video-section:has(:only-child) {
+            justify-content: start;
+        }
     </style>
 </head>
 
 <body>
-    <frosted-header-all></frosted-header-all>
-    <div class="backdrop-container">
-        <div class="frosted-section" style="padding: 0 0 6em 0;">
-            <div class="frosted-section" style="width: 100%;">
-                <h3 class="frosted-show" style="margin: 0 0 .5em 0; text-align: center;">See My Work in Action</h3>
-                <p class="frosted-show" style="margin: 0 0 1em 0; text-align: center;">Every video tells a unique story.
-                    Here's a glimpse of
-                    what I've created so
-                    far.</p>
+    <frosted-header-all-logo-dynamic></frosted-header-all-logo-dynamic>
+    <div class="frosted-video-container">
+        <div class="frosted-video-wrapper">
+            <div class="frosted-video-section">
+                <video class="frosted-video" controls
+                    poster="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/abbygale_brandon_poster.png">
+                    <source
+                        src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/abbygale_brandon_highlights.mp4"
+                        type="video/mp4">
+                    Your browser does not support H.264.
+                </video>
+                <video class="frosted-video" controls>
+                    <source
+                        src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/short_ashlun_sampson.mp4"
+                        type="video/mp4">
+                    Your browser does not support H.264.
+                </video>
             </div>
-            <section class="frosted-split-section frosted-show">
-                <div style="display: flex; flex-flow: column; justify-content: center; align-items: center;">
-                    <video style="object-fit: contain; height: 30em;" controls
-                        poster="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/abbygale_brandon_poster.png">
-                        <source
-                            src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/abbygale_brandon_highlights.mp4"
-                            type="video/mp4">
-                        Your browser does not support H.264.
-                    </video>
-                    <a style="margin-top: 1em;"
-                        href="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/abbygale_brandon_full.mp4">View
-                        Full Video</a>
-                </div>
+            <div class="frosted-video-section">
 
+                <video class="frosted-video" controls
+                    poster="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/ring_short_poster_small.webp">
+                    <source
+                        src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/alex_semira_wedding_full.mp4"
+                        type="video/mp4">
+                    Your browser does not support H.264.
+                </video>
+                <video class="frosted-video" controls
+                    poster="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/ring_short_poster_small.webp">
+                    <source
+                        src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/short_of_little_details.mp4"
+                        type="video/mp4">
+                    Your browser does not support H.264.
+                </video>
+            </div>
+            <div class="frosted-video-section">
+                <video class="frosted-video" controls
+                    poster="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/ring_short_poster_small.webp">
+                    <source src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/short_of_rings.mp4"
+                        type="video/mp4">
+                    Your browser does not support H.264.
+                </video>
+            </div>
         </div>
     </div>
-    </section>
-    </div>
-    </div>
-    </div>
-    <script>
-
-    </script>
 </body>
 
 </html>

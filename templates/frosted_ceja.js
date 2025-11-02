@@ -43,9 +43,9 @@ const pages = ['Home', 'About', 'Services', 'Portfolio', 'Contact'].map(item => 
         css: ['frosted_ceja.css'],
         global_head: `<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap" as="style" >
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@400;700&family=Raleway:wght@400;700&display=swap" as="style" >
 <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 </noscript>
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">

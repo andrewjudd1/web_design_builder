@@ -8,19 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INFLUXCODE - About</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap" as="style" >
-<noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&Ubuntu+Mono:wght@400;700&Roboto+Serif:wght@400;700&display=swap" rel="stylesheet">
-</noscript>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Gothic:wght@400..700&display=swap" rel="stylesheet">
+
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 
-    <meta name="title" content="About Influxcode | Innovative Software">
-<meta name="description" content="Learn more about Influxcode, a software engineering and web design company passionate about bringing in the best code for your business">
-<meta name="keywords" content="about, software, design, web development, web design, Andrew Judd, Influxcode">
+    
 </head>
 <style>
 
@@ -28,19 +24,19 @@
 
 :root {
 --text: hsl(0, 0%, 91%);
---background: hsl(240, 20%, 8%);
---primary: hsl(229, 11%, 30%);
---secondary: hsl(222, 40%, 26%);
---accent: hsl(207, 63%, 72%);
---main-color-1: hsl(240, 20%, 8%);
---main-color-1-light: hsl(240, 20%, 8% / 0.5);
---main-color-2: hsl(229, 11%, 30%);
---main-color-3: hsl(222, 40%, 26%);
---main-color-4: hsl(207, 63%, 72%);
+--background: hsl(233, 71%, 7%);
+--primary: hsl(232, 80%, 10%);
+--secondary: hsl(238, 70%, 15%);
+--accent: hsl(240, 5%, 38%);
+--main-color-1: hsl(233, 71%, 7%);
+--main-color-1-light: hsl(233, 71%, 7% / 0.5);
+--main-color-2: hsl(232, 80%, 10%);
+--main-color-3: hsl(238, 70%, 15%);
+--main-color-4: hsl(240, 5%, 38%);
 --main-color-5: hsl(0 0% 91%);
 --main-color-3-o: hsla(222, 40%, 26%, 0.7);
---main-color-3-lighter: hsl(222 40% 26% / 0.5);
---main-color-3-light: hsl(222 40% 50%);
+--main-color-3-lighter: hsl(238, 70%, 15% / 0.5);
+--main-color-3-light: hsl(238, 70%, 50%);
 --util-color-bad: hsl(13 75% 52%);
 --text-color-1: hsl(0 0% 91%);
 --text-color-2: hsl(207 13% 35%);
@@ -55,7 +51,7 @@
 
 * {
 box-sizing: border-box;
-font-family: 'Ubuntu Mono', monospace;
+font-family: 'Special Gothic', sans-serif;
 font-optical-sizing: auto;
 font-style: normal;
 }
@@ -87,7 +83,7 @@ h5,
 h6,
 p {
 letter-spacing: 0.05em;
-font-family: 'Roboto Serif', serif;
+font-family: 'Special Gothic', sans-serif;
 font-optical-sizing: auto;
 font-style: normal;
 font-weight: normal;
@@ -98,7 +94,7 @@ color: var(--text-color-1);
 
 h1 {
 font-size: 2em;
-font-family: 'Ubuntu Mono', monospace;
+font-family: 'Special Gothic', sans-serif;
 }
 
 h2 {
@@ -124,7 +120,7 @@ font-size: 1.2em;
 
 a {
 font-size: 1em;
-font-family: 'Ubuntu Mono', monospace;
+font-family: 'Special Gothic', sans-serif;
 font-optical-sizing: auto;
 font-style: normal;
 font-weight: normal;
@@ -163,6 +159,19 @@ color: var(--text-color-1);
 text-align: center;
 }
 
+.gradient {
+background-image: linear-gradient(
+    180deg,
+    hsl(233deg 71% 7%) 0%,
+    hsl(229deg 64% 9%) 17%,
+    hsl(225deg 68% 11%) 33%,
+    hsl(224deg 72% 13%) 50%,
+    hsl(224deg 72% 15%) 67%,
+    hsl(225deg 71% 18%) 83%,
+    hsl(226deg 69% 20%) 100%
+  );
+}
+
 .backdrop-container {
 display: flex;
 flex-flow: column;
@@ -173,6 +182,10 @@ padding: 4em 0 0 0;
 height: calc(100vh - 4.25em);
 position: relative;
 background-color: transparent;
+}
+
+.gradient-circle {
+background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
 }
 
 .backdrop-image {
@@ -265,7 +278,7 @@ font-weight: bold;
 
 .frosted-btn {
 cursor: pointer;
-font-family: 'Raleway', serif;
+font-family: 'Special Gothic', sans-serif;
 font-weight: bold;
 background: var(--main-color-3);
 color: var(--text-color-1);
@@ -495,6 +508,85 @@ right: -35;
 margin: 18px 10px 0 0;
 }
 
+.frosted-img-portfolio {
+position: absolute;
+top: 0;
+left: 0;
+aspect-ratio: 1/1;
+transition-duration: 1s;
+height: 100%;
+}
+
+.frosted-img-portfolio:hover {
+transform: scale(2);
+}
+
+.frosted-portfolio-card {
+cursor: pointer;
+padding: 1em;
+transition-duration: 1s;
+border-radius: .25em;
+width: 25em;
+min-width: 20em;
+min-height: 40em;
+}
+
+.frosted-text-shadow {
+text-shadow: 2px 2px var(--main-color-1);
+font-weight: bold;
+}
+
+.frosted-service-card:hover {
+box-shadow: 2px 2px 10px var(--main-color-4);
+}
+
+.frosted-service-card:has(.frosted-text:hover) {
+box-shadow: 2px 2px 10px var(--main-color-4);
+}
+
+.frosted-img-service {
+position: absolute;
+top: 0;
+left: 0;
+aspect-ratio: 1/1;
+transition-duration: 1s;
+height: 100%;
+}
+
+.frosted-img-service:hover {
+transform: scale(1.2);
+}
+
+.frosted-service-card {
+cursor: pointer;
+padding: 1em;
+transition-duration: 1s;
+border-radius: .25em;
+width: 20em;
+min-width: 20em;
+min-height: 40em;
+}
+
+.up-arrow-section {
+cursor: pointer;
+display: flex;
+justify-content: center;
+align-items: center;
+fill: var(--main-color-5);
+border-radius: 50%;
+width: 2em;
+height: 2em;
+padding-bottom: .25em;
+position: absolute;
+top: 5em;
+transition-duration: .4s;
+}
+
+.up-arrow-section:hover {
+background-color: var(--main-color-4);
+fill: var(--main-color-1);
+}
+
 .frosted-input {
 border: solid 1.5px var(--main-color-2);
 border-radius: 1em;
@@ -665,85 +757,6 @@ width: 100%;
 display: flex;
 flex-flow: row wrap;
 gap: 1em;
-}
-
-.frosted-img-service {
-position: absolute;
-top: 0;
-left: 0;
-aspect-ratio: 1/1;
-transition-duration: 1s;
-height: 100%;
-}
-
-.frosted-img-service:hover {
-transform: scale(1.2);
-}
-
-.frosted-service-card {
-cursor: pointer;
-padding: 1em;
-transition-duration: 1s;
-border-radius: .25em;
-width: 20em;
-min-width: 20em;
-min-height: 40em;
-}
-
-.frosted-service-card:hover {
-box-shadow: 2px 2px 10px var(--main-color-4);
-}
-
-.frosted-text-shadow {
-text-shadow: 2px 2px var(--main-color-1);
-font-weight: bold;
-}
-
-.up-arrow-section {
-cursor: pointer;
-display: flex;
-justify-content: center;
-align-items: center;
-fill: var(--main-color-5);
-border-radius: 50%;
-width: 2em;
-height: 2em;
-padding-bottom: .25em;
-position: absolute;
-top: 5em;
-transition-duration: .4s;
-}
-
-.up-arrow-section:hover {
-background-color: var(--main-color-4);
-fill: var(--main-color-1);
-}
-
-.frosted-img-portfolio {
-position: absolute;
-top: 0;
-left: 0;
-aspect-ratio: 1/1;
-transition-duration: 1s;
-height: 100%;
-}
-
-.frosted-img-portfolio:hover {
-transform: scale(2);
-}
-
-.frosted-portfolio-card {
-cursor: pointer;
-padding: 1em;
-transition-duration: 1s;
-border-radius: .25em;
-width: 25em;
-min-width: 20em;
-min-height: 40em;
-}
-
-.frosted-service-card:has(.frosted-text:hover) {
-box-shadow: 2px 2px 10px var(--main-color-4);
 }
 
 .frosted-img-about {
@@ -919,7 +932,7 @@ min-width: 100px;
         
         <a href="/designs/frosted_influxcode/">
             <div class="logo-container">
-                <span class="logo-text">INFLUXCODE</span>
+                <img class="logo-img" alt="INFLUXCODE" src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/influxcode/logo_light.svg">
             </div>
         </a>
         

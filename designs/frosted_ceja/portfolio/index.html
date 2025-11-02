@@ -9,9 +9,9 @@
     <title>CEJAFILMS - Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap" as="style" >
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@400;700&family=Raleway:wght@400;700&display=swap" as="style" >
 <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 </noscript>
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -44,6 +44,7 @@
 --text-size-2: 2em;
 --large-mobile: 39em;
 --small-mobile: 28em;
+--nav-height: 4.25em;
 }
 
 * {
@@ -53,15 +54,16 @@ font-optical-sizing: auto;
 font-style: normal;
 }
 
+html {
+scroll-snap-type: y mandatory;
+}
+
 body {
 font-size: 16px;
-display: flex;
-flex-direction: column;
-gap: 4px;
-align-items: center;
 background: var(--main-color-1);
 margin: 0;
 padding: 0;
+scroll-snap-type: y mandatory;
 }
 
 .ball {
@@ -93,6 +95,26 @@ h1 {
 font-size: 2em;
 }
 
+.text-xl {
+font-size: 2.5em;
+}
+
+.text-lg {
+font-size: 2em;
+}
+
+.text-md {
+font-size: 1.5em;
+}
+
+.text-sm {
+font-size: 1em;
+}
+
+.text-xs {
+font-size: 0.75em;
+}
+
 h2 {
 font-size: 1.8em;
 }
@@ -116,7 +138,7 @@ font-size: 1.2em;
 
 a {
 font-size: 1em;
-font-family: 'Playfair Display', serif;
+font-family: 'Libre Bodoni', serif;
 font-optical-sizing: auto;
 font-style: normal;
 font-weight: normal;
@@ -135,15 +157,42 @@ color: var(--text-color-1);
 text-align: center;
 }
 
+.snap-container {
+height: calc(100vh);
+overflow-y: scroll;
+scroll-snap-type: y mandatory;
+scroll-behavior: smooth;
+width: 100%;
+}
+
+.full-section {
+height: 100vh;
+scroll-snap-align: start;
+position: relative;
+}
+
+.center {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.between {
+display: flex;
+justify-content: space-bewteen;
+align-items: space-between;
+}
+
 .backdrop-container {
 display: flex;
 justify-content: center;
-align-items: start;
+align-items: center;
 width: 100%;
-padding: 4em 0 0 0;
-height: calc(100vh - 4.25em);
+padding: 0em 0 0 0;
+height: 100%;
 position: relative;
 background-color: transparent;
+scroll-snap-align: start;
 }
 
 .backdrop-image {
@@ -162,17 +211,29 @@ display: flex;
 flex-flow: column wrap;
 justify-content: center;
 align-items: center;
-width: 50%;
+width: 100%;
 }
 
 .frosted-section-full {
 position: relative;
 display: flex;
 flex-flow: column wrap;
-justify-content: center;
+justify-content: start;
 align-items: center;
-width: 50%;
-height: calc(100vh - 4.25em);
+width: 100%;
+padding-top: calc(var(--nav-height) / 2);
+}
+
+.section-center {
+display: flex;
+height: 100%;
+flex-flow: column;
+align-items: center;
+justify-content: center;
+top: 0;
+position: absolute;
+padding: var(--nav-height);
+z-index: 1;
 }
 
 .full-last {
@@ -190,7 +251,7 @@ overflow: hidden;
 }
 
 .frosted-split-section {
-width: 80%;
+width: 100%;
 display: flex;
 justify-content: center;
 flex-flow: row wrap;
@@ -199,12 +260,12 @@ margin-top: 1.5em;
 }
 
 .frosted-group-section {
-width: 80%;
+width: 100%;
 display: flex;
-justify-content: center;
 flex-flow: row wrap;
-gap: 2em 5em;
 margin-top: 1.5em;
+justify-content: space-evenly;
+align-items: space-around;
 }
 
 .frosted-show {
@@ -214,6 +275,20 @@ opacity: 1;
 .frosted-img {
 width: 100%;
 object-fit: cover;
+filter: grayscale(100%);
+}
+
+.frosted-video-3 {
+object-fit: cover;
+width: 33.333%;
+}
+
+.frosted-video-1 {
+object-fit: cover;
+object-position: center top;
+width: 100%;
+height: 100%;
+padding-top: 3.25em;
 }
 
 .frosted-input {
@@ -262,17 +337,69 @@ border: 2px solid var(--main-color-3);
 display: none;
 }
 
+.frosted-img-service {
+position: absolute;
+top: 0;
+left: 0;
+aspect-ratio: 1/1;
+transition-duration: 1s;
+height: 100%;
+}
+
+.frosted-service-card:hover {
+box-shadow: 2px 2px 10px var(--main-color-4);
+}
+
+.frosted-service-card:hover .frosted-img-service {
+transform: scale(1.2);
+}
+
+.frosted-service-card {
+cursor: pointer;
+padding: 1em;
+transition-duration: 1s;
+border-radius: 0.25em;
+width: 20em;
+min-width: 20em;
+min-height: 40em;
+display: flex;
+justify-content: center;
+flex-flow: column;
+gap: 4.25em;
+}
+
+.frosted-text-shadow {
+text-shadow: 2px 2px var(--main-color-1);
+font-weight: bold;
+}
+
+.frosted-img-about {
+width: 400px;
+min-width: 400px;
+aspect-ratio: 4/6;
+object-fit: contain;
+box-shadow: 15px 15px 20px hsl(210, 15%, 22%);
+}
+
+.frosted-about-text {
+font-size: 1.1em;
+line-height: 1.5;
+max-width: 45em;
+padding: 0 1em;
+}
+
 
 
 .backdrop-container {
 display: flex;
 justify-content: center;
-align-items: start;
+align-items: center;
 width: 100%;
-padding: 4em 0 0 0;
-height: calc(100vh - 4.25em);
+padding: 0em 0 0 0;
+height: 100%;
 position: relative;
 background-color: transparent;
+scroll-snap-align: start;
 }
 
 .backdrop-image {
@@ -356,9 +483,10 @@ height: 100%;
 width: 100%;
 display: flex;
 align-items: center;
-justify-content: space-around;
 position: absolute;
 z-index: 1000;
+justify-content: space-between;
+padding: 0 3em 0 1em;
 }
 
 .logo-container {
@@ -373,8 +501,10 @@ font-size: 2em;
 }
 
 .logo-img {
-width: 13em;
-aspect-ratio: 1/1;
+margin: 0;
+padding: 1em;
+width: 14em;
+background: transparent;
 }
 
 .logo {
@@ -461,7 +591,8 @@ box-shadow: 15px 15px 20px hsl(210, 15%, 22%);
 .frosted-about-text {
 font-size: 1.1em;
 line-height: 1.5;
-max-width: 30em;
+max-width: 45em;
+padding: 0 1em;
 }
 
 .frosted-input {
@@ -636,58 +767,6 @@ flex-flow: row wrap;
 gap: 1em;
 }
 
-.frosted-img-service {
-position: absolute;
-top: 0;
-left: 0;
-aspect-ratio: 1/1;
-transition-duration: 1s;
-height: 100%;
-}
-
-.frosted-img-service:hover {
-transform: scale(1.2);
-}
-
-.frosted-service-card {
-cursor: pointer;
-padding: 1em;
-transition-duration: 1s;
-border-radius: .25em;
-width: 20em;
-min-width: 20em;
-min-height: 40em;
-}
-
-.frosted-service-card:hover {
-box-shadow: 2px 2px 10px var(--main-color-4);
-}
-
-.frosted-text-shadow {
-text-shadow: 2px 2px var(--main-color-1);
-font-weight: bold;
-}
-
-.up-arrow-section {
-cursor: pointer;
-display: flex;
-justify-content: center;
-align-items: center;
-fill: var(--main-color-5);
-border-radius: 50%;
-width: 2em;
-height: 2em;
-padding-bottom: .25em;
-position: absolute;
-top: 5em;
-transition-duration: .4s;
-}
-
-.up-arrow-section:hover {
-background-color: var(--main-color-4);
-fill: var(--main-color-1);
-}
-
 .frosted-img-portfolio {
 position: absolute;
 top: 0;
@@ -711,8 +790,40 @@ min-height: 40em;
 
 
 
+.frosted-text-shadow {
+text-shadow: 2px 2px var(--main-color-1);
+font-weight: bold;
+}
+
+.frosted-service-card:hover {
+box-shadow: 2px 2px 10px var(--main-color-4);
+}
+
 .frosted-service-card:has(.frosted-text:hover) {
 box-shadow: 2px 2px 10px var(--main-color-4);
+}
+
+.frosted-video {
+object-fit: cover;
+width: 30em;
+height: 30em;
+box-shadow: 2px 2px 10px black;
+}
+
+.frosted-video-container {
+display: flex;
+justify-content: center;
+}
+
+.frosted-video-section {
+display: flex;
+justify-content: center;
+gap: 0;
+flex-flow: row wrap;
+}
+
+.frosted-video-section:has(:only-child) {
+justify-content: start;
 }
 
 @keyframes show {
@@ -747,14 +858,16 @@ min-height: 10em;
 
 @media screen and (max-width: 70em) {
 
-.frosted-split-section {
-justify-content: center;
-align-items: center;
-flex-flow: column;
-}
 .frosted-service-card {
 min-width: 90%;
 max-height: 13em;
+}
+}
+
+@media screen and (max-width: 60em) {
+
+.frosted-video-section:has(:only-child) {
+justify-content: center;
 }
 }
 
@@ -769,9 +882,8 @@ font-size: 14px;
 width: 75%;
 }
 .frosted-img-about {
-width: 300px;
+width: 200px;
 min-width: 100px;
-margin: 0 0 8em 0;
 }
 }
 
@@ -844,7 +956,7 @@ min-width: 100px;
         
         <a href="/designs/frosted_ceja/">
             <div class="logo-container">
-                <span class="logo-text">CEJAFILMS</span>
+                <img class="logo-img" alt="CEJAFILMS" src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/ceja_films_nb_white_long.webp">
             </div>
         </a>
         
@@ -865,8 +977,7 @@ min-width: 100px;
     
     </div>
     <div class="backdrop-edge"></div>
-    <div class="backdrop">
-    </div>
+    <div class="backdrop"></div>
 </header>
 
 
@@ -953,34 +1064,37 @@ min-width: 100px;
 
 
 
-    <div class="backdrop-container">
-        <div class="frosted-section" style="padding: 0 0 6em 0;">
-            <div class="frosted-section" style="width: 100%;">
-                <h3 class="frosted-show" style="margin: 0 0 .5em 0; text-align: center;">See My Work in Action</h3>
-                <p class="frosted-show" style="margin: 0 0 1em 0; text-align: center;">Every video tells a unique story.
-                    Here's a glimpse of
-                    what I've created so
-                    far.</p>
+    <div class="frosted-video-container">
+        <div class="frosted-video-wrapper">
+            <div class="frosted-video-section">
+                <video class="frosted-video" controls="" poster="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/abbygale_brandon_poster.png">
+                    <source src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/abbygale_brandon_highlights.mp4" type="video/mp4">
+                    Your browser does not support H.264.
+                </video>
+                <video class="frosted-video" controls="">
+                    <source src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/short_ashlun_sampson.mp4" type="video/mp4">
+                    Your browser does not support H.264.
+                </video>
             </div>
-            <section class="frosted-split-section frosted-show">
-                <div style="display: flex; flex-flow: column; justify-content: center; align-items: center;">
-                    <video style="object-fit: contain; height: 30em;" controls="" poster="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/abbygale_brandon_poster.png">
-                        <source src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/abbygale_brandon_highlights.mp4" type="video/mp4">
-                        Your browser does not support H.264.
-                    </video>
-                    <a style="margin-top: 1em;" href="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/abbygale_brandon_full.mp4">View
-                        Full Video</a>
-                </div>
+            <div class="frosted-video-section">
 
-        </section></div>
+                <video class="frosted-video" controls="" poster="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/ring_short_poster_small.webp">
+                    <source src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/alex_semira_wedding_full.mp4" type="video/mp4">
+                    Your browser does not support H.264.
+                </video>
+                <video class="frosted-video" controls="" poster="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/ring_short_poster_small.webp">
+                    <source src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/short_of_little_details.mp4" type="video/mp4">
+                    Your browser does not support H.264.
+                </video>
+            </div>
+            <div class="frosted-video-section">
+                <video class="frosted-video" controls="" poster="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/ring_short_poster_small.webp">
+                    <source src="https://s3.us-east-1.amazonaws.com/assets.influxcode.io/cejafilms/short_of_rings.mp4" type="video/mp4">
+                    Your browser does not support H.264.
+                </video>
+            </div>
+        </div>
     </div>
-    
-    
-    
-    
-    <script>
-
-    </script>
 
 
      

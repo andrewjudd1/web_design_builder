@@ -23,25 +23,17 @@ function data(options) {
             link: ""
         },
         {
-            name: "About",
-            link: "about"
+            name: "Start Free Trial",
+            link: "signup"
         },
         {
-            name: "Services",
-            link: "services"
-        },
-        {
-            name: "Portfolio",
-            link: "portfolio"
-        },
-        {
-            name: "Contact",
-            link: "contact"
+            name: "Sign In",
+            link: "signin"
         }
     ]
     links.forEach((item, index) => {
         item.link = `${root_url}/${item.link}`
-        func_data.nav[`link_${index}`] = item
+        func_data.nav[`link_${index}`] = item || ''
     })
     return func_data
 }
