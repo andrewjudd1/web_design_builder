@@ -134,6 +134,14 @@ ul {
 list-style-type: none;
 padding: 0;
 margin: 0;
+color: var(--text-color-1);
+display: flex;
+flex-flow: column;
+gap: 1em;
+}
+
+.list {
+list-style-type: disc;
 }
 
 .text-5 {
@@ -243,7 +251,7 @@ margin-top: 1.5em;
 }
 
 .frosted-group-section {
-width: 80%;
+max-width: 70%;
 display: flex;
 justify-content: center;
 flex-flow: row wrap;
@@ -326,7 +334,7 @@ align-items: center;
 .backdrop-container {
 display: flex;
 flex-flow: column;
-justify-content: start;
+justify-content: flex-start;
 align-items: center;
 width: 100%;
 padding: 4em 0 0 0;
@@ -446,14 +454,62 @@ max-height: 2em;
 
 .influx-nav {
 display: flex;
+align-items: center;
 gap: 1em;
 text-decoration: none;
 list-style: none;
 }
 
 .influx-nav li {
+display: flex;
+align-items: center;
 padding: 0;
 margin: 0;
+}
+
+.influx-sub-nav {
+transition: all .3s ease-out;
+display: none;
+position: fixed;
+z-index: 2000;
+background: transparent;
+backdrop-filter: blur(.5em);
+top: 0;
+right: 0;
+flex-direction: column;
+min-width: 75%;
+background-color: var(--main-color-2);
+height: 100%;
+transform: translateX(100%);
+}
+
+.influx-sub-nav ul {
+display: flex;
+flex-flow: column;
+gap: 2em;
+margin: 4em 0 0 0;
+text-transform: uppercase;
+padding: 2em 0 0 2em;
+font-weight: bold;
+list-style-type: none;
+color: var(--text-color-1);
+font-size: 1.4em;
+}
+
+.influx-sub-nav ul li a {
+font-size: 1.5em;
+}
+
+.col {
+display: flex;
+flex-flow: column;
+}
+
+.frosted-hamburger {
+position: fixed;
+top: 0;
+right: -35;
+margin: 18px 10px 0 0;
 }
 
 .influx-cta-link {
@@ -488,49 +544,149 @@ color: var(--text-color-1);
 border: 2px solid var(--main-color-3-light);
 }
 
-.influx-sub-nav {
-transition: all .3s ease-out;
-display: none;
-position: fixed;
-z-index: 2000;
-background: transparent;
-backdrop-filter: blur(.5em);
-top: 0;
-right: 0;
-flex-direction: column;
-min-width: 75%;
-background-color: var(--main-color-2);
-height: 100vh;
-transform: translateX(100%);
-}
-
-.influx-sub-nav ul {
+.dimension-card {
 display: flex;
 flex-flow: column;
-gap: 2em;
-margin: 4em 0 0 0;
-text-transform: uppercase;
-padding: 2em 0 0 2em;
-font-weight: bold;
-list-style-type: none;
-color: var(--text-color-1);
-font-size: 1.4em;
+gap: 1em;
+margin: 0 12em;
+padding: 2em 2em;
+align-items: center;
+border: 1px solid var(--main-color-3);
+border-right: 0;
+border-left: 0;
 }
 
-.influx-sub-nav ul li a {
+:root {
+--text: hsl(0, 0%, 91%);
+--background: hsl(233, 71%, 7%);
+--primary: hsl(232, 80%, 10%);
+--secondary: hsl(238, 70%, 15%);
+--accent: hsl(240, 5%, 38%);
+--main-color-1: hsl(233, 71%, 7%);
+--main-color-1-light: hsl(233, 71%, 7% / 0.5);
+--main-color-2: hsl(232, 80%, 10%);
+--main-color-3: hsl(238, 70%, 15%);
+--main-color-4: hsl(240, 5%, 38%);
+--main-color-5: hsl(0 0% 91%);
+--main-color-3-o: hsla(222, 40%, 26%, 0.7);
+--main-color-3-lighter: hsl(238, 70%, 15% / 0.5);
+--main-color-3-light: hsl(238, 70%, 85%);
+--util-color-bad: hsl(13 75% 52%);
+--text-color-1: hsl(0 0% 91%);
+--text-color-2: hsl(233, 71%, 7%);
+--text-size-1: 1em;
+--text-size-2: 2em;
+--text-size-3: 3em;
+--text-size-4: 4em;
+--text-size-5: 5em;
+--large-mobile: 39em;
+--small-mobile: 28em;
+}
+
+* {
+box-sizing: border-box;
+font-family: "Special Gothic", sans-serif;
+font-optical-sizing: auto;
+font-style: normal;
+}
+
+body {
+font-size: 16px;
+display: flex;
+flex-direction: column;
+gap: 4px;
+align-items: center;
+background: var(--main-color-1);
+margin: 0;
+padding: 0;
+}
+
+h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+letter-spacing: 0.05em;
+font-family: "Special Gothic", sans-serif;
+font-optical-sizing: auto;
+font-style: normal;
+font-weight: normal;
+margin: 0;
+padding: 0;
+color: var(--text-color-1);
+}
+
+h1 {
+font-size: 2em;
+}
+
+h2 {
+font-size: 1.8em;
+}
+
+h3 {
+font-size: 1.6em;
+}
+
+h4 {
 font-size: 1.5em;
 }
 
-.col {
-display: flex;
-flex-flow: column;
+h5 {
+font-size: 1.4em;
 }
 
-.frosted-hamburger {
-position: fixed;
-top: 0;
-right: -35;
-margin: 18px 10px 0 0;
+h6,
+        p {
+font-size: 1.2em;
+}
+
+a {
+font-size: 1em;
+font-family: "Special Gothic", sans-serif;
+font-optical-sizing: auto;
+font-style: normal;
+font-weight: normal;
+text-decoration: none;
+color: var(--text-color-1);
+}
+
+ul {
+list-style-type: none;
+padding: 0;
+margin: 0;
+color: var(--text-color-1);
+display: flex;
+flex-flow: column;
+gap: 1em;
+}
+
+.list {
+list-style-type: disc;
+margin-left: 1.25em;
+color: var(--text-color-1);
+}
+
+.text-5 {
+font-size: var(--text-size-5);
+}
+
+.text-4 {
+font-size: var(--text-size-4);
+}
+
+.text-3 {
+font-size: var(--text-size-3);
+}
+
+.text-2 {
+font-size: var(--text-size-2);
+}
+
+.text-1 {
+font-size: var(--text-size-1);
 }
 
 .heading {
@@ -544,6 +700,288 @@ font-weight: bold;
 margin: 0em 2em 1em 2em;
 max-width: 75%;
 text-align: center;
+}
+
+.frosted-text {
+color: var(--text-color-1);
+text-align: center;
+}
+
+.gradient {
+background-image: linear-gradient(180deg,
+                    hsl(233deg 71% 7%) 0%,
+                    hsl(229deg 64% 9%) 17%,
+                    hsl(225deg 68% 11%) 33%,
+                    hsl(224deg 72% 13%) 50%,
+                    hsl(224deg 72% 15%) 67%,
+                    hsl(225deg 71% 18%) 83%,
+                    hsl(226deg 69% 20%) 100%);
+}
+
+.frosted-group-section {
+max-width: 70%;
+display: flex;
+justify-content: center;
+flex-flow: row wrap;
+gap: 2em 5em;
+margin-top: 1.5em;
+}
+
+.frosted-card {
+position: relative;
+display: flex;
+flex-flow: column;
+align-items: flex-start;
+justify-content: flex-start;
+background: var(--main-color-3-o);
+border-radius: 0.75em;
+padding: 1.8em;
+max-width: 24em;
+overflow: hidden;
+border: 1px solid var(--main-color-4);
+}
+
+.frosted-show {
+opacity: 1;
+}
+
+.frosted-input {
+outline: none;
+border: none;
+background: var(--main-color-4);
+backdrop-filter: blur(20px);
+color: var(--text-color-1);
+padding: 0.6em 0.8em;
+border-radius: 0.35em;
+width: 100%;
+}
+
+button {
+cursor: pointer;
+border: none;
+outline: none;
+color: inherit;
+font-size: 1.5em;
+font-weight: bold;
+}
+
+.frosted-btn {
+cursor: pointer;
+font-family: "Special Gothic", sans-serif;
+font-weight: bold;
+background: var(--main-color-3);
+color: var(--text-color-1);
+padding: 1.2em 1.2em;
+font-size: 1.2em;
+border-radius: 0.5em;
+transition-duration: 0.3s;
+border: 2px solid transparent;
+}
+
+.frosted-btn-small {
+padding: 0.8em 1.2em;
+font-size: 1.1em;
+}
+
+.frosted-btn:hover {
+background: var(--main-color-1);
+color: var(--main-color-3);
+border: 2px solid var(--main-color-3);
+}
+
+.frosted-btn-contact {
+width: 100%;
+text-align: center;
+}
+
+.hide {
+display: none;
+}
+
+.group-container {
+display: flex;
+flex-flow: column;
+gap: 1em;
+justify-content: center;
+align-items: center;
+}
+
+/* New layout helpers for main sections */
+
+        main {
+width: 100%;
+}
+
+.content-section {
+width: 100%;
+display: flex;
+justify-content: center;
+padding: 4em 0;
+background: var(--main-color-1);
+}
+
+.content-section.alt {
+background: radial-gradient(circle at top left, var(--main-color-3-lighter), var(--main-color-1));
+}
+
+.section-title {
+text-align: center;
+margin-bottom: 0.5em;
+}
+
+.section-subtitle {
+text-align: center;
+opacity: 0.9;
+max-width: 38em;
+margin: 0 auto;
+}
+
+.services-grid {
+width: 100%;
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 2em;
+margin-top: 2.5em;
+}
+
+.service-card h3 {
+margin-bottom: 0.75em;
+}
+
+.service-card p {
+margin-bottom: 0.75em;
+opacity: 0.9;
+}
+
+.pill-row {
+width: 100%;
+display: flex;
+flex-wrap: wrap;
+gap: 0.8em;
+justify-content: center;
+margin-top: 2.5em;
+}
+
+.pill {
+padding: 0.5em 1.1em;
+border-radius: 999px;
+background: var(--main-color-3-o);
+border: 1px solid var(--main-color-4);
+font-size: 0.9em;
+letter-spacing: 0.04em;
+white-space: nowrap;
+}
+
+.how-steps {
+width: 100%;
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 2em;
+margin-top: 2.5em;
+}
+
+.how-step {
+display: flex;
+flex-direction: column;
+gap: 0.75em;
+padding: 1.5em;
+border-radius: 0.75em;
+background: var(--main-color-2);
+border: 1px solid var(--main-color-4);
+}
+
+.how-step-number {
+width: 2em;
+height: 2em;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: bold;
+background: var(--main-color-3-light);
+color: var(--main-color-2);
+font-size: 1em;
+}
+
+.contact-grid {
+width: 100%;
+display: grid;
+grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+gap: 3em;
+align-items: flex-start;
+}
+
+.contact-copy {
+display: flex;
+flex-direction: column;
+gap: 1.2em;
+}
+
+.contact-form {
+display: flex;
+flex-direction: column;
+gap: 1.2em;
+}
+
+.contact-field {
+display: flex;
+flex-direction: column;
+gap: 0.3em;
+}
+
+.contact-label {
+font-size: 0.95em;
+opacity: 0.9;
+}
+
+.cta-row {
+display: flex;
+flex-wrap: wrap;
+gap: 1em;
+justify-content: center;
+margin-top: 2em;
+}
+
+.cta-row .frosted-btn-secondary {
+background: transparent;
+border: 1px solid var(--main-color-3-light);
+color: var(--main-color-3-light);
+font-size: 1.1em;
+padding: 0.9em 1.4em;
+}
+
+.cta-row .frosted-btn-secondary:hover {
+background: var(--main-color-3-light);
+color: var(--main-color-2);
+}
+
+dimension-card {
+display: block;
+margin-top: 3em;
+padding: 1.8em;
+border-radius: 0.75em;
+background: var(--main-color-3-o);
+border: 1px solid var(--main-color-4);
+max-width: 32em;
+}
+
+dimension-card p:first-child {
+font-weight: bold;
+margin-bottom: 0.5em;
+}
+
+dimension-card p:nth-child(2) {
+opacity: 0.9;
+margin-bottom: 0.5em;
+}
+
+footer {
+width: 100%;
+padding: 1.5em 0;
+text-align: center;
+font-size: 0.9em;
+color: var(--text-color-1);
+opacity: 0.7;
 }
 
 @keyframes show {
@@ -591,12 +1029,6 @@ max-width: 100%;
 flex-flow: row;
 gap: 4em;
 }
-.group-wrapper {
-display: flex;
-flex-flow: column;
-justify-content: space-between;
-align-items: center;
-}
 }
 
 @media screen and (max-width: 87.5em) {
@@ -608,14 +1040,13 @@ min-height: 10em;
 
 @media screen and (max-width: 70em) {
 
-.frosted-split-section {
-justify-content: center;
-align-items: center;
-flex-flow: column;
+.services-grid,
+            .how-steps,
+            .contact-grid {
+grid-template-columns: minmax(0, 1fr);
 }
-.frosted-service-card {
-min-width: 90%;
-max-height: 13em;
+.frosted-group-section {
+max-width: 85%;
 }
 }
 
@@ -624,15 +1055,14 @@ max-height: 13em;
 body {
 font-size: 14px;
 }
-.card,
-  .frosted-section,
-  .frosted-section-full {
-width: 75%;
+.frosted-group-section {
+width: 90%;
+max-width: 90%;
 }
-.frosted-img-about {
-width: 300px;
-min-width: 100px;
-margin: 0 0 8em 0;
+.services-grid,
+            .how-steps,
+            .contact-grid {
+gap: 1.5em;
 }
 }
 
@@ -641,58 +1071,18 @@ margin: 0 0 8em 0;
 body {
 font-size: 12px;
 }
-nav {
-font-size: 16px;
-}
 .heading,
-  .sub-heading {
+            .sub-heading {
 max-width: unset;
 }
-.frosted-input,
-  .frosted-input-active,
-  .frosted-textarea {
-font-size: 1.34em;
-width: 100%;
+.content-section {
+padding: 3em 0;
 }
-.frosted-input-active ~ label,
-  .frosted-input ~ label,
-  .frosted-textarea ~ label {
-font-size: 1.34em;
-padding: 0 0.267em;
+.cta-row {
+flex-direction: column;
 }
-.frosted-input-active {
-max-width: 100%;
-}
-.frosted-form-container {
-width: 80%;
-}
-.frosted-textarea-group {
-width: 100%;
-}
-.frosted-textarea {
-width: 100%;
-min-width: 15em;
-}
-.frosted-form {
-align-items: center;
-}
-.frosted-form-row {
-flex-flow: column wrap;
-}
-.frosted-btn-contact {
-width: 100%;
-}
-.card,
-  .frosted-section,
-  .frosted-section-full,
-  .frosted-group-section {
-width: 95%;
-}
-.influx-nav {
-display: none;
-}
-.influx-sub-nav {
-display: flex;
+.pill-row {
+justify-content: flex-start;
 }
 }
 
@@ -706,7 +1096,6 @@ min-width: 100px;
 </style>
 <body>
     
-
     
     <header>
     <div class="header-container">
@@ -717,33 +1106,7 @@ min-width: 100px;
             </div>
         </a>
         
-    <nav class="influx-nav">
-            <li>
-    <a class="influx-cta-link"href="/designs/frosted_influxcode/signup" variant="secondary">Start Free Trial</a>
-    <script>
-        document.querySelectorAll('.influx-cta-link').forEach(el => {
-            if (el?.getAttribute('variant')) {
-                el.classList.add(el?.getAttribute('variant'))
-            }
-        })
-    </script>
-
-
-
-            </li>
-            <li>
-    <a class="influx-cta-link"href="/designs/frosted_influxcode/signin">Sign In</a>
-    <script>
-        document.querySelectorAll('.influx-cta-link').forEach(el => {
-            if (el?.getAttribute('variant')) {
-                el.classList.add(el?.getAttribute('variant'))
-            }
-        })
-    </script>
-
-
-
-            </li>
+    <nav class="influx-nav"id="user-signin">
         </nav>
 
 
@@ -803,6 +1166,7 @@ min-width: 100px;
 
 
                 </li>
+
             </div>
         </div>
     
@@ -861,27 +1225,278 @@ min-width: 100px;
 </script>
 
 
-
-
-
-    <div class="backdrop-container gradient">
-        <div class="frosted-group-section">
-
-            <h1 class="text-3 heading">
-                Marketing and customer outreach can be the thing you get right.
-            </h1>
-            <h2 class="text-2 sub-heading">
-                Influxcode uses intelligent workflows to deliver the right message, at the right time. We can seamlessly
-                reach your clients in a personal way instantly.
-            </h2>
-        </div>
-
-
-
-
-    </div>
+    <script async="" crossorigin="anonymous" data-clerk-publishable-key="pk_test_bGlrZWQtcGFudGhlci00Ni5jbGVyay5hY2NvdW50cy5kZXYk" src="https://liked-panther-46.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js" type="text/javascript"></script>
     <script>
+        window.addEventListener('load', async function () {
+            const pathname = window.location.pathname
+            await Clerk.load()
 
+            if (Clerk.isSignedIn) {
+                document.querySelectorAll(`.sign-link`).forEach(el => el.remove())
+                document.getElementById('user-signin').innerHTML = `
+${pathname.includes('dashboard') ? '' : `<li><a class="influx-cta-link"  href="/designs/frosted_influxcode/dashboard">Dashboard</a></li>`}
+<div id="user-button"></div>
+`
+
+                const userButtonDiv = document.getElementById('user-button')
+
+                Clerk.mountUserButton(userButtonDiv)
+            } else if (pathname.includes('signin')) {
+                document.getElementById('user-signin').innerHTML = `
+<li><a class="influx-cta-link"  href="/designs/frosted_influxcode/signup">Start Free Trial</a></li>
+<li><a class="influx-cta-link"  href="/designs/frosted_influxcode/signin">Sign In</a></li>
+`
+                document.getElementById('app').innerHTML = `
+<div id="sign-in"></div>
+`
+
+                const signInDiv = document.getElementById('sign-in')
+
+                Clerk.mountSignIn(signInDiv)
+
+            } else {
+                document.getElementById('user-signin').innerHTML = `
+<li><a class="influx-cta-link"  href="/designs/frosted_influxcode/signup">Start Free Trial</a></li>
+<li><a class="influx-cta-link" variant="outline"  href="/designs/frosted_influxcode/signin">Sign In</a></li>
+`
+                document.getElementById('app').innerHTML = `
+<div id="sign-up"></div>
+`
+
+                const signUpDiv = document.getElementById('sign-up')
+
+                Clerk.mountSignUp(signUpDiv)
+            }
+        })
+    </script>
+
+
+
+
+
+    <main>
+        <!-- HERO / CUSTOM SOFTWARE -->
+        <section class="backdrop-container gradient">
+            <div class="frosted-group-section">
+                <h1 class="text-3 heading">
+                    Custom Software
+                </h1>
+                <h2 class="text-2 sub-heading">
+                    Automate workflows, unlock your data, and create seamless experiences at scale.
+                </h2>
+
+                <div style="width: 100%; display: flex; padding: 0 4em; align-items: center; justify-content: center; gap: 4em; flex-wrap: wrap;">
+                    <p class="text-1" style="width: 20em; min-width: 16em; line-height: 1.5;">
+                        I design and build custom web applications tailored to the way your business actually runs.
+                        From internal tools to customer facing portals, you get fast, reliable software that simplifies
+                        work instead of adding more to it.
+                    </p>
+
+                    <ul class="list" style="padding: 0 0 0 1em; max-width: 26em;">
+                        <li>Turn manual, repetitive processes into one click actions</li>
+                        <li>Connect the tools you already use (CRMs, email, payments, databases)</li>
+                        <li>Centralize scattered data into clean, actionable dashboards</li>
+                        <li>Build secure, role based access for your team and clients</li>
+                        <li>Ship in weeks, not months, with a lean, focused scope</li>
+                    </ul>
+                </div>
+
+                <div class="cta-row">
+                    <button class="frosted-btn">
+                        Talk about your workflow
+                    </button>
+                    <button class="frosted-btn-secondary">
+                        See example project outlines
+                    </button>
+                </div>
+
+                
+    <div class="dimension-card">
+        
+                    <p>Custom Software</p>
+                    <p>Automate workflows, unlock your data, and create seamless experiences at scale.</p>
+                    <p>
+                        Get a web application built exactly for your business. No bloat, no generic features you will
+                        never use. Just clean, maintainable software that supports how your team already works.
+                    </p>
+                
+    </div>
+
+
+
+            </div>
+        </section>
+
+        <!-- SERVICES OVERVIEW -->
+        <section class="content-section">
+            <div class="frosted-group-section">
+                <div style="width: 100%;">
+                    <h2 class="text-2 section-title">What I can build for you</h2>
+                    <p class="text-1 section-subtitle">
+                        Small, focused tools that remove bottlenecks, give you visibility, and make day to day work feel
+                        lighter.
+                    </p>
+                </div>
+
+                <div class="services-grid">
+                    <article class="service-card frosted-card frosted-show">
+                        <h3>Internal tools and dashboards</h3>
+                        <p>
+                            Give your team one clean place to work instead of jumping between tabs, sheets, and ad hoc
+                            reports.
+                        </p>
+                        <ul class="list">
+                            <li>Operations and pipeline dashboards</li>
+                            <li>Admin panels and internal views</li>
+                            <li>Reporting and export tools</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-card frosted-card frosted-show">
+                        <h3>Client and partner portals</h3>
+                        <p>
+                            Create a simple, branded space where your clients or partners can log in, see progress, and
+                            share information securely.
+                        </p>
+                        <ul class="list">
+                            <li>Self service status and updates</li>
+                            <li>Document and asset sharing</li>
+                            <li>Custom workflows for each client type</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-card frosted-card frosted-show">
+                        <h3>Automation and integrations</h3>
+                        <p>
+                            Connect the tools you already pay for so that data moves automatically and your team is not
+                            stuck copy and pasting.
+                        </p>
+                        <ul class="list">
+                            <li>CRM, billing, and email sync</li>
+                            <li>Webhook driven workflows</li>
+                            <li>Custom background jobs and alerts</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW PROJECTS RUN -->
+        <section class="content-section alt">
+            <div class="frosted-group-section">
+                <div style="width: 100%;">
+                    <h2 class="text-2 section-title">How projects run</h2>
+                    <p class="text-1 section-subtitle">
+                        Simple, clear steps from first call to launch, so you always know what is happening next.
+                    </p>
+                </div>
+
+                <div class="how-steps">
+                    <div class="how-step">
+                        <div class="how-step-number">1</div>
+                        <h3>Quick discovery</h3>
+                        <p>
+                            We walk through your current workflow, where time is being wasted, and what a great version
+                            would look like.
+                        </p>
+                    </div>
+
+                    <div class="how-step">
+                        <div class="how-step-number">2</div>
+                        <h3>Lean first version</h3>
+                        <p>
+                            I map out a small but useful first version, including timeline and fixed estimate, so you
+                            can
+                            decide quickly.
+                        </p>
+                    </div>
+
+                    <div class="how-step">
+                        <div class="how-step-number">3</div>
+                        <h3>Build, launch, iterate</h3>
+                        <p>
+                            I handle the build, testing, and deployment. Once it is live, we refine based on real usage
+                            and feedback.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHO THIS IS FOR -->
+        <section class="content-section">
+            <div class="frosted-group-section">
+                <div style="width: 100%;">
+                    <h2 class="text-2 section-title">Built for growing teams</h2>
+                    <p class="text-1 section-subtitle">
+                        A good fit if you want the benefits of custom software without hiring and managing a full in
+                        house dev team.
+                    </p>
+                </div>
+
+                <div class="pill-row">
+                    <span class="pill">Service businesses with manual workflows</span>
+                    <span class="pill">Teams buried in spreadsheets</span>
+                    <span class="pill">Owners who want clearer visibility</span>
+                    <span class="pill">Startups validating internal tools</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT / CTA -->
+        <section id="contact" class="content-section alt">
+            <div class="frosted-group-section">
+                <div class="contact-grid">
+                    <div class="contact-copy">
+                        <h2 class="text-2 section-title">Tell me what you want to streamline</h2>
+                        <p class="text-1 section-subtitle">
+                            Share a quick overview of your workflow and what is slowing you down. I will follow up with
+                            a
+                            simple plan, a rough timeline, and next steps.
+                        </p>
+                        <p class="text-1" style="opacity: 0.9;">
+                            Projects usually start with a small, focused build so you can see value before committing to
+                            a larger system.
+                        </p>
+                        <p class="text-1" style="margin-top: 1em; opacity: 0.8;">
+                            Prefer email? Reach me at
+                            <a href="mailto:hello@influxcode.com">hello@influxcode.com</a>.
+                        </p>
+                    </div>
+
+                    <form class="contact-form" action="#" method="post">
+                        <div class="contact-field">
+                            <label class="contact-label" for="name">Name</label>
+                            <input class="frosted-input" type="text" id="name" name="name" placeholder="Your name">
+                        </div>
+                        <div class="contact-field">
+                            <label class="contact-label" for="email">Email</label>
+                            <input class="frosted-input" type="email" id="email" name="email" placeholder="you@example.com">
+                        </div>
+                        <div class="contact-field">
+                            <label class="contact-label" for="company">Company</label>
+                            <input class="frosted-input" type="text" id="company" name="company" placeholder="Company or team name">
+                        </div>
+                        <div class="contact-field">
+                            <label class="contact-label" for="message">What are you hoping to build or fix?</label>
+                            <textarea class="frosted-input" id="message" name="message" rows="4" placeholder="Describe your workflow or problem in a few sentences."></textarea>
+                        </div>
+                        <button type="submit" class="frosted-btn frosted-btn-contact">
+                            Send message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        INFLUXCODE © <span id="year"></span> · Custom software for real businesses
+    </footer>
+
+    <script>
+        // simple year helper
+        document.getElementById("year").textContent = new Date().getFullYear();
     </script>
 
 

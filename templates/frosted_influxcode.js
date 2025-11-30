@@ -20,7 +20,7 @@ const page_options = {
     },
 
 }
-const pages = ['Home', 'Signup', 'Signin'].map(item => {
+const pages = ['Home', 'Signup', 'Signin', 'Dashboard'].map(item => {
     return {
         link: `/${item}`,
         file_name: `${item === 'Home' ? 'index' : item.toLowerCase()}.html`,

@@ -29,6 +29,10 @@ function data(options) {
         {
             name: "Sign In",
             link: "signin"
+        },
+        {
+            name: "Dashboard",
+            link: "dashboard"
         }
     ]
     links.forEach((item, index) => {
